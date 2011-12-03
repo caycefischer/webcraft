@@ -12,7 +12,7 @@
 	TABLE OF CONTENTS
 ======================
     
-    1. basic normalization: <http://h5bp.com/css> & <http://necolas.github.com/normalize.css>
+    1. normalization: http://h5bp.com/css & http://necolas.github.com/normalize.css
         a. simple reset
         b. html5 display definitions
         c. page rendering & behaviour
@@ -87,8 +87,8 @@ html {
 }
 
 /*  d. custom text-selection colors, remove drop shadow: http://h5bp.com/i */
-::-moz-selection { background: #FF0000; color: #fff; text-shadow: none; }
-::selection { background: #FF0000; color: #fff; text-shadow: none; }
+::-moz-selection { background: hsl(200, 50%, 50%); color: #fff; text-shadow: none; }
+::selection { background: hsl(200, 50%, 50%); color: #fff; text-shadow: none; }
 
 nav ul, nav ol {
     list-style: none;
@@ -150,71 +150,94 @@ td { vertical-align: top; }
 /*	2. core typography
 =========================== */
 
-    /* typographic scale: 12pt over 18 lead (2:3)
+
+/*  body type: 16pt over 24 lead
+    modular scale: 16px @ 1:1.5, 72px @ 1:1.5
     ---------------------------------------------
       9 | 12 | 14 | 18 | 24 | 30 | 48 | 72 | 96  
     --------------------------------------------- */
 
 
+@serif: calluna-1, calluna-2, Georgia, serif;
+@sans: calluna-sans-1, calluna-sans-2, Helmet, Freesans, sans-serif;
+
 body {	
-    font-size: 0.75em; /* 12px */ 
-    line-height: 1.5; /* 18px */
-    font-family: Helmet, Freesans, sans-serif; /* linux- and windows-friendly default font stack: http://mky.be/fontstack */
+    font-size: 1em; /* 16px */
+    line-height: 1.5; /* 24px */ 
+    font-family: @sans; /* linux- and windows-friendly default font stack: http://mky.be/fontstack */
     color: #212121;
+    padding-left: 72px;
 }
 
 .bgdiv {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAADqCAYAAAABOQOiAAAC6ElEQVR4Ae3YsUmDYRiFUaNBULDQAZzItV3AztYBFGxsLNzgPl34wWP7CAknl694T983Dy9XB/r7vT2/HejrXF0f6csc8bsAil8FEKAQiGxBgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsgUBCoHIp/fz/Wv8z7/OJxfF/ft7g7aPk2v4AAJUAtG9QYBCILIFAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByC6KBeSiuIW8QdvHwSx8AAEqgejeIEAhENmCAIVAZAsCFAKRLQhQCES2IEAhENmCAIVAZBfFAnJR3ELeoO3jYBY+gACVQHRvEKAQiGxBgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsotiAbkobiFv0PZxMAsfQIBKILo3CFAIRLYgQCEQ2YIAhUBkCwIUApEtCFAIRLYgQCEQ2UWxgFwUt5A3aPs4mIUPIEAlEN0bBCgEIlsQoBCIbEGAQiCyBQEKgcgWBCgEIlsQoBCI7KJYQC6KW8gbtH0czMIHEKASiO4NAhQCkS0IUAhEtiBAIRDZggCFQGQLAhQCkS0IUAhEdlEsIBfFLeQN2j4OZuEDCFAJRPcGAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByBYEKAQiuygWkIviFvIGbR8Hs/ABBKgEonuDAIVAZAsCFAKRLQhQCES2IEAhENmCAIVAZAsCFAKRXRQLyEVxC3mDto+DWfgAAlQC0b1BgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsgUBCoHILooF5KK4hbxB28fBLHwAASqB6N4gQCEQ2YIAhUBkCwIUApEtCFAIRLYgQCEQ2YIAhUBkF8UCclHcQt6g7eNgFj6AAJVAdG8QoBCIbEGAQiCyBQEKgcgWBCgEIlsQoBCIbEGAQiCyi2IBfd49Psf/XDQ//Xx9XPQD48O8QYBCILIFAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByBYEKAQiWxCgEIjsohhAfxvnQT9G+DwYAAAAAElFTkSuQmCC);
-    opacity: 0.5;
+    opacity: 0.25;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 2000px;
     z-index: -1;
+
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAwCAYAAABT9ym6AAAAsElEQVRoBe2YsQ3CQADEeEgDUgoWYCLWzhAsQcEEkTKCJUfo5fTn19tJk/G7re/LBM91gjscV+gi/1ayIhWRDPRqSWIxtiJYnTSsiCQWYyuC1UnDikhiMbYiWJ00rIgkFmMrgtVJw/FZHpvEPhU7vvfn69QTpcP6RiSxGFsRrE4aVkQSi7EVweqkYUUksRhbEaxOGlZEEouxFcHqpGFFJLEYWxGsThpWRBKLsdP819oB+rcGKUaFQIcAAAAASUVORK5CYII=);
 }
 
-h1, .inch {
-    font-size: 6em; /* 72px */
-    line-height: 1.25; /* 90px */
-    padding: 0.25em 0; /* 18px & 18px */
+h1, .alpha {
+    font-size: 4.5em; /* 72px */
+    line-height: 1.3333333333334; /* 96px */
+    padding: 0.3333333333334em 0; /* 24px & 24px */
+    /* padding-bottom: 0.6666666666667em; */
+    font-weight: 900;
 }
 
-h2, .canon {
-    font-size: 4em; /* 48px */
-    line-height: 1.5; /* 72px */
-    padding-bottom: 0.375em; /* 18px */
+h2, .beta {
+    font-size: 3.375em; /* 54px */
+    line-height: 1.33333333333; /* 72px */
+    padding: 0.3333333333334em 0 0.5555555555556em; /* 18px & 30px */
+
+    font-weight: 700;
 }
 
-h3, .double-great-primer {
-	font-size: 2.5em;	/* 30px */
-	line-height: 1.2; /* 36px */
-	padding: 0.3em 0; /* 9px & 9px */
-}
-
-h4, .double-pica {
-	font-size: 2em; /* 24px */
-	line-height: 1.5;	/* 36px */
-	padding: 0.375em 0; /* 9px & 9px */
-}
-
-h5, .great-primer {
-	font-size: 1.5em; /* 18px */
-	line-height: 1;	/* 18px */
-}
-
-h6, .augustin {
+h3, .gamma {
+	font-size: 2.25em;	/* 36px */
+	line-height: 1.33333333333; /* 48px */
+	padding: 0.3333333333334em 0; /* 12px & 12px */
+	
+	font-weight: 600;
 	font-style: italic;
-	font-size: 1.16666667em; /* 14px */
-	line-height: 1.28571429em; /* 18px */
 }
 
-p, .pica {
+h4, .delta {
+	font-size: 1.5em; /* 24px */
+	line-height: 1;	/* 48px */
+	padding: 0.125em 0 0.875em; /* 3px & 21px */
+	
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+h5, .epsilon {
+	font-size: 1.5em; /* 24px */
+	line-height: 1;	/* 48px */
+	padding: 0.125em 0 0.875em; /* 3px & 21px */
+	
+	font-weight: 600;
+	font-style: italic;
+}
+
+h6, .zeta {
+	font-size: 1em; /* 16px */
+	line-height: 1.5; /* 24px */
+	
+	font-weight: 900;
+}
+
+p {
+	font-size: 1em; 	/* 16px */
+	line-height: 1.5;	/* 24px */
+	padding: 0 0 1.5em;
+
 	font-weight: normal;
-	font-size: 1em; 	/* 12px */
-	line-height: 1.5;	/* 18px */
 }
-
 
 
 /*	3. extended typography
