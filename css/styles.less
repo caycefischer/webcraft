@@ -1,0 +1,434 @@
+/*
+ *  Web Design Primer v0.1
+ *  http://zacharykain.com/primer
+ *  
+ *  created by zachary kain (@zakkain)
+ *  info@zacharykain.com
+ *
+ *  licensed under creative commons: http://creativecommons.org/publicdomain/zero/1.0
+
+
+======================
+	TABLE OF CONTENTS
+======================
+    
+    1. basic normalization: <http://h5bp.com/css> & <http://necolas.github.com/normalize.css>
+        a. simple reset
+        b. html5 display definitions
+        c. page rendering & behaviour
+        d. text-selection colors
+        e. embedded media
+        f. forms & tables
+        			
+	2. core typography
+	
+	3. extended typography
+        a. links
+        b. fixed-width & preformatted text
+        c. lists
+        d. semantic stress elements
+        e. quotes
+        f. blockquotes
+        g. hyphenation & ellipses
+        h. abbreviations
+		i. horizontal rule
+		j. subscript & superscript
+			
+	4. links
+	
+	5. Grid Framework	
+	
+	6. Site-Wide Structure
+	
+	7. Header
+	
+	8. Navigation
+	
+	9. Post Area & Posts
+	
+	10. Sidebar
+	
+	11. Footer
+	
+	12. Comments
+*/
+
+
+
+/*	1. basic normalization
+=========================== */
+
+/* a. simple reset */
+html, body, figure, form, fieldset, 
+button, input, select, textarea, 
+h1, h2, h3, h4, h5, h6, p, img, pre, code { 
+   padding: 0; 
+    margin: 0; 
+    border: 0; 
+    vertical-align: baseline; 
+    line-height: normal; 
+} 
+
+/*  b. html5 display definitions */
+article, aside, details, figcaption,
+figure, footer, header, hgroup, nav, section { display: block; }
+
+/*  c. page rendering & behavior */
+html {
+	text-rendering: optimizeLegibility; /* wacky font voodoo: http://www.aestheticallyloyal.com/public/optimize-legibility */
+
+	background: transparent; /* fixes graphical glitches when using -webkit-scrollbar */
+	overflow-y: scroll; /* always show vertical scrollbar to avoid a "jump" when resizing */
+
+	-webkit-overflow-scrolling: touch; /* iOS natural touch scrolling */
+	-webkit-font-smoothing: antialiased; /* no jaggies: http://maxvoltar.com/archive/-webkit-font-smoothing */ 
+	-webkit-text-size-adjust: 100%; /* prevent iOS text resizing on device orientation change: h5bp.com/g */
+        -ms-text-size-adjust: 100%;
+}
+
+/*  d. custom text-selection colors, remove drop shadow: http://h5bp.com/i */
+::-moz-selection { background: #FF0000; color: #fff; text-shadow: none; }
+::selection { background: #FF0000; color: #fff; text-shadow: none; }
+
+nav ul, nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/*  e. embedded media */
+img, object, embed { max-width: 100%; } /* responsive images yo */
+img { 	
+	-ms-interpolation-mode: bicubic; /* improve scaling images in ie: h5bp.com/d */
+	vertical-align: middle; /* h5bp.com/e */
+	border: 0;
+}
+
+/*  f. forms */		
+button, input, select, textarea { font-size: 100%; }
+
+/* enable hand cursor and custom form styling in iOS */ 
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+/* consistent box sizing and appearance */
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
+input[type="search"] { 
+   -webkit-appearance: textfield;
+   -moz-box-sizing: content-box;
+   -webkit-box-sizing: content-box;
+   box-sizing: content-box;
+}  
+
+/* remove button inner padding and border in firefox: h5bp.com/l */
+button::-moz-focus-inner, 
+input::-moz-focus-inner { 
+    border: 0; 
+    padding: 0; 
+}
+
+/* fix vertical scroll/resize issues in ie */
+textarea { 
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical; 
+}
+
+/* colors for form validity */
+input:valid, textarea:valid { background-color: #00FF00; }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+/*  table alignment & spacing */
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+
+
+
+/*	2. core typography
+=========================== */
+
+    /* typographic scale: 12pt over 18 lead (2:3)
+    ---------------------------------------------
+      9 | 12 | 14 | 18 | 24 | 30 | 48 | 72 | 96  
+    --------------------------------------------- */
+
+
+body {	
+    font-size: 0.75em; /* 12px */ 
+    line-height: 1.5; /* 18px */
+    font-family: Helmet, Freesans, sans-serif; /* linux- and windows-friendly default font stack: http://mky.be/fontstack */
+    color: #212121;
+}
+
+.bgdiv {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAADqCAYAAAABOQOiAAAC6ElEQVR4Ae3YsUmDYRiFUaNBULDQAZzItV3AztYBFGxsLNzgPl34wWP7CAknl694T983Dy9XB/r7vT2/HejrXF0f6csc8bsAil8FEKAQiGxBgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsgUBCoHIp/fz/Wv8z7/OJxfF/ft7g7aPk2v4AAJUAtG9QYBCILIFAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByC6KBeSiuIW8QdvHwSx8AAEqgejeIEAhENmCAIVAZAsCFAKRLQhQCES2IEAhENmCAIVAZBfFAnJR3ELeoO3jYBY+gACVQHRvEKAQiGxBgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsotiAbkobiFv0PZxMAsfQIBKILo3CFAIRLYgQCEQ2YIAhUBkCwIUApEtCFAIRLYgQCEQ2UWxgFwUt5A3aPs4mIUPIEAlEN0bBCgEIlsQoBCIbEGAQiCyBQEKgcgWBCgEIlsQoBCI7KJYQC6KW8gbtH0czMIHEKASiO4NAhQCkS0IUAhEtiBAIRDZggCFQGQLAhQCkS0IUAhEdlEsIBfFLeQN2j4OZuEDCFAJRPcGAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByBYEKAQiuygWkIviFvIGbR8Hs/ABBKgEonuDAIVAZAsCFAKRLQhQCES2IEAhENmCAIVAZAsCFAKRXRQLyEVxC3mDto+DWfgAAlQC0b1BgEIgsgUBCoHIFgQoBCJbEKAQiGxBgEIgsgUBCoHILooF5KK4hbxB28fBLHwAASqB6N4gQCEQ2YIAhUBkCwIUApEtCFAIRLYgQCEQ2YIAhUBkF8UCclHcQt6g7eNgFj6AAJVAdG8QoBCIbEGAQiCyBQEKgcgWBCgEIlsQoBCIbEGAQiCyi2IBfd49Psf/XDQ//Xx9XPQD48O8QYBCILIFAQqByBYEKAQiWxCgEIhsQYBCILIFAQqByBYEKAQiWxCgEIjsohhAfxvnQT9G+DwYAAAAAElFTkSuQmCC);
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+h1, .inch {
+    font-size: 6em; /* 72px */
+    line-height: 1.25; /* 90px */
+    padding: 0.25em 0; /* 18px & 18px */
+}
+
+h2, .canon {
+    font-size: 4em; /* 48px */
+    line-height: 1.5; /* 72px */
+    padding-bottom: 0.375em; /* 18px */
+}
+
+h3, .double-great-primer {
+	font-size: 2.5em;	/* 30px */
+	line-height: 1.2; /* 36px */
+	padding: 0.3em 0; /* 9px & 9px */
+}
+
+h4, .double-pica {
+	font-size: 2em; /* 24px */
+	line-height: 1.5;	/* 36px */
+	padding: 0.375em 0; /* 9px & 9px */
+}
+
+h5, .great-primer {
+	font-size: 1.5em; /* 18px */
+	line-height: 1;	/* 18px */
+}
+
+h6, .augustin {
+	font-style: italic;
+	font-size: 1.16666667em; /* 14px */
+	line-height: 1.28571429em; /* 18px */
+}
+
+p, .pica {
+	font-weight: normal;
+	font-size: 1em; 	/* 12px */
+	line-height: 1.5;	/* 18px */
+}
+
+
+
+/*	3. extended typography
+=========================== */
+
+/* a. links - must be in this order! */
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:active {color: #06e; }
+
+a:hover, a:active { outline: 0; } /* improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:focus { outline: thin dotted; }
+
+a:link {-webkit-tap-highlight-color: #FF0000; } /* j.mp/webkit-tap-highlight-color */
+
+
+/*  b. fixed-width & preformatted text */
+/* Redeclare monospace font family: h5bp.com/j */
+pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+
+/* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
+pre { 
+    white-space: pre; /* ensures formatting is preserved */
+    white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
+        word-wrap: break-word; /* as above, for ie & older browsers */
+    overflow: auto;
+    padding-bottom: 1.5em;
+    margin: 1.5em 0; 
+    background: hsla(1, 5%, 20%, 1);    
+    color: hsla(1, 2%, 80%, 1);
+    line-height: 1.5;
+
+}
+
+ul, ol { 
+    margin: 1.5em 0; /* top and bottom margin equals the base line-height */
+    padding: 0 0 0 4em;
+    text-indent: -1.5em;
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+li:before {
+    content: "\25C9 \0020";
+    margin-right: 0.25em;
+}
+
+
+
+/* =============================================================================
+   Typography
+   ========================================================================== */
+
+
+abbr[title] { border-bottom: 1px dotted; }
+
+b, strong { font-weight: bold; }
+
+blockquote { margin: 1em 40px; }
+
+dfn { font-style: italic; }
+
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+
+small { font-size: 85%; }
+
+/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/*--- QUOTES ---*/
+/*
+Big up @boblet: http://html5doctor.com/blockquote-q-cite/
+*/
+q{ quotes:"‘" "’" "“" "”"; }
+
+q:before{ content:"‘"; content:open-quote; }
+q:after{ content:"’"; content:close-quote; }
+
+q q:before{ content: "“"; content: open-quote; }
+q q:after{ content: "”"; content: close-quote; }
+
+blockquote{ quotes: "“" "”"; }
+blockquote p:before{ content: "“"; content: open-quote; }
+blockquote p:after{ content: ""; content: no-close-quote; }
+blockquote p:last-of-type:after{ content: "”"; content: close-quote; }
+
+blockquote{
+    text-indent:-0.4em;
+}
+.source{
+    display:block;
+    text-indent:0;
+    margin-top:-Xpx;
+    margin-top:-Xrem;
+}
+.source:before{
+    content:"—";
+}
+
+
+
+button, input, select, textarea {
+    font-family: sans-serif;
+    color: #222;
+}
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+/* ==|== primary styles =====================================================
+   Author:
+   ========================================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 480px) {
+  /* Style adjustments for viewports 480px and over go here */
+
+}
+
+@media only screen and (min-width: 768px) {
+  /* Style adjustments for viewports 768px and over go here */
+
+}
+
+
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
+.ir br { display: none; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* micro clearfix by nicolas gallagher: http://h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+  * { background: transparent !important; color: black !important; box-shadow:none !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
