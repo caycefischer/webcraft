@@ -429,23 +429,6 @@ sub, sup {
     @15cols: (15 * (@column + @gutter) - @gutter) / @em;
     @16cols: (16 * (@column + @gutter) - @gutter) / @em;
 
-
-/*  b. grid-specific structural styles */
-html { height: 100%; }
-
-body { 
-    min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
-    background: hsl(1, 0%, 90%);
-}
-
-section {
-/*     background: hsla(1, 0%, 96%, 0.5); */
-    
-	padding: 0 24/@em;
-	margin: 0 auto;
-	max-width: @12cols;
-}
-
 #grid {
 	height: @1cols;
 	position: relative;
@@ -501,12 +484,34 @@ section {
 		.col35 {margin-left: -(17*72-12)/@em;}
 		.col36 {margin-left: -(18*72-12)/@em;}
 
+
+/*  b. grid-specific structural styles */
+html { height: 100%; }
+
+body { 
+    min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
+    background: hsl(1, 0%, 90%);
+}
+
+
+
+header {
+/*     background: hsla(1, 0%, 96%, 0.5); */
+	padding: 0 24/@em;
+	margin: 0 auto;
+	max-width: @12cols;
+}
+
+.kicker {
+    max-width: @8cols;
+    margin: 0 auto;
+}
 		
 /*  Mobile layout 
 	240–479 px
 */  @media screen and (min-width: 15em) 
 {	
-        section {
+        header {
     		width: @4cols;
     		max-width: none;
     		padding-left: 0;
@@ -514,7 +519,7 @@ section {
     		text-align: center;
     	}
     	
-    	section h1, section h2, section h3, section h4, section h5, section h6 {
+    	header h1, header h2 {
     	   display: inline;
     	}
     	
@@ -527,12 +532,12 @@ section {
 	480 - 767px
 */  @media screen and (min-width: 30em) 
 {	
-        section {
+        header {
             width: @6cols;
     		display: block;
     	}	
 
-    	section h1, section h2, section h3, section h4, section h5, section h6 {
+    	header h1, header h2 {
     	   display: block;
     	}
     	
@@ -545,7 +550,7 @@ section {
 	600 - 911px
 */  @media screen and (min-width: 37.5em) 
 {	
-        section {
+        header {
             width: @8cols;
 		text-align: left;
 		position: relative;
@@ -560,10 +565,12 @@ section {
 	912 - 1272px
 */  @media screen and (min-width: 57em) 
 {	
-        section {
+        header {
             width: @12cols;
     	}	
-    	
+    	header h2 {
+    	   .kicker;
+    	}
     	.col5, .col6, 
 		.col23, .col24 {
     	   background: @dark-grid;
@@ -574,7 +581,7 @@ section {
 	1272 - 1888px
 */  @media screen and (min-width: 79.5em) 
 {	
-        section {
+        header {
             width: @16cols;
     	}	
     	
@@ -589,7 +596,7 @@ section {
 	1888 - 2520px
 */  @media screen and (min-width: 118em) 
 {	
-        section {
+        header {
     		width: @13cols+@13cols+(24/@em);
     		margin-left: auto;
     		margin-right: auto;
