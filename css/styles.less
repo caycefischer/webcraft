@@ -28,29 +28,16 @@
         c. lists
         d. semantic stress elements
         e. quotes
-        f. blockquotes
-        g. hyphenation & ellipses
-        h. abbreviations
-		i. horizontal rule
-		j. subscript & superscript
+        f. hyphenation
+        g. abbreviations
+		h. subscript & superscript
 			
-	4. links
+	4. grid & structure	
 	
-	5. Grid Framework	
-	
-	6. Site-Wide Structure
-	
-	7. Header
-	
-	8. Navigation
-	
-	9. Post Area & Posts
-	
-	10. Sidebar
-	
-	11. Footer
-	
-	12. Comments
+	5. Header	
+	6. Navigation
+	7. Sidebar
+	8. Footer
 */
 
 
@@ -150,13 +137,10 @@ td { vertical-align: top; }
 /*	2. core typography
 =========================== */
 
-
 /*  body type: 16pt over 24 lead
     modular scale: 16px @ 1:1.5, 72px @ 1:1.5
-    ---------------------------------------------
-      9 | 12 | 14 | 18 | 24 | 30 | 48 | 72 | 96  
-    --------------------------------------------- */
-
+        http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0
+    */
 
 @serif: calluna-1, calluna-2, Georgia, serif;
 @sans: calluna-sans-1, calluna-sans-2, Helmet, Freesans, sans-serif;
@@ -166,7 +150,8 @@ body {
     line-height: 1.5; /* 24px */ 
     font-family: @sans; /* linux- and windows-friendly default font stack: http://mky.be/fontstack */
     color: #212121;
-    padding-left: 72px;
+    width: 40em;
+    margin: 0 auto;
 }
 
 .bgdiv {
@@ -184,7 +169,7 @@ body {
 h1, .alpha {
     font-size: 4.5em; /* 72px */
     line-height: 1.3333333333334; /* 96px */
-    padding: 0.3333333333334em 0; /* 24px & 24px */
+    padding: 0.3333333333334em 0 0; /* 24px & 24px */
     /* padding-bottom: 0.6666666666667em; */
     font-weight: 900;
 }
@@ -192,7 +177,7 @@ h1, .alpha {
 h2, .beta {
     font-size: 3.375em; /* 54px */
     line-height: 1.33333333333; /* 72px */
-    padding: 0.3333333333334em 0 0.5555555555556em; /* 18px & 30px */
+    padding: 0.3333333333334em 0 6px; /* 18px & 30px */
 
     font-weight: 700;
 }
@@ -225,10 +210,11 @@ h5, .epsilon {
 }
 
 h6, .zeta {
-	font-size: 1em; /* 16px */
-	line-height: 1.5; /* 24px */
+	font-size: 1.25em; /* 20px */
+	line-height: 1.2; /* 24px */
+	padding: 0 0 1.2em; /* 24px */
 	
-	font-weight: 900;
+	font-weight: 700;
 }
 
 p {
@@ -237,6 +223,11 @@ p {
 	padding: 0 0 1.5em;
 
 	font-weight: normal;
+	text-indent: 1.5em;
+}
+
+h1 + p, h2 + p, pre + p {
+    padding-top: 1.5em;
 }
 
 
@@ -256,121 +247,245 @@ a:link {-webkit-tap-highlight-color: #FF0000; } /* j.mp/webkit-tap-highlight-col
 
 
 /*  b. fixed-width & preformatted text */
-/* Redeclare monospace font family: h5bp.com/j */
-pre, code, kbd, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
+pre, code {
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace, sans-serif; /* redeclare monospace font stack: h5bp.com/j */
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
 
-/* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
 pre { 
+/* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
     white-space: pre; /* ensures formatting is preserved */
-    white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
-        word-wrap: break-word; /* as above, for ie & older browsers */
-    overflow: auto;
-    padding-bottom: 1.5em;
-    margin: 1.5em 0; 
-    background: hsla(1, 5%, 20%, 1);    
-    color: hsla(1, 2%, 80%, 1);
-    line-height: 1.5;
+    overflow: hidden;
+/* uncomment these two lines to get rid of the horizontal scrollbar */ 
+    /*  white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
+    /*  word-wrap: break-word; /* as above, for ie & older browsers */
+    
+    position: relative;
+    font-size: 0.75em; /* 12px */
+    line-height: 2; /* 24px */
+    padding: 2em; /* 24px */
 
+    background: #192223;  /* fallback for browsers that don't support hsl */
+    background: hsl(191, 17%, 12%);
+    color: #8eb4ce; 
+    color: hsl(204, 39%, 68%);
+    
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+/* display the language with a class name on the <code> element: http://perishablepress.com/press/2009/11/09/perfect-pre-tags/ */
+pre code[class]:before { content: 'language: ' attr(class); color: hsl(204, 39%, 85%); }
+
+p code {
+    font-size: 0.875em;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
+/*  c. lists */
 ul, ol { 
-    margin: 1.5em 0; /* top and bottom margin equals the base line-height */
-    padding: 0 0 0 4em;
-    text-indent: -1.5em;
-    list-style-position: inside;
-    list-style-type: none;
+    margin: 0 0 1.5em; /* top and bottom margin equals the base line-height */
+    padding: 0;
+    text-indent: -1.25em; /* push content on multiple lines to the same left margin */
+    list-style: none; /* get rid of default bullets */
 }
 
-li:before {
-    content: "\25C9 \0020";
-    margin-right: 0.25em;
+li ul, li ol, ul ul, ol ol {
+    margin: 0 0 0 1.5em; /* successively indent nested lists */
+}
+
+ol {
+    counter-reset: li; /* define custom counter for numbered lists */
+}
+
+/* generate the bullets, accommodating for 3 levels of nesting */
+ul li:before { content: "\25C9 \0020"; }
+    ul li ul li:before { content: "\25CE \0020"; }
+        ul li li ul li:before { content: "\25C9 \0020"; }
+    
+ol li:before {
+    content:counter(li, decimal) ". \00a0"; /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    font-weight: 700;
+}
+    ol li li:before { content: counter(li, lower-alpha) ". \00a0"; counter-increment: li;}
+        ol li li li:before { content: counter(li, lower-roman) ". \00a0"; counter-increment: li;}
+
+dl {
+    margin: 0 0 1.5em; /* top and bottom margin equals the base line-height */
+    padding: 0;
+    text-indent: -1.25em; /* push content on multiple lines to the same left margin */
+}
+dt {
+    font-weight: 700;
+}
+dt:before {
+    content: "\2192 \0020";
+}
+dd {
+    margin-left: 1.5em;
+    text-indent: 0;
+}    
+
+/*  d. semantic presentational elements: http://html5doctor.com/i-b-em-strong-element */
+i { font-style: italic; } /* alternate voice or mood, or otherwise offset from the normal prose; typically italic */
+em { font-style: italic; } /* emphatic and/or linguistic stress */
+b { font-weight: 700; } /* offset from surrounding text with no extra importance; typically bold */
+strong { font-weight: 900; } /* strong importance */
+
+mark { background: hsl(204, 39%, 68%); font-style: normal; font-weight: 400; padding: 0 0.25em; } /* highlighted text */
+small { font-size: 0.875em; }
+
+
+/*  e. quotes: http://html5doctor.com/blockquote-q-cite */
+q { quotes: '\201C' '\201D' '\2018' '\2019'; } /* use double and then single quotes for nested quotations */
+	q:before { content: open-quote; }
+        q q:before{ content: open-quote; }
+	q:after { content: close-quote; } 
+        q q:after{ content: close-quote; }
+
+blockquote {
+    quotes: '\201C' '\201D'; 
+    margin: 0 4.5em;
+    padding: 0 0 1.5em 0;
+}
+	blockquote:before { content: open-quote; }
+	blockquote:after { content: no-close-quote; } 
+
+blockquote:before {
+    content: "“"; 
+    display: block; 
+    height: 0; 
+    margin-left: -0.8888888889em;
+    
+    font-size: 3.375em;
+	font-weight: 700;
+	font-style: italic;
+}
+
+/*  f. hyphenation */
+p { 
+	-webkit-hyphens: auto; 
+    	-moz-hyphens: auto; 
+    	hyphens: auto; 
+}
+
+/*  g. abbreviations */
+abbr[title] { 
+	border-bottom: 1px dotted; cursor: help; 
+}
+
+/*  h. superscript and subscript: h5bp.com/k */
+sub, sup {
+    font-size: 75%; 
+    line-height: 0; 
+    position: relative; 
+    vertical-align: baseline;
+}
+    sup { top: -0.5em; }
+    sub { bottom: -0.25em; 
 }
 
 
+/*	4. grid & structure
+========================= */
 
-/* =============================================================================
-   Typography
-   ========================================================================== */
-
-
-abbr[title] { border-bottom: 1px dotted; }
-
-b, strong { font-weight: bold; }
-
-blockquote { margin: 1em 40px; }
-
-dfn { font-style: italic; }
-
-hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
-
-ins { background: #ff9; color: #000; text-decoration: none; }
-
-mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
-
-
-q { quotes: none; }
-q:before, q:after { content: ""; content: none; }
-
-small { font-size: 85%; }
-
-/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
-sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
-sup { top: -0.5em; }
-sub { bottom: -0.25em; }
-
-
-/*--- QUOTES ---*/
-/*
-Big up @boblet: http://html5doctor.com/blockquote-q-cite/
+/*  
+    gutters: 24
+    margins: 48
+    columns: 48
+        12col = 840px live width, 936px total width 
+    
 */
-q{ quotes:"‘" "’" "“" "”"; }
 
-q:before{ content:"‘"; content:open-quote; }
-q:after{ content:"’"; content:close-quote; }
 
-q q:before{ content: "“"; content: open-quote; }
-q q:after{ content: "”"; content: close-quote; }
 
-blockquote{ quotes: "“" "”"; }
-blockquote p:before{ content: "“"; content: open-quote; }
-blockquote p:after{ content: ""; content: no-close-quote; }
-blockquote p:last-of-type:after{ content: "”"; content: close-quote; }
 
-blockquote{
-    text-indent:-0.4em;
+/* a. links - must be in this order! */
+
+	
+	
+
+/*
+	Frameless			<http://framelessgrid.com/>
+	by Joni Korpi 		<http://jonikorpi.com/>
+*/
+
+
+@font-size: 16; 		// Your base font-size in pixels
+@em: @font-size*1em;	// Shorthand for outputting ems, e.g. "12/@em"
+
+@column: 48;	// The column-width of your grid in pixels
+@gutter: 24;	// The gutter-width of your grid in pixels
+
+
+//
+// Column-widths in variables, in ems
+//
+
+ @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
+ @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
+ @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
+ @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
+ @5cols: ( 5 * (@column + @gutter) - @gutter) / @em;
+ @6cols: ( 6 * (@column + @gutter) - @gutter) / @em;
+ @7cols: ( 7 * (@column + @gutter) - @gutter) / @em;
+ @8cols: ( 8 * (@column + @gutter) - @gutter) / @em;
+ @9cols: ( 9 * (@column + @gutter) - @gutter) / @em;
+@10cols: (10 * (@column + @gutter) - @gutter) / @em;
+@11cols: (11 * (@column + @gutter) - @gutter) / @em;
+@12cols: (12 * (@column + @gutter) - @gutter) / @em;
+@13cols: (13 * (@column + @gutter) - @gutter) / @em;
+@14cols: (14 * (@column + @gutter) - @gutter) / @em;
+@15cols: (15 * (@column + @gutter) - @gutter) / @em;
+@16cols: (16 * (@column + @gutter) - @gutter) / @em;
+
+
+//
+// Column-widths in a function, in ems
+//
+
+.width (@cols:1) {
+	width: (@cols * (@column + @gutter) - @gutter) / @em;
 }
-.source{
-    display:block;
-    text-indent:0;
-    margin-top:-Xpx;
-    margin-top:-Xrem;
-}
-.source:before{
-    content:"—";
+
+
+html {
+	height: 100%; 
 }
 
+body {min-height: 100%}
 
 
-button, input, select, textarea {
-    font-family: sans-serif;
-    color: #222;
+/*
+	Style overrides for IE6-8
+	http://jonikorpi.com/leaving-old-IE-behind/
+*/
+
+.ie {
+	
 }
 
 
+/*
+	An easy way to zoom your entire layout in or out (as long as it's set in ems).
+	Just change the media queries to activate them.
+	Assuming your base font-size is 16:
+	- the first one zooms out by a factor of (16-2)/16 = 0.875
+	- the second one zooms in by a factor of (16+2)/16 = 1.125  
+*/
 
+@media screen and (max-width: 1px) {
+	body {
+		font-size: (@font-size - 2)/16*1em;
+	}
+}
 
-	
-	
-	
-	
-	
-	
-	
-/* ==|== primary styles =====================================================
-   Author:
-   ========================================================================== */
-
-
+@media screen and (max-width: 1px) {
+	body {
+		font-size: (@font-size + 2)/16*1em;
+	}
+}
 
 
 
@@ -400,8 +515,6 @@ button, input, select, textarea {
   /* Style adjustments for viewports 768px and over go here */
 
 }
-
-
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
