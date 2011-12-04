@@ -33,7 +33,9 @@
         f. abbreviations
 		g. subscript & superscript
 			
-	5. grid & structure	
+	5. grid & structure
+	   a. set up variables for the grid layout
+	   b. grid-specific structural styles	
 	
 	5. Header	
 	6. Navigation
@@ -62,9 +64,7 @@ article, aside, details, figcaption,
 figure, footer, header, hgroup, nav, section { display: block; }
 
 /*  c. page rendering & behavior */
-html {
-/*	text-rendering: optimizeLegibility; /* wacky font voodoo: http://www.aestheticallyloyal.com/public/optimize-legibility */
-                                        /* NOTE: causes font rendering glitches on Android with escaped unicode characters: http://bricss.net/post/6984374395 */
+html {                                        
 	background: transparent; /* fixes graphical glitches when using -webkit-scrollbar */
 	overflow-y: scroll; /* always show vertical scrollbar to avoid a "jump" when resizing */
 
@@ -72,16 +72,12 @@ html {
 	-webkit-font-smoothing: antialiased; /* no jaggies: http://maxvoltar.com/archive/-webkit-font-smoothing */ 
 	-webkit-text-size-adjust: 100%; /* prevent iOS text resizing on device orientation change: h5bp.com/g */
         -ms-text-size-adjust: 100%;
+        
+    /*	text-rendering: optimizeLegibility; /* wacky font voodoo: http://www.aestheticallyloyal.com/public/optimize-legibility */
+        /* NOTE: causes font rendering glitches on Android with escaped unicode characters: http://bricss.net/post/6984374395 */
 }
 
-.bgdiv {
-    opacity: 0.25;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1200px;
-    z-index: -1;
+.baseline { 
     background-image: url(img/gridbg.png);
 }
 
@@ -399,47 +395,43 @@ sub, sup {
     margins: 48px
     columns: 48px
 ------------------
-    
-    pixel widths (excluding outer margins):
-    -------------------------------------------
-             mobile:     4 columns  ->   264px 
-        wide mobile:     6 columns  ->   408px
-             tablet:     8 columns  ->   552px
-            desktop:    12 columns  ->   936px
-         extra-wide:    16 columns  ->  1128px
-               huge:   24+ columns  ->  1704px
------------------------------------------------     */
+    pixel widths: (excluding outer margins)
+    ---------------------------------------
+         mobile:     4 columns  ->   264px 
+    wide mobile:     6 columns  ->   408px
+         tablet:     8 columns  ->   552px
+        desktop:    12 columns  ->   936px
+     extra-wide:    16 columns  ->  1128px
+           huge:   24+ columns  ->  1704px
+------------------------------------------- */
 
-@font-size: 16; 		// Your base font-size in pixels
-@em: @font-size*1em;	// Shorthand for outputting ems, e.g. "12/@em"
+/*  a. set up variables for the grid layout */
 
-@column: 48;	// The column-width of your grid in pixels
-@gutter: 24;	// The gutter-width of your grid in pixels
+    @font-size: 16; 		/* base font-size in pixels */
+    @em: @font-size*1em;	/* shorthand for outputting ems, e.g. "12/@em" */
+    @column: 48;        	/* column-width in pixels */
+    @gutter: 24;	       /* gutter-width in pixels */
 
- @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
- @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
- @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
- @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
- @5cols: ( 5 * (@column + @gutter) - @gutter) / @em;
- @6cols: ( 6 * (@column + @gutter) - @gutter) / @em;
- @7cols: ( 7 * (@column + @gutter) - @gutter) / @em;
- @8cols: ( 8 * (@column + @gutter) - @gutter) / @em;
- @9cols: ( 9 * (@column + @gutter) - @gutter) / @em;
-@10cols: (10 * (@column + @gutter) - @gutter) / @em;
-@11cols: (11 * (@column + @gutter) - @gutter) / @em;
-@12cols: (12 * (@column + @gutter) - @gutter) / @em;
-@13cols: (13 * (@column + @gutter) - @gutter) / @em;
-@14cols: (14 * (@column + @gutter) - @gutter) / @em;
-@15cols: (15 * (@column + @gutter) - @gutter) / @em;
-@16cols: (16 * (@column + @gutter) - @gutter) / @em;
+     @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
+     @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
+     @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
+     @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
+     @5cols: ( 5 * (@column + @gutter) - @gutter) / @em;
+     @6cols: ( 6 * (@column + @gutter) - @gutter) / @em;
+     @7cols: ( 7 * (@column + @gutter) - @gutter) / @em;
+     @8cols: ( 8 * (@column + @gutter) - @gutter) / @em;
+     @9cols: ( 9 * (@column + @gutter) - @gutter) / @em;
+    @10cols: (10 * (@column + @gutter) - @gutter) / @em;
+    @11cols: (11 * (@column + @gutter) - @gutter) / @em;
+    @12cols: (12 * (@column + @gutter) - @gutter) / @em;
+    @13cols: (13 * (@column + @gutter) - @gutter) / @em;
+    @14cols: (14 * (@column + @gutter) - @gutter) / @em;
+    @15cols: (15 * (@column + @gutter) - @gutter) / @em;
+    @16cols: (16 * (@column + @gutter) - @gutter) / @em;
 
-.width (@cols:1) {
-	width: (@cols * (@column + @gutter) - @gutter) / @em;
-}
 
-html { 
-    height: 100%; 
-}
+/*  b. grid-specific structural styles */
+html { height: 100%; }
 
 body { 
     min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
@@ -447,7 +439,7 @@ body {
 }
 
 section {
-    background: hsla(1, 0%, 96%, 0.5);
+/*     background: hsla(1, 0%, 96%, 0.5); */
     
 	padding: 0 24/@em;
 	margin: 0 auto;

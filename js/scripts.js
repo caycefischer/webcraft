@@ -7,4 +7,12 @@ $(document).ready(function() {
 		offset: -200
 	});
 */
+
+    $(function() {
+       $("h1").bind("click", baseliner);
+    });
+    
+    function baseliner(evt) {
+      $("body").toggleClass("baseline");
+    }
 });
