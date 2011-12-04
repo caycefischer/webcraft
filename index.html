@@ -1,5 +1,4 @@
 <!doctype html>
-
 <!-- http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ & http://stuffandnonsense.co.uk/projects/320andup -->
 <!--[if IEMobile 7]><html class="no-js iem7 oldie" lang="en"><![endif]-->
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -7,7 +6,6 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 lt-ie9 oldie" lang="en"><![endif]-->
 <!--[if (gte IE 8)|(gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->    
-
 <head>
     <meta charset="utf-8">
     
@@ -26,8 +24,6 @@
     <link rel="canonical" href="/">
 
     <!-- mobile viewport optimization: http://html5boilerplate.com/mobile & http://t.co/dKP3o1e & http://learnthemobileweb.com/2009/07/mobile-meta-tags -->
-    <meta name="HandheldFriendly" content="True"> 
-    <meta name="MobileOptimized" content="320">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- activate ClearType for smooth fonts on mobile IE: http://html5boilerplate.com/mobile -->
@@ -61,92 +57,91 @@
     <link rel="stylesheet/less" type="text/css" href="css/styles.less">
 
     <!-- modernizr enables html5 elements and media queries in older browsers: http://html5boilerplate.com/docs/The-markup/#modernizr-yepnope-respond -->
-  <script src="js/libs/modernizr-custom.js"></script>
+    <script src="js/libs/modernizr-custom.js"></script>
 
     <!-- eliminate FOUT (placed in <head> to trigger before body loads): http://www.extensis.com/en/WebINK/fout-b-gone -->
 <!-- 	<script src="js/foutbgone.js"></script> -->
 <!-- 	<script>fbg.hideFOUT('asap', 300);</script> -->
 	
     <!-- webfonts via typekit -->
-<script type="text/javascript">
-  TypekitConfig = {
-    kitId: 'too1ubd',
-    scriptTimeout: 3000
-  };
-  (function() {
-    var h = document.getElementsByTagName('html')[0];
-    h.className += ' wf-loading';
-    var t = setTimeout(function() {
-      h.className = h.className.replace(/(\s|^)wf-loading(\s|$)/g, '');
-      h.className += ' wf-inactive';
-    }, TypekitConfig.scriptTimeout);
-    var tk = document.createElement('script');
-    tk.src = '//use.typekit.com/' + TypekitConfig.kitId + '.js';
-    tk.type = 'text/javascript';
-    tk.async = 'true';
-    tk.onload = tk.onreadystatechange = function() {
-      var rs = this.readyState;
-      if (rs && rs != 'complete' && rs != 'loaded') return;
-      clearTimeout(t);
-      try { Typekit.load(TypekitConfig); } catch (e) {}
-    };
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(tk, s);
-  })();
-</script>
+    <script type="text/javascript">
+      TypekitConfig = {
+        kitId: 'too1ubd',
+        scriptTimeout: 3000
+      };
+      (function() {
+        var h = document.getElementsByTagName('html')[0];
+        h.className += ' wf-loading';
+        var t = setTimeout(function() {
+          h.className = h.className.replace(/(\s|^)wf-loading(\s|$)/g, '');
+          h.className += ' wf-inactive';
+        }, TypekitConfig.scriptTimeout);
+        var tk = document.createElement('script');
+        tk.src = '//use.typekit.com/' + TypekitConfig.kitId + '.js';
+        tk.type = 'text/javascript';
+        tk.async = 'true';
+        tk.onload = tk.onreadystatechange = function() {
+          var rs = this.readyState;
+          if (rs && rs != 'complete' && rs != 'loaded') return;
+          clearTimeout(t);
+          try { Typekit.load(TypekitConfig); } catch (e) {}
+        };
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(tk, s);
+      })();
+    </script>
 	
     <!-- for development, remove before final deployment -->
     <script src="js/live.js"></script>
     <script src="js/less-1.1.5.min.js"></script>
-    <script type="text/javascript">
-         less.env = "development";
-         less.watch();
-    </script>
+        <script type="text/javascript">
+             less.env = "development";
+             less.watch();
+        </script>
 </head>
 
 <body>
-
-<div class="bgdiv"></div>
-
-			<figure id="grid">
-				<div class="col col1"></div>
-				<div class="col col2"></div>
-				<div class="col col3"></div>
-				<div class="col col4"></div>
-				<div class="col col5"></div>
-				<div class="col col6"></div>
-				<div class="col col7"></div>
-				<div class="col col8"></div>
-				<div class="col col9"></div>
-				<div class="col col10"></div>
-				<div class="col col11"></div>
-				<div class="col col12"></div>
-				<div class="col col13"></div>
-				<div class="col col14"></div>
-				<div class="col col15"></div>
-				<div class="col col16"></div>
-				<div class="col col17"></div>
-				<div class="col col18"></div>
-				<div class="col col19"></div>
-				<div class="col col20"></div>
-				<div class="col col21"></div>
-				<div class="col col22"></div>
-				<div class="col col23"></div>
-				<div class="col col24"></div>
-				<div class="col col25"></div>
-				<div class="col col26"></div>
-				<div class="col col27"></div>
-				<div class="col col28"></div>
-				<div class="col col29"></div>
-				<div class="col col30"></div>
-				<div class="col col31"></div>
-				<div class="col col32"></div>
-				<div class="col col33"></div>
-				<div class="col col34"></div>
-				<div class="col col35"></div>
-				<div class="col col36"></div>
-			</figure>
-
+    <!-- elements to generate the grid column visualization -->
+	<figure id="grid">
+		<div class="col col1"></div>
+		<div class="col col2"></div>
+		<div class="col col3"></div>
+		<div class="col col4"></div>
+		<div class="col col5"></div>
+		<div class="col col6"></div>
+		<div class="col col7"></div>
+		<div class="col col8"></div>
+		<div class="col col9"></div>
+		<div class="col col10"></div>
+		<div class="col col11"></div>
+		<div class="col col12"></div>
+		<div class="col col13"></div>
+		<div class="col col14"></div>
+		<div class="col col15"></div>
+		<div class="col col16"></div>
+		<div class="col col17"></div>
+		<div class="col col18"></div>
+		<div class="col col19"></div>
+		<div class="col col20"></div>
+		<div class="col col21"></div>
+		<div class="col col22"></div>
+		<div class="col col23"></div>
+		<div class="col col24"></div>
+		<div class="col col25"></div>
+		<div class="col col26"></div>
+		<div class="col col27"></div>
+		<div class="col col28"></div>
+		<div class="col col29"></div>
+		<div class="col col30"></div>
+		<div class="col col31"></div>
+		<div class="col col32"></div>
+		<div class="col col33"></div>
+		<div class="col col34"></div>
+		<div class="col col35"></div>
+		<div class="col col36"></div>
+	</figure>
+	
+<!-- each main element is its own wrapper a set number of columns in width -->
 <section>
 <h1>Heading One, &ldquo;Alpha&rdquo;</h1>
 <h2>Heading Two, &ldquo;Beta&rdquo;</h2>
@@ -229,7 +224,7 @@
 
 <!-- all plugins and all scripts in one file each, to minimize http requests: http://html5boilerplate.com/docs/plugins.js-and-script.js -->
     <script defer src="js/scripts.js"></script>
-    <script defer src="js/frameless.js"></script>
+
 <!-- asynchronous google analytics (replace UA-XXXXX-X with your analytics code): http://mths.be/aab
     <script>
         var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
