@@ -77,9 +77,7 @@ html {
         /* NOTE: causes font rendering glitches on Android with escaped unicode characters: http://bricss.net/post/6984374395 */
 }
 
-.baseline { 
-    background-image: url(img/gridbg.png);
-}
+.baseline { background-image: url(img/gridbg.png); } /*gets added to the body element with javascript */
 
 /*  d. custom text-selection colors, remove drop shadow: http://h5bp.com/i */
 ::-moz-selection { background: hsl(200, 50%, 50%); color: #fff; text-shadow: none; }
@@ -271,7 +269,8 @@ pre {
     position: relative;
     font-size: 0.75em; /* 12px */
     line-height: 2; /* 24px */
-    padding: 0; /* 24px */
+    padding: 0;
+    margin-left: 2em;
 
     background: #192223;  /* fallback for browsers that don't support hsl */
     background: hsl(191, 17%, 12%);
