@@ -15,4 +15,5 @@ $(document).ready(function() {
     function baseliner(evt) {
       $("body").toggleClass("baseline");
     }
+
 });

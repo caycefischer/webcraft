@@ -181,7 +181,7 @@ h1, .alpha {
 h2, .beta {
     font-size: 3.375em; /* 54px */
     line-height: 1.33333333333; /* 72px */
-    padding: 0.3333333333334em 0 6px; /* 18px & 30px */
+    padding: 0.3333333333334em 0 0.1111111111112em; /* 18px & 6px */
 
     font-weight: 700;
 }
@@ -404,6 +404,12 @@ sub, sup {
            huge:   24+ columns  ->  1704px
 ------------------------------------------- */
 
+/*	Assuming your base font-size is 16:
+    body { font-size: (@font-size - 2)/16*1em; }	- zoom out by a factor of (16-2)/16 = 0.875
+	body { font-size: (@font-size + 2)/16*1em;  }	- zoom in by a factor of (16+2)/16 = 1.125  
+*/
+
+
 /*  a. set up variables for the grid layout */
 
     @font-size: 16; 		/* base font-size in pixels */
@@ -484,6 +490,7 @@ sub, sup {
 		.col36 {margin-left: -(18*72-12)/@em;}
 
 
+
 /*  b. grid-specific structural styles */
 html { height: 100%; }
 
@@ -491,20 +498,50 @@ body {
     min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
     background: hsl(1, 0%, 90%);
 }
-
-
-
+		
+		
 header {
-/*     background: hsla(1, 0%, 96%, 0.5); */
-	padding: 0 24/@em;
+/* 	padding: 0 24/@em; */
 	margin: 0 auto;
-	max-width: @12cols;
+/* 	max-width: @12cols; */
+
+    background: hsla(1, 0%, 96%, 0.5);
+    outline: 1px solid hsla(1, 0%, 80%, 0.65);
 }
 
+/*
 .kicker {
     max-width: @8cols;
     margin: 0 auto;
 }
+*/
+
+.topbar {
+    height: @1col;
+    background-color: @dark-grid;
+}
+
+nav ul{
+  list-style-type:none;
+  margin-left:0;
+}
+nav ul li{
+  display:inline;
+}
+nav ul li a{
+  display:inline-block;
+}
+
+nav ul{
+  width:100%;
+  background:#eee;
+}
+nav ul li a{
+  padding:5px 10px;
+}
+
+span.zeta {display: block;}
+
 		
 /*  Mobile layout 
 	240–479 px
@@ -513,14 +550,20 @@ header {
         header {
     		width: @4cols;
     		max-width: none;
-    		padding-left: 0;
-    		padding-right: 0;
+    		padding: 0;
+    		margin: 0 auto;
     		text-align: center;
     	}
     	
-    	header h1, header h2 {
-    	   display: inline;
+/*     	header h1, header h2 { display: inline; } */
+    	
+    	.masthead {
+            .zeta;
     	}
+    	
+    	#grid {
+        	height: (@1cols / 2);
+        }
     	
     	.col1, .col2, .col19, .col20 {
     		background: @dark-grid;
@@ -533,13 +576,9 @@ header {
 {	
         header {
             width: @6cols;
-    		display: block;
+/*     		display: block; */
     	}	
-
-    	header h1, header h2 {
-    	   display: block;
-    	}
-    	
+  	
     	.col3, .col21 {
     	   background: @dark-grid;
     	}
@@ -551,9 +590,7 @@ header {
 {	
         header {
             width: @8cols;
-		text-align: left;
-		position: relative;
-    	}	
+    	}
     	
     	.col4, .col22 {
     	   background: @dark-grid;
@@ -567,9 +604,7 @@ header {
         header {
             width: @12cols;
     	}	
-    	header h2 {
-    	   .kicker;
-    	}
+
     	.col5, .col6, 
 		.col23, .col24 {
     	   background: @dark-grid;
@@ -606,8 +641,6 @@ header {
     	   background: @dark-grid;
     	}
 }
-
-
 
 /* ==|== non-semantic helper classes ========================================
    Please define your styles before this section.
