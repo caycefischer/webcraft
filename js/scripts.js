@@ -8,12 +8,22 @@ $(document).ready(function() {
 	});
 */
 
+
     $(function() {
-       $("h1").bind("click", baseliner);
+       $("#baseliner").bind("click", baseliner);
     });
     
     function baseliner(evt) {
       $("body").toggleClass("baseline");
+    }
+
+    $(function() {
+       $("#gridder").bind("click", gridder);
+    });
+    
+    function gridder(evt) {
+      $(".col").toggleClass("fixed");
+      $(this).toggleClass("fixed");
     }
 
 });
