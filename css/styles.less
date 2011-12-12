@@ -191,8 +191,8 @@ h3, .gamma {
 	line-height: 1.33333333333; /* 48px */
 	padding: 0.3333333333334em 0; /* 12px & 12px */
 	
-	font-weight: 600;
-	font-style: italic;
+	font-weight: 900;
+    text-transform: uppercase;
 }
 
 h4, .delta {
@@ -558,6 +558,7 @@ nav ul li:last-child, .show:last-of-type {
 }
 
 nav ul li a {
+
     display:block;
     padding: 0.75em 0;
     text-transform: uppercase;
@@ -819,8 +820,8 @@ h1 + .epsilon, .epsilon + p {
     	}
     	
     	nav ul li{
-    width: @4cols;
-}
+            width: @4cols;
+        }
 
         .masthead {
             .alpha;
@@ -838,7 +839,7 @@ h1 + .epsilon, .epsilon + p {
             font-style: normal;
         }
         
-        nav ul li:first-child {
+       .home nav ul li:first-child {
             width: @2cols; 
             margin-left: (1 * (@column) / @em);
             margin-right: (1* (@column + @gutter) / @em);
