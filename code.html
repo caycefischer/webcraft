@@ -138,7 +138,7 @@
     	<h1 class="delta">Download the Primer Template!</h1>
     	<p class="epsilon">Fully-commented, fully-sourced, chock full of goodies!</p>
     	
-    	<p class="promo copy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. </p>
+    	<p class="promo copy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. <i>Quick tip on a feature not yet fully implemented: clicking on a box of sample code will switch it from horizontal-scroll mode to word-wrap mode, so that's neat.</i></p>
 	</section>		
 	
 	<section id="breakdown">
@@ -163,7 +163,14 @@
                     <li><a href="#doc-3j">&lt;/head&gt;</a></li>
                 </ol>
             </li>
-            <li>&lt;body&gt;</li>
+            <li><a href="#doc-4">&lt;body&gt;</a>
+                <ol>
+                    <li><a href="#doc-4a">jQuery</a></li>
+                    <li><a href="#doc-4b">Analytics</a></li>
+                    <li><a href="#doc-4c">Script loading</a></li>
+                    <li><a href="#doc-4d">Chrome Frame</a></li>
+                </ol>
+            </li>
         </ol>
          
         <article> 
@@ -312,6 +319,104 @@
             </pre>
         </article>
 
+
+        <article> 
+            <h3 id="doc-4" title="Body" class="epsilon">4. &lt;body&gt;</h3>
+            
+            <p>All the included code inside the <code>&lt;body&gt;</code> tags goes right at the very end, just before the closing tag. This is to ensure that the page content actually loads before our heavy files and scripts load.</p>
+        </article>
+
+
+        <article> 
+            <h3 id="doc-4a" title="jQuery" class="epsilon">4. <small>a)</small> jQuery</h3>
+            
+            <p>This method for loading the jQuery library comes from the HTML5 Boilerplate. Retrieving the file from Google's servers is arguably faster than from our own (especially when prefetched, as seen above). There is also a fallback script in place if the browser can't reach Google's servers. <a href="http://html5boilerplate.com/docs/The-markup/#google-cdn-for-jquery">Source</a>.</p>
+            <pre class="prettyprint"><code class="html">
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;window.jQuery || document.write('&lt;script src=&quot;js/libs/jquery-1.7.1.min.js&quot;&gt;&lt;\/script&gt;')&lt;/script&gt;</code>
+            </pre>
+        </article>
+
+
+        <article> 
+            <h3 id="doc-4b" title="Analytics" class="epsilon">4. <small>b)</small> Google Analytics</h3>
+            
+            <p>Rather than using the standard Google Analytics snippet to monitor pages, use Mathias Bynens' asynchronous snippet for faster page loading and general goodness. <a href="http://mths.be/aab">Source</a>.</p>
+            <pre class="prettyprint"><code class="html">  
+&lt;script&gt;
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+&lt;/script&gt;</code>
+            </pre>
+        </article>
+
+
+       <article> 
+            <h3 id="doc-4c" title="jQuery" class="epsilon">4. <small>c)</small> Script loading</h3>
+            
+            <p>As hinted at a few times already, it is very beneficial to page-load times if scripts and plugins are called after the main content on the page, to avoid a bottleneck while javascript loads. Not only that, but grouping many plugins or script files into one single file (one for scripts and one for plugins, load plugins first) will minimize the amount of HTTP-requests and speed up load times. As well, the <code>defer</code> attribute on the script tags lets the browser know that it may wait until the page has otherwise loaded before attempting to load the script in question, garnering even further potential load-time improvements.  <a href="http://html5boilerplate.com/docs/plugins.js-and-script.js">Source</a>.</p>
+            <pre class="prettyprint"><code class="html">
+&lt;script defer src=&quot;js/scripts.js&quot;&gt;&lt;/script&gt;</code>
+            </pre>
+        </article>
+
+
+        <article> 
+            <h3 id="doc-4d" title="Chrome Frame" class="epsilon">4. <small>d)</small> Chrome Frame</h3>
+            
+            <p>It is now possible to prompt the installation of Google's <a href="http://code.google.com/chrome/chromeframe/">Chrome Frame</a> instead of simply hoping it is installed. This IE-conditional statement prompts users of Internet Explorer 7 and below to install it. <a href="http://chromium.org/developers/how-tos/chrome-frame-getting-started">Source</a>.</p>
+            <pre class="prettyprint"><code class="html">
+&lt;!--[if lt IE 7 ]&gt;
+    &lt;script defer src=&quot;//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script defer&gt;window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})&lt;/script&gt;
+&lt;![endif]--&gt;</code>
+            </pre>
+        </article>
+
+<!-- END Breakdown of index.html -->
+
+    	<h2 class="delta" id="index-html" title="index.html"><a href="code.html#index-html">styles.css</a></h2>
+    	
+        <ol class="table-of-contents">
+            <li><a href="#doc-1">doctype</a></li>
+            <li><a href="#doc-2">html tag classes</a></li>
+            <li><a href="#doc-3a">&lt;head&gt;</a>
+                <ol>
+                    <li><a href="#doc-3a">Encoding</a></li>
+                    <li><a href="#doc-3b">IE rendering</a></li>
+                    <li><a href="#doc-3c">Prefetching</a></li>
+                    <li><a href="#doc-3d">Basic metadata</a></li>
+                    <li><a href="#doc-3e">Mobile viewports</a></li>
+                    <li><a href="#doc-3f">HTML5 polyfills</a></li>
+                    <li><a href="#doc-3g">icons & favicons</a></li>
+                    <li><a href="#doc-3h">loading css</a></li>
+                    <li><a href="#doc-3i">FOUT-busting</a></li>
+                    <li><a href="#doc-3j">&lt;/head&gt;</a></li>
+                </ol>
+            </li>
+            <li><a href="#doc-4">&lt;body&gt;</a>
+                <ol>
+                    <li><a href="#doc-4a">jQuery</a></li>
+                    <li><a href="#doc-4b">Analytics</a></li>
+                    <li><a href="#doc-4c">Script loading</a></li>
+                    <li><a href="#doc-4d">Chrome Frame</a></li>
+                </ol>
+            </li>
+        </ol>
+         
+         
+        <article> 
+            <h3 id="doc-1" title="Doctype" class="epsilon">1. Doctype</h3>
+            
+            <p>We're using the quickly-becoming-ubiquitous <a href="http://developers.whatwg.org/syntax.html#the-doctype">HTML5 doctype</a>, which is simple, clean and easy to remember. Not much to talk about here. It doesn't matter if you write it in uppercase or lowercase.</p>
+            <pre class="prettyprint"><code class="html">
+&lt;!doctype html&gt;</code>
+            </pre>
+        </article>
+
+<!-- END Breakdown of styles.css -->
 	</section>
 
 	
