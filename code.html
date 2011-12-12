@@ -31,6 +31,8 @@
  
     <!-- stylesheets (using less.js, either keep the js file or compile before launch) -->    
     <link rel="stylesheet/less" type="text/css" href="css/styles.less">
+    <link href="prettify/prettify.css" type="text/css" rel="stylesheet">
+    <link href="prettify/wpp.css" type="text/css" rel="stylesheet">
     
     <!-- modernizr enables html5 elements and media queries in older browsers: http://html5boilerplate.com/docs/The-markup/#modernizr-yepnope-respond -->
     <script src="js/libs/modernizr-custom.js"></script>
@@ -141,94 +143,172 @@
 	
 	<section id="breakdown">
     	<h1 class="gamma">Break it down now, y'all</h1>
-    	<h2 class="delta" id="index-html"><a href="code.html#index-html">index.html</a></h2>
+    	
+    	<h2 class="delta" id="index-html" title="index.html"><a href="code.html#index-html">index.html</a></h2>
     	
         <ol class="table-of-contents">
-            <li>doctype</li>
-            <li>html tag classes</li>
-            <li><code>&lt;head&gt;</code>
+            <li><a href="#doc-1">doctype</a></li>
+            <li><a href="#doc-2">html tag classes</a></li>
+            <li><a href="#doc-3a">&lt;head&gt;</a>
                 <ol>
-                    <li>encoding</li>
-                    <li>IE rendering</li>
-                    <li>prefetching</li>
-                    <li>mobile viewports</li>
+                    <li><a href="#doc-3a">Encoding</a></li>
+                    <li><a href="#doc-3b">IE rendering</a></li>
+                    <li><a href="#doc-3c">Prefetching</a></li>
+                    <li><a href="#doc-3d">Basic metadata</a></li>
+                    <li><a href="#doc-3e">Mobile viewports</a></li>
+                    <li><a href="#doc-3f">HTML5 polyfills</a></li>
+                    <li><a href="#doc-3g">icons & favicons</a></li>
+                    <li><a href="#doc-3h">loading css</a></li>
+                    <li><a href="#doc-3i">FOUT-busting</a></li>
+                    <li><a href="#doc-3j">&lt;/head&gt;</a></li>
                 </ol>
             </li>
-            <li><code>&lt;body&gt;</code></li>
+            <li>&lt;body&gt;</li>
         </ol>
          
         <article> 
-            <h3 class="epsilon">1. Doctype</h3>
+            <h3 id="doc-1" title="Doctype" class="epsilon">1. Doctype</h3>
             
             <p>We're using the quickly-becoming-ubiquitous <a href="http://developers.whatwg.org/syntax.html#the-doctype">HTML5 doctype</a>, which is simple, clean and easy to remember. Not much to talk about here. It doesn't matter if you write it in uppercase or lowercase.</p>
-            <pre><code class="html">
-    &lt;!doctype html&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;!doctype html&gt;</code>
             </pre>
         </article>
 
 
         <article> 
-            <h3 class="epsilon">2. IE &lt;html&gt; classes</h3>
+            <h3 id="doc-2" title="IE HTML classes" class="epsilon">2. IE &lt;html&gt; classes</h3>
             
             <p>This is a mashup of code from <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">Paul Irish</a> and <a href="http://stuffandnonsense.co.uk/projects/320andup">320 And Up</a>. This code wraps the html tag in a series of conditional statements, each targeting a different version of Internet Explorer. Use to target different versions of IE with classes in your CSS, as well as hook into the very handy <code>.no-js</code> class. </p>
-            <pre><code class="html">
-    &lt;!--[if IEMobile 7]&gt;&lt;html class=&quot;no-js iem7 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
-    &lt;!--[if lt IE 7]&gt;&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
-    &lt;!--[if (IE 7)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie7 lt-ie9 lt-ie8 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
-    &lt;!--[if (IE 8)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie8 lt-ie9 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
-    &lt;!--[if (gte IE 8)|(gt IEMobile 7)|!(IEMobile)]&gt;&lt;!--&gt;&lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;&lt;!--&lt;![endif]--&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;!--[if IEMobile 7]&gt;&lt;html class=&quot;no-js iem7 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if lt IE 7]&gt;&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if (IE 7)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie7 lt-ie9 lt-ie8 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if (IE 8)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie8 lt-ie9 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+&lt;!--[if (gte IE 8)|(gt IEMobile 7)|!(IEMobile)]&gt;&lt;!--&gt;&lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;&lt;!--&lt;![endif]--&gt;</code>
             </pre>
         </article>
 
 
         <article> 
-            <h3 class="epsilon">3. <small>a)</small> Character-encoding declaration</h3>
+            <h3 id="doc-3a" title="Character-encoding declaration" class="epsilon">3. <small>a)</small> Character-encoding declaration</h3>
             
             <p>The very first thing after you open your <code>&lt;head&gt;</code> tag should be the charset declaration. The whole tag has to be present within the first 1024 bytes of the page. Not declaring a charset isn't the end of the world, but it is best practice to do so, and you'll probably avoid a lot of strange errors by just declaring it and forgetting about it. </p>
-            <pre><code class="html">
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot;&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;</code>
             </pre>
         </article>
 
 
        <article> 
-            <h3 class="epsilon">3. <small>b)</small> IE rendering options</h3>
+            <h3 id="doc-3b" title="IE rendering options" class="epsilon">3. <small>b)</small> IE rendering options</h3>
             
             <p>These two lines address how your page renders in Internet Explorer. Courtesy of the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>, <q>the meta tag tells the IE rendering engine two things: first, it should use the latest, or edge, version of the IE rendering environment; second, if already installed, it should use the Chrome frame’s rendering engine. This meta tag ensures that anyone browsing your site in IE is treated to the best possible user experience that their browser can offer.</q> see below for more about Chrome Frame. <a href="http://html5boilerplate.com/docs/The-markup/#make-sure-the-latest-version-of-ie-is-used">Source</a>.</p>
-            <pre><code class="html">
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code>
             </pre>
         </article>
 
 
        <article> 
-            <h3 class="epsilon">3. <small>c)</small> prefetching</h3>
+            <h3 id="doc-3c" title="Prefetching" class="epsilon">3. <small>c)</small> Prefetching</h3>
             
             <p>Another very useful snippet from the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>, which says it best in their documentation: <q>in short, DNS Prefetching is a method of informing the browser of domain names referenced on a site so that the client can resolve the DNS for those hosts, cache them, and when it comes time to use them, have a faster turn around on the request.</q>
 <a href="http://html5boilerplate.com/docs/DNS-Prefetching/">Source</a>.</p>
-            <pre><code class="html">
-    &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//ajax.googleapis.com&quot;&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//ajax.googleapis.com&quot;&gt;</code>
             </pre>
             <p>In this example, <code>index.html</code> has a prefetch instruction set up for Google CDN, where jQuery is called from in the <code>&lt;body&gt;</code>. This should speed up that HTTP request.</p>
         </article>
 
 
        <article> 
-            <h3 class="epsilon">3. <small>d)</small> Mobile viewport settings</h3>
+            <h3 id="doc-3d" title="Basic metadata" class="epsilon">3. <small>d)</small> Basic metadata</h3>
+            
+            <p>These tags can be considered "good SEO" practice. Search Engine Optimization isn't entirely snake-oil, there are lots of things Google suggests we do as designers/developers when building websites. The <code>title</code> tag contains the page's official title (no, really?), and displays it in the browser tab. The <code>description</code> tag is important for search engine results, and the <code>author</code> tag is so you can get some credit for your work.</p>
+            <pre class="prettyprint"><code>
+&lt;title&gt;Web Professional's Primer&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;The Web Professional's Primer is part field guide,  part encyclopedia, and part toolkit: the beginnings of an ambitious project organizing the collective knowledge of the web community into a killer reference manual, educational hub and resource library.&quot;&gt;
+&lt;meta name=&quot;author&quot; content=&quot;Zachary Kain&quot;&gt;
+
+&lt;link rel=&quot;canonical&quot; href=&quot;/&quot;&gt;</code>
+            </pre>
+            <p>The <code>link rel="canonical"</code> tag is used on pages with long URLs generated by a database, or pages that you want search engines to ignore <i>in favor of</i> a more official url. You can remove this line if you don't need it. <a href="http://t.co/y1jPVnT">Source</a>.</p>
+        </article>
+
+
+       <article> 
+            <h3 id="doc-3e" title="Mobile viewport settings" class="epsilon">3. <small>e)</small> Mobile viewport settings</h3>
             
             <p>Browser windows on mobile devices behave differently than in standard browsing environments. The first value here sets the viewport (browser window) width to be equal to the device width, which should eliminate horizontal scrollbars and activate any small-scale media queries in the CSS. The second value, <code>initial-scale=1.0</code>, prevents any default scaling done by mobile browsers and ensures that the page is initially viewed at "100%". Much, much more information in the sources: <a href="http://t.co/dKP3o1e">Source</a> <a href="http://learnthemobileweb.com/2009/07/mobile-meta-tags">Source</a>.</p>
-            <pre><code class="html">
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>
+            <pre class="prettyprint"><code class="html">
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>
             </pre>
         </article>
 
+
        <article> 
-            <h3 class="epsilon">3. <small>e)</small> Mobile viewport settings</h3>
+            <h3 id="doc-3f" title="HTML5 shim" class="epsilon">3. <small>f)</small> HTML5 shiv/shim/polyfill</h3>
             
-            <p>Browser windows on mobile devices behave differently than in standard browsing environments. The first value here sets the viewport (browser window) width to be equal to the device width, which should eliminate horizontal scrollbars and activate any small-scale media queries in the CSS. The second value, <code>initial-scale=1.0</code>, prevents any default scaling done by mobile browsers and ensures that the page is initially viewed at "100%". Much, much more information in the sources: <a href="http://t.co/dKP3o1e">Source</a> <a href="http://learnthemobileweb.com/2009/07/mobile-meta-tags">Source</a>.</p>
-            <pre><code class="html">
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>
+            <p>The <i>html5shim/shiv</i> is a small piece of javascript written by <a href="http://remysharp.com/2009/01/07/html5-enabling-script/">Remy Sharp</a> to enable default styling of HTML5 elements (article, section, figure, etc) in older browsers and Internet Explorer >9. The shim/shiv (they're two names for exactly the same thing) is an essential piece of "fire and forget" code, but if you use a library like <a href="http://modernizr.com">modernizr</a>, take it out since modernizr has the shim built in. <a href="http://code.google.com/p/html5shiv/">Source</a>.</p>
+            <pre class="prettyprint">
+            <code class="html">
+&lt;!--[if lt IE 9]&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;http://html5shiv.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;&lt;![endif]--&gt;</code>
+            </pre>
+        </article>
+
+
+       <article> 
+            <h3 id="doc-3g" title="Favicons & mobile app icons" class="epsilon">3. <small>g)</small> Favicons & mobile app icons</h3>
+            
+            <p>This sequence of links ensures cross-device compatible favicons and bookmark/app icons on iOS and Android. You don't need to include all this code as most of the magic actually happens automatically - see <em>"Look ma, no HTML!"</em> at the source: <a href="http://mathiasbynens.be/notes/touch-icons">Source</a>.</p>
+            <pre class="prettyprint">
+            <code class="html">
+&lt;!-- favicon, 16px --&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot;&gt;    
+&lt;!-- retina iphone, 114px --&gt;
+    &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;apple-touch-icon-114x114-precomposed.png&quot;&gt;
+&lt;!-- ipad, 72px --&gt;
+    &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;apple-touch-icon-72x72-precomposed.png&quot;&gt;
+&lt;!-- old iphone &amp; android, 57px (also put apple-touch-icon.png in root) --&gt;
+    &lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;apple-touch-icon-precomposed.png&quot;&gt;</code>
+            </pre>
+        </article>
+        
+    
+      <article> 
+            <h3 id="doc-3h" title="Loading CSS" class="epsilon">3. <small>h)</small> Loading CSS</h3>
+            
+            <p>Fairly straightforward, but a couple things to note here. The HTML5 spec does not require the <code>type</code> attribute, as its default value is <code>text/css</code>. That being said, I haven't switched over to not using it yet; it is good practice to include it to avoid edge cases with older browsers.</p>
+            <pre class="prettyprint">
+            <code class="html">
+&lt;link rel=&quot;stylesheet/css&quot; type=&quot;text/css&quot; href=&quot;css/styles.css?v=2&quot;&gt;</code>
+            </pre>
+            <p>The non-standard <code>?v=2</code> on the end of the stylesheet url is a form of version control used for what the HTML5 Boilerplate calls "Cachebusting". Given that web sites and applications are increasingly making use of caching (both standard methods and with HTML5 Cache Manifest), versioning links to .css and .js files means whenever those links are changed to a new version, browsers will ignore their cached copies and download the new file, ensuring any updates are received. <a href="http://html5boilerplate.com/docs/Version-Control-with-Cachebusting/">Source</a>. </p>
+        </article>
+
+
+      <article> 
+            <h3 id="doc-3i" title="FOUT-busting" class="epsilon">3. <small>i)</small> FOUT-busting</h3>
+            
+            <p>FOUT, or "Flash-of-Unstyled-Text", is a phenomenon associated with using <code>@font-face</code> or other webfont techniques, the term <a href="http://paulirish.com/2009/fighting-the-font-face-fout/">coined</a> by Paul Irish to mean when content on the page has loaded before the custom font files and is displaying as the fallback font, possibly breaking a layout or design. This script hides all text on the page until the webfonts have loaded, then displays the text - with a built-in safety if it takes too long. The end result is something that <i>feels</i> faster and more professional, even if it might technically be slower. <a href="http://www.extensis.com/en/WebINK/fout-b-gone">Source</a>.</p>
+            <pre class="prettyprint">
+            <code class="html">
+&lt;script src=&quot;js/foutbgone.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;fbg.hideFOUT('asap', 300);&lt;/script&gt;</code>
+            </pre>
+            <p>I don't use this FOUT-busting method anymore, because I usually use <a href="http://typekit.com">Typekit</a> to serve my web fonts. Much finer control over FOUT and font display overall can be had by using their built in <a href="http://blog.typekit.com/2010/10/29/font-events-controlling-the-fout/">"font-events"</a> and Joni Korpi's <a href="http://jonikorpi.com/a-smoother-page-load/">page-loading techniques</a>. </p>
+        </article>
+
+
+      <article> 
+            <h3 id="doc-3j" title="close head tag" class="epsilon">3. <small>j)</small> &lt;/head&gt;</h3>
+            
+            <p>There's nothing else in the <code>&lt;/head&gt;</code> element by default, except a <code>&lt;script&gt;</code> include for <a href="http://modernizr.com">modernizr</a>. All other javascript is loaded after the main content, to improve load time. Loading javascript blocks the rest of the page from loading (it doesn't load in parallel or asynchronously), so unless the script is vital (as in the case of FOUT-busting or modernizr), load it in the <code>&lt;body&gt;</code>, as you'll see below.</p>
+            <pre class="prettyprint">
+            <code class="html">
+&lt;/head&gt;</code>
             </pre>
         </article>
 
@@ -248,6 +328,9 @@
 
 <!-- all plugins and all scripts in one file each, to minimize http requests: http://html5boilerplate.com/docs/plugins.js-and-script.js -->
     <script defer src="js/scripts.js"></script>
+    
+    <script type="text/javascript" src="prettify/prettify.js"></script>
+    <script>prettyPrint();</script>
     
 <!-- asynchronous google analytics (replace UA-XXXXX-X with your analytics code): http://mths.be/aab
     <script>

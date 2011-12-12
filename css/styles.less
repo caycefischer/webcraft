@@ -275,15 +275,11 @@ pre, code {
 pre { 
 /* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
     white-space: pre; /* ensures formatting is preserved */
-    overflow: auto;
-/* uncomment these two lines to get rid of the horizontal scrollbar */ 
-    /*  white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
-    /*  word-wrap: break-word; /* as above, for ie & older browsers */
-    
+    overflow: auto;    
     position: relative;
     font-size: 0.75em; /* 12px */
     line-height: 2; /* 24px */
-    padding: 0;
+    padding: 0 2em;
 
     background: #192223;  /* fallback for browsers that don't support hsl */
     background: hsl(191, 17%, 12%);
@@ -292,6 +288,13 @@ pre {
     
 	-webkit-font-smoothing: subpixel-antialiased;
 }
+
+pre.wrapping {
+/* these two lines get rid of the horizontal scrollbar */ 
+    white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
+    word-wrap: break-word; /* as above, for ie & older browsers */
+}
+
 /* display the language with a class name on the <code> element: http://perishablepress.com/press/2009/11/09/perfect-pre-tags/ */
 /* pre code[class]:before { content: 'language: ' attr(class); color: hsl(204, 39%, 85%); } */
 
@@ -652,6 +655,10 @@ h1 + .epsilon, .promocopy, #breakdown p {
     text-indent: 1.5em;
 }
 
+.table-of-contents a {
+    color: @darkest;
+}
+
 #breakdown {
     padding-top: 1.5em;
 }
@@ -667,7 +674,7 @@ h1 + .epsilon, .promocopy, #breakdown p {
 }
 
 #breakdown > article {
-    padding: 0 0 3em;
+    padding: 0 0 4.5em;
     overflow: hidden;
 }
 
@@ -678,7 +685,6 @@ h1 + .epsilon, .promocopy, #breakdown p {
 #breakdown > article > p:last-child {
     padding-bottom: 0; /* if a paragraph is the last element in an article, take away the bottom space to preserve rhythm */ 
 }
-
 
 
 /*  Mobile layout 

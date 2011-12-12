@@ -8,22 +8,29 @@ $(document).ready(function() {
 	});
 */
 
-
     $(function() {
        $("#baseliner").bind("click", baseliner);
     });
-    
-    function baseliner(evt) {
-      $("body").toggleClass("baseline");
-    }
+        function baseliner(evt) {
+          $("body").toggleClass("baseline");
+        }
+
 
     $(function() {
        $("#gridder").bind("click", gridder);
     });
-    
-    function gridder(evt) {
-      $(".col").toggleClass("fixed");
-//      $(this).toggleClass("fixed");
-    }
+        function gridder(evt) {
+          $(".col").toggleClass("fixed");
+    //      $(this).toggleClass("fixed");
+        }
+        
+
+    $(function() {
+       $("pre").bind("click", textwrapper);
+    });
+        function textwrapper(evt) {
+          $(this).toggleClass("wrapping");
+        }
+
     
 });
