@@ -596,17 +596,20 @@ nav ul li:before {
 .dl {
     display: inline-block;
     width: @3cols;
-    margin-top: 1.5em;
+    margin: 1.5em 0;
+    margin-right: @gutter/@em;
     text-align: center;
     color: darken(@darkest, 10%);
     background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+    vertical-align: top;
+    float: left;
 
 }
 .dl:after {
     .zeta;
     text-transform: none;
-    font-weight: 900;
-    content: "12/12/11 - version 0.6";
+    font-weight: 700;
+    content: "12/12/2011 - version 0.6";
 }
 .dl a {
     .alpha;
@@ -623,6 +626,9 @@ nav ul li:before {
     }
 }
 
+h1 + .epsilon, .epsilon + p {
+    text-indent: 0;
+}
 
 /*  Mobile layout 
 	240–479 px
@@ -877,36 +883,16 @@ nav ul li:before {
                 background: @dark-grid;
             }
         }
-             
         
+        .dl {
+            margin-right: ((1* (@column + @gutter) + @gutter) / @em);
+        }             
 }
-
-
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   ========================================================================== */
-
-/* For image replacement */
-.ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
-.ir br { display: none; }
-
-/* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden { display: none !important; visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible { visibility: hidden; }
 
 /* micro clearfix by nicolas gallagher: http://h5bp.com/q */
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
-
 
 
 /* typekit fout-buster: http://jonikorpi.com/a-smoother-page-load */
