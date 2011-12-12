@@ -16,7 +16,7 @@
     <!-- speed up grabbing jquery from google servers: http://html5boilerplate.com/docs/DNS-Prefetching -->
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
     
-    <title>Web Professional's Primer</title>
+    <title>The Code: Web Professional's Primer</title>
     <meta name="description" content="">
     <meta name="author" content="Zachary Kain">
 
@@ -25,20 +25,6 @@
 
     <!-- activate ClearType for smooth fonts on mobile IE: http://html5boilerplate.com/mobile -->
     <meta http-equiv="cleartype" content="on">
-
-    <!-- enable html5 elements in IE (don't need with modernizr) -->
-	<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <!-- iOS web app, deletable if not needed -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <!-- Prevent links in standalone web apps opening Mobile Safari. https://gist.github.com/1042026 -->
-    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
-        <!-- iOS startup images: http://miniapps.co.uk/blog/post/ios-startup-images-using-css-media-queries -->
-    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and not (-webkit-min-device-pixel-ratio: 2)" href="img/startup-iphone.png"> <!-- 320x460 for iPhone 3GS -->
-    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-iphone4.png"> <!-- 640x920 for retina display -->
-    <link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: portrait)" href="img/startup-iPad-portrait.png"> <!-- iPad Portrait 768x1004 -->
-    <link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: landscape)" href="img/startup-iPad-landscape.png"> <!-- iPad Landscape 1024x748 -->
 
         <!-- favicon, 16px -->
 	<link rel="shortcut icon" href="favicon.ico">    
@@ -86,7 +72,7 @@
         </script>
 </head>
 
-<body class="baseline">
+<body class="baseline code">
 
     <div class="topbar"></div>
 
@@ -143,25 +129,111 @@
     </header>
 	
 	<section class="clearfix">
-	<figure class="dl">
-	    <a href="#">&#11015;</a>
-	</figure>
-	
-	<h1 class="delta">Download the Primer Template!</h1>
-	<p class="epsilon">Fully-commented, fully-sourced, chock full of goodies!</p>
-	
-	<p class="promo copy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. </p>
+    	<figure class="dl">
+    	    <a href="#">&#11015;</a>
+    	</figure>
+    	
+    	<h1 class="delta">Download the Primer Template!</h1>
+    	<p class="epsilon">Fully-commented, fully-sourced, chock full of goodies!</p>
+    	
+    	<p class="promo copy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. </p>
 	</section>		
 	
 	<section id="breakdown">
-	<h1 class="gamma">Break it down now, y'all</h1>
-    <ol class="table-of-contents">
-        <li>index.html</li>
-        <li>styles.css</li>
-    </ol>
-     
-    <p>At the end of next semester, I hope to launch this project as a wholly-professional "product", out there in the wild to be used and improved upon. Towards this, I've already open-sourced the project, and I've already actually hosted this site on my <a href="http://github.com/zakkain">Github</a> account, which has a full record of commits showing how I built the site.</p>
+    	<h1 class="gamma">Break it down now, y'all</h1>
+    	<h2 class="delta" id="index-html"><a href="code.html#index-html">index.html</a></h2>
+    	
+        <ol class="table-of-contents">
+            <li>doctype</li>
+            <li>html tag classes</li>
+            <li><code>&lt;head&gt;</code>
+                <ol>
+                    <li>encoding</li>
+                    <li>IE rendering</li>
+                    <li>prefetching</li>
+                    <li>mobile viewports</li>
+                </ol>
+            </li>
+            <li><code>&lt;body&gt;</code></li>
+        </ol>
+         
+        <article> 
+            <h3 class="epsilon">1. Doctype</h3>
+            
+            <p>We're using the quickly-becoming-ubiquitous <a href="http://developers.whatwg.org/syntax.html#the-doctype">HTML5 doctype</a>, which is simple, clean and easy to remember. Not much to talk about here. It doesn't matter if you write it in uppercase or lowercase.</p>
+            <pre><code class="html">
+    &lt;!doctype html&gt;</code>
+            </pre>
+        </article>
+
+
+        <article> 
+            <h3 class="epsilon">2. IE &lt;html&gt; classes</h3>
+            
+            <p>This is a mashup of code from <a href="http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/">Paul Irish</a> and <a href="http://stuffandnonsense.co.uk/projects/320andup">320 And Up</a>. This code wraps the html tag in a series of conditional statements, each targeting a different version of Internet Explorer. Use to target different versions of IE with classes in your CSS, as well as hook into the very handy <code>.no-js</code> class. </p>
+            <pre><code class="html">
+    &lt;!--[if IEMobile 7]&gt;&lt;html class=&quot;no-js iem7 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+    &lt;!--[if lt IE 7]&gt;&lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot; lang=&quot;en&quot;&gt; &lt;![endif]--&gt;
+    &lt;!--[if (IE 7)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie7 lt-ie9 lt-ie8 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+    &lt;!--[if (IE 8)&amp;!(IEMobile)]&gt;&lt;html class=&quot;no-js ie8 lt-ie9 oldie&quot; lang=&quot;en&quot;&gt;&lt;![endif]--&gt;
+    &lt;!--[if (gte IE 8)|(gt IEMobile 7)|!(IEMobile)]&gt;&lt;!--&gt;&lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;&lt;!--&lt;![endif]--&gt;</code>
+            </pre>
+        </article>
+
+
+        <article> 
+            <h3 class="epsilon">3. <small>a)</small> Character-encoding declaration</h3>
+            
+            <p>The very first thing after you open your <code>&lt;head&gt;</code> tag should be the charset declaration. The whole tag has to be present within the first 1024 bytes of the page. Not declaring a charset isn't the end of the world, but it is best practice to do so, and you'll probably avoid a lot of strange errors by just declaring it and forgetting about it. </p>
+            <pre><code class="html">
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;</code>
+            </pre>
+        </article>
+
+
+       <article> 
+            <h3 class="epsilon">3. <small>b)</small> IE rendering options</h3>
+            
+            <p>These two lines address how your page renders in Internet Explorer. Courtesy of the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>, <q>the meta tag tells the IE rendering engine two things: first, it should use the latest, or edge, version of the IE rendering environment; second, if already installed, it should use the Chrome frame’s rendering engine. This meta tag ensures that anyone browsing your site in IE is treated to the best possible user experience that their browser can offer.</q> see below for more about Chrome Frame. <a href="http://html5boilerplate.com/docs/The-markup/#make-sure-the-latest-version-of-ie-is-used">Source</a>.</p>
+            <pre><code class="html">
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot;&gt;</code>
+            </pre>
+        </article>
+
+
+       <article> 
+            <h3 class="epsilon">3. <small>c)</small> prefetching</h3>
+            
+            <p>Another very useful snippet from the <a href="http://html5boilerplate.com">HTML5 Boilerplate</a>, which says it best in their documentation: <q>in short, DNS Prefetching is a method of informing the browser of domain names referenced on a site so that the client can resolve the DNS for those hosts, cache them, and when it comes time to use them, have a faster turn around on the request.</q>
+<a href="http://html5boilerplate.com/docs/DNS-Prefetching/">Source</a>.</p>
+            <pre><code class="html">
+    &lt;link rel=&quot;dns-prefetch&quot; href=&quot;//ajax.googleapis.com&quot;&gt;</code>
+            </pre>
+            <p>In this example, <code>index.html</code> has a prefetch instruction set up for Google CDN, where jQuery is called from in the <code>&lt;body&gt;</code>. This should speed up that HTTP request.</p>
+        </article>
+
+
+       <article> 
+            <h3 class="epsilon">3. <small>d)</small> Mobile viewport settings</h3>
+            
+            <p>Browser windows on mobile devices behave differently than in standard browsing environments. The first value here sets the viewport (browser window) width to be equal to the device width, which should eliminate horizontal scrollbars and activate any small-scale media queries in the CSS. The second value, <code>initial-scale=1.0</code>, prevents any default scaling done by mobile browsers and ensures that the page is initially viewed at "100%". Much, much more information in the sources: <a href="http://t.co/dKP3o1e">Source</a> <a href="http://learnthemobileweb.com/2009/07/mobile-meta-tags">Source</a>.</p>
+            <pre><code class="html">
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>
+            </pre>
+        </article>
+
+       <article> 
+            <h3 class="epsilon">3. <small>e)</small> Mobile viewport settings</h3>
+            
+            <p>Browser windows on mobile devices behave differently than in standard browsing environments. The first value here sets the viewport (browser window) width to be equal to the device width, which should eliminate horizontal scrollbars and activate any small-scale media queries in the CSS. The second value, <code>initial-scale=1.0</code>, prevents any default scaling done by mobile browsers and ensures that the page is initially viewed at "100%". Much, much more information in the sources: <a href="http://t.co/dKP3o1e">Source</a> <a href="http://learnthemobileweb.com/2009/07/mobile-meta-tags">Source</a>.</p>
+            <pre><code class="html">
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</code>
+            </pre>
+        </article>
+
 	</section>
+
 	
 	<footer>
 	<small>Like what you see? Hit me up on twitter <a href="http://twitter.com/zakkain">@zakkain</a> or <a href="mailto:info@zacharykain.com">email me</a>.</small>

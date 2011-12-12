@@ -210,6 +210,7 @@ h5, .epsilon {
 	
 	font-weight: 400;
 	font-style: italic;
+    text-transform: none;
 }
 
 h6, .zeta {
@@ -240,6 +241,12 @@ h1, h2, h3, h4, h5, h6 {
         text-decoration: none;
         color: #212121;
     }
+    a:visited {
+        color: #212121;
+    }
+    a:hover {
+        color: #06e;
+    }
 }
 
 
@@ -268,7 +275,7 @@ pre, code {
 pre { 
 /* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
     white-space: pre; /* ensures formatting is preserved */
-    overflow: hidden;
+    overflow: auto;
 /* uncomment these two lines to get rid of the horizontal scrollbar */ 
     /*  white-space: pre-wrap; /* wrap long lines instead of horizontal scrolling */
     /*  word-wrap: break-word; /* as above, for ie & older browsers */
@@ -288,7 +295,7 @@ pre {
 /* display the language with a class name on the <code> element: http://perishablepress.com/press/2009/11/09/perfect-pre-tags/ */
 /* pre code[class]:before { content: 'language: ' attr(class); color: hsl(204, 39%, 85%); } */
 
-p code {
+li code, p code {
     font-size: 0.875em;
 	-webkit-font-smoothing: subpixel-antialiased;
 }
@@ -349,7 +356,7 @@ small { font-size: 0.875em; }
 
 
 /*  e. quotes: http://html5doctor.com/blockquote-q-cite */
-q { quotes: '\201C' '\201D' '\2018' '\2019'; } /* use double and then single quotes for nested quotations */
+q { font-style: italic; quotes: '\201C' '\201D' '\2018' '\2019'; } /* use double and then single quotes for nested quotations */
 	q:before { content: open-quote; }
         q q:before{ content: open-quote; }
 	q:after { content: close-quote; } 
@@ -631,13 +638,48 @@ h1 + .epsilon, .promocopy, #breakdown p {
 }
 
 .table-of-contents {
-    display: block;
-    width: @4cols;
+    display: inline-block;
+    width: @3cols;
     margin: 0 (1* (@column + @gutter) / @em);
     padding: 1.5em 0;
+    text-indent: 1.5em;
     background: @light-grid;
-    text-indent: 3em;
+    vertical-align: top;
+    float: left;
 }
+
+.table-of-contents ol {
+    text-indent: 1.5em;
+}
+
+#breakdown {
+    padding-top: 1.5em;
+}
+
+#breakdown > h2 a:before {
+    content: "\00A7 \0020";
+}
+
+#breakdown h3 {
+    font-family: @serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#breakdown > article {
+    padding: 0 0 3em;
+    overflow: hidden;
+}
+
+#breakdown > article:nth-of-type(2) {
+    padding-top: 3em; /* pushes second article down one more line to space out the table of contents properly */
+}
+
+#breakdown > article > p:last-child {
+    padding-bottom: 0; /* if a paragraph is the last element in an article, take away the bottom space to preserve rhythm */ 
+}
+
+
 
 /*  Mobile layout 
 	240–479 px
@@ -685,6 +727,19 @@ h1 + .epsilon, .promocopy, #breakdown p {
         nav ul li:first-child, nav ul li:first-child a {
            .peachy;
         }
+        
+        .table-of-contents {
+            display: none;
+        }
+        
+        #index-html {
+            margin-bottom: 1em;
+        }
+        
+        #breakdown {
+            text-align: left;
+        }
+        
 }
 
 /*  Wide Mobile layout 
@@ -735,7 +790,7 @@ h1 + .epsilon, .promocopy, #breakdown p {
         header, section, footer {
             width: @8cols;
             margin-bottom: 1.5em;   
-    	   text-align: left;
+            text-align: left;
     	}
     	    	
     	.masthead {
@@ -756,7 +811,7 @@ h1 + .epsilon, .promocopy, #breakdown p {
             }
         }
         
-        .dl, .table-of-contents {
+        .dl {
             float: left;
         }
 }
@@ -816,6 +871,16 @@ h1 + .epsilon, .promocopy, #breakdown p {
         
         nav ul li a:before {
             content: "The ";
+        }
+        
+        .table-of-contents {
+            display: inline-block;
+            margin-left: 0;
+        }
+        
+        #breakdown > article {
+            margin-left: (1* (@column + @gutter) /@em);
+            max-width: @10cols;
         }
 
 }
@@ -904,6 +969,18 @@ h1 + .epsilon, .promocopy, #breakdown p {
             width: @14cols;
         }
 
+        .table-of-contents {
+            margin-left: (1* (@column + @gutter) / @em);
+        }
+        
+        #breakdown > article {
+            max-width: @14cols;
+        }
+        
+        pre {
+            margin-left: (1* (@column + @gutter) /@em);
+        }
+        
 }
 
 /* micro clearfix by nicolas gallagher: http://h5bp.com/q */
