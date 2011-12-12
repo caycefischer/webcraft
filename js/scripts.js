@@ -23,7 +23,7 @@ $(document).ready(function() {
     
     function gridder(evt) {
       $(".col").toggleClass("fixed");
-      $(this).toggleClass("fixed");
+//      $(this).toggleClass("fixed");
     }
 
 });

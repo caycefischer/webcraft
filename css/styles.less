@@ -142,14 +142,12 @@ td { vertical-align: top; }
 /*	2. site colors & branding
 ============================== */
 
-@light-grid: hsla(1, 0%, 60%, 0.65);
-
 @darkest: hsl(191, 17%, 12%);
 @txt-blue: hsl(204, 39%, 68%);
 
 @dark-grid: hsla(191, 17%, 2%, 0.75);
 @light-grid: fadeout(desaturate(@txt-blue, 5%), 50%);
-
+@grid: fadeout(darken(@dark-grid, 20%), 30%);
 
 
 /*	3. core typography
@@ -163,6 +161,7 @@ td { vertical-align: top; }
 @sans: calluna-sans-1, calluna-sans-2, Helmet, Freesans, sans-serif;
 @serif: adelle-1, adelle-2, Georgia, serif;
 
+
 body {	
     font-size: 1em; /* 16px */
     line-height: 1.5; /* 24px */ 
@@ -173,7 +172,7 @@ body {
 h1, .alpha {
     font-size: 4.5em; /* 72px */
     line-height: 1.3333333333334; /* 96px */
-    padding: 0.3333333333334em 0 0; /* 24px & 24px */
+    padding: 0.3333333333334em 0; /* 24px & 24px */
     /* padding-bottom: 0.6666666666667em; */
     font-weight: 900;
 }
@@ -198,8 +197,7 @@ h3, .gamma {
 h4, .delta {
 	font-size: 1.5em; /* 24px */
 	line-height: 1;	/* 48px */
-	padding: 0.125em 0 0.875em; /* 3px & 21px */
-	
+	padding: 1.125em 0 0.875em; /* 27px & 21px */
 	font-weight: 900;
 	text-transform: uppercase;
 }
@@ -214,11 +212,12 @@ h5, .epsilon {
 }
 
 h6, .zeta {
-	font-size: 1.25em; /* 20px */
-	line-height: 1.2; /* 24px */
-	padding: 0 0 1.2em; /* 24px */
+	font-size: 1em; /* 16px */
+	line-height: 1.5; /* 24px */
+	padding: 0 0 1.5em; /* 24px */
 	
 	font-weight: 600;
+	text-transform: uppercase;
 }
 
 p {
@@ -403,11 +402,6 @@ sub, sup {
            huge:   24+ columns  ->  1704px
 ------------------------------------------- */
 
-/*	Assuming your base font-size is 16:
-    body { font-size: (@font-size - 2)/16*1em; }	- zoom out by a factor of (16-2)/16 = 0.875
-	body { font-size: (@font-size + 2)/16*1em;  }	- zoom in by a factor of (16+2)/16 = 1.125  
-*/
-
 
 /*  a. set up variables for the grid layout */
 
@@ -416,7 +410,7 @@ sub, sup {
     @column: 48;        	/* column-width in pixels */
     @gutter: 24;	       /* gutter-width in pixels */
 
-     @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols;
+     @1cols: ( 1 * (@column + @gutter) - @gutter) / @em; @1col: @1cols; @module: @1cols;
      @2cols: ( 2 * (@column + @gutter) - @gutter) / @em;
      @3cols: ( 3 * (@column + @gutter) - @gutter) / @em;
      @4cols: ( 4 * (@column + @gutter) - @gutter) / @em;
@@ -434,7 +428,7 @@ sub, sup {
     @16cols: (16 * (@column + @gutter) - @gutter) / @em;
 
     #grid {
-    	height: (@1cols / 2);
+    	height: @module / 2;
     	position: relative;
     	overflow: hidden;
     }
@@ -443,18 +437,20 @@ sub, sup {
 		background: @light-grid;
 		height: 100%;
 		width: @1col;
+        opacity: 0.25;
 		position: absolute;
 		left: 50%; top: 0; /* centres all the columns in the middle*/
 		margin-left: 12/@em; /* pushes them half of the gutter to the right */
 	   &.fixed {
 	       height: 100%;
+            opacity: 0.75;
 	   }
 	}
         .fixed {
             position: fixed;
         	z-index: 1;
         }
- 	
+         	
     #grid .col { -webkit-transition: all 0.382s ease-out; }
 		
         .col2 {margin-left: (1*72+12)/@em;} /* adds more left margin to push right, equal to the column size plus the gutter (48 + 24 = 72) plus 12 to make up half of the middle gutter */
@@ -510,45 +506,41 @@ header, section {
     outline: 1px solid hsla(1, 0%, 80%, 0.75);
 }
 
-header {
-    letter-spacing: -4px;
-} 
-
 .topbar {
     height: (@1col / 2);
     background-color: @dark-grid;
     z-index: 5;
 }
 
-.kicker {
-    .epsilon;
-    display: inline-block;
-    max-width: (( 10 * (@column + @gutter) * 0.66666666667) - @gutter * 0.66666666667) / @em;
-    padding: 0 0 1em;   
-    margin-left: @1col;
-    margin-right: (( 1 * (@column + @gutter) * 0.66666666667) + @gutter * 0.66666666667) / @em;
+header {
+    letter-spacing: -4px;
+} 
 
+.masthead {
+    text-rendering: optimizeLegibility;
+}
+
+.kicker {
+    display: inline-block;
     letter-spacing: normal;
     text-align: justify;
     text-rendering: optimizeLegibility;
     text-indent: 0;
-    font-style: normal;
 }
 
 .kicker:before {
     content: "{"; 
     .alpha;
+    font-size: 5em;
     display: block;
     height: 0;
-    line-height: 1.18; /* 80px (off the baseline but optically correct */
     padding: 0 0 24px; /* 24px & 24px */
-    margin-left: -0.6666666666667em; /* this is correct and proportional to the grid system */        
-            /* margin-left: -0.56em; this lines up the character EXACTLY to the gutter line */
+    line-height: 1.03; /* not consistent to the baseline but optically correct */
+     margin-left: -0.6em;
 }
 
 nav {
     padding: 1.5em 0;
-    max-width: @9cols;
     margin: 0;
     display: inline-block;
 }
@@ -560,36 +552,77 @@ nav ul{
 }
 
 
-nav ul li, #gridder, #baseliner {
+nav ul li, .show {
     letter-spacing: normal;
     display:inline-block;
-    background: @darkest;
-    width: @3cols;
     margin-right: @gutter/@em;
+    text-align: center;
 }
 
-nav ul li:last-child, #baseliner {
+.show {
+    color: lighten(@txt-blue, 5%);
+    background: @darkest;
+    z-index: 3;
+    .zeta;
+    font-weight: 700;
+    padding: 1.5em 0 0;
+    width: @2cols;
+    vertical-align: top;
+    margin-top: 1.5em;
+    -webkit-transition: all 0.125s ease-out;
+    cursor: pointer;
+-webkit-border-top-left-radius: 24px;
+-webkit-border-top-right-radius: 24px;
+}
+
+.show:after {
+    content: "click me, bro";
+    -webkit-transition: all 0.125s ease-out;
+    display: block;
+    margin-top: 1.5em;
+    font-size: 0.875em;
+    line-height: 1.875;
+    color: darken(@darkest, 10%);
+    background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+}
+
+.show:hover, .show.fixed {
+    background: lighten(@darkest, 30%);
+    color: @darkest;
+
+    &:after {
+        color: @txt-blue;
+        background: @dark-grid;
+    }
+}
+
+nav ul li{
+    width: @3cols;
+}
+
+nav ul li:first-child {
+    margin-left: (1 * (@column + @gutter) / @em);
+}
+
+nav ul li:last-child, .show:last-of-type {
     margin-right: 0;    
 }
 
-#gridder, #baseliner {
-    z-index: 3;
-    padding: 3em 0 1.5em;
-    width: @2cols;
-    color: @txt-blue;
-    vertical-align: top;
-    margin-top: 1.5em;
+nav ul li:first-child {
+   width: @1col; 
 }
 
-/*
-#gridder {
-    margin-right: ( 1 * (@column + @gutter) + @gutter) / @em;
-}
-*/
-
-nav ul li a{
-  display:block;
+nav ul li a {
+    display:block;
+    padding: 0.75em 0;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-transition: all 0.125s ease-out;
     color: @txt-blue;
+    background: darken(@darkest, 10%);
+    
 }
 
 nav ul li:before {
@@ -610,7 +643,7 @@ nav ul li:before {
 */  @media screen and (min-width: 15em) 
 {	            
     	.col1, .col2, .col19, .col20 {
-    		background: @dark-grid;
+    		background: @grid;
     	}	
         
         header, section {
@@ -632,7 +665,7 @@ nav ul li:before {
 */  @media screen and (min-width: 30em) 
 {	    
     	.col3, .col21 {
-    	   background: @dark-grid;
+    	   background: @grid;
     	}
 
         header, section {
@@ -647,7 +680,7 @@ nav ul li:before {
         body { font-size: (@font-size - 2)/16*1em; }
         
     	.col4, .col22 {
-    	   background: @dark-grid;
+    	   background: @grid;
     	}
 
         header, section {
@@ -673,7 +706,7 @@ nav ul li:before {
 
     	.col5, .col6, 
 		.col23, .col24 {
-    	   background: @dark-grid;
+    	   background: @grid;
     	}
         
         header, section {
@@ -681,8 +714,33 @@ nav ul li:before {
     	}	
 
     	.masthead {
-            .alpha;
+            margin-left: 0;
     	}  	
+    	.kicker {
+            .epsilon;
+            font-style: normal;
+            margin-left: @1col;
+            display: block;
+            /*  max-width: (( 7 * (@column + @gutter) * 0.66666666667) - @gutter * 0.66666666667) / @em; */
+        	word-spacing: -1px;
+            text-align: left;
+    	}
+    	
+    	.wf-active .kicker {
+    	word-spacing: normal;
+    	text-align: justify;
+    	}
+    	
+    	nav ul li{
+    width: @2cols;
+}
+
+
+nav ul li:first-child {
+    margin-left: 0;
+}
+
+
 }
 
 /*  Extra-Wide layout 
@@ -691,13 +749,29 @@ nav ul li:before {
 {	
     	.col7, .col8, 
 		.col25, .col26 {
-    	   background: @dark-grid;
+    	   background: @grid;
     	}
   
         header, section {
             width: @16cols;
     	}
+    	
+    	nav ul li{
+    width: @3cols;
+}
 
+        .masthead {
+            .alpha;
+            margin-left: (( 1 * (@column + @gutter) * 0.22222222222)) / @em;
+     }
+        
+        .kicker {
+            display: inline-block;
+            max-width: (( 10 * (@column + @gutter) * 0.66666666667) - @gutter * 0.66666666667) / @em;
+            padding: 0 0 2em;   
+            margin-right: (( 1 * (@column + @gutter) * 0.66666666667) + @gutter * 0.66666666667) / @em;
+            font-style: normal;
+        }
 }
 
 /*
@@ -709,7 +783,7 @@ nav ul li:before {
 
     	.col9, .col10, .col11, .col12, .col13 
 		.col25, .col26, .col27, .col28, .col29 {
-    	   background: @dark-grid;
+    	   background: @grid;
     	}
     
         header, section, nav {
