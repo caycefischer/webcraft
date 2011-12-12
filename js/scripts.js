@@ -25,5 +25,5 @@ $(document).ready(function() {
       $(".col").toggleClass("fixed");
 //      $(this).toggleClass("fixed");
     }
-
+    
 });

@@ -144,6 +144,7 @@ td { vertical-align: top; }
 
 @darkest: hsl(191, 17%, 12%);
 @txt-blue: hsl(204, 39%, 68%);
+@peachy: hsl(10, 55%, 52%);
 
 @dark-grid: hsla(191, 17%, 2%, 0.75);
 @light-grid: fadeout(desaturate(@txt-blue, 5%), 50%);
@@ -233,12 +234,16 @@ h1 + p, h2 + p, pre + p {
     padding-top: 1.5em;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-rendering: optimizeLegibility;
+}
+
 
 /*	4. extended typography
 =========================== */
 
 /* a. links - must be in this order! */
-a { color: #00e; }
+a { color: @peachy; }
 a:visited { color: @light-grid; }
 a:hover { color: #06e; }
 a:active {color: #06e; }
@@ -494,30 +499,20 @@ sub, sup {
 html { 
     height: 100%;
 }
-    body {  
-        min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
-        background: hsl(1, 0%, 90%);
-    }		
 
-header, section {
+body {  
+    min-height: 100%; /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
+    background: hsl(1, 0%, 90%);
+}		
+
+header, section, footer {
 	margin: 0 auto;
-
     background: hsla(1, 0%, 96%, .51);
-    outline: 1px solid hsla(1, 0%, 80%, 0.75);
-}
-
-.topbar {
-    height: (@1col / 2);
-    background-color: @dark-grid;
-    z-index: 5;
+    outline: 1px solid hsla(1, 0%, 75%, 0.75);
 }
 
 header {
-    letter-spacing: -4px;
-} 
-
-.masthead {
-    text-rendering: optimizeLegibility;
+    letter-spacing: -4px; /* this is to fix the inline-block whitespace bug: http://www.lifeathighroad.com/web-development/css-web-development/inline-block-whitespace-workaround */
 }
 
 .kicker {
@@ -526,17 +521,6 @@ header {
     text-align: justify;
     text-rendering: optimizeLegibility;
     text-indent: 0;
-}
-
-.kicker:before {
-    content: "{"; 
-    .alpha;
-    font-size: 5em;
-    display: block;
-    height: 0;
-    padding: 0 0 24px; /* 24px & 24px */
-    line-height: 1.03; /* not consistent to the baseline but optically correct */
-     margin-left: -0.6em;
 }
 
 nav {
@@ -551,7 +535,6 @@ nav ul{
     text-indent: 0;
 }
 
-
 nav ul li, .show {
     letter-spacing: normal;
     display:inline-block;
@@ -559,57 +542,12 @@ nav ul li, .show {
     text-align: center;
 }
 
-.show {
-    color: lighten(@txt-blue, 5%);
-    background: @darkest;
-    z-index: 3;
-    .zeta;
-    font-weight: 700;
-    padding: 1.5em 0 0;
-    width: @2cols;
-    vertical-align: top;
-    margin-top: 1.5em;
-    -webkit-transition: all 0.125s ease-out;
-    cursor: pointer;
--webkit-border-top-left-radius: 24px;
--webkit-border-top-right-radius: 24px;
-}
-
-.show:after {
-    content: "click me, bro";
-    -webkit-transition: all 0.125s ease-out;
-    display: block;
-    margin-top: 1.5em;
-    font-size: 0.875em;
-    line-height: 1.875;
-    color: darken(@darkest, 10%);
-    background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
-}
-
-.show:hover, .show.fixed {
-    background: lighten(@darkest, 30%);
-    color: @darkest;
-
-    &:after {
-        color: @txt-blue;
-        background: @dark-grid;
-    }
-}
-
 nav ul li{
-    width: @3cols;
-}
-
-nav ul li:first-child {
-    margin-left: (1 * (@column + @gutter) / @em);
+    width: @2cols;
 }
 
 nav ul li:last-child, .show:last-of-type {
     margin-right: 0;    
-}
-
-nav ul li:first-child {
-   width: @1col; 
 }
 
 nav ul li a {
@@ -623,79 +561,145 @@ nav ul li a {
     color: @txt-blue;
     background: darken(@darkest, 10%);
     
+    &:hover {
+        color: darken(@darkest, 10%);
+        background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+        font-weight: 700;
+    }
 }
 
 nav ul li:before {
     content:"";
 }
 
+.peachy {
+    background: @peachy;
+    color: @darkest;
+    font-weight: 700;
 
-
-
-/*
-    p:before {
-        content: "\00B6 \0020";
+    &:hover {
+        color: darken(@darkest, 10%);
+        background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
     }
-*/
+}
 
 /*  Mobile layout 
 	240–479 px
 */  @media screen and (min-width: 15em) 
 {	            
-    	.col1, .col2, .col19, .col20 {
-    		background: @grid;
-    	}	
+
+    	.col1, .col2, .col19, .col20 { background: @grid; }	
         
-        header, section {
-    		width: @4cols;
-    		max-width: none;
-    		padding-left: 24/@em;
-    		padding-right: 24/@em;
-    		margin: 0 auto;
-    		text-align: center;
+        .topbar {
+            display: none;
+        }
+        
+        header, section, footer {
+            width: @4cols;
+            max-width: auto;
+            padding-left: 1.5em;
+            padding-right: 1.5em;
+            margin: 0 auto 1.5em;
+            text-align: center;
+            p {
+                text-align: left;
+            }            
     	}
     	
     	.masthead {
-            font-size: (@font-size * 1.5)/16*1em;
+            .zeta;
+            font-weight: 900;
+            letter-spacing: normal;
+            padding-bottom: 0;
+            padding-top: 1.5em;
     	}
+    	
+    	.show {
+    	   display: none;
+    	}
+    	    	
+        nav ul li {
+            margin-bottom: 1.5em;
+        }
+
+        nav ul li:nth-child(2n) {
+            margin-right: 0;
+        }
+
+        nav ul li:first-child, nav ul li:first-child a {
+           .peachy;
+        }
 }
 
 /*  Wide Mobile layout 
 	480 - 767px
 */  @media screen and (min-width: 30em) 
 {	    
-    	.col3, .col21 {
-    	   background: @grid;
-    	}
+    	.col3, .col21 { background: @grid; }
 
-        header, section {
+        header, section, footer {
             width: @6cols;
+            p {
+                text-align: left;
+                word-spacing: normal;
+            }
     	}	  	
+        
+        .masthead {
+            font-size: (@font-size * 1.5)/16*1em;
+            text-transform: none;
+            line-height: 1; /* 24px */
+            padding-top: 1em;
+        }
+        
+        .kicker {
+        	word-spacing: -1px;
+        }
+        
+    	nav ul li{ 
+            width: @3cols;
+        }   
 }
 
 /*  Tablet layout 
 	600 - 911px
 */  @media screen and (min-width: 37.5em) 
-{	
-        body { font-size: (@font-size - 2)/16*1em; }
-        
+{	        
     	.col4, .col22 {
     	   background: @grid;
     	}
 
-        header, section {
+        .topbar {
+            display: block;
+            height: (@1col / 2);
+            background-color: @dark-grid;
+            z-index: 5;
+        }
+
+        header, section, footer {
             width: @8cols;
             margin-bottom: 1.5em;   
     	   text-align: left;
     	}
     	    	
     	.masthead {
-            .beta;
+            .gamma;
+            font-style: normal;
+            font-weight: 900;
     	}
     	
     	.kicker {
-
+        	.epsilon;
+        	font-style: normal;
+        	margin-top: 1em;
     	}
+    	
+    	nav ul li{
+            width: @2cols;
+            &:nth-child(2) {
+                margin-right: @gutter/@em;
+            }
+        }
 }
 
 /*  Desktop layout 
@@ -704,42 +708,53 @@ nav ul li:before {
 {	
         body { font-size: (@font-size)/16*1em; }
 
-    	.col5, .col6, 
-		.col23, .col24 {
-    	   background: @grid;
-    	}
+    	.col5, .col6, .col23, .col24 { background: @grid; }
         
-        header, section {
+        header, section, footer {
             width: @12cols;
     	}	
 
     	.masthead {
+    	   .beta;
+    	   font-weight: 900;
             margin-left: 0;
+            letter-spacing: 0.5px;
+            text-indent: (( 1 * (@column + @gutter) * 0.2962962963)) / @em;
     	}  	
+    	
     	.kicker {
-            .epsilon;
-            font-style: normal;
             margin-left: @1col;
             display: block;
             /*  max-width: (( 7 * (@column + @gutter) * 0.66666666667) - @gutter * 0.66666666667) / @em; */
-        	word-spacing: -1px;
             text-align: left;
-    	}
-    	
-    	.wf-active .kicker {
+            margin-top: 0;
+    	}    	
+            .kicker:before {
+                content: "{"; 
+                .alpha;
+                font-size: 5em;
+                display: block;
+                height: 0;
+                padding: 0 0 24px;
+                line-height: 1.03; /* not consistent to the baseline but optically correct */
+                margin-left: -0.6em;
+            }
+
+    	.wf-active .kicker { /* the fallback sans-serif font is bigger than my web font so I kick down the word-spacing to fit, then reset it here */
     	word-spacing: normal;
     	text-align: justify;
     	}
     	
     	nav ul li{
-    width: @2cols;
-}
-
-
-nav ul li:first-child {
-    margin-left: 0;
-}
-
+            width: @3cols;
+            a {
+                letter-spacing: 1px;
+            }
+        }   
+        
+        nav ul li a:before {
+            content: "The ";
+        }
 
 }
 
@@ -747,22 +762,20 @@ nav ul li:first-child {
 	1272 - 1888px
 */  @media screen and (min-width: 79.5em) 
 {	
-    	.col7, .col8, 
-		.col25, .col26 {
-    	   background: @grid;
-    	}
+    	.col7, .col8, .col25, .col26 { background: @grid; }
   
-        header, section {
+        header, section, footer {
             width: @16cols;
     	}
     	
     	nav ul li{
-    width: @3cols;
+    width: @4cols;
 }
 
         .masthead {
             .alpha;
-            margin-left: (( 1 * (@column + @gutter) * 0.22222222222)) / @em;
+            text-indent: (( 1 * (@column + @gutter) * 0.22222222222)) / @em;
+            letter-spacing: normal;
      }
         
         .kicker {
@@ -772,34 +785,54 @@ nav ul li:first-child {
             margin-right: (( 1 * (@column + @gutter) * 0.66666666667) + @gutter * 0.66666666667) / @em;
             font-style: normal;
         }
-}
-
-/*
-	Huge layout 
-	1888 - 2520px
-*/  @media screen and (min-width: 118em) 
-{	
-        body { font-size: (@font-size + 2)/16*1em; }
-
-    	.col9, .col10, .col11, .col12, .col13 
-		.col25, .col26, .col27, .col28, .col29 {
-    	   background: @grid;
-    	}
-    
-        header, section, nav {
-    		width: @13cols+@13cols+(24/@em);
-    		margin-left: auto;
-    		margin-right: auto;
-    	}	
-    	
-}
-
-/*  high-dpi devices yo */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), 
-only screen and (-o-min-device-pixel-ratio: 3/2), 
-only screen and (min-device-pixel-ratio: 1.5) 
-{
-
+        
+        nav ul li:first-child {
+            width: @2cols; 
+            margin-left: (1 * (@column) / @em);
+            margin-right: (1* (@column + @gutter) / @em);
+            padding-left: @gutter /@em;
+            padding-right: @gutter /@em;
+        }
+                        
+        .show {
+            display: inline-block;
+            color: lighten(@txt-blue, 5%);
+            background: @darkest;
+            z-index: 3;
+            .zeta;
+            font-weight: 700;
+            padding: 1.5em 0 0;
+            width: @2cols;
+            vertical-align: top;
+            margin-top: 1.5em;
+            -webkit-transition: all 0.125s ease-out;
+            cursor: pointer;
+        -webkit-border-top-left-radius: 24px;
+        -webkit-border-top-right-radius: 24px;
+        }
+        
+        .show:after {
+            content: "click me, bro";
+            -webkit-transition: all 0.125s ease-out;
+            display: block;
+            margin-top: 1.5em;
+            font-size: 0.875em;
+            line-height: 1.875;
+            color: darken(@darkest, 10%);
+            background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+        }
+        
+        .show:hover, .show.fixed {
+            background: lighten(@darkest, 30%);
+            color: @darkest;
+        
+            &:after {
+                color: @txt-blue;
+                background: @dark-grid;
+            }
+        }
+             
+        
 }
 
 
