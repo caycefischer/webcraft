@@ -124,7 +124,7 @@
                  <li><a href="index.html">Home</a></li>
                  <li><a href="code.html#breakdown">Breakdown</a></li>
                  <li><a href="basics.html">Basics</a></li>
-                 <li><a href="sources.html">Sources</a></li>                 
+                 <li><a href="http://zacharykain.com/dart449/midterm">Midterm</a></li>                 
              </ul>
          </nav>         
         <h1 class="masthead">WPP: The Code</h1>         
@@ -138,7 +138,7 @@
     	<h1 class="delta">Download the Primer Template!</h1>
     	<p class="epsilon">Fully-commented, fully-sourced, chock full of goodies!</p>
     	
-    	<p class="promo copy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. <i>Quick tip on a feature not yet fully implemented: clicking on a box of sample code will switch it from horizontal-scroll mode to word-wrap mode, so that's neat.</i></p>
+    	<p class="promocopy">The <strong>Primer Template</strong> is the end result of very thorough research into the latest web technologies, best-practices, conventional wisdom and knowledge from throughout the web design &amp; development community. It is the template I start from when beginning a new project, and it gets updated as new techniques and conventions emerge. For the full documentation and analysis, see below. <i>Quick tip on a feature not yet fully implemented: clicking on a box of sample code will switch it from horizontal-scroll mode to word-wrap mode, so that's neat.</i></p>
 	</section>		
 	
 	<section id="breakdown">
@@ -377,10 +377,10 @@
 
 <!-- END Breakdown of index.html -->
 
-    	<h2 class="delta" id="index-html" title="index.html"><a href="code.html#index-html">styles.css</a></h2>
+    	<h2 class="delta" id="styles-css" title="styles.css"><a href="code.html#styles-css">styles.css</a></h2>
     	
         <ol class="table-of-contents">
-            <li><a href="#doc-1">doctype</a></li>
+            <li><a href="#doc-1">a simple reset</a></li>
             <li><a href="#doc-2">html tag classes</a></li>
             <li><a href="#doc-3a">&lt;head&gt;</a>
                 <ol>
@@ -408,11 +408,19 @@
          
          
         <article> 
-            <h3 id="doc-1" title="Doctype" class="epsilon">1. Doctype</h3>
+            <h3 id="doc-1" title="Doctype" class="epsilon">1. A simple reset</h3>
             
-            <p>We're using the quickly-becoming-ubiquitous <a href="http://developers.whatwg.org/syntax.html#the-doctype">HTML5 doctype</a>, which is simple, clean and easy to remember. Not much to talk about here. It doesn't matter if you write it in uppercase or lowercase.</p>
-            <pre class="prettyprint"><code class="html">
-&lt;!doctype html&gt;</code>
+            <p>Rather than jumping right into normalizing rules, I do set up a limited reset of common elements. Once that's done, rules in subsequent sections of this file are drawn from both the <a href="http://h5bp.com/css">HTML5 Boilerplate CSS</a> and  Nicholas Gallagher's <a href="http://necolas.github.com/normalize.css">normalize.css</a>  </p>
+            <pre class="prettyprint"><code class="css">
+html, body, figure, form, fieldset, 
+button, input, select, textarea, 
+h1, h2, h3, h4, h5, h6, p, img, pre, code { 
+    padding: 0; 
+    margin: 0; 
+    border: 0; 
+    vertical-align: baseline; 
+    line-height: normal; 
+}</code>
             </pre>
         </article>
 
