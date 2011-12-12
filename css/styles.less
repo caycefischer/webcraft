@@ -161,7 +161,7 @@ td { vertical-align: top; }
 
 @sans: calluna-sans-1, calluna-sans-2, Helmet, Freesans, sans-serif;
 @serif: adelle-1, adelle-2, Georgia, serif;
-
+@mono: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace, sans-serif;
 
 body {	
     font-size: 1em; /* 16px */
@@ -236,6 +236,10 @@ h1 + p, h2 + p, pre + p {
 
 h1, h2, h3, h4, h5, h6 {
     text-rendering: optimizeLegibility;
+    a {
+        text-decoration: none;
+        color: #212121;
+    }
 }
 
 
@@ -252,7 +256,6 @@ a:hover, a:active { outline: 0; } /* improve readability when focused and hovere
 a:focus { outline: thin dotted; }
 
 a:link {-webkit-tap-highlight-color: #FF0000; } /* j.mp/webkit-tap-highlight-color */
-
 
 /*  b. fixed-width & preformatted text */
 pre, code {
@@ -524,9 +527,13 @@ header {
 }
 
 nav {
-    padding: 1.5em 0;
+    padding: 1.5em 0 0;
     margin: 0;
     display: inline-block;
+}
+
+.home nav {
+    padding-bottom: 1.5em;
 }
 
 nav ul{
@@ -557,7 +564,6 @@ nav ul li a {
     font-style: normal;
     font-weight: 600;
     text-decoration: none;
-    -webkit-transition: all 0.125s ease-out;
     color: @txt-blue;
     background: darken(@darkest, 10%);
     
@@ -566,6 +572,10 @@ nav ul li a {
         background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
         font-weight: 700;
     }
+}
+
+nav ul li a, .dl a {
+    -webkit-transition: all 0.125s ease-out;
 }
 
 nav ul li:before {
@@ -582,6 +592,37 @@ nav ul li:before {
         background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
     }
 }
+
+.dl {
+    display: inline-block;
+    width: @3cols;
+    margin-top: 1.5em;
+    text-align: center;
+    color: darken(@darkest, 10%);
+    background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+
+}
+.dl:after {
+    .zeta;
+    text-transform: none;
+    font-weight: 900;
+    content: "12/12/11 - version 0.6";
+}
+.dl a {
+    .alpha;
+    background: @darkest;
+    color: @txt-blue;
+    text-align: center;
+    padding: 0.6666666666667em 0 0.3333333333334em;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+        color: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
+        background: darken(@darkest, 10%);
+    }
+}
+
 
 /*  Mobile layout 
 	240–479 px
@@ -719,6 +760,9 @@ nav ul li:before {
     	   font-weight: 900;
             margin-left: 0;
             letter-spacing: 0.5px;
+        }
+        
+        .home .masthead {
             text-indent: (( 1 * (@column + @gutter) * 0.2962962963)) / @em;
     	}  	
     	
@@ -774,9 +818,11 @@ nav ul li:before {
 
         .masthead {
             .alpha;
-            text-indent: (( 1 * (@column + @gutter) * 0.22222222222)) / @em;
             letter-spacing: normal;
      }
+        .home .masthead {
+            text-indent: (( 1 * (@column + @gutter) * 0.22222222222)) / @em;
+        }
         
         .kicker {
             display: inline-block;
