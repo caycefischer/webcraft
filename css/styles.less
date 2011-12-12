@@ -189,7 +189,7 @@ h2, .beta {
 h3, .gamma {
 	font-size: 2.25em;	/* 36px */
 	line-height: 1.33333333333; /* 48px */
-	padding: 0.3333333333334em 0; /* 12px & 12px */
+	padding: 0.3333333333334em 0 1em; /* 12px & 36px */
 	
 	font-weight: 900;
     text-transform: uppercase;
@@ -603,7 +603,6 @@ nav ul li:before {
     color: darken(@darkest, 10%);
     background: spin(lighten(saturate(@darkest, 30%), 40%), 20%);
     vertical-align: top;
-    float: left;
 
 }
 .dl:after {
@@ -627,8 +626,17 @@ nav ul li:before {
     }
 }
 
-h1 + .epsilon, .epsilon + p {
+h1 + .epsilon, .promocopy, #breakdown p {
     text-indent: 0;
+}
+
+.table-of-contents {
+    display: block;
+    width: @4cols;
+    margin: 0 (1* (@column + @gutter) / @em);
+    padding: 1.5em 0;
+    background: @light-grid;
+    text-indent: 3em;
 }
 
 /*  Mobile layout 
@@ -656,7 +664,7 @@ h1 + .epsilon, .epsilon + p {
     	
     	.masthead {
             .zeta;
-            font-weight: 900;
+            font-weight: 700;
             letter-spacing: normal;
             padding-bottom: 0;
             padding-top: 1.5em;
@@ -732,8 +740,7 @@ h1 + .epsilon, .epsilon + p {
     	    	
     	.masthead {
             .gamma;
-            font-style: normal;
-            font-weight: 900;
+            text-transform: none;
     	}
     	
     	.kicker {
@@ -747,6 +754,10 @@ h1 + .epsilon, .epsilon + p {
             &:nth-child(2) {
                 margin-right: @gutter/@em;
             }
+        }
+        
+        .dl, .table-of-contents {
+            float: left;
         }
 }
 
@@ -888,6 +899,11 @@ h1 + .epsilon, .epsilon + p {
         .dl {
             margin-right: ((1* (@column + @gutter) + @gutter) / @em);
         }             
+
+        .promocopy {
+            width: @14cols;
+        }
+
 }
 
 /* micro clearfix by nicolas gallagher: http://h5bp.com/q */
