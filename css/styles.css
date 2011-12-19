@@ -1,0 +1,1278 @@
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+/*
+ *  The Web Professional's Primer v0.5
+ *  http://zacharykain.com/primer
+ *  
+ *  created by zachary kain (@zakkain)
+ *  info@zacharykain.com
+ *
+ *  licensed under creative commons: http://creativecommons.org/publicdomain/zero/1.0
+
+
+======================
+	TABLE OF CONTENTS
+======================
+    
+    1. normalization: http://h5bp.com/css & http://necolas.github.com/normalize.css
+        a. simple reset
+        b. html5 display definitions
+        c. page rendering & behaviour
+        d. text-selection colors
+        e. embedded media
+        f. forms & tables
+        			
+	2. site colors & branding
+	
+	3. core typography
+	
+	4. extended typography
+        a. links
+        b. fixed-width & preformatted text
+        c. lists
+        d. semantic stress elements
+        e. quotes
+        f. abbreviations
+		g. subscript & superscript
+			
+	5. grid & structure
+	   a. set up variables for the grid layout
+	   b. styles shared across all sizes	
+	
+	5. Header	
+	6. Navigation
+	7. Sidebar
+	8. Footer
+*/
+/*	1. basic normalization
+=========================== */
+/* a. simple reset */
+html,
+body,
+figure,
+form,
+fieldset,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+pre,
+code {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  vertical-align: baseline;
+  line-height: normal;
+}
+/*  b. html5 display definitions */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*  c. page rendering & behavior */
+html {
+  background: transparent;
+  /* fixes graphical glitches when using -webkit-scrollbar */
+
+  overflow-y: scroll;
+  /* always show vertical scrollbar to avoid a "jump" when resizing */
+
+  -webkit-overflow-scrolling: touch;
+  /* iOS natural touch scrolling */
+
+  -webkit-font-smoothing: antialiased;
+  /* no jaggies: http://maxvoltar.com/archive/-webkit-font-smoothing */
+  -webkit-text-size-adjust: 100%;
+  /* prevent iOS text resizing on device orientation change: h5bp.com/g */
+
+  -ms-text-size-adjust: 100%;
+  /*     	text-rendering: optimizeLegibility; /* wacky font voodoo: http://www.aestheticallyloyal.com/public/optimize-legibility */
+
+  /* NOTE: causes font rendering glitches on Android with escaped unicode characters: http://bricss.net/post/6984374395 */
+
+}
+.baseline {
+  background-image: url(img/gridbg.png);
+}
+/*gets added to the body element with javascript */
+/*  d. custom text-selection colors, remove drop shadow: http://h5bp.com/i */
+::-moz-selection {
+  background: #4095bf;
+  color: #fff;
+  text-shadow: none;
+}
+::selection {
+  background: #4095bf;
+  color: #fff;
+  text-shadow: none;
+}
+nav ul, nav ol {
+  list-style: none;
+  list-style-image: none;
+}
+/*  e. embedded media */
+img, object, embed {
+  max-width: 100%;
+}
+/* responsive images yo */
+img {
+  -ms-interpolation-mode: bicubic;
+  /* improve scaling images in ie: h5bp.com/d */
+
+  vertical-align: middle;
+  /* h5bp.com/e */
+
+  border: 0;
+  height: auto;
+  /* can help with responsive images, but be wary of unexpected behaviour */
+
+}
+/*  f. forms */button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+/* enable hand cursor and custom form styling in iOS */button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+/* consistent box sizing and appearance */
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+input[type="checkbox"], input[type="radio"] {
+  box-sizing: border-box;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/* remove button inner padding and border in firefox: h5bp.com/l */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+/* fix vertical scroll/resize issues in ie */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+/* colors for form validity */
+input:valid, textarea:valid {
+  background-color: #00FF00;
+}
+input:invalid, textarea:invalid {
+  background-color: #f0dddd;
+}
+/*  table alignment & spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  vertical-align: top;
+}
+/*	2. site colors & branding
+============================== */
+/*	3. core typography
+=========================== */
+/*  body type: 16pt over 24 lead
+    modular scale: 16px @ 1:1.5, 72px @ 1:1.5
+        http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0
+    */
+body {
+  font-size: 1em;
+  /* 16px */
+
+  line-height: 1.5;
+  /* 24px */
+  font-family: calluna-sans- 1, calluna-sans- 2, Helmet, Freesans, sans-serif;
+  /* linux- and windows-friendly default font stack: http://mky.be/fontstack */
+
+  color: #212121;
+}
+h1, .alpha {
+  font-size: 4.5em;
+  /* 72px */
+
+  line-height: 1.3333333333334;
+  /* 96px */
+
+  padding: 0.3333333333334em 0;
+  /* 24px & 24px */
+
+  /* padding-bottom: 0.6666666666667em; */
+
+  font-weight: 900;
+}
+h2, .beta {
+  font-size: 3.375em;
+  /* 54px */
+
+  line-height: 1.33333333333;
+  /* 72px */
+
+  padding: 0.3333333333334em 0 0.1111111111112em;
+  /* 18px & 6px */
+
+  font-weight: 700;
+}
+h3, .gamma {
+  font-size: 2.25em;
+  /* 36px */
+
+  line-height: 1.33333333333;
+  /* 48px */
+
+  padding: 0.3333333333334em 0 1em;
+  /* 12px & 36px */
+
+  font-weight: 900;
+  text-transform: uppercase;
+}
+h4, .delta {
+  font-size: 1.5em;
+  /* 24px */
+
+  line-height: 1;
+  /* 48px */
+
+  padding: 1.125em 0 0.875em;
+  /* 27px & 21px */
+
+  font-weight: 900;
+  text-transform: uppercase;
+}
+h5, .epsilon {
+  font-size: 1.5em;
+  /* 24px */
+
+  line-height: 1;
+  /* 48px */
+
+  padding: 0.125em 0 0.875em;
+  /* 3px & 21px */
+
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+}
+h6, .zeta {
+  font-size: 1em;
+  /* 16px */
+
+  line-height: 1.5;
+  /* 24px */
+
+  padding: 0 0 1.5em;
+  /* 24px */
+
+  font-weight: 600;
+  text-transform: uppercase;
+}
+p {
+  font-size: 1em;
+  /* 16px */
+
+  line-height: 1.5;
+  /* 24px */
+
+  padding: 0 0 1.5em;
+  font-weight: normal;
+  text-indent: 1.5em;
+}
+h1 + p, h2 + p, pre + p {
+  padding-top: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-rendering: optimizeLegibility;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  text-decoration: none;
+  color: #212121;
+}
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+  color: #212121;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+  color: #06e;
+}
+/*	4. extended typography
+=========================== */
+/* a. links - must be in this order! */
+a {
+  color: #c85841;
+}
+a:visited {
+  color: rgba(146, 179, 201, 0.5);
+}
+a:hover {
+  color: #06e;
+}
+a:active {
+  color: #06e;
+}
+a:hover, a:active {
+  outline: 0;
+}
+/* improve readability when focused and hovered in all browsers: h5bp.com/h */
+a:focus {
+  outline: thin dotted;
+}
+a:link {
+  -webkit-tap-highlight-color: #FF0000;
+}
+/* j.mp/webkit-tap-highlight-color */
+/*  b. fixed-width & preformatted text */
+pre, code {
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace, sans-serif;
+  /* redeclare monospace font stack: h5bp.com/j */
+
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+pre {
+  /* improve readability across all browsers: http://html5boilerplate.com/docs/The-style/#pre- */
+
+  white-space: pre;
+  /* ensures formatting is preserved */
+
+  overflow: auto;
+  position: relative;
+  font-size: 0.75em;
+  /* 12px */
+
+  line-height: 2;
+  /* 24px */
+
+  padding: 0 2em;
+  background: #192223;
+  /* fallback for browsers that don't support hsl */
+
+  background: #192224;
+  color: #8eb4ce;
+  color: #8eb4cd;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+pre.wrapping {
+  /* these two lines get rid of the horizontal scrollbar */
+  white-space: pre-wrap;
+  /* wrap long lines instead of horizontal scrolling */
+
+  word-wrap: break-word;
+  /* as above, for ie & older browsers */
+
+}
+/* display the language with a class name on the <code> element: http://perishablepress.com/press/2009/11/09/perfect-pre-tags/ */
+/* pre code[class]:before { content: 'language: ' attr(class); color: hsl(204, 39%, 85%); } */
+li code, p code {
+  font-size: 0.875em;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+/*  c. lists */
+ul, ol {
+  margin: 0 0 1.5em;
+  /* top and bottom margin equals the base line-height */
+
+  padding: 0;
+  text-indent: -1.25em;
+  /* push content on multiple lines to the same left margin */
+
+  list-style: none;
+  /* get rid of default bullets */
+
+}
+li ul,
+li ol,
+ul ul,
+ol ol {
+  margin: 0 0 0 1.5em;
+  /* successively indent nested lists */
+
+}
+ol {
+  counter-reset: li;
+  /* define custom counter for numbered lists */
+
+}
+/* generate the bullets, accommodating for 3 levels of nesting */
+ul li:before {
+  content: "\25C9 \0020";
+}
+ul li ul li:before {
+  content: "\25CE \0020";
+}
+ul li li ul li:before {
+  content: "\25C9 \0020";
+}
+ol li:before {
+  content: counter(li, decimal) ". \00a0";
+  /* Use the counter as content */
+
+  counter-increment: li;
+  /* Increment the counter by 1 */
+
+  font-weight: 700;
+}
+ol li li:before {
+  content: counter(li, lower-alpha) ". \00a0";
+  counter-increment: li;
+}
+ol li li li:before {
+  content: counter(li, lower-roman) ". \00a0";
+  counter-increment: li;
+}
+dl {
+  margin: 0 0 1.5em;
+  /* top and bottom margin equals the base line-height */
+
+  padding: 0;
+  text-indent: -1.25em;
+  /* push content on multiple lines to the same left margin */
+
+}
+dt {
+  font-weight: 700;
+}
+dt:before {
+  content: "\2192 \0020";
+}
+dd {
+  margin-left: 1.5em;
+  text-indent: 0;
+}
+/*  d. semantic presentational elements: http://html5doctor.com/i-b-em-strong-element */
+i {
+  font-style: italic;
+}
+/* alternate voice or mood, or otherwise offset from the normal prose; typically italic */
+em {
+  font-style: italic;
+  font-weight: 700;
+}
+/* emphatic and/or linguistic stress */
+b {
+  font-weight: 700;
+}
+/* offset from surrounding text with no extra importance; typically bold */
+strong {
+  font-weight: 900;
+}
+/* strong importance */
+mark {
+  background: #8eb4cd;
+  font-style: normal;
+  font-weight: 400;
+  padding: 0 0.25em;
+}
+/* highlighted text */
+h1 mark {
+  font-weight: 900;
+  background: #192224;
+  color: #8eb4cd;
+  padding: 1em 0.25em 1.6666666667em;
+}
+small {
+  font-size: 0.875em;
+}
+/*  e. quotes: http://html5doctor.com/blockquote-q-cite */
+q {
+  font-style: italic;
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+/* use double and then single quotes for nested quotations */
+q:before {
+  content: open-quote;
+}
+q q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
+q q:after {
+  content: close-quote;
+}
+blockquote {
+  quotes: '\201C' '\201D';
+  margin: 0 4.5em;
+  padding: 0 0 1.5em 0;
+}
+blockquote:before {
+  content: open-quote;
+}
+blockquote:after {
+  content: no-close-quote;
+}
+blockquote:before {
+  content: "“";
+  display: block;
+  height: 0;
+  margin-left: -0.8888888889em;
+  font-size: 3.375em;
+  font-weight: 700;
+  font-style: italic;
+}
+/*  f. abbreviations */
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+/*  g. superscript and subscript: h5bp.com/k */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/*  5. grid & structure
+========================= */
+/*	grid built on 'frameless' by Joni Korpi: http://framelessgrid.com
+	------------------------------------------------------------------
+    gutters: 24px
+    margins: 48px
+    columns: 48px
+------------------
+    pixel widths: (excluding outer margins)
+    ---------------------------------------
+         mobile:     4 columns  ->   264px 
+    wide mobile:     6 columns  ->   408px
+         tablet:     8 columns  ->   552px
+        desktop:    12 columns  ->   936px
+     extra-wide:    16 columns  ->  1128px
+           huge:   24+ columns  ->  1704px
+------------------------------------------- */
+/*  a. set up variables for the grid layout */
+/* base font-size in pixels */
+/* shorthand for outputting ems, e.g. "12/@em" */
+/* column-width in pixels */
+/* gutter-width in pixels */
+#grid {
+  height: 1.5em;
+  position: relative;
+  overflow: hidden;
+}
+.col {
+  background: rgba(146, 179, 201, 0.5);
+  height: 100%;
+  width: 3em;
+  opacity: 0.25;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  /* centres all the columns in the middle*/
+
+  margin-left: 0.75em;
+  /* pushes them half of the gutter to the right */
+
+}
+.col.fixed {
+  height: 100%;
+  opacity: 0.75;
+}
+.fixed {
+  position: fixed;
+  z-index: 1;
+}
+#grid .col {
+  -webkit-transition: all 0.382s ease-out;
+}
+.col2 {
+  margin-left: 5.25em;
+}
+/* adds more left margin to push right, equal to the column size plus the gutter (48 + 24 = 72) plus 12 to make up half of the middle gutter */
+.col3 {
+  margin-left: 9.75em;
+}
+.col4 {
+  margin-left: 14.25em;
+}
+.col5 {
+  margin-left: 18.75em;
+}
+.col6 {
+  margin-left: 23.25em;
+}
+.col7 {
+  margin-left: 27.75em;
+}
+.col8 {
+  margin-left: 32.25em;
+}
+.col9 {
+  margin-left: 36.75em;
+}
+.col10 {
+  margin-left: 41.25em;
+}
+.col11 {
+  margin-left: 45.75em;
+}
+.col12 {
+  margin-left: 50.25em;
+}
+.col13 {
+  margin-left: 54.75em;
+}
+.col14 {
+  margin-left: 59.25em;
+}
+.col15 {
+  margin-left: 63.75em;
+}
+.col16 {
+  margin-left: 68.25em;
+}
+.col17 {
+  margin-left: 72.75em;
+}
+.col18 {
+  margin-left: 77.25em;
+}
+.col19 {
+  margin-left: -3.75em;
+}
+/* adds a NEGATIVE left margin to push left, equal to the column size plus the gutter (48 + 24 = 72) plus 12 to make up half of the middle gutter */
+.col20 {
+  margin-left: -8.25em;
+}
+.col21 {
+  margin-left: -12.75em;
+}
+.col22 {
+  margin-left: -17.25em;
+}
+.col23 {
+  margin-left: -21.75em;
+}
+.col24 {
+  margin-left: -26.25em;
+}
+.col25 {
+  margin-left: -30.75em;
+}
+.col26 {
+  margin-left: -35.25em;
+}
+.col27 {
+  margin-left: -39.75em;
+}
+.col28 {
+  margin-left: -44.25em;
+}
+.col29 {
+  margin-left: -48.75em;
+}
+.col30 {
+  margin-left: -53.25em;
+}
+.col31 {
+  margin-left: -57.75em;
+}
+.col32 {
+  margin-left: -62.25em;
+}
+.col33 {
+  margin-left: -66.75em;
+}
+.col34 {
+  margin-left: -71.25em;
+}
+.col35 {
+  margin-left: -75.75em;
+}
+.col36 {
+  margin-left: -80.25em;
+}
+/*  b. styles shared across all sizes */html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  /* get rid of #wrap divs forever: http://camendesign.com/code/developpeurs_sans_frontieres */
+
+  background: #e6e6e6;
+}
+header, section, footer {
+  margin: 0 auto;
+  background: rgba(245, 245, 245, 0.51);
+  outline: 1px solid rgba(191, 191, 191, 0.75);
+}
+header {
+  letter-spacing: -4px;
+  /* this is to fix the inline-block whitespace bug: http://www.lifeathighroad.com/web-development/css-web-development/inline-block-whitespace-workaround */
+
+}
+.kicker {
+  display: inline-block;
+  letter-spacing: normal;
+  text-align: justify;
+  text-rendering: optimizeLegibility;
+  text-indent: 0;
+}
+nav {
+  padding: 1.5em 0 0;
+  margin: 0;
+  display: inline-block;
+}
+.home nav {
+  padding-bottom: 1.5em;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+nav ul li, .show {
+  letter-spacing: normal;
+  display: inline-block;
+  margin-right: 1.5em;
+  text-align: center;
+}
+nav ul li {
+  width: 7.5em;
+}
+nav ul li:last-child, .show:last-of-type {
+  margin-right: 0;
+}
+nav ul li a {
+  display: block;
+  padding: 0.75em 0;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none;
+  color: #8eb4cd;
+  background: #040606;
+}
+nav ul li a:hover {
+  color: #040606;
+  background: #4b83be;
+  font-weight: 700;
+}
+nav ul li a, .dl a {
+  -webkit-transition: all 0.125s ease-out;
+}
+nav ul li:before {
+  content: "";
+}
+.peachy {
+  background: #c85841;
+  color: #192224;
+  font-weight: 700;
+}
+.peachy:hover {
+  color: #040606;
+  background: #4b83be;
+}
+.dl {
+  display: inline-block;
+  width: 12em;
+  margin: 1.5em 0;
+  margin-right: 1.5em;
+  text-align: center;
+  color: #040606;
+  background: #4b83be;
+  vertical-align: top;
+}
+.dl:after {
+  font-size: 1em;
+  /* 16px */
+
+  line-height: 1.5;
+  /* 24px */
+
+  padding: 0 0 1.5em;
+  /* 24px */
+
+  font-weight: 600;
+  text-transform: uppercase;
+  text-transform: none;
+  font-weight: 700;
+  content: "12/12/2011 - version 0.6";
+}
+.dl a {
+  font-size: 4.5em;
+  /* 72px */
+
+  line-height: 1.3333333333334;
+  /* 96px */
+
+  padding: 0.3333333333334em 0;
+  /* 24px & 24px */
+
+  /* padding-bottom: 0.6666666666667em; */
+
+  font-weight: 900;
+  background: #192224;
+  color: #8eb4cd;
+  text-align: center;
+  padding: 0.6666666666667em 0 0.3333333333334em;
+  text-decoration: none;
+  display: block;
+}
+.dl a:hover {
+  color: #4b83be;
+  background: #040606;
+}
+h1 + .epsilon, .promocopy, #breakdown p {
+  text-indent: 0;
+}
+.table-of-contents {
+  display: inline-block;
+  width: 12em;
+  margin: 0 4.5em;
+  padding: 1.5em 0;
+  text-indent: 1.5em;
+  background: rgba(146, 179, 201, 0.5);
+  vertical-align: top;
+  float: left;
+}
+.table-of-contents ol {
+  text-indent: 1.5em;
+}
+.table-of-contents a {
+  color: #192224;
+}
+#breakdown {
+  padding-top: 1.5em;
+}
+#breakdown > h2 a:before {
+  content: "\00A7 \0020";
+}
+#breakdown h3 {
+  font-family: adelle- 1, adelle- 2, Georgia, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+#breakdown > article {
+  padding: 0 0 4.5em;
+  overflow: hidden;
+}
+#breakdown > article > p:last-child {
+  padding-bottom: 0;
+  /* if a paragraph is the last element in an article, take away the bottom space to preserve rhythm */
+}
+naming-files {
+  margin-top: 1.5em;
+}
+/*  Mobile layout 
+	240–479 px
+*/@media screen and (min-width: 15em) {
+  .col1,
+  .col2,
+  .col19,
+  .col20 {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .topbar {
+    display: none;
+  }
+  header, section, footer {
+    width: 16.5em;
+    max-width: auto;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    margin: 0 auto 1.5em;
+    text-align: center;
+  }
+  header p, section p, footer p {
+    text-align: left;
+  }
+  .masthead {
+    font-size: 1em;
+    /* 16px */
+  
+    line-height: 1.5;
+    /* 24px */
+  
+    padding: 0 0 1.5em;
+    /* 24px */
+  
+    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: normal;
+    padding-bottom: 0;
+    padding-top: 1.5em;
+  }
+  .show {
+    display: none;
+  }
+  nav ul li {
+    margin-bottom: 1.5em;
+  }
+  nav ul li:nth-child(2n) {
+    margin-right: 0;
+  }
+  nav ul li:first-child, nav ul li:first-child a {
+    background: #c85841;
+    color: #192224;
+    font-weight: 700;
+  }
+  nav ul li:first-child:hover, nav ul li:first-child a:hover {
+    color: #040606;
+    background: #4b83be;
+  }
+  .table-of-contents {
+    display: none;
+  }
+  #index-html {
+    margin-bottom: 1em;
+  }
+  #breakdown {
+    text-align: left;
+  }
+}
+/*  Wide Mobile layout 
+	480 - 767px
+*/@media screen and (min-width: 30em) {
+  .col3, .col21 {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  header, section, footer {
+    width: 25.5em;
+  }
+  header p, section p, footer p {
+    text-align: left;
+    word-spacing: normal;
+  }
+  .masthead {
+    font-size: 1.5em;
+    text-transform: none;
+    line-height: 1;
+    /* 24px */
+  
+    padding-top: 1em;
+  }
+  .kicker {
+    word-spacing: -1px;
+  }
+  nav ul li {
+    width: 12em;
+  }
+}
+/*  Tablet layout 
+	600 - 911px
+*/@media screen and (min-width: 37.5em) {
+  .col4, .col22 {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  .topbar {
+    display: block;
+    height: 1.5em;
+    background-color: rgba(4, 6, 6, 0.75);
+    z-index: 5;
+  }
+  header, section, footer {
+    width: 34.5em;
+    margin-bottom: 1.5em;
+    text-align: left;
+  }
+  .masthead {
+    font-size: 2.25em;
+    /* 36px */
+  
+    line-height: 1.33333333333;
+    /* 48px */
+  
+    padding: 0.3333333333334em 0 1em;
+    /* 12px & 36px */
+  
+    font-weight: 900;
+    text-transform: uppercase;
+    text-transform: none;
+    letter-spacing: -1px;
+  }
+  .kicker {
+    font-size: 1.5em;
+    /* 24px */
+  
+    line-height: 1;
+    /* 48px */
+  
+    padding: 0.125em 0 0.875em;
+    /* 3px & 21px */
+  
+    font-weight: 400;
+    font-style: italic;
+    text-transform: none;
+    font-style: normal;
+    margin-top: 1em;
+  }
+  nav ul li {
+    width: 7.5em;
+  }
+  nav ul li:nth-child(2) {
+    margin-right: 1.5em;
+  }
+  .dl {
+    float: left;
+  }
+}
+/*  Desktop layout 
+	912 - 1272px
+*/@media screen and (min-width: 57em) {
+  body {
+    font-size: 1em;
+  }
+  .col5,
+  .col6,
+  .col23,
+  .col24 {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  header, section, footer {
+    width: 52.5em;
+  }
+  .masthead {
+    font-size: 3.375em;
+    /* 54px */
+  
+    line-height: 1.33333333333;
+    /* 72px */
+  
+    padding: 0.3333333333334em 0 0.1111111111112em;
+    /* 18px & 6px */
+  
+    font-weight: 700;
+    font-weight: 900;
+    margin-left: 0;
+    letter-spacing: 0.5px;
+  }
+  .home .masthead {
+    text-indent: 1.33333333335em;
+  }
+  .kicker {
+    margin-left: 3em;
+    display: block;
+    /*  max-width: (( 7 * (@column + @gutter) * 0.66666666667) - @gutter * 0.66666666667) / @em; */
+  
+    text-align: left;
+    margin-top: 0;
+  }
+  .kicker:before {
+    content: "{";
+    font-size: 4.5em;
+    /* 72px */
+  
+    line-height: 1.3333333333334;
+    /* 96px */
+  
+    padding: 0.3333333333334em 0;
+    /* 24px & 24px */
+  
+    /* padding-bottom: 0.6666666666667em; */
+  
+    font-weight: 900;
+    font-size: 5em;
+    display: block;
+    height: 0;
+    padding: 0 0 24px;
+    line-height: 1.03;
+    /* not consistent to the baseline but optically correct */
+  
+    margin-left: -0.6em;
+  }
+  .wf-active .kicker {
+    /* the fallback sans-serif font is bigger than my web font so I kick down the word-spacing to fit, then reset it here */
+  
+    word-spacing: normal;
+    text-align: justify;
+  }
+  nav ul li {
+    width: 12em;
+  }
+  nav ul li a {
+    letter-spacing: 1px;
+  }
+  nav ul li a:before {
+    content: "The ";
+  }
+  .table-of-contents {
+    display: inline-block;
+    margin-left: 0;
+  }
+  #breakdown > article {
+    margin-left: 4.5em;
+    max-width: 43.5em;
+  }
+}
+/*  Extra-Wide layout 
+	1272 - 1888px
+*/@media screen and (min-width: 79.5em) {
+  .col7,
+  .col8,
+  .col25,
+  .col26 {
+    background: rgba(0, 0, 0, 0.45);
+  }
+  header, section, footer {
+    width: 70.5em;
+  }
+  nav ul li {
+    width: 16.5em;
+  }
+  .masthead {
+    font-size: 4.5em;
+    /* 72px */
+  
+    line-height: 1.3333333333334;
+    /* 96px */
+  
+    padding: 0.3333333333334em 0;
+    /* 24px & 24px */
+  
+    /* padding-bottom: 0.6666666666667em; */
+  
+    font-weight: 900;
+    letter-spacing: normal;
+  }
+  .home .masthead {
+    text-indent: 0.99999999999em;
+  }
+  .kicker {
+    display: inline-block;
+    max-width: 29.000000000145em;
+    padding: 0 0 2em;
+    margin-right: 4.00000000002em;
+    font-style: normal;
+  }
+  .home nav ul li:first-child {
+    width: 7.5em;
+    margin-left: 3em;
+    margin-right: 4.5em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+  .show {
+    display: inline-block;
+    color: #9fc0d5;
+    background: #192224;
+    z-index: 3;
+    font-size: 1em;
+    /* 16px */
+  
+    line-height: 1.5;
+    /* 24px */
+  
+    padding: 0 0 1.5em;
+    /* 24px */
+  
+    font-weight: 600;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1.5em 0 0;
+    width: 7.5em;
+    vertical-align: top;
+    margin-top: 1.5em;
+    -webkit-transition: all 0.125s ease-out;
+    cursor: pointer;
+    -webkit-border-top-left-radius: 24px;
+    -webkit-border-top-right-radius: 24px;
+  }
+  .show:after {
+    content: "click me, bro";
+    -webkit-transition: all 0.125s ease-out;
+    display: block;
+    margin-top: 1.5em;
+    font-size: 0.875em;
+    line-height: 1.875;
+    color: #040606;
+    background: #4b83be;
+  }
+  .show:hover, .show.fixed {
+    background: #59777d;
+    color: #192224;
+  }
+  .show:hover:after, .show.fixed:after {
+    color: #8eb4cd;
+    background: rgba(4, 6, 6, 0.75);
+  }
+  .dl {
+    margin-right: 6em;
+  }
+  .promocopy {
+    width: 61.5em;
+  }
+  .table-of-contents {
+    margin-left: 4.5em;
+  }
+  #breakdown > article {
+    max-width: 61.5em;
+  }
+  pre {
+    margin-left: 4.5em;
+  }
+}
+/* micro clearfix by nicolas gallagher: http://h5bp.com/q */
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+/* typekit fout-buster: http://jonikorpi.com/a-smoother-page-load */
+.wf-active {
+  opacity: 1;
+  -webkit-transition: opacity 0.24s ease-in-out;
+  -moz-transition: opacity 0.24s ease-in-out;
+  transition: opacity 0.24s ease-in-out;
+}
+.wf-loading {
+  opacity: 0;
+}
