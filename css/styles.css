@@ -1,7 +1,7 @@
 /* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
 /*
  *  The Web Professional's Primer v0.5
- *  http://zacharykain.com/primer
+ *  http://zacharykain.com/wpp
  *  
  *  created by zachary kain (@zakkain)
  *  info@zacharykain.com
@@ -1032,7 +1032,6 @@ naming-files {
     font-weight: 900;
     text-transform: uppercase;
     text-transform: none;
-    letter-spacing: -1px;
   }
   .kicker {
     font-size: 1.5em;
@@ -1088,7 +1087,7 @@ naming-files {
     font-weight: 700;
     font-weight: 900;
     margin-left: 0;
-    letter-spacing: 0.5px;
+    letter-spacing: -1px;
   }
   .home .masthead {
     text-indent: 1.33333333335em;
