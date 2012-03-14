@@ -1,147 +1,73 @@
 <!doctype html>
-<!-- http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ & http://stuffandnonsense.co.uk/projects/320andup -->
-<!--[if IEMobile 7]><html class="no-js iem7 oldie" lang="en"><![endif]-->
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 lt-ie9 lt-ie8 oldie" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 lt-ie9 oldie" lang="en"><![endif]-->
-<!--[if (gte IE 8)|(gt IEMobile 7)|!(IEMobile)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->    
+<!--  http://html5boilerplate.com/docs/html/#ie-html-tag-classes
+      paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+   <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+   <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     
-    <!-- force best rendering from IE: http://html5boilerplate.com/docs/The-markup/#make-sure-the-latest-version-of-ie-is-used -->
-    <!-- should use .htaccess and remove this line: h5bp.com/b/378 -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--  force best rendering from IE - note, some associated issues
+          http://html5boilerplate.com/docs/html/#make-sure-the-latest-version-of-ie-is-used -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <!-- speed up grabbing jquery from google servers: http://html5boilerplate.com/docs/DNS-Prefetching -->
+    <!--  speed up grabbing jquery from the cloud
+          http://html5boilerplate.com/docs/DNS-Prefetching -->
     <link rel="dns-prefetch" href="//ajax.googleapis.com">
     
-    <title>Web Professional's Primer</title>
+    <!--  standard title and meta content tags -->
+    <title>Document Title</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <!-- set the canonical url for this page: http://t.co/y1jPVnT -->
+    <!--  canonical url for google crawling: http://t.co/y1jPVnT
+          http://html5boilerplate.com/html5boilerplate-site/built/en_US/docs/html-head/#canonical-url -->
     <link rel="canonical" href="/">
 
-    <!-- mobile viewport optimization: http://html5boilerplate.com/mobile & http://t.co/dKP3o1e & http://learnthemobileweb.com/2009/07/mobile-meta-tags -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width">
 
-    <!-- activate ClearType for smooth fonts on mobile IE: http://html5boilerplate.com/mobile -->
+    <!--  activate ClearType for smooth fonts on mobile IE
+          http://html5boilerplate.com/mobile -->
     <meta http-equiv="cleartype" content="on">
 
-    <!-- enable html5 elements in IE (don't need with modernizr) -->
-	<!--[if lt IE 9]><script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <!-- iOS web app, deletable if not needed -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <!-- Prevent links in standalone web apps opening Mobile Safari. https://gist.github.com/1042026 -->
-    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
-        <!-- iOS startup images: http://miniapps.co.uk/blog/post/ios-startup-images-using-css-media-queries -->
-    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and not (-webkit-min-device-pixel-ratio: 2)" href="img/startup-iphone.png"> <!-- 320x460 for iPhone 3GS -->
-    <link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-iphone4.png"> <!-- 640x920 for retina display -->
-    <link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: portrait)" href="img/startup-iPad-portrait.png"> <!-- iPad Portrait 768x1004 -->
-    <link rel="apple-touch-startup-image" media="(min-device-width: 768px) and (orientation: landscape)" href="img/startup-iPad-landscape.png"> <!-- iPad Landscape 1024x748 -->
-
-    <!-- icons: http://mathiasbynens.be/notes/touch-icons -->
-        <!-- favicon, 16px -->
-	<link rel="shortcut icon" href="favicon.ico">    
-        <!-- retina iphone, 114px -->
+    <!--  app icons: http://mathiasbynens.be/notes/touch-icons -->
+    <!--  16px favicon -->
+    <link rel="shortcut icon" href="favicon.ico">     
+    <!--  114px for retina iPhone -->
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-        <!-- ipad, 72px -->
+    <!--  72px for non-retina iPad -->
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-        <!-- old iphone & android, 57px (also put apple-touch-icon.png in root) -->
+    <!--  57px for non-retina iPhone, android 2.1+ devices: -->
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
- 
-    <!-- stylesheets (using less.js, either keep the js file or compile before launch) -->    
-    <link rel="stylesheet/less" type="text/css" href="css/styles.less">
 
-    <!-- modernizr enables html5 elements and media queries in older browsers: http://html5boilerplate.com/docs/The-markup/#modernizr-yepnope-respond -->
-    <script src="js/libs/modernizr-custom.js"></script>
+    <!--  stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
 
-    <!-- eliminate FOUT (placed in <head> to trigger before body loads): http://www.extensis.com/en/WebINK/fout-b-gone -->
-<!-- 	<script src="js/foutbgone.js"></script> -->
-<!-- 	<script>fbg.hideFOUT('asap', 300);</script> -->
+    <!--  webfonts -->
+
+    <!-- fout-busting
+          http://www.extensis.com/en/WebINK/fout-b-gone
+        OR
+          http://jonikorpi.com/a-smoother-page-load/ -->
+
+    <!--  modernizr enables HTML5 elements & feature detects for optimal performance
+          http://html5boilerplate.com/docs/html/#modernizr-yepnope-respond -->
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+
+<!-- no modernizr? Pack a shiv, bro -->
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	
-    <!-- webfonts via typekit -->
-    <script type="text/javascript">
-      TypekitConfig = {
-        kitId: 'too1ubd',
-        scriptTimeout: 3000
-      };
-      (function() {
-        var h = document.getElementsByTagName('html')[0];
-        h.className += ' wf-loading';
-        var t = setTimeout(function() {
-          h.className = h.className.replace(/(\s|^)wf-loading(\s|$)/g, '');
-          h.className += ' wf-inactive';
-        }, TypekitConfig.scriptTimeout);
-        var tk = document.createElement('script');
-        tk.src = '//use.typekit.com/' + TypekitConfig.kitId + '.js';
-        tk.type = 'text/javascript';
-        tk.async = 'true';
-        tk.onload = tk.onreadystatechange = function() {
-          var rs = this.readyState;
-          if (rs && rs != 'complete' && rs != 'loaded') return;
-          clearTimeout(t);
-          try { Typekit.load(TypekitConfig); } catch (e) {}
-        };
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(tk, s);
-      })();
-    </script>
-	
-    <!-- for development, remove before final deployment -->
-    <script src="js/live.js"></script>
-    <script src="js/less-1.1.5.min.js"></script>
-        <script type="text/javascript">
-             less.env = "development";
-             less.watch();
-        </script>
+
 </head>
 
 <body>
-    <!-- elements to generate the grid column visualization -->
-	<figure id="grid">
-		<div class="col col1"></div>
-		<div class="col col2"></div>
-		<div class="col col3"></div>
-		<div class="col col4"></div>
-		<div class="col col5"></div>
-		<div class="col col6"></div>
-		<div class="col col7"></div>
-		<div class="col col8"></div>
-		<div class="col col9"></div>
-		<div class="col col10"></div>
-		<div class="col col11"></div>
-		<div class="col col12"></div>
-		<div class="col col13"></div>
-		<div class="col col14"></div>
-		<div class="col col15"></div>
-		<div class="col col16"></div>
-		<div class="col col17"></div>
-		<div class="col col18"></div>
-		<div class="col col19"></div>
-		<div class="col col20"></div>
-		<div class="col col21"></div>
-		<div class="col col22"></div>
-		<div class="col col23"></div>
-		<div class="col col24"></div>
-		<div class="col col25"></div>
-		<div class="col col26"></div>
-		<div class="col col27"></div>
-		<div class="col col28"></div>
-		<div class="col col29"></div>
-		<div class="col col30"></div>
-		<div class="col col31"></div>
-		<div class="col col32"></div>
-		<div class="col col33"></div>
-		<div class="col col34"></div>
-		<div class="col col35"></div>
-		<div class="col col36"></div>
-	</figure>
+<!--  prompt IE 6 users to install Chrome Frame
+      http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+ 
 	
-<!-- each main element is its own wrapper a set number of columns in width -->
 <section>
 <h1>Heading One, &ldquo;Alpha&rdquo;</h1>
 <h2>Heading Two, &ldquo;Beta&rdquo;</h2>
@@ -218,33 +144,24 @@
 			
 <!-- JavaScript at the bottom for fast page loading -->
 
-<!-- include jquery from google servers, fall back to local if necessary: http://html5boilerplate.com/docs/The-markup/#google-cdn-for-jquery -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+<!--  include jquery from google servers, fall back to local if necessary
+      http://html5boilerplate.com/docs/The-markup/#google-cdn-for-jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-<!-- all plugins and all scripts in one file each, to minimize http requests: http://html5boilerplate.com/docs/plugins.js-and-script.js -->
-    <script defer src="js/scripts.js"></script>
 
-<!-- asynchronous google analytics (replace UA-XXXXX-X with your analytics code): http://mths.be/aab
-    <script>
-        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script> -->
+<!--  all plugins and all scripts in one file each, to minimize http requests
+      http://html5boilerplate.com/docs/plugins.js-and-script.js -->
+  <script src="js/plugins.js"></script>
+  <script src="js/scripts.js"></script>
 
-<!-- prompt ie6 users to install chrome frame: http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
-    <!--[if lt IE 7 ]>
-        <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-        <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-    <![endif]-->
-
-<!-- fix the iphone scaling bug: https://gist.github.com/901295 -->
-  <script defer src="js/libs/mobile-helper.js"></script>
+<!--  asynchronous google analytics, replace 'UA-XXXXX-X'
+      mathiasbynens.be/notes/async-analytics-snippet -->
   <script>
-    window.onload = function() {
-        MBP.scaleFix();
-    }
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
   </script>
 </body>
 </html>
