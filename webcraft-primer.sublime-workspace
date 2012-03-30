@@ -419,29 +419,49 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 7409,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 336.0,
+		"height": 375.0,
 		"selected_items":
 		[
+			[
+				"entit",
+				"StringEncode: HTML Deentitize"
+			],
+			[
+				"fetc",
+				"Fetch"
+			],
+			[
+				"fet",
+				"Fetch"
+			],
+			[
+				"comple",
+				"SublimeCodeIntel: Disable Live Autocompletion for Current Language"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"setting",
+				"Preferences: Settings - Default"
+			],
+			[
+				"f",
+				"Fetch"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"cs",
+				"Set Syntax: CSS"
+			],
 			[
 				"gist",
 				"Gist: Create Public Gist"
@@ -459,14 +479,6 @@
 				"Preferences: Terminal Settings – Default"
 			],
 			[
-				"fet",
-				"Fetch"
-			],
-			[
-				"fetc",
-				"Fetch: Manage remote files"
-			],
-			[
 				"upgr",
 				"Package Control: Upgrade Package"
 			],
@@ -477,10 +489,6 @@
 			[
 				"gist       ",
 				"Gist: Create Public Gist"
-			],
-			[
-				"css",
-				"Set Syntax: CSS"
 			],
 			[
 				"html",
@@ -497,10 +505,6 @@
 			[
 				"wrap",
 				"Word Wrap: Toggle"
-			],
-			[
-				"cs",
-				"Set Syntax: CSS"
 			],
 			[
 				"elements",
@@ -573,10 +577,6 @@
 			[
 				"snip",
 				"Snippet: html"
-			],
-			[
-				"entit",
-				"StringEncode: HTML Entitize"
 			],
 			[
 				"ent",
@@ -735,10 +735,6 @@
 				"Package Control: Disable Package"
 			],
 			[
-				"setting",
-				"Preferences: Default Global Settings"
-			],
-			[
 				"settin",
 				"Preferences: Alignment File Settings – Default"
 			],
@@ -796,11 +792,29 @@
 	},
 	"file_history":
 	[
+		"/Users/zakkain/Sites/wpp/css/style.css",
+		"/Users/zakkain/Sites/wpp/index2.php",
+		"/Users/zakkain/Sites/wpp/css/revisedStyle.css",
+		"/Users/zakkain/Sites/rrk/css/style.css",
+		"/Users/zakkain/Sites/dart450-midterm/css/styles.less",
+		"/Users/zakkain/Sites/formation/css/style.less",
+		"/Users/zakkain/Sites/boxdesign/index.html",
+		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-theme/style.css",
+		"/Users/zakkain/Sites/ampere_v2/css/style2.css",
+		"/Users/zakkain/Sites/boilerplate/css/style.css",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/ZenCoding/zen-coding.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/CSS.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/Default (OSX).sublime-keymap",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/SublimeCodeIntel/Base File.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/HTML/Miscellaneous.tmPreferences",
+		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/Fetch.sublime-settings",
 		"/Users/zakkain/Sites/dart450-midterm/index.html",
 		"/Users/zakkain/Sites/formation/index.html",
 		"/Users/zakkain/Sites/rrk/index.html",
 		"/Users/zakkain/Sites/boilerplate/index.html",
-		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/zakkain/Sites/boilerplate/.htaccess",
 		"/Users/zakkain/Sites/boilerplate/404.html",
 		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/Terminal/Default (OSX).sublime-keymap",
@@ -808,12 +822,9 @@
 		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/Terminal/Terminal.sublime-settings",
 		"/Users/zakkain/Sites/wpp/css/styles.css",
 		"/Users/zakkain/Sites/wpp/css/styles.less",
-		"/Users/zakkain/Library/Application Support/Sublime Text 2/Packages/User/Fetch.sublime-settings",
 		"/Users/zakkain/Sites/ligatures.html",
 		"/Users/zakkain/.ssh/id_rsa.pub",
 		"/Users/zakkain/Sites/320andup/Single stylesheet/less/style.less",
-		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-theme/style.css",
-		"/Users/zakkain/Sites/formation/css/style.less",
 		"/Users/zakkain/Sites/frameworks/semanticgs/examples/nested/nested_FIXED.less",
 		"/Users/zakkain/Sites/frameworks/semanticgs/examples/nested/nested.less",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-theme/inc/meta.php",
@@ -850,7 +861,6 @@
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/gridportfolio/functions.php",
 		"/Users/zakkain/Sites/vavgallerytheme/functions.php",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/all-posts-with-a-brief.php",
-		"/Users/zakkain/Sites/rrk/css/style.css",
 		"/Users/zakkain/Sites/rrk/mockup2.html",
 		"/Users/zakkain/Sites/rrk/mockup.html",
 		"/Users/zakkain/Sites/wordpress/wp-content/all-posts-with-a-brief.php",
@@ -898,7 +908,6 @@
 		"/Users/zakkain/Sites/wpp/index.html",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/taxonomy.php",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/taxonomy-briefs.php",
-		"/Users/zakkain/Sites/ampere_v2/css/style2.css",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/archive-entries.php",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/content-single.php",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/content.php",
@@ -910,20 +919,7 @@
 		"/Users/zakkain/Sites/wordpress/wp-content/plugins/rrk-taxonomies/readme.txt",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/archive-work.php",
 		"/Users/zakkain/Sites/wordpress/wp-content/themes/rrk-twentyeleven/readme.txt",
-		"/Users/zakkain/Sites/wordpress/wp-content/plugins/rrk-taxonomies/sample-functionality-plugin.php",
-		"/Users/zakkain/Sites/ampere_v2/fr/css/style2.css",
-		"/Users/zakkain/Sites/ampere_v2/principles.php",
-		"/Users/zakkain/Sites/ampere_v2/fr/nav.php",
-		"/Users/zakkain/Sites/ampere_v2/fr/projects/nav.php",
-		"/Users/zakkain/Sites/ampere_v2/nav.php",
-		"/Users/zakkain/Sites/ampere_v2_fr/principles.php",
-		"/Users/zakkain/Sites/ampere_v2_fr/method.php",
-		"/Users/zakkain/Sites/ampere_v2/method.php",
-		"/Users/zakkain/Sites/ampere_v2_fr/nav.php",
-		"/Users/zakkain/Sites/ampere_v2_fr/projects/footer.php",
-		"/Users/zakkain/Sites/ampere_v2_fr/footer.php",
-		"/Users/zakkain/Sites/ampere_v2/projects/nav.php",
-		"/Users/zakkain/Sites/ampere_v2/projects/footer.php"
+		"/Users/zakkain/Sites/wordpress/wp-content/plugins/rrk-taxonomies/sample-functionality-plugin.php"
 	],
 	"find":
 	{
@@ -944,6 +940,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"visited",
+			"child",
+			"first-child",
+			"hierar",
+			"lists",
+			"line-height:",
+			"font-size:",
+			"   h",
+			"/*",
+			"helm",
+			"body",
+			"html",
+			"src=",
+			"start",
+			" /*",
+			"ins",
 			"js",
 			"media qu",
 			"7",
@@ -1055,23 +1067,7 @@
 			"format",
 			"'                         => '",
 			"=>",
-			"Brand",
-			"Brands",
-			"register_taxonomy_brief",
-			"people",
-			"text-align",
-			"h1",
-			"nav",
-			"main",
-			"#",
-			"your",
-			"debate",
-			"<dt",
-			"dt",
-			"alt",
-			"artmatters",
-			"entry",
-			"html"
+			"Brand"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1103,70 +1099,13 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 7409,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2171,
-								2171
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"word_wrap": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 470.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 1,
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1237,7 +1176,7 @@
 		],
 		"width": 380.0
 	},
-	"show_minimap": false,
+	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,

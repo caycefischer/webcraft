@@ -1,0 +1,363 @@
+
+
+
+/*	==========================================================
+ * 1. normalize cross-browser styles
+ ============================================================
+ *		src: http://github.com/necolas/normalize.css (ver. 2012-03-11)
+ */
+
+
+/* a) html5 display definitions
+ ============================================================
+ *		http://html5boilerplate.com/docs/css/#html5-display-definitions
+ */
+
+
+/* correct block display not defined in IE6/7/8/9 & FF3
+ */	article, aside, details, figcaption, figure, footer, 
+		header, hgroup, nav, section, summary { 
+			display: block; 
+		}
+
+/* correct inline-block display not defined in IE6/7/8/9 & FF3
+ */	audio, canvas, video {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+		}
+
+/* hide <audio> elements without controls, remove excess height in iOS5 devices
+ */	audio:not([controls]) {
+		    display: none;
+		    height: 0;
+		}
+
+/* add styling for 'hidden' attribute in IE7/8/9, FF3, S4 (issue: no IE6 support)
+ */	[hidden] {
+		    display: none;
+		}
+
+/* b) global basics
+ ============================================================
+ *		http://html5boilerplate.com/docs/css/#base-styles
+ */
+
+/*	prevent iOS text size adjust after orientation change without disabling user zoom
+	www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom
+ */	html {
+		    -webkit-text-size-adjust: 100%;
+		    -ms-text-size-adjust: 100%;
+		}
+
+/*	address font-family inconsistencies between form elements
+ */ 	html, button, input, select, textarea {
+			font-family: sans-serif;
+		}
+
+/* address incorrect margins in IE6/7
+ */	body {
+			margin: 0;
+		}
+
+
+/* c) typography
+ ============================================================
+ *		http://html5boilerplate.com/docs/css/#typography
+ */
+
+/* include i,b,em,strong,small */
+
+/* styling not present in IE7/8/9, S5, Chrome
+ */	abbr[title] {
+			border-bottom: 1px dotted;
+		}
+
+/* styling not present in S5, Chrome
+ */	dfn {
+			font-style: italic;
+		}
+
+/* styling not present in IE<10, beware margin breaking in IE6/7
+   https://github.com/necolas/normalize.css/commit/cb176831b9adb32036e83087f286c0ae6c0eae74
+ */	hr { 
+ 			display: block; 
+ 			height: 1px; 
+ 			border: 0; 
+ 			border-top: 1px solid #ccc; 
+ 			margin: 1em 0; 
+ 			padding: 0; }
+
+/* styling not present in IE<10
+ */	mark {
+			background: #ff0;
+			color: #000;
+		}
+
+/* margins set differently in IE6/7
+ */	p, pre {
+			margin: 1em 0;
+		}
+
+/* font family set oddly in IE6, S4/5, Chrome
+ 	http://html5boilerplate.com/docs/css/#pre-code-kbd-samp
+ */	pre, code, kbd, samp {
+			font-family: monospace, serif;
+			_font-family: 'courier new', monospace;
+			font-size: 1em;
+ 		}
+
+/* improve readability of pre-formatted text in all browsers
+ 	http://html5boilerplate.com/docs/css/#pre 
+ */	pre {
+			white-space: pre;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+/* css quotes not supported in IE<8
+ */	q {
+			quotes: none;
+		}
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+
+/* prevent <sub> and <sup> affecting line-height in all browsers
+	http://gist.github.com/413930
+ */	sub, sup {
+			font-size: 75%;
+			line-height: 0;
+			position: relative;
+			vertical-align: baseline;
+		}
+		sup {
+			top: -0.5em;
+		}
+		sub {
+			bottom: -0.25em;
+		}
+
+
+/* d) lists
+ ============================================================
+ *		https://github.com/necolas/normalize.css/wiki
+ */
+
+/* margins set differently in IE<8
+ */	dl, menu, ol, ul {
+			margin: 1em 0;
+		}
+		dd {
+			margin: 0 0 0 40px;
+		}
+
+/* margins set differently in IE<8
+ */	menu, ol, ul {
+			padding: 0 0 0 40px;
+	}
+
+/* list images handled incorrectly in IE7
+ */	nav ul, nav ol {
+			list-style: none;
+			list-style-image: none;
+		}
+
+
+/* e) embedded content
+ ============================================================
+ *		http://html5boilerplate.com/docs/css/#embedded-content
+ */
+
+
+/* improve image quality when scaled in IE7
+	code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
+ */	img {
+			border: 0; /* remove border when inside an anchor tag in IE<10, FF3 */
+			-ms-interpolation-mode: bicubic;
+		}
+
+/* overflow display quirks in IE9
+ */	svg:not(:root) {
+			overflow: hidden;
+		}
+
+
+/* f) core elements
+ ============================================================
+ *
+ */
+
+/* margins of <figure> not present in IE<10, S5, O11
+ */	figure {
+			margin: 0;
+		}
+
+/* inconsistent spacing between table cells
+ */	table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+
+
+/* g) forms
+ ============================================================
+ *		http://html5boilerplate.com/docs/css/#forms
+ */
+
+/* margin display quirks in IE<8
+ */	form {
+			margin: 0;
+		}
+
+/* define consistent border, margin, and padding
+ */	fieldset {
+			border: 1px solid #c0c0c0;
+			margin: 0 2px;
+			padding: 0.35em 0.625em 0.75em;
+		}
+
+/* clicking <label> shifts focus to the associated form element, not supported in IE6
+	note: this author disagrees with paul irish, html5-boilerplate removes [for] from this rule
+	http://github.com/h5bp/html5-boilerplate/pull/853
+ */	label[for] {
+ 			cursor: pointer; 
+ 		}
+
+/* color not inherited in IE<10
+	text doesn't wrap in FF3
+	margin display quirks in IE<8
+ */	legend {
+			border: 0;
+			padding: 0;
+			white-space: normal;
+			*margin-left: -7px;
+		}
+
+/* font size not inherited in all browsers
+	margins set differently in IE<8, FF3+, S5, Chrome
+	best/consistent vertical alignment in all browsers
+ */	button, input, select, textarea {
+			font-size: 100%;
+			margin: 0;
+			vertical-align: baseline;
+			*vertical-align: middle;
+		}
+
+/* sets all browsers to match FF3/4 default line height
+ */	button, input {
+			line-height: normal;
+		}
+
+/* inconsistent cursor styles between type=image and others
+	inability to style clickable 'input' types in iOS
+	inner spacing display quirks in IE7 (issue: no IE6 support)
+ */	button, input[type="button"],
+ 		input[type="reset"], input[type="submit"] {
+			cursor: pointer;
+			-webkit-appearance: button;
+			*overflow: visible;
+		}
+
+/* reset default cursor for disabled elements
+ */	button[disabled], input[disabled] {
+			cursor: default;
+		}
+
+/* box sizing set to content-box in IE8/9
+	excess padding in IE8/9
+	excess padding in IE7 (issue: no IE6 support)
+ */	input[type="checkbox"], input[type="radio"] {
+			box-sizing: border-box;
+			padding: 0;
+			*height: 13px;
+			*width: 13px;
+		}
+
+/* appearance set to searchfield in S5, Chrome
+	box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
+ */	input[type="search"] {
+			-webkit-appearance: textfield;
+			-moz-box-sizing: content-box;
+			-webkit-box-sizing: content-box;
+			box-sizing: content-box;
+		}
+
+/* inner padding and search 'cancel' button in S5, Chrome on mac
+ */	input[type="search"]::-webkit-search-decoration,
+		input[type="search"]::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+		}
+
+/* extra inner padding and border in FF3/4
+ */	button::-moz-focus-inner, input::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}
+
+/* default vertical scrollbar in IE6/7/8/9
+	best/consistent vertical alignment in all browsers
+ */	textarea {
+			overflow: auto;
+			vertical-align: top;
+		}
+
+
+/* chrome frame prompt
+ ============================================================
+ *		http://chromium.org/developers/how-tos/chrome-frame-getting-started
+ */	.chromeframe {
+			margin: 0.2em 0;
+			background: #ccc; 
+			color: black; 
+			padding: 0.2em 0;
+		}
+
+
+/* non-semantic helper classes
+ ============================================================
+ *		http://h5bp.com/docs/css/#non-semantic-helper-classes
+ */
+
+/* image replacement (http://nicolasgallagher.com/another-css-image-replacement-technique)
+ */	.ir {
+			border:0;
+			font: 0/0 a;
+			text-shadow: none;
+			color: transparent;
+			background-color: transparent;
+		}
+
+/* hide from screenreaders and browsers (http://h5bp.com/u)
+ */	.hidden {
+			display: none !important;
+			visibility: hidden;
+		}
+
+/* hide visually, available for screenreaders (h5bp.com/v)
+ */	.visuallyhidden {
+			border: 0; clip: rect(0 0 0 0);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0; 
+			position: absolute;
+			width: 1px;
+		}
+
+/* make visually hidden elements focusable with the keyboard (http://h5bp.com/p)
+ */	.visuallyhidden.focusable:active,
+ 		.visuallyhidden.focusable:focus {
+			clip: auto; 
+			height: auto;
+			margin: 0; 
+			overflow: visible; 
+			position: static; 
+			width: auto;
+		}
+
+/* hide visually and from screenreaders, but maintain layout
+ */	.invisible { 
+ 			visibility: hidden;
+ 		}
