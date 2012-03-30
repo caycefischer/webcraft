@@ -1,0 +1,9 @@
+# stupid mac crap #
+##################
+.DS_Store*
+
+# text editor crap #
+####################
+*.sublime-project
+*.sublime-workspace
+
