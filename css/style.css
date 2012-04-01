@@ -28,7 +28,7 @@
       c. typography
       d. lists
       e. embedded content
-      f. core elements
+      f. tables
       g. forms
    
    2. core typography
@@ -63,7 +63,7 @@
  * 1. normalize cross-browser styles
  ============================================================
  ============================================================
- *    src: http://github.com/necolas/normalize.css (ver. 2012-03-11)
+ *    src:  http://github.com/necolas/normalize.css (ver. 2012-03-11)
  */
 
 
@@ -75,7 +75,9 @@
 /* correct block display not defined in IE6/7/8/9 & FF3
  */   article, aside, details, figcaption, figure, footer, 
       header, hgroup, nav, section, summary { 
-         display: block; 
+         display: block;
+         margin: 0;
+         padding: 0;
       }
 
 /* correct inline-block display not defined in IE6/7/8/9 & FF3
@@ -107,11 +109,6 @@
  */   html {
           -webkit-text-size-adjust: 100%;
           -ms-text-size-adjust: 100%;
-      }
-
-/* address font-family inconsistencies between form elements
- */   button, input, select, textarea {
-         font-family: sans-serif;
       }
 
 /* address incorrect margins in IE6/7
@@ -199,7 +196,7 @@
 
 /* d) lists
  ============================================================
- *    https://github.com/necolas/normalize.css/wiki
+ *
  */
 
 /* margins set differently in IE<8
@@ -220,7 +217,7 @@
          padding: 0;
       }
       ol ol {
-         list-style: lower-alpha;
+         list-style-type: lower-alpha;
       }
       li > ul, li > ol {
          margin-bottom: 0;
@@ -249,7 +246,6 @@
  */   img {
          border: 0; /* remove border when inside an anchor tag in IE<10, FF3 */
          -ms-interpolation-mode: bicubic;
-         max-width: 100%; /* prevent images spilling outside their container */
       }
 
 /* overflow display quirks in IE9
@@ -258,22 +254,10 @@
       }
 
 
-/* f) core elements
+/* f) tables
  ============================================================
  *
  */
-
-/* margins of <figure> not present in IE<10, S5, O11
- */   figure {
-         margin: 0;
-         margin-bottom: 24px;
-         margin-bottom: 1.5rem;
-      }
-      figure > img {
-         margin-bottom: 24px;
-         margin-bottom: 1.5rem;
-         display: block;
-      }
 
 /* inconsistent spacing between table cells
  */   table {
@@ -287,17 +271,26 @@
  *    http://html5boilerplate.com/docs/css/#forms
  */
 
-/* margin display quirks in IE<8
- */   form {
-         margin: 0;
-      }
-
-/* define consistent border, margin, and padding
- */   fieldset {
-         border: 1px solid #c0c0c0;
-         margin: 0 2px;
-         padding: 0.35em 0.625em 0.75em;
-      }
+/* zero everything out
+ */   
+   form, fieldset, legend, label, button, input, select, textarea {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.5;
+      display: block;
+      height: 1.5rem;
+   }
+   button, input, select, textarea {
+      font-family: sans-serif;
+      vertical-align: baseline;
+      border: 1px solid #aaa;
+   }
+   form ul {
+      list-style: none;
+   }
 
 /* clicking <label> shifts focus to the associated form element, not supported in IE6
    note: this author disagrees with paul irish, html5-boilerplate removes [for] from this rule
@@ -306,36 +299,18 @@
          cursor: pointer; 
       }
 
-/* color not inherited in IE<10
-   text doesn't wrap in FF3
+/* text doesn't wrap in FF3
    margin display quirks in IE<8
  */   legend {
-         border: 0;
-         padding: 0;
          white-space: normal;
          *margin-left: -7px;
-      }
-
-/* font size not inherited in all browsers
-   margins set differently in IE<8, FF3+, S5, Chrome
-   best/consistent vertical alignment in all browsers
- */   button, input, select, textarea {
-         font-size: 100%;
-         margin: 0;
-         vertical-align: baseline;
-         *vertical-align: middle;
-      }
-
-/* sets all browsers to match FF3/4 default line height
- */   button, input {
-         line-height: normal;
       }
 
 /* inconsistent cursor styles between type=image and others
    inability to style clickable 'input' types in iOS
    inner spacing display quirks in IE7 (issue: no IE6 support)
  */   button, input[type="button"],
-      input[type="reset"], input[type="submit"] {
+      input[type="reset"], input[type="`"] {
          cursor: pointer;
          -webkit-appearance: button;
          *overflow: visible;
@@ -346,23 +321,9 @@
          cursor: default;
       }
 
-/* box sizing set to content-box in IE8/9
-   excess padding in IE8/9
-   excess padding in IE7 (issue: no IE6 support)
- */   input[type="checkbox"], input[type="radio"] {
-         box-sizing: border-box;
-         padding: 0;
-         *height: 13px;
-         *width: 13px;
-      }
-
 /* appearance set to searchfield in S5, Chrome
-   box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
  */   input[type="search"] {
          -webkit-appearance: textfield;
-         -moz-box-sizing: content-box;
-         -webkit-box-sizing: content-box;
-         box-sizing: content-box;
       }
 
 /* inner padding and search 'cancel' button in S5, Chrome on mac
@@ -383,7 +344,6 @@
          overflow: auto;
          vertical-align: top;
       }
-
 
 
 /*
@@ -422,15 +382,6 @@
       font-size: 100%;  /* =16px, ubiquitous browser default */
       font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       line-height: 1.5em; /* =24px → our magic number */ 
-   }
-
-/* all vertical white space is a multiple of the magic number
- */
-   h1, h2, h3, h4, h5, h6, ul,
-   ol, dl, figcaption, blockquote {
-      /*margin-top: 0;*/
-      /*margin-bottom: 24px;*/
-      /*margin-bottom: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
 
 /* hero type
@@ -498,15 +449,16 @@
 /* body type
  */
    p, .freight {
+      display: block;
       margin: 0 0 24px;
       margin: 0 0 1.5rem;
       /*margin: 0;*/
       /*text-indent: 1.5em;*/
    }
-   p + p, p + .freight, .freight + .freight {
+   p + p, p + .freight, .freight + .freight, .freight + p {
       margin-top: -24px;
       margin-top: -1.5rem;
-      text-indent: 3em;
+      text-indent: 2em;
    }
    /*p:first-of-type, .freight:first-of-type {
       text-indent: 0;
@@ -553,7 +505,8 @@
 /* offset from surrounding text with no extra importance or sonic quality
    [keywords, product names, article ledes]
  */   b {
-         font-weight: bold; }
+         font-weight: bold; 
+      }
 
 /* emphatic and/or linguistic stress
    [foreign phrase, tone of voice]
@@ -588,12 +541,11 @@
  */
 
    blockquote {
-      margin: 0 48px 24px;
-      margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      margin: 24px;
+      margin: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
    blockquote .attribution {
-      margin-left: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-
+      margin-left: 1.5rem;
    }
    blockquote .attribution:before {
       content: "— ";
@@ -610,6 +562,9 @@
       margin: 0 0 24px;
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
       line-height: 1.5;
+   }
+   p > kbd {
+      line-height: 0;
    }
  
 /* display language 'foo' with <code class="foo"> 
@@ -690,8 +645,8 @@
  *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
  */
 
-   input:valid, textarea:valid { background-color: #ccc; }
-   input:invalid, textarea:invalid { background-color: #f0dddd; }
+   /*input:valid, textarea:valid { background-color: #ccc; }*/
+   /*input:invalid, textarea:invalid { background-color: #f0dddd; }*/
 
 
 
@@ -714,6 +669,7 @@
    }
    body { 
        min-height: 100%;
+       background-color: #eee;
    }
 
    
@@ -779,6 +735,20 @@
       background-color: #eee;
    }
 
+   figure {
+      margin: 0;
+      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
+   }
+   figure > img {
+      display: block;
+      max-width: 100%; /* prevent images spilling outside their container */
+   }
+   figcaption {
+      margin-top: 1.5rem;
+   }
+
+
    table {
       width: 100%;
       text-align: left;
@@ -802,30 +772,29 @@
       font-style: italic;
    }
 
+
+
+form, legend, fieldset, button, input, label, select, textarea {
+   font-size: 1rem;
+   line-height: 1.5;
+   border: 0;
+   padding: 0;
+   margin: 0;
+}
 form {
    margin-bottom: 1.5rem;
-}
-legend, fieldset, button, input, select, textarea {
-   line-height: 1.5;
-   margin: 0;
-   padding: 0;
-   border: 0;
 }
 fieldset {
    border-top: 1px solid #ccc;
    clear: left;
-   font-size: 0;
-}
-legend, button, label, input, select, textarea {
-   font-size: 1rem;
 }
 legend {
-   padding: 0.75rem;
-   padding-left: 0;
+   padding: 0.75rem 0.75rem 0.75rem 0;
 }
+
 label {
    margin: 0.75rem 0 2.25rem 0;
-   width: 23.25%;
+   width: 35%;
 }
 input[type="checkbox"], input[type="radio"] {
    margin: 1rem 0 1rem 0;
@@ -833,15 +802,16 @@ input[type="checkbox"], input[type="radio"] {
    height: 1rem;
 }
 input, textarea, select {
-   width: 50%;
+   width: 65%;
    padding: 0.375rem 0;
    margin: 0.375rem 0;
+   background-color: #ccc;
 }
 input:focus {
    outline-offset: -3px;
 }
 input[type="search"] {
-   width: 36%;
+   width: 50%;
 }
 input[type="submit"]:not(.search), input[type="button"] {
    width: auto;
@@ -855,11 +825,9 @@ height: 2rem;
 clear: left;
 }
 input.search {
-   width: 14%;
+   width: 15%;
    background-color: #aaa;
    text-transform: uppercase;
-   /*font-size: 14px;*/
-   /*line-height: 1.714285714;*/
 }
 label[for="textarea"], label[for="select"] {
    margin-bottom: 0.75rem;
@@ -876,15 +844,12 @@ form em {
 .hang-inside-left {
    float: left;
    clear: left;
-   margin-left: 3rem;
+   /*margin-right: 3rem;*/
 }
 form ul {
    list-style: none;
    padding-left: 1.5em;
    margin-bottom: 0;
-}
-form li {
-
 }
 
 
@@ -910,12 +875,23 @@ form li {
       .cf { zoom: 1; }
 
 
-/* nicolas' badass background-image opacity
- * http://nicolasgallagher.com/css-background-image-hacks
- */   .grid:hover {
-         background: -webkit-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), -webkit-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px);
-         background: -moz-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), -moz-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px);
-         background-size: 1.5em 1.5em; 
+/* baseline grid
+ */   #grid:target {
+         z-index: 1000;
+         background: 
+            -webkit-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px), 
+            -webkit-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
+            -webkit-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), 
+            -webkit-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+         background: 
+            -moz-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px), 
+            -moz-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
+            -moz-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), 
+            -moz-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+         background-size: 1.5rem 1.5rem;
+      }
+      #grid:target .styleguide {
+         z-index: -1;
       }
 
 /* typekit fout-buster via @jonikorpi
@@ -938,15 +914,21 @@ form li {
  */
 
    .styleguide {
-      width: 36em;
-      margin: 0 auto;
+      width: 39em;
+      position: relative;
+      margin-left: 7.5rem;
       background-color: #fff;
       padding: 24px 48px;
-      padding: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      padding: 1.5rem 4.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
    .clause {
    }
-   .example {
+/*   .example {
       background-color: #eee;
-      margin: 0;
+      padding: 1.5rem 1.5rem 0;
+      outline: 1px solid #999;
+      overflow: auto;
+   }
+   .example > :first-child {
+      margin-top: 0;
    }

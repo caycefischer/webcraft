@@ -60,11 +60,11 @@
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 
-<body class="grid">
+<body>
   <!--  prompt IE 6 users to install Chrome Frame
       http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
   <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
- 
+  <div id="grid">
 	
   <section class="styleguide">
     <h1 class="hN alpha">Elements &amp; Style</h1>
@@ -121,7 +121,7 @@
           <blockquote cite="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">
             <p class="freight micro">Many forms of Government have been tried, and will be tried in this world of sin and woe. No one pretends that democracy is perfect or all-wise. Indeed, it has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.</p>
             <footer>
-              <p class="freight attribution">Winston Churchill, in <cite><a href="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">a speech to the House of Commons</a></cite>. 11th November 1947</p>
+              <p class="freight attribution nano">Winston Churchill, <cite><a href="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">speech to the House of Commons</a></cite>. 11th November, 1947</p>
             </footer>
           </blockquote>
         </figure>
@@ -144,7 +144,7 @@
         </figure>
   
       <h3 class="hN gamma">Unordered list</h3>
-        <p class="freight">The <code>ul</code> element denotes an unordered list (ie. a list of loose items that don&#8217;t require numbering, or a bulleted list). Again, each item requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote infigureidual items. Here is an example list showing the constituent parts of the British Isles:</p>
+        <p class="freight">The <code>ul</code> element denotes an unordered list (ie. a list of loose items that don&#8217;t require numbering, or a bulleted list). Again, each item requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote individual items. Here is an example list showing the constituent parts of the British Isles:</p>
         <figure class="example">
           <ul>
             <li>
@@ -200,10 +200,10 @@
         <p class="freight">Figures are usually used to refer to images:</p>
         <figure class="example">
           <figure>
-            <img src="http://placekitten.com/g/480/360" alt="Example image"/>
+            <img src="http://placekitten.com/g/432/288" alt="Example image"/>
             <figcaption>
-              <h4 class="hN delta">Figure Heading</h4>
-              <p class="freight">This is a placeholder image, with supporting caption.</p>
+              <p class="freight delta">Figure Heading</p>
+              <i class="freight">This is a placeholder image, with supporting caption.</i>
             </figcaption>
           </figure>
         </figure>
@@ -312,7 +312,7 @@
         </figure>
       
       <h3 class="hN gamma">Keyboard entry</h3>
-        <p class="freight">The <code>kbd</code> element is used to denote user input (typically via a keyboard, although it may also be used to represent other input methods, such as voice commands). Example:<p class="freight">
+        <p class="freight">The <code>kbd</code> element is used to denote user input (typically via a keyboard, although it may also be used to represent other input methods, such as voice commands). Example:</p>
         <figure class="example">
           <p class="freight">To take a screenshot on your Mac, press <kbd>&#8984; Cmd</kbd> + <kbd>&#8679; Shift</kbd> + <kbd>3</kbd>.</p>
         </figure>
@@ -440,45 +440,37 @@
     <section class="clause">
     <h2 class="hN beta" id="forms">Forms</h2>
       <p class="freight">Forms can be used when you wish to collect data from users. The <code>fieldset</code> element enables you to group related fields within a form, and each one should contain a corresponding <code>legend</code>. The <code>label</code> element ensures field descriptions are associated with their corresponding form widgets.</p>
-      <figure class="example">
         <form action="#">
           <fieldset>
-            <legend class="hN gamma">Legend</legend>
-            <div>
+            <legend class="">Legend</legend>
+            
               <label class="hang-inside-left" for="text">Text Input</label>
-              <input id="text" type="text"/>
+              <input id="text" type="text">
               <em>Note about this field</em>
-            </div>
-            <div>
+            
               <label class="hang-inside-left" for="password">Password</label>
-              <input id="password" type="password"/>
+              <input id="password" type="password">
               <em>Note about this field</em>
-            </div>
-            <div>
-              <label class="hang-inside-left" for="password">Web Address</label>
-              <input id="password" type="url"/>
+            
+              <label class="hang-inside-left" for="url">Web Address</label>
+              <input id="url" type="url"/>
               <em>Note about this field</em>
-            </div>
-            <div>
+            
               <label class="hang-inside-left" for="password">Email Address</label>
               <input id="password" type="email"/>
               <em>Note about this field</em>
-            </div>
-            <div>
+            
               <label class="hang-inside-left" for="search">Search</label>
-              <input id="search" type="search"/><input id="password" type="submit" class="search" value="Search">
+              <input id="search" type="search"><input type="submit" class="search" value="Search">
               <em>Note about this field</em>
-            </div>
-            <div>
+        
               <label class="hang-inside-left" for="textarea">Textarea</label>
               <em class="hang-inside-left" class="clear">Note about this field</em>
               <textarea id="textarea" rows="8" cols="48"></textarea>
-            </div>
-            <div>
+            
               <label class="hang-inside-left" for="checkbox">Single Checkbox</label>
               <label for="checkbox" class="check"><input id="checkbox" type="checkbox" class="checkbox"/> Label</label>
-            </div>
-            <div>
+            
               <label class="hang-inside-left" for="select">Select</label>
               <em class="hang-inside-left">Note about this selection</em>
               <select id="select">
@@ -488,30 +480,29 @@
                   <option>Option Three</option>
                 </optgroup>
               </select>
-            </div>
+            
             <fieldset class="options">
               <legend>Checkbox</legend>
                 <ul>
-                  <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /> Choice A</label></li>
-                  <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox" /> Choice B</label></li>
-                  <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox" /> Choice C</label></li>
+                  <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
+                  <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
+                  <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
                 </ul>
             </fieldset>
             <fieldset class="options">
               <legend>Radio</legend>
               <ul>
-                <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /> Option 1</label></li>
-                <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio" /> Option 2</label></li>
+                <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
+                <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
               </ul>
             </fieldset>
-            <div class="submit">
+            
               <input type="submit" value="Publish">
               <input type="button" value="Preview">
               <input type="button" value="Cancel">
-            </div>
+
           </fieldset>
         </form>
-      </figure>
   
     </section> <!-- end forms -->
   
@@ -522,7 +513,7 @@
       </p>
     </section>
   </section>
-	
+	</div>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
