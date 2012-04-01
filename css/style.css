@@ -28,7 +28,7 @@
       c. typography
       d. lists
       e. embedded content
-      f. tables
+      f. core elements
       g. forms
    
    2. core typography
@@ -63,7 +63,7 @@
  * 1. normalize cross-browser styles
  ============================================================
  ============================================================
- *    src:  http://github.com/necolas/normalize.css (ver. 2012-03-11)
+ *    src: http://github.com/necolas/normalize.css (ver. 2012-03-11)
  */
 
 
@@ -111,6 +111,11 @@
           -ms-text-size-adjust: 100%;
       }
 
+/* address font-family inconsistencies between form elements
+ */   button, input, select, textarea {
+         font-family: sans-serif;
+      }
+
 /* address incorrect margins in IE6/7
  */   body {
          margin: 0;
@@ -143,7 +148,8 @@
          border-top: 1px solid #ccc;
          border-top-width: 0.0625rem;
          margin: 0 0 1.5rem;  
-         padding: 0; }
+         padding: 0; 
+      }
 
 /* font family set oddly in IE6, S4/5, Chrome
    http://html5boilerplate.com/docs/css/#pre-code-kbd-samp
@@ -196,7 +202,7 @@
 
 /* d) lists
  ============================================================
- *
+ *    https://github.com/necolas/normalize.css/wiki
  */
 
 /* margins set differently in IE<8
@@ -217,7 +223,7 @@
          padding: 0;
       }
       ol ol {
-         list-style-type: lower-alpha;
+         list-style: lower-alpha;
       }
       li > ul, li > ol {
          margin-bottom: 0;
@@ -271,26 +277,17 @@
  *    http://html5boilerplate.com/docs/css/#forms
  */
 
-/* zero everything out
- */   
-   form, fieldset, legend, label, button, input, select, textarea {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 16px;
-      font-size: 1rem;
-      line-height: 1.5;
-      display: block;
-      height: 1.5rem;
-   }
-   button, input, select, textarea {
-      font-family: sans-serif;
-      vertical-align: baseline;
-      border: 1px solid #aaa;
-   }
-   form ul {
-      list-style: none;
-   }
+/* margin display quirks in IE<8
+ */   form {
+         margin: 0;
+      }
+
+/* define consistent border, margin, and padding
+ */   fieldset {
+         border: 1px solid #c0c0c0;
+         margin: 0 2px;
+         padding: 0.35em 0.625em 0.75em;
+      }
 
 /* clicking <label> shifts focus to the associated form element, not supported in IE6
    note: this author disagrees with paul irish, html5-boilerplate removes [for] from this rule
@@ -299,18 +296,36 @@
          cursor: pointer; 
       }
 
-/* text doesn't wrap in FF3
+/* color not inherited in IE<10
+   text doesn't wrap in FF3
    margin display quirks in IE<8
  */   legend {
+         border: 0;
+         padding: 0;
          white-space: normal;
          *margin-left: -7px;
+      }
+
+/* font size not inherited in all browsers
+   margins set differently in IE<8, FF3+, S5, Chrome
+   best/consistent vertical alignment in all browsers
+ */   button, input, select, textarea {
+         font-size: 100%;
+         margin: 0;
+         vertical-align: baseline;
+         *vertical-align: middle;
+      }
+
+/* sets all browsers to match FF3/4 default line height
+ */   button, input {
+         line-height: normal;
       }
 
 /* inconsistent cursor styles between type=image and others
    inability to style clickable 'input' types in iOS
    inner spacing display quirks in IE7 (issue: no IE6 support)
  */   button, input[type="button"],
-      input[type="reset"], input[type="`"] {
+      input[type="reset"], input[type="submit"] {
          cursor: pointer;
          -webkit-appearance: button;
          *overflow: visible;
@@ -321,9 +336,23 @@
          cursor: default;
       }
 
+/* box sizing set to content-box in IE8/9
+   excess padding in IE8/9
+   excess padding in IE7 (issue: no IE6 support)
+ */   input[type="checkbox"], input[type="radio"] {
+         box-sizing: border-box;
+         padding: 0;
+         *height: 13px;
+         *width: 13px;
+      }
+
 /* appearance set to searchfield in S5, Chrome
+   box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
  */   input[type="search"] {
          -webkit-appearance: textfield;
+         -moz-box-sizing: content-box;
+         -webkit-box-sizing: content-box;
+         box-sizing: content-box;
       }
 
 /* inner padding and search 'cancel' button in S5, Chrome on mac
@@ -344,6 +373,7 @@
          overflow: auto;
          vertical-align: top;
       }
+
 
 
 /*
@@ -449,16 +479,16 @@
 /* body type
  */
    p, .freight {
-      display: block;
       margin: 0 0 24px;
       margin: 0 0 1.5rem;
+      display: block;
       /*margin: 0;*/
       /*text-indent: 1.5em;*/
    }
    p + p, p + .freight, .freight + .freight, .freight + p {
       margin-top: -24px;
       margin-top: -1.5rem;
-      text-indent: 2em;
+      text-indent: 3em;
    }
    /*p:first-of-type, .freight:first-of-type {
       text-indent: 0;
@@ -505,8 +535,7 @@
 /* offset from surrounding text with no extra importance or sonic quality
    [keywords, product names, article ledes]
  */   b {
-         font-weight: bold; 
-      }
+         font-weight: bold; }
 
 /* emphatic and/or linguistic stress
    [foreign phrase, tone of voice]
@@ -545,7 +574,8 @@
       margin: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
    blockquote .attribution {
-      margin-left: 1.5rem;
+      margin-left: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+
    }
    blockquote .attribution:before {
       content: "— ";
@@ -645,8 +675,8 @@
  *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
  */
 
-   /*input:valid, textarea:valid { background-color: #ccc; }*/
-   /*input:invalid, textarea:invalid { background-color: #f0dddd; }*/
+   input:valid, textarea:valid { background-color: #ccc; }
+   input:invalid, textarea:invalid { background-color: #f0dddd; }
 
 
 
@@ -669,7 +699,6 @@
    }
    body { 
        min-height: 100%;
-       background-color: #eee;
    }
 
    
@@ -741,13 +770,14 @@
       margin-bottom: 1.5rem;
    }
    figure > img {
+      max-width: 100%;
+      /*margin-bottom: 24px;*/
+      /*margin-bottom: 1.5rem;*/
       display: block;
-      max-width: 100%; /* prevent images spilling outside their container */
    }
    figcaption {
       margin-top: 1.5rem;
    }
-
 
    table {
       width: 100%;
@@ -773,13 +803,11 @@
    }
 
 
-
-form, legend, fieldset, button, input, label, select, textarea {
-   font-size: 1rem;
+legend, fieldset, button, input, select, textarea {
    line-height: 1.5;
-   border: 0;
-   padding: 0;
    margin: 0;
+   padding: 0;
+   border: 0;
 }
 form {
    margin-bottom: 1.5rem;
@@ -787,9 +815,7 @@ form {
 fieldset {
    border-top: 1px solid #ccc;
    clear: left;
-}
-legend {
-   padding: 0.75rem 0.75rem 0.75rem 0;
+   padding: 0.75rem 0;
 }
 
 label {
