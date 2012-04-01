@@ -117,6 +117,7 @@
 /* address incorrect margins in IE6/7
  */   body {
          margin: 0;
+         padding: 0;
       }
 
 
@@ -138,11 +139,13 @@
 /* styling not present in IE<10, beware margin breaking in IE6/7
    https://github.com/necolas/normalize.css/commit/cb176831b9adb32036e83087f286c0ae6c0eae74
  */   hr { 
-         display: block; 
+         display: block;
          height: 1px; 
+         height: 0.0625rem; /* 1px ÷ 16 = 0.0625 */
          border: 0; 
-         border-top: 1px solid #ccc; 
-         margin: 1em 0; 
+         border-top: 1px solid #ccc;
+         border-top-width: 0.0625rem;
+         margin: 0 0 1.5rem;  
          padding: 0; }
 
 /* font family set oddly in IE6, S4/5, Chrome
@@ -151,6 +154,8 @@
          font-family: monospace, serif;
          _font-family: 'courier new', monospace;
          font-size: 1em;
+         /* reset line-height to avoid inline discrepancies in FF/Chrome */
+         line-height: normal;
       }
 
 /* improve readability of pre-formatted text in all browsers
@@ -199,13 +204,8 @@
 
 /* margins set differently in IE<8
  */   dl, menu, ol, ul {
-         margin: 1em 0;
-      }
-      dd {
-         margin: 0 0 0 40px;
-      }
-      menu, ol, ul {
-         padding: 0 0 0 40px;
+         margin: 0 0 24px;
+         margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
       }
 
 /* list images handled incorrectly in IE7
@@ -214,10 +214,30 @@
          list-style-image: none;
       }
 
-/* remove double margins on nested lists
- */   li > ul, li > ol {
-         margin-bottom:0;
+/* proper nesting
+ */   ul, ol {
+         list-style-position: outside;
+         padding: 0;
       }
+      ol ol {
+         list-style: lower-alpha;
+      }
+      li > ul, li > ol {
+         margin-bottom: 0;
+         padding-left: 3em;
+      }
+
+/* flexible multiline definition lists
+   http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
+ */
+   dt, dd {
+      /*display: inline;*/
+      /*margin: 0;*/
+   }
+   dd:after {
+      /*content: '\A';*/
+      /*white-space: pre;*/
+   }
 
 /* e) embedded content
  ============================================================
@@ -229,6 +249,7 @@
  */   img {
          border: 0; /* remove border when inside an anchor tag in IE<10, FF3 */
          -ms-interpolation-mode: bicubic;
+         max-width: 100%; /* prevent images spilling outside their container */
       }
 
 /* overflow display quirks in IE9
@@ -245,6 +266,13 @@
 /* margins of <figure> not present in IE<10, S5, O11
  */   figure {
          margin: 0;
+         margin-bottom: 24px;
+         margin-bottom: 1.5rem;
+      }
+      figure > img {
+         margin-bottom: 24px;
+         margin-bottom: 1.5rem;
+         display: block;
       }
 
 /* inconsistent spacing between table cells
@@ -372,37 +400,40 @@
  *
  * reliable font stacks:
  *     sans:   Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
- *    serif:   TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+ *    serif:   Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
  *     mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
  */
 
 
 /* a) type hierarchy
  ============================================================
- *    always use unitless line-heights    → http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights
  *    font-size in rems with px fallback  → http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style
  *    double-stranded heading hierarchy   → http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ *    a better way to typeset paragraphs  → http://csswizardry.com/2010/12/mo-robust-paragraph-indenting
+ *
+ *    don't use unitless line-heights (http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights)
+ *    why? Because unitless means line-height is a scaling factor of font-size, not a computed result.
+ *    when zooming the page in chrome, that multiplier can lead to inexact results because of decimal rounding
+ *    and subpixel-rounding when the page is rendered. This breaks the vertical rhythm of the page.
+ *    Setting line-height in em/rems fixes this.
  */
 
-   html {
-      font-size: 100%;  /* =16px, ubiquitous browser default */
-      font-family: Helmet, Freesans, sans-serif;
-   }
    body {
-      font-size: 1em; /* =16px → set body in ems for easy global scaling later */
-      line-height: 1.5; /* =24px → our magic number */ 
+      font-size: 100%;  /* =16px, ubiquitous browser default */
+      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      line-height: 1.5em; /* =24px → our magic number */ 
    }
 
 /* all vertical white space is a multiple of the magic number
  */
-   h1, h2, h3, h4, h5, h6, p, ul,
+   h1, h2, h3, h4, h5, h6, ul,
    ol, dl, figcaption, blockquote {
-      margin-top: 0;
-      margin-bottom: 24px;
-      margin-bottom: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      /*margin-top: 0;*/
+      /*margin-bottom: 24px;*/
+      /*margin-bottom: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
 
-/* hero sizes
+/* hero type
  */
    .tera {
       font-size: 80px;
@@ -420,20 +451,28 @@
       line-height: 1;      /* 48px ÷ 48 = 1 (48 = 24 × 2) */
    }
 
-/* heading sizes
+/* heading type
  */
    .hN {
       /* .hN is a blanket heading class, as per: http://jsfiddle.net/csswizardry/yFQDP */
+      margin: 0 0 24px;
+      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
+      margin-bottom: 0.75rem;
+      padding-top: 0.75rem;
    }
    h1, .alpha {
       font-size: 32px;
       font-size: 2rem;     /* 32px = 16 × 2 */
       line-height: 1.5;    /* 48px ÷ 32 = 1.5 (48 = 24 × 2) */
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
    }
    h2, .beta {
       font-size:  24px;
       font-size: 1.5rem;   /* 24px = 16 × 1.5 */
       line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
    }
    h3, .gamma {
       font-size: 20px;
@@ -443,7 +482,7 @@
    h4, .delta {
       font-size: 18px;
       font-size: 1.125rem; /* 18px = 16 × 1.125 */
-      line-height: 1.333;  /* 24px ÷ 18 = 1.333 (24 = 24 × 1) */
+      line-height: 1.3333334;  /* 24px ÷ 18 = 1.3333334 (24 = 24 × 1) */
    }
    h5, .epsilon {
       font-size: 16px;
@@ -456,17 +495,39 @@
       line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
 
-/* text sizes
+/* body type
  */
    p, .freight {
-      margin: 0;
+      margin: 0 0 24px;
+      margin: 0 0 1.5rem;
+      /*margin: 0;*/
+      /*text-indent: 1.5em;*/
    }
+   p + p, p + .freight, .freight + .freight {
+      margin-top: -24px;
+      margin-top: -1.5rem;
+      text-indent: 3em;
+   }
+   /*p:first-of-type, .freight:first-of-type {
+      text-indent: 0;
+   }
+   p:last-of-type, .freight:last-of-type {
+      margin-bottom: 24px;
+      margin-bottom: 1.5rem;
+   }
+   .lt-ie9 p, .lt-ie9 .freight {
+      margin: 0 0 1.5em;
+     text-indent: 0; 
+   }*/
+
+/* minor type
+ */
    .micro {
       font-size: 14px;
       font-size: 0.875rem;  /* 12px = 16 × 0.875 */
-      line-height: 1.714;   /* 24px ÷ 14 = 1.714 (24 = 24 × 1) */
+      line-height: 1.7142857;   /* 24px ÷ 14 = 1.7142857 (24 = 24 × 1) */
    }
-   small, .nano {
+   .nano {
       font-size: 12px;
       font-size: 0.75rem;  /* 12px = 16 × 0.75 */
       line-height: 2;      /* 24px ÷ 12 = 2 (24 = 24 × 1) */
@@ -475,10 +536,6 @@
       font-size: 10px;
       font-size: 0.625rem;  /* 10px = 16 × 0.625 */
       line-height: 2.4;      /* 24px ÷ 10 = 2.4 (24 = 24 × 1) */
-   }
-   /* indent first line of paragraphs that aren't the first */
-   p:not(:first-of-type), .freight:not(:first-of-type) {
-      text-indent: 1.5em;   /* 24px = 16 × 1.5 */
    } 
 
 /* b) semantic stress elements
@@ -512,19 +569,34 @@
 
 /* highlighted for reference purposes, user-relevant content
  */   mark {
-         background: yellow; 
-         font-style: normal; 
+         background: none; 
+         font-style: italic; 
          font-weight: bold; 
-         padding: 0 0.25em;
+      }
+
+/* small print, side comments, not for block-level content
+ */   small {
+         font-size: 12px;
+         font-size: 0.75rem;  /* 12px = 16 × 0.75 */
+         line-height: 0;
       }
 
 /* c) quotes & citations
  ============================================================
+ *    all about blockquotes   → http://html5doctor.com/blockquote-q-cite/
  *    blockquote metadata     → http://oli.jp/2011/blockquote
  */
 
    blockquote {
+      margin: 0 48px 24px;
+      margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+   }
+   blockquote .attribution {
+      margin-left: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
 
+   }
+   blockquote .attribution:before {
+      content: "— ";
    }
 
 
@@ -534,8 +606,10 @@
  *    <code> = sample code | <samp> = sample output from program
  */
 
-   pre, code, samp { 
-
+   pre { 
+      margin: 0 0 24px;
+      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      line-height: 1.5;
    }
  
 /* display language 'foo' with <code class="foo"> 
@@ -616,7 +690,7 @@
  *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
  */
 
-   input:valid, textarea:valid { background-color: #00FF00; }
+   input:valid, textarea:valid { background-color: #ccc; }
    input:invalid, textarea:invalid { background-color: #f0dddd; }
 
 
@@ -701,7 +775,117 @@
  ============================================================
  */
 
+   body {
+      background-color: #eee;
+   }
 
+   table {
+      width: 100%;
+      text-align: left;
+      font-size: 13px;
+      font-size: 0.8125rem;  /* 12px = 16 × 0.875 */
+   }
+   td, th {
+      padding: 0;
+      line-height: 1.769230769;
+      border-bottom: 0.0625rem solid #ddd;
+   }
+   th {
+      text-transform: uppercase;
+      border-bottom-color: #aaa;
+   }
+   caption {
+      caption-side: bottom;
+      margin: 0.75rem 0 0.75rem;
+      text-align: left;
+      font-weight: bold;
+      font-style: italic;
+   }
+
+form {
+   margin-bottom: 1.5rem;
+}
+legend, fieldset, button, input, select, textarea {
+   line-height: 1.5;
+   margin: 0;
+   padding: 0;
+   border: 0;
+}
+fieldset {
+   border-top: 1px solid #ccc;
+   clear: left;
+   font-size: 0;
+}
+legend, button, label, input, select, textarea {
+   font-size: 1rem;
+}
+legend {
+   padding: 0.75rem;
+   padding-left: 0;
+}
+label {
+   margin: 0.75rem 0 2.25rem 0;
+   width: 23.25%;
+}
+input[type="checkbox"], input[type="radio"] {
+   margin: 1rem 0 1rem 0;
+   width: auto;
+   height: 1rem;
+}
+input, textarea, select {
+   width: 50%;
+   padding: 0.375rem 0;
+   margin: 0.375rem 0;
+}
+input:focus {
+   outline-offset: -3px;
+}
+input[type="search"] {
+   width: 36%;
+}
+input[type="submit"]:not(.search), input[type="button"] {
+   width: auto;
+   min-width: 9rem;
+   padding-left: 0.75em;
+   padding-right: 0.75em;
+}
+select {
+margin: 2rem 0 2rem 0;
+height: 2rem;
+clear: left;
+}
+input.search {
+   width: 14%;
+   background-color: #aaa;
+   text-transform: uppercase;
+   font-size: 14px;
+   line-height: 1.714285714;
+}
+label[for="textarea"], label[for="select"] {
+   margin-bottom: 0.75rem;
+}
+textarea {
+   margin-bottom: 1.875rem;
+}
+form em {
+   display: block;
+   font-size: .75rem;
+   line-height: 2;
+   margin-bottom: 1.5rem;
+}
+.hang-inside-left {
+   float: left;
+   clear: left;
+   margin-left: 3rem;
+}
+form ul {
+   list-style: none;
+   padding-left: 1.5em;
+   margin-bottom: 0;
+}
+form li {
+
+}
 
 
 
@@ -728,16 +912,10 @@
 
 /* nicolas' badass background-image opacity
  * http://nicolasgallagher.com/css-background-image-hacks
- */   .bg: before {
-         content: "";
-         position: fixed;
-         z-index: -3;
-         width: 100%;
-         height: 100%;
-         top: 0; 
-         left: 0;
-         opacity: 0.5;
-         background: url(../img/freckles.png) repeat;
+ */   .grid:hover {
+         background: -webkit-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), -webkit-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px);
+         background: -moz-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), -moz-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px);
+         background-size: 1.5em 1.5em; 
       }
 
 /* typekit fout-buster via @jonikorpi
@@ -752,13 +930,23 @@
          opacity: 0;
       }
 
-/* really can't remember where I saw this, sorry someone out there! :( 
- */   .grid:before {
-         background-size: 24px 24px; 
-         position: absolute; 
-         left: 0; top: 0; right: 0; bottom: 0;
-         content: '';
-         background: 
-         -webkit-linear-gradient(left, #5FB7ED 1px, transparent 1px),
-         -webkit-linear-gradient(#5FB7ED 1px, transparent 1px);
-      }
+
+/*
+ * 9. styleguide
+ ============================================================
+ ============================================================
+ */
+
+   .styleguide {
+      width: 36em;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 24px 48px;
+      padding: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+   }
+   .clause {
+   }
+   .example {
+      background-color: #eee;
+      margin: 0;
+   }

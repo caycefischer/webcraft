@@ -1,0 +1,115 @@
+<style type="text/css">
+  /* Housekeeping */
+*{ margin:0; padding:0; font-family: serif;}
+
+/* Define your base font-size here; most elements will inherit this. */
+html{
+    font-size:1em;      /* Assuming 16px... */
+    line-height:1.5;    /* 24px (This is now our magic number; all subsequent margin-bottoms and line-heights want to be a multiple of this number in order to maintain vertical rhythm.) */
+}
+
+/* Common margin-bottom for vertical rhythm. */
+h1,h2,h3,h4,h5,h6,
+ul,ol,dl,
+fieldset,
+p,
+table,
+pre,
+hr{
+    margin-bottom:24px;
+    margin-bottom:1.5rem;
+}
+
+/* These handle massive type, for less frequently occuring bits of text (e.g. in mastheads and banners). */
+.giga{
+    font-size:80px;
+    font-size:5rem;     /* 80px */
+    line-height:1.2;    /* 96px */
+}
+.mega{
+    font-size:64px;
+    font-size:4rem;     /* 64px */
+    line-height:1.125;  /* 72px */
+}
+.kilo{
+    font-size:48px;
+    font-size:3rem;     /* 48px */
+    line-height:1;      /* 48px */
+}
+
+/* Define headings and their associated classes here. */
+h1,.alpha{
+    font-size:32px;
+    font-size:2rem;     /* 32px */
+    line-height:1.5;    /* 48px */
+}
+h2,.beta{
+    font-size:1.5em;    /* 24px */
+    line-height:1;      /* 24px */
+}
+h3,.gamma{
+    font-size:20px;
+    font-size:1.25rem;  /* 20px */
+    line-height:1.2;    /* 24px */
+}
+h4,.delta{
+    font-size:18px;
+    font-size:1.125rem; /* 18px */
+    line-height:1.333;  /* 24px */
+}
+h5,.epsilon{
+    font-size:16px;
+    font-size:1rem;     /* 16px */
+    line-height:1.5;    /* 24px */
+}
+h6,.zeta{
+    font-size:16px;
+    font-size:1rem;     /* 16px */
+    line-height:1.5;    /* 24px */
+}
+
+/* Smaller-than-body-copy sizes here. */
+small,.milli {
+    font-size:12px;
+    font-size:0.75rem;  /* 12px */
+    line-height:2;      /* 24px */
+}
+
+.grid:before {
+         content: "";
+         width: 100%;
+         height: 1000%;
+         position: absolute;
+         top: 0; 
+         left: 0;
+         bottom: 0;
+         right: 0;
+         /*z-index: -3;*/
+         pointer-events: none;
+         opacity: 0.1;
+         background: -webkit-linear-gradient(left, blue 1px, transparent 1px), -webkit-linear-gradient(blue 1px, transparent 1px);
+         background-size: 1.5em 1.5em; 
+      }
+​
+</style>
+
+<div class="grid"> <h1 class="hN">Elements &amp; Style</h1>
+    <p class="freight">This document is a guide to the mark-up styles used throughout the site.</p>
+  
+
+    <h2 class="hN">Sectioning</h2>
+      <p class="freight">The main page header of this guide is an <code>h1</code> element. Any header elements may include links, as depicted in the example.</p>
+      <p class="freight">The secondary header above is an <code>h2</code> element, which may be used for any form of important page-level header. More than one may be used per page. Consider using an <code>h2</code> unless you need a header level of less importance, or as a sub-header to an existing <code>h2</code> element.</p>
+      
+      <h3 class="hN">Third-Level Header</h3>
+        <p class="freight">The header above is an <code>h3</code> element, which may be used for any form of page-level header which falls below the <code>h2</code> header in a document hierarchy.</p>
+      
+      <h4 class="hN">Fourth-Level Header</h4>
+        <p class="freight">The header above is an <code>h4</code> element, which may be used for any form of page-level header which falls below the <code>h3</code> header in a document hierarchy.</p>
+      
+      <h5 class="hN">Fifth-Level Header</h5>
+        <p class="freight">The header above is an <code>h5</code> element, which may be used for any form of page-level header which falls below the <code>h4</code> header in a document hierarchy.</p>
+      
+      <h6 class="hN">Sixth-Level Header</h6>
+        <p class="freight">The header above is an <code>h6</code> element, which may be used for any form of page-level header which falls below the <code>h5</code> header in a document hierarchy.</p>
+    </div>​
