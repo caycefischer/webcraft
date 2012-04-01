@@ -28,7 +28,7 @@
       c. typography
       d. lists
       e. embedded content
-      f. core elements
+      f. tables
       g. forms
    
    2. core typography
@@ -765,7 +765,7 @@
    }
 
    figure {
-      margin: 0;
+      /*margin: 0;*/
       margin-bottom: 24px;
       margin-bottom: 1.5rem;
    }
