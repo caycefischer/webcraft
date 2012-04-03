@@ -116,17 +116,26 @@
         </figure>
   
       <h3 class="hN gamma">Blockquotes</h3>
-        <p class="freight">The <code>blockquote</code> element represents a section that is being quoted from another source.</p>
+        <p class="freight">The <code>blockquote</code> element represents a section that is being quoted from another source. There are two styles of blockquotes; the default style is <i>academic</i>:</p>
         <figure class="example">
-          <blockquote cite="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">
+          <blockquote class="academic"cite="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">
             <p class="freight micro">Many forms of Government have been tried, and will be tried in this world of sin and woe. No one pretends that democracy is perfect or all-wise. Indeed, it has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.</p>
             <footer>
-              <p class="freight attribution nano">Winston Churchill, <cite><a href="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">speech to the House of Commons</a></cite>. 11th November, 1947</p>
+              <p class="attribution nano">Winston Churchill, <cite><a href="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">speech to the House of Commons</a></cite>. 11th November, 1947</p>
             </footer>
           </blockquote>
         </figure>
-        <p class="freight">Additionally, you might wish to cite the source, as in the above example. The correct method involves including the <code>cite</code> attribute on the <code>blockquote</code> element, but since no browser makes any use of that information, it&#8217;s useful to link to the source also.</p>
-  
+        <p class="freight"> You might wish to cite the source, as in the above example. The correct method involves including the <code>cite</code> attribute on the <code>blockquote</code> element, but since no browser makes any use of that information, it&#8217;s useful to link to the source also. The second style of blockquote is <i>journalistic</i>:</p>
+        <figure class="example">
+          <blockquote class="journalistic" cite="http://hansard.millbanksystems.com/commons/1947/nov/11/parliament-bill#column_206">
+            <p class="freight delta">It has been said that democracy is the worst form of government except all those other forms that have been tried from time to time.</p>
+            <footer>
+              <p class="attribution micro">Winston Churchill</p>
+            </footer>
+          </blockquote>
+          <p class="freight">As you can see, an attribution can also be added to a <i>journalistic</i> blockquote, but it is not necessary. The type for <i>academic</i> attributions is sized <code>.nano</code>, while <i>journalistic</i> attributions are typeset at <code>.micro</code>. Please view the source for more information. </p>
+        </figure>
+
       <h3 class="hN gamma">Ordered list</h3>
         <p class="freight">The <code>ol</code> element denotes an ordered list, and various numbering schemes are available through the CSS (including 1,2,3&#8230; a,b,c&#8230; i,ii,iii&#8230; and so on). Each item requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote individual items within the list (as you may have guessed, <code>li</code> stands for list item).</p>
         <figure class="example">
