@@ -1,3 +1,2 @@
-permalink: /:categories/:title.html
+permalink: /:categories/:title
 pygments: true
-markdown: rdiscount
