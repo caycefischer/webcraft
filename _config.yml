@@ -1,4 +1,3 @@
-# permalink: /webcraft/:categories/:title
-permalink: pretty
+permalink: /webcraft/:categories/:title/
 pygments: true
-markdown: rdiscount
+# markdown: rdiscount
