@@ -5,10 +5,7 @@ description: "This lesson covers the basic terminology and fundamental syntax of
 category: fundamentals
 ---
 
-<!-- syntax highlighting the jekyll way -->
-{% highlight html linenos %}
-	<div>this is some preformatted code</div>
-{% endhighlight %}
+# {{ page.title }}
 
 There are a few different versions of HTML, but the most current and increasingly the most commonly used is the [HTML5 "Living Standard"](http://developers.whatwg.org/) specification. HTML5 evolved from the previous HTML 4.01 standard and was designed to be simple, powerful and backwards-compatible. This document uses HTML5 syntax, semantics and conventions throughout; the terms "HTML" and "HTML5" are used interchangeably.
 
