@@ -963,7 +963,7 @@ form ul {
  ============================================================
  */
 
-   .styleguide {
+   .styleguide, section[role="main"] {
       width: 39em;
       position: relative;
       margin-left: 7.5rem;

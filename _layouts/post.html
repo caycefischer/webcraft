@@ -1,28 +1,28 @@
 {% include post-header.html %}
+	<section role="main">
+		<h1 class="hN giga">{{ page.title }}</h1>
+		
+		{{ content }}
 
-	<h1 class="hN giga">{{ page.title }}</h1>
-	
-	{{ content }}
+		<!-- yaml front-matter tags variable -->
+		<b>tags:</b><i>{{ page.tags }}</i>
+		<br>
 
-	<!-- yaml front-matter tags variable -->
-	<b>tags:</b><i>{{ page.tags }}</i>
-	<br>
+		<!-- use jekyll liquid extension to make tags array human-readable -->
+		<b>human-readable tags:</b><i>{{ page.tags | array_to_sentence_string }}</i>
+		<br>
+		
+		<!-- use liquid for loop to split up array -->
+		<ul>
+			{% for tag in page.tags %}
+				<li>{{ tag }}</li>
+			{% endfor %}
+		</ul>
+		<br>
 
-	<!-- use jekyll liquid extension to make tags array human-readable -->
-	<b>human-readable tags:</b><i>{{ page.tags | array_to_sentence_string }}</i>
-	<br>
-	
-	<!-- use liquid for loop to split up array -->
-	<ul>
-		{% for tag in page.tags %}
-			<li>{{ tag }}</li>
-		{% endfor %}
-	</ul>
-	<br>
+		<b>category:</b><i>{{ page.category }}</i>
 
-	<b>category:</b><i>{{ page.category }}</i>
-
-	<!-- custom yaml front-matter variable -->
-	<!-- <b>genre: </b> <i>{{ page.genre }}</i> -->
-
+		<!-- custom yaml front-matter variable -->
+		<!-- <b>genre: </b> <i>{{ page.genre }}</i> -->
+	</section>
 {% include post-footer.html %}
