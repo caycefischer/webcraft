@@ -2,17 +2,19 @@
 
 $(document).ready(function() {
 
-/*
-	$("#menu").localScroll({
-		offset: -200
-	});
-*/
-
     $(function() {
-       $("h1").bind("click", baseliner);
+		$(".gridder").bind("click", gridder);
     });
     
-    function baseliner(evt) {
-      $("body").toggleClass("baseline");
+    function gridder(evt) {
+		$("#grid").toggleClass("grid");
     }
+
+    $('h1').grumble({
+		text: 'toggle the grid!', 
+		angle: 85, 
+		distance: 100, 
+		showAfter: 500 
+	});
+
 });

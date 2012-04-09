@@ -633,22 +633,17 @@
       font-size: .875rem;
       margin: 0 0 24px;
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      line-height: 1.5;
+      line-height: 1.714285714;
       padding: 1.5rem;
       background-color: rgb(209, 219, 224);
       color: #111;
       outline: 1px solid #bdbdbd;
       overflow: auto;
    }
-   p > kbd {
+   p > kbd, .hN > code, p > code {
       line-height: 0;
    }
- 
-/* display language 'foo' with <code class="foo"> 
- */
-   pre code[class]:before {
-      content: 'language: ' attr(class);
-   }
+
 
 
 
@@ -702,7 +697,7 @@
    a:link { color: rgb(47, 88, 190); -webkit-tap-highlight-color: rgb(47, 88, 190); text-decoration: none; }
    a:visited { color: rgb(37, 78, 180); }
    a:hover { color: rgb(66, 197, 116); }
-   a:active {color: rgb(47, 88, 190); }
+   a:active {color: rgb(66, 197, 116); }
 
 /* improve readability when focused and hovered in all browsers: http://h5bp.com/h
  */
@@ -714,8 +709,8 @@
  *    http://h5bp.com/i
  */
 
-   ::-moz-selection { background: rgb(47, 88, 190); color: #f0f0f0; text-shadow: none; }
-   ::selection { background: rgb(47, 88, 190); color: #f0f0f0; text-shadow: none; }
+   ::-moz-selection { background: rgb(6,51,85); color: #f0f0f0; text-shadow: none; }
+   ::selection { background: rgb(6,51,85); color: #f0f0f0; text-shadow: none; }
 
 /* c) form validity
  ============================================================
@@ -736,11 +731,18 @@
  *    use easier box model      → http://paulirish.com/2012/box-sizing-border-box-ftw
  */
 
-   * {
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-   }
+* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+
+   -webkit-transition: all 0.124s ease-out;
+   -moz-transition: all 0.124s ease-out;
+   -o-transition: all 0.124s ease-out;
+   -ms-transition: all 0.124s ease-out;
+   transition: all 0.124s ease-out;
+}
+
    html {
       height: 100%;
    }
@@ -964,22 +966,25 @@ form ul {
       }
 
 /* baseline grid
- */   #grid:target { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
+ */   .grid { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
          z-index: 1000;
          background: 
-            -webkit-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
-            -webkit-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
-            -webkit-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
-            -webkit-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+            -webkit-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
+            -webkit-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
+            -webkit-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
+            -webkit-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
          background: 
-            -moz-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
-            -moz-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
-            -moz-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
-            -moz-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+            -moz-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
+            -moz-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
+            -moz-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
+            -moz-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
          background-size: 1.5rem 1.5rem;
       }
-      #grid:target .styleguide {
-         z-index: -1;
+      .gridder {
+         position: absolute;
+         top: 0;
+         right: 1.5rem;
+         opacity: 0.5;
       }
 
 /* typekit fout-buster via @jonikorpi
