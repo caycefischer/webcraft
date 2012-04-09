@@ -142,6 +142,4 @@ The `body` element accepts `class` and `id` attributes (along with [others](http
 		</body>
 	</html>
 
-Congratulations, you've written a valid HTML5 document&mdash;too bad it's empty! Why not dive into the [pattern library]({{ site.baseurl }}/patterns) and hone your skills on [marking up a simple blog post]({{ site.baseurl }}/patterns/blog-entry). 
-
-If you're not comfortable with the basics of CSS (or don't know what that is), you should read [CSS Fundamentals]({{ site.baseurl }}/fundamentals/style) before following tutorials in the pattern library.
+Congratulations, you've written a valid HTML5 document&mdash;too bad it's empty! Why not dive into the [pattern library]({{ site.baseurl }}/patterns) and hone your skills on [marking up a simple blog post]({{ site.baseurl }}/patterns/blog-entry). If you're not comfortable with the basics of CSS (or don't know what that is), you should read [CSS Fundamentals]({{ site.baseurl }}/fundamentals/style) before following tutorials in the pattern library.
