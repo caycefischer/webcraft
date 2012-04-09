@@ -7,7 +7,7 @@ category: fundamentals
 
 There are many versions of HTML, but the latest&mdash;and one that is becoming increasingly used&mdash;is the [HTML5 "Living Standard"](http://developers.whatwg.org/) specification. HTML5 evolved from the previous HTML 4.01 standard and was designed to be simple, powerful and backwards-compatible. This document uses HTML5 syntax, semantics and conventions throughout; the terms "HTML" and "HTML5" are used interchangeably.
 
-## 1. Terminology
+## 1. Terminology {: .hN .alpha #terminology}
 
 "HTML is a language for describing the structure of Web pages." - [W3C](http://w3.org)
 
