@@ -1,4 +1,4 @@
 # permalink: /webcraft/:categories/:title.html
-permalink: pretty
 pygments: true
+permalink: /webcraft/:year/:month/:day/:title
 # markdown: rdiscount
