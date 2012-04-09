@@ -1,4 +1,3 @@
-permalink: /webcraft/:categories/:title
-url: http://lab.zacharykain.com
-baseurl: http://lab.zacharykain.com
+baseurl: http://lab.zacharykain.com/webcraft/
+permalink: "/{{ site.baseurl }}/:categories/:title"
 pygments: true
