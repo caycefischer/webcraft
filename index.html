@@ -1,69 +1,10 @@
-<!doctype html>
-<!--  http://html5boilerplate.com/docs/html/#ie-html-tag-classes
-      paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither -->
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-   <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-   <!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    
-    <!--  force best rendering from IE - note, some associated issues
-          http://html5boilerplate.com/docs/html/#make-sure-the-latest-version-of-ie-is-used -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+---
+layout: default
+title: "Web-Craft: A Primer"
+description: "Web-Craft is an online curriculum written to help design students become fluent with the web. Through articles and lessons that explore the fundamentals, tools and techniques of modern web design, Web-Craft draws from the collective knowledge of the web community to curate a thorough reference manual, educational resource and invaluable resource library."
+---
 
-    <!--  speed up grabbing jquery from the cloud
-          http://html5boilerplate.com/docs/DNS-Prefetching -->
-    <link rel="dns-prefetch" href="//ajax.googleapis.com">
-    
-    <!--  standard title and meta content tags -->
-    <title>Web-Craft Primer | Zachary Kain</title>
-    <meta name="description" content="">
-    <meta name="author" content="Zachary Kain">
-
-    <!--  canonical url for google crawling: http://t.co/y1jPVnT
-          http://html5boilerplate.com/html5boilerplate-site/built/en_US/docs/html-head/#canonical-url -->
-    <link rel="canonical" href="/">
-
-    <!-- Mobile viewport optimized: h5bp.com/viewport -->
-    <meta name="viewport" content="width=device-width">
-
-    <!--  activate ClearType for smooth fonts on mobile IE
-          http://html5boilerplate.com/mobile -->
-    <meta http-equiv="cleartype" content="on">
-
-    <!--  app icons: http://mathiasbynens.be/notes/touch-icons -->
-    <!--  16px favicon -->
-    <link rel="shortcut icon" href="favicon.ico">     
-    <!--  114px for retina iPhone -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
-    <!--  72px for non-retina iPad -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72-precomposed.png">
-    <!--  57px for non-retina iPhone, android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
-
-    <!--  stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!--  webfonts -->
-    
-    <!-- fout-busting
-          http://www.extensis.com/en/WebINK/fout-b-gone
-        OR
-          http://jonikorpi.com/a-smoother-page-load/ -->
-
-    <!--  modernizr enables HTML5 elements & feature detects for optimal performance
-          http://html5boilerplate.com/docs/html/#modernizr-yepnope-respond -->
-  <script src="js/libs/modernizr-2.5.3.min.js"></script>
-
-<!-- no modernizr? Pack a shiv, bro -->
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-</head>
-
-<body>
-  <!--  prompt IE 6 users to install Chrome Frame
-      http://chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+<!-- content of this page -->
   <div id="grid">
 	
   <section class="styleguide">
@@ -523,29 +464,3 @@
     </section>
   </section>
 	</div>
-
-  <!-- JavaScript at the bottom for fast page loading -->
-
-  <!--  include jquery from google servers, fall back to local if necessary
-        http://html5boilerplate.com/docs/The-markup/#google-cdn-for-jquery -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-
-  <!--  all plugins and all scripts in one file each, to minimize http requests
-        http://html5boilerplate.com/docs/plugins.js-and-script.js -->
-  <script src="js/plugins.js"></script>
-  <script src="js/scripts.js"></script>
-
-  <!--  asynchronous google analytics, replace 'UA-XXXXX-X'
-        mathiasbynens.be/notes/async-analytics-snippet -->
-<!-- 
-  <script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>
- -->
-</body>
-</html>

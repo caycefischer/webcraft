@@ -1,0 +1,128 @@
+---
+layout: post
+title: HTML
+description: "This lesson covers the basic terminology and fundamental syntax of HTML. By the end of this lesson you will be able to create a simple webpage by hand."
+category: fundamentals
+---
+
+<!-- syntax highlighting the jekyll way -->
+{% highlight html linenos %}
+	<div>this is some preformatted code</div>
+{% endhighlight %}
+
+There are a few different versions of HTML, but the most current and increasingly the most commonly used is the [HTML5 "Living Standard"](http://developers.whatwg.org/) specification. HTML5 evolved from the previous HTML 4.01 standard and was designed to be simple, powerful and backwards-compatible. This document uses HTML5 syntax, semantics and conventions throughout; the terms "HTML" and "HTML5" are used interchangeably.
+
+## 1. Terminology
+
+"HTML is a language for describing the structure of Web pages." - [W3C](http://w3.org)
+
+The "M" in <abbr title="Hyper-Text Markup Language">HTML</abbr> stands for _markup_; writing HTML boils down to _marking up_ content to identify it and give it meaning, just like annotating a book.
+
+#### 1.1 Elements & Tags
+HTML **elements** are used to mark up different content in a document and specify what each bit of content is supposed to be.	
+	
+	<div>
+
+Elements are composed of a **start tag** and an **end tag**. Tags are always surrounded by a set of angle brackets. Naturally, opening tags mark the beginning of an element; closing tags mark the end of an element and must begin with a forward slash:
+
+	<h1>This is a level 1 header</h1>
+	<p>this is text in a paragraph.</p>
+
+Some elements are made up of one, **self-closing tag**:
+
+	<img src="image.jpg">
+	<img src="image.jpg" />
+
+Both lines in the above example are correct. An optional forward slash (`/`) can be written before the closing bracket in a self-closing tag, though it is only necessary when using a non-HTML5 [doctype](#).
+
+#### 1.2 Attributes
+While elements define the actual content, **attributes** define extra information about those elements, such as the location of a source file or a class/id name. Attributes are always written inside the angle brackets of a tag - _never_ between tags or in a closing tag.
+	
+	<div id="container">…</div>
+
+Attributes have a **name** and a **value**., which are separated by an equals sign (`=`). In the above example, the `div` element has been given an `id` attribute with a value of "container". An attribute can only be defined once in a single tag, but some attributes allow multiple values:
+
+	<div class="container alpha">...</div>
+
+#### 1.3 Comments
+Comments are pieces of text within the HTML document that are hidden from the browser. They serve as notes and explanations for the surrounding code. To leave a comment in HTML:
+
+	<!-- I am a comment, wrapped in this funky string of symbols -->
+
+## 2. Structure
+
+In theory, an appropriate file extension (`.html`, `.htm`) is all that a browser requires to read a document as HTML. However, HTML is a standardized language and browsers cannot properly parse a document if the proper syntax and structure isn't used. A well-formed HTML document requires the following:
+
+1. A `doctype` declaration
+2. The `html` root element
+3. The `head` element
+4. The `body` sectioning element 
+
+#### 2.1 `doctype`
+A `doctype` declaration is used to instruct browsers which version of HTML is being used, and should be on the first line of an HTML document. Declaring a `doctype` always begins with an exclamation mark (`!`) character and is placed inside angle brackets (`< >`). This is the HTML5 `doctype`:
+
+	<!doctype html>
+
+"A `doctype` is necessary to force browsers to render in standards mode and prevent quirks-mode headaches in Internet Explorer." - Mark Brown, http://www.yellowshoe.com.au/standards/
+
+#### 2.2 `<html>`
+`html` is the document _root_, or the top-most element on the page (after `doctype`, which is not an element). It is written with opening and closing tags, marking the beginning and end of the HTML document. The `html` element contains all other elements; nothing can be written after the `</html>` tag. 
+
+	<!doctype html>
+	<html>
+		<!-- everything else goes in here -->
+	</html>
+
+The `html` element accepts attributes (like `class`) but often only specifies the `lang` attribute.
+ 
+	<html lang="en">
+
+While not required to validate, the `lang` attribute specifies the primary language of the an element's content - in this case, the entire document.
+
+The `html` tag can be partially styled with CSS. As a general guide, typographic and background/color styles are accepted, while layout and box-model styles are not (see CSS).
+
+#### 2.3 `<head>`
+The first element inside `<html>` is always the `head` element. It is not rendered by the browser; it contains any metadata for the HTML document, along with links to external resources like scripts or stylesheets. 
+
+	<html lang="en">
+		<head>
+			…
+		</head>
+
+The `<head>` often contains two metadata elements, one of which is required - `title`. The `title` element represents the overarching title or name of the page.
+
+	<title>Waldo's Widget Win-porium</title>
+
+"The document's title is often different from its first heading, since the first heading does not have to stand alone when taken out of context." - [WHATWG](http://developers.whatwg.org/semantics.html)
+
+The second recommended element is a "character encoding declaration":
+
+	<meta charset="utf-8">
+
+The `meta` element is used to add different kinds of meta-information to the document. Using the `charset` attribute, it specifies the type of character encoding used on the page - in the example above, UTF-8. UTF-8, or Unicode, is a world-wide standard and a sensible default.
+
+Character encoding should always be explicitly set with `meta charset` to prevent rendering errors. To validate and preserve compatibility with legacy browsers, this element must fit within the first 1024 bytes of the page.
+
+#### 2.4 `body`
+The `body` element represents the main content of the document, everything that is visible on the page. There can only be one `body` element, and it must be inside the `html` element below the `head`.
+
+		<body>
+			<!-- content goes here -->
+		</body>
+
+The `body` element accepts `class` and `id` attributes (along with [others](http://developers.whatwg.org/elements.html#global-attributes)) and can be styled with CSS.
+
+#### 2.5 Putting it all together
+
+	<!doctype html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<title>Document Title</title>
+		</head>
+		<body>
+			<!-- content goes here -->
+		</body>
+	</html>
+
+You've learned how to create the basic document tree for a valid HTML5 page. Congratulations! Next up: [Marking Up Content](#).

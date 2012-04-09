@@ -410,7 +410,7 @@
 
    body {
       font-size: 100%;  /* =16px, ubiquitous browser default */
-      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       line-height: 1.5em; /* =24px → our magic number */ 
    }
 
@@ -440,6 +440,7 @@
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
       margin-bottom: 0.75rem;
       padding-top: 0.75rem;
+      font-family: "myriad-pro", Helmet, Freesans, sans-serif;
    }
    h1, .alpha {
       font-size: 32px;
