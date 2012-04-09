@@ -1,2 +1,2 @@
-permalink: webcraft/:categories/:title
+permalink: :categories/:title
 pygments: true
