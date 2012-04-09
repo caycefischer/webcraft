@@ -1,3 +1,4 @@
-permalink: /:categories/:title
-url: http://lab.zacharykain.com/webcraft/
+permalink: /webcraft/:categories/:title
+url: http://lab.zacharykain.com
+baseurl: http://lab.zacharykain.com
 pygments: true
