@@ -468,9 +468,9 @@
       font-size: 2rem;     /* 32px = 16 × 2 */
       line-height: 0.75;   /* 24px ÷ 32 = 0.75 (24 = 24 × 1) */
       margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
       font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       font-weight: 400;
-      padding-top: 1.5rem;
    }
    h3, .gamma {
       font-size:  24px;
@@ -478,15 +478,15 @@
       line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
       margin-bottom: 0.75rem;
       padding-top: 0.75rem;
+      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       font-weight: 400;
+      font-style: italic;
    }
    h4, .delta {
       font-size: 20px;
       font-size: 1.25rem;  /* 20px = 16 × 1.25 */
       line-height: 1.2;    /* 24px ÷ 20 = 1.2 (24 = 24 × 1) */
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       font-weight: 400;
-      font-style: italic;
    }
    h5, .epsilon {
       font-size: 18px;
