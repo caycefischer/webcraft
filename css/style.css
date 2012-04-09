@@ -389,8 +389,8 @@
  *    (http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0)
  *
  * reliable font stacks:
- *     sans:   Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
- *    serif:   Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+ *     sans:   "myriad-pro", Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
+ *    serif:   "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
  *     mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
  */
 
@@ -440,7 +440,7 @@
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
       margin-bottom: 0.75rem;
       padding-top: 0.75rem;
-      font-family: "myriad-pro", Helmet, Freesans, sans-serif;
+      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
    }
    h1, .alpha {
       font-size: 32px;
