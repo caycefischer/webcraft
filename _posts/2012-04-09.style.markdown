@@ -1,0 +1,8 @@
+---
+layout: post
+title: Style
+description: "This lesson covers the basic terminology and fundamental syntax of CSS. By the end of this lesson you will be able to change the visual design of your webpages."
+category: fundamentals
+---
+
+## 1. CSS is fucking rad.

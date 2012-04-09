@@ -1,3 +1,2 @@
-pygments: true
 permalink: /webcraft/:categories/:title.html
-# markdown: rdiscount
+pygments: true
