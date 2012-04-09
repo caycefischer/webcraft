@@ -131,6 +131,7 @@
 /* styling not present in IE7/8/9, S5, Chrome
  */   abbr[title] {
          border-bottom: 1px dotted;
+         cursor: help;
       }
 
 /* styling not present in S5, Chrome
@@ -461,23 +462,23 @@
       margin-bottom: 48px;
       margin-bottom: 3rem; /* 48px = 16 × 3 */  
       padding-top: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
    }
    h2, .beta {
-      font-size:  32px;
-      font-size: 2rem;     /* 32px = 16 × 2 */
-      line-height: 0.75;   /* 24px ÷ 32 = 0.75 (24 = 24 × 1) */
+      font-size: 28px;
+      font-size: 1.75rem;        /* 28px = 16 × 1.75 */
+      line-height: 0.857142857;  /* 24px ÷ 28 = 0.857142857 (24 = 24 × 1) */
       margin-bottom: 1.5rem;
       padding-top: 1.5rem;
       font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 400;
+      font-weight: 600;
    }
    h3, .gamma {
       font-size:  24px;
       font-size: 1.5rem;   /* 24px = 16 × 1.5 */
       line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
-      margin-bottom: 0.75rem;
-      padding-top: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
       font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       font-weight: 400;
       font-style: italic;
@@ -580,6 +581,9 @@
          background: none; 
          font-style: italic; 
          font-weight: bold; 
+         background: rgb(47, 88, 190);
+         padding: 0.125em;
+         color: #fefefe;
       }
 
 /* small print, side comments, not for block-level content
@@ -598,22 +602,22 @@
    blockquote {
       margin: 24px;
       margin: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
-   .journalistic {
       margin-left: 0;
-      border-left: 3px solid #ccc;
-      border-left: 0.1875rem solid #ccc;
+      border-left: 3px solid rgb(47,88,190);
+      border-left: 0.1875rem solid rgb(47,88,190);
       padding-left: 21px;
       padding-left: 1.3125rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      background-color: #f0f0f0;
    }
    blockquote .attribution:before {
       content: "— ";
    }
-   .academic .attribution {
-      margin-left: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
-   .journalistic .attribution {
-      font-style: italic;  
+   blockquote .attribution {
+      font-style: italic;
+      text-indent: 0;
+      margin: 0;
    }
 
 
@@ -625,9 +629,16 @@
  */
 
    pre { 
+      font-size: 14px;
+      font-size: .875rem;
       margin: 0 0 24px;
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
       line-height: 1.5;
+      padding: 1.5rem;
+      background-color: rgb(209, 219, 224);
+      color: #111;
+      outline: 1px solid #bdbdbd;
+      overflow: auto;
    }
    p > kbd {
       line-height: 0;
@@ -688,31 +699,31 @@
 
 /* http://j.mp/webkit-tap-highlight-color
  */
-   a:link { color: blue; -webkit-tap-highlight-color: #FF0000; }
-   a:visited { color: purple; }
-   a:hover { color: red; }
-   a:active {color: red; }
+   a:link { color: rgb(47, 88, 190); -webkit-tap-highlight-color: rgb(47, 88, 190); text-decoration: none; }
+   a:visited { color: rgb(37, 78, 180); }
+   a:hover { color: rgb(66, 197, 116); }
+   a:active {color: rgb(47, 88, 190); }
 
 /* improve readability when focused and hovered in all browsers: http://h5bp.com/h
  */
    a:hover, a:active { outline: 0; }
-   a:focus { outline: thin dotted; }
+   a:focus { outline: 0; border-bottom: 2px solid rgb(66, 197, 116); }
 
 /* b) selection
  ============================================================
  *    http://h5bp.com/i
  */
 
-   ::-moz-selection { background: blue; color: white; text-shadow: none; }
-   ::selection { background: blue; color: white; text-shadow: none; }
+   ::-moz-selection { background: rgb(47, 88, 190); color: #f0f0f0; text-shadow: none; }
+   ::selection { background: rgb(47, 88, 190); color: #f0f0f0; text-shadow: none; }
 
 /* c) form validity
  ============================================================
  *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
  */
 
-   input:valid, textarea:valid { background-color: #ccc; }
-   input:invalid, textarea:invalid { background-color: #f0dddd; }
+   input:valid, textarea:valid { background-color: rgb(66, 197, 116); }
+   input:invalid, textarea:invalid { background-color: rgb(249, 81, 101); }
 
 
 
@@ -735,6 +746,7 @@
    }
    body { 
        min-height: 100%;
+       background-image: url(http://subtlepatterns.com/patterns/rough_diagonal.png);
    }
 
    
@@ -798,6 +810,7 @@
 
    body {
       background-color: #eee;
+      color: rgb(4, 34, 57);
    }
 
    figure {
@@ -989,21 +1002,11 @@ form ul {
  */
 
    .styleguide, section[role="main"] {
-      width: 48em;
+      width: 45em;
       position: relative;
-      margin-left: 7.5rem;
-      background-color: #fff;
+      margin-left: 7.5em;
+      background-color: #fff; /* fallback */
+      background-color: rgba(255,255,255,0.75);
       padding: 24px 48px;
-      padding: 1.5rem 4.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
-   .clause {
-   }
-/*   .example {
-      background-color: #eee;
-      padding: 1.5rem 1.5rem 0;
-      outline: 1px solid #999;
-      overflow: auto;
-   }
-   .example > :first-child {
-      margin-top: 0;
+      padding: 1.5em 3em; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
