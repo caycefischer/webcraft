@@ -4,13 +4,13 @@
   <!--  include jquery from google servers, fall back to local if necessary
         http://html5boilerplate.com/docs/The-markup/#google-cdn-for-jquery -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="../js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="{{ site.baseurl }}/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
 
   <!--  all plugins and all scripts in one file each, to minimize http requests
         http://html5boilerplate.com/docs/plugins.js-and-script.js -->
-  <script src="../js/plugins.js"></script>
-  <script src="../js/scripts.js"></script>
+  <script src="{{ site.baseurl }}/js/plugins.js"></script>
+  <script src="{{ site.baseurl }}/js/scripts.js"></script>
 
   <!--  asynchronous google analytics, replace 'UA-XXXXX-X'
         mathiasbynens.be/notes/async-analytics-snippet -->
