@@ -1,2 +1,2 @@
-permalink: /:categories/:title/
+permalink: /blog/:categories/:title/
 pygments: true
