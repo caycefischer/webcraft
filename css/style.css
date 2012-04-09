@@ -389,8 +389,8 @@
  *    (http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0)
  *
  * reliable font stacks:
- *     sans:   "myriad-pro", Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
- *    serif:   "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+ *     sans:   Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
+ *    serif:   Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
  *     mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
  */
 
@@ -410,17 +410,8 @@
 
    body {
       font-size: 100%;  /* =16px, ubiquitous browser default */
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       line-height: 1.5em; /* =24px → our magic number */ 
-   }
-
-
-/* basic title class, as per: http://jsfiddle.net/csswizardry/yFQDP
- */
-   .hN {
-      margin: 0 0 24px;
-      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
    }
 
 /* hero type
@@ -440,13 +431,16 @@
       font-size: 3rem;     /* 48px = 16 × 3 */
       line-height: 1;      /* 48px ÷ 48 = 1 (48 = 24 × 2) */
    }
-   .tera, .giga, .mega {
-      margin-bottom: 48px;
-      margin-bottom: 3rem; /* 48px = 16 × 3 */
-   }
 
 /* heading type
  */
+   .hN {
+      /* .hN is a blanket heading class, as per: http://jsfiddle.net/csswizardry/yFQDP */
+      margin: 0 0 24px;
+      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
+      margin-bottom: 0.75rem;
+      padding-top: 0.75rem;
+   }
    h1, .alpha {
       font-size: 32px;
       font-size: 2rem;     /* 32px = 16 × 2 */
@@ -934,14 +928,14 @@ form ul {
  */   #grid:target { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
          z-index: 1000;
          background: 
-            -webkit-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
+            -webkit-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px), 
             -webkit-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
-            -webkit-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
+            -webkit-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), 
             -webkit-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
          background: 
-            -moz-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
+            -moz-linear-gradient(rgba(0,0,255,0.1) 1px, transparent 1px), 
             -moz-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
-            -moz-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
+            -moz-linear-gradient(left, rgba(0,0,255,0.1) 1px, transparent 1px), 
             -moz-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
          background-size: 1.5rem 1.5rem;
       }
@@ -968,8 +962,8 @@ form ul {
  ============================================================
  */
 
-   .styleguide, section[role="main"] {
-      width: 48em;
+   .styleguide {
+      width: 39em;
       position: relative;
       margin-left: 7.5rem;
       background-color: #fff;
