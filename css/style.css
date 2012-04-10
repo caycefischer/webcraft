@@ -758,7 +758,6 @@
  */
    html {
       text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: subpixel-antialiased;
    }
 
    .sans {
@@ -834,11 +833,11 @@
    -moz-box-sizing: border-box;
    box-sizing: border-box;
 
-   -webkit-transition: all 0.136s ease-out;
+/*   -webkit-transition: all 0.136s ease-out;
    -moz-transition: all 0.136s ease-out;
    -o-transition: all 0.136s ease-out;
    -ms-transition: all 0.136s ease-out;
-   transition: all 0.136s ease-out;
+   transition: all 0.136s ease-out;*/
 }
 
    html {
@@ -1016,13 +1015,13 @@
       color: #f0f0f0; /* fallback */
       color: rgb(240,240,240);
    }
-   .txt-white:hover, .txt-white:active {
-      color: #42c574; /* fallback */
-      color: rgb(66,197,116);
-   }
    .brand:hover, .brand:active {
       color: #f0f0f0; /* fallback */
       color: rgb(240,240,240);
+   }
+   .txt-white:hover, .txt-white:active {
+      color: #42c574; /* fallback */
+      color: rgb(66,197,116);
    }
 
    .symbol {
@@ -1033,12 +1032,17 @@
       padding: 0;
       display: block;
       -webkit-transform: rotateY(0deg);
+         -moz-transform: rotateY(0deg);
+              transform: rotateY(0deg);
       -webkit-transition: -webkit-transform 0.437s ease-out;
+            -moz-transition: -moz-transform 0.337s ease-out;
+                      transition: transform 0.437s ease-out;
       -webkit-perspective: 400;
    }
-   .animated {
+   .symbol:hover {
       -webkit-transform: rotateY(180deg);
-      -webkit-perspective: 400;
+         -moz-transform: rotateY(180deg);
+              transform: rotateY(180deg);
    }
    .icon {
       position: relative;
@@ -1184,45 +1188,3 @@
       .wf-loading {
          opacity: 0;
       }
-
-
-
-
-
-
-
-
-.color-shift {
-   -webkit-animation: colorShift 3s infinite ease-in-out;
-      -moz-animation: colorShift 3s infinite ease-in-out;
-       -ms-animation: colorShift 3s infinite ease-in-out;
-           animation: colorShift 3s infinite ease-in-out;
-   /*-webkit-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); */
-      /*-moz-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); */
-       /*-ms-transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); */
-           /*transition-timing-function: cubic-bezier(0.770, 0.000, 0.175, 1.000); /* easeInOutQuart (from http://matthewlein.com/ceaser) */
-}
-
-
-@-webkit-keyframes colorShift {
- 0% { color: rgb(66,197,116); }
- 50% { color: rgb(249, 81, 101); }
- 100% { color: rgb(66,197,116); }
-}
-   @-moz-keyframes colorShift {
-    0% { color: rgb(66,197,116); }
-    50% { color: rgb(249, 81, 101); }
-    100% { color: rgb(66,197,116); }
-   }
-   
-   @-ms-keyframes colorShift {
-    0% { color: rgb(66,197,116); }
-    50% { color: rgb(249, 81, 101); }
-    100% { color: rgb(66,197,116); }
-   }
-   
-   @keyframes colorShift {
-    0% { color: rgb(66,197,116); }
-    50% { color: rgb(249, 81, 101); }
-    100% { color: rgb(66,197,116); }
-   }
