@@ -617,6 +617,9 @@
       margin-top: -1.5rem;
       text-indent: 3em;
    }
+   .hN + .hN {
+      text-indent: 0;
+   }
    /*p:first-of-type, .freight:first-of-type {
       text-indent: 0;
    }
@@ -766,7 +769,7 @@
 
    .sans {
       font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
-      font-weight: 400;
+      font-weight: 300;
       font-style: normal;
    }
    .serif {
@@ -966,8 +969,8 @@
       padding: 1.5em 3em; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
    .page.extended {
-      width: 48em;
-      margin-left: 24em;
+      width: 42em;
+      margin-left: 25.5em;
    }
 
 /* social
