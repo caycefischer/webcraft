@@ -931,10 +931,24 @@
       width: 45em;
       position: relative;
       /*margin-left: 7.5em;*/
-      margin-left: 26.5em;
+      margin-left: 27em;
       padding: 24px 48px;
       padding: 1.5em 3em; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
+
+/* social
+ */
+   .social {
+      float: left;
+      width: 4.75em;
+      overflow: visible;
+      margin-left: 1.75em;
+   }
+   .social:last-child {
+      margin-left: 0;
+   }
+
+
 /*
  * 6. stylistic modules
  ============================================================
@@ -1033,7 +1047,8 @@
 
    .stick-bottom {
       position: absolute;
-      bottom: 0;
+      bottom: 3em;
+      overflow: auto;
    }
 /*
  * 7. media queries
