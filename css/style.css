@@ -939,25 +939,26 @@
 /* social
  */
    .social {
-      opacity: 0.5;
+      opacity: 0.65;
       float: left;
-      width: 4.75em;
       overflow: visible;
-      margin-left: 1em;
+      line-height: 0.9;
+      height: 2rem;
    }
    .social:hover, .social:focus {
       opacity: 1;
       border: 0;
    }
    .social.facebook, .social.google {
-      margin-left: 1.75em;
+      margin-left: 3.75em;
    }
 
    nav[role="navigation"] {
       text-align: left;
       width: 100%;
       margin-left: 6.5em;
-      margin-bottom: 8em;
+      margin-bottom: 3em;
+      padding-top: 1em;
    }
    .anchor-panel .gamma {
       padding-top: 1rem;
@@ -972,18 +973,6 @@
       bottom: 1.5em;
       /*overflow: auto;*/
    }
-   @media all and (max-height: 800px) {
-      nav[role="navigation"] {
-         margin-bottom: 3em;
-      } 
-      .anchor-panel .gamma {
-         padding-top: 0;
-      }
-      .stick-bottom {
-         position: static;
-      }
-   }
-
 
 
 /*
@@ -1079,7 +1068,34 @@
  ============================================================
  */
 
-   @media only screen and (min-width: 320px) {
+   @media all and (max-width: 1074px) {
+      .page, section[role="main"] {
+         margin-left: 24em;
+      }
+   }
+
+   @media all and (max-width: 1170px) {
+      html {
+         font-size: 87.5%; /* 14px */
+      }       
+   }
+
+   @media all and (max-height: 800px) {
+      html {
+         font-size: 87.5%; /* 14px */
+      }
+      .anchor-panel .gamma {
+         padding-top: 0;
+      }
+      .stick-bottom {
+         /*position: static;*/
+
+      }
+   }
+
+
+
+/*   @media only screen and (min-width: 320px) {
        
    }
 
@@ -1092,16 +1108,12 @@
    }
 
    @media only screen and (min-width: 1024px) {
-       body {
-         /*font-size: 87.5%;*/
-       }
+
    }
 
    @media only screen and (min-width: 1280px) {
-       body {
-         /*font-size: 100%;*/
-       }
-   }
+   
+   }*/
 
 
 /*
@@ -1149,7 +1161,16 @@
          position: absolute;
          top: 0;
          right: 1.5rem;
-         opacity: 0.5;
+         opacity: 0.25;
+      }
+      .gridder:after {
+         content: "grid";
+         text-transform: uppercase;
+         font-size: 1rem;
+         font-weight: 700;
+         display: block;
+         text-align: center;
+         font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
       }
 
 /* typekit fout-buster via @jonikorpi

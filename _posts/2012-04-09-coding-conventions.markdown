@@ -23,7 +23,7 @@ The first two files in the above example have valid `8.3` filenames&mdash;the th
 
 There are several things to remember no matter what system you use. Not all special symbols are allowed in file names, so to be safe you should stick to using hyphens `-`, underscores `_`, parentheses `()` and square brackets `[]`.
 
-	my_super_filename.txt    dashes-work-too.txt    this-won't,work.doc    but(this)will.jpg
+	my_super_file-name.txt    this-won't,work.doc    but(this)will.jpg
 
 Readability is paramount&mdash;use common sense when abbreviating words and make sure your file names are easy to read at a glance. Stay away from entirely upper-case or lower-case names with multiple words, unless you use plenty of special symbols. A common style for multi-word naming is _camel-case_. In camel-case, words are joined together without spaces, but the first letter of each new word is capitalized. This is very easy to read and avoids much of the confusion caused by special symbols.
 
