@@ -82,7 +82,7 @@ A `doctype` declaration is used to instruct browsers which version of HTML is be
 "A `doctype` is necessary to force browsers to render in standards mode and prevent quirks-mode headaches in Internet Explorer." - Mark Brown, http://www.yellowshoe.com.au/standards/
 
 
-### 2.2 <html> {: .hN .gamma #html-element}
+### 2.2 \<html> {: .hN .gamma #html-element}
 
 `html` is the document _root_, or the top-most element on the page (after `doctype`, which is not an element). It is written with opening and closing tags, marking the beginning and end of the HTML document. The `html` element contains all other elements; nothing can be written after the `</html>` tag. 
 
@@ -101,7 +101,7 @@ While not required to validate, the `lang` attribute specifies the primary langu
 The `html` tag can be partially styled with CSS. As a general guide, typographic and background/color styles are accepted, while layout and box-model styles are not (see CSS).
 
 
-### 2.3 <head> {: .hN .gamma #head-element}
+### 2.3 \<head> {: .hN .gamma #head-element}
 
 The first element inside `<html>` is always the `head` element. It is not rendered by the browser; it contains any metadata for the HTML document, along with links to external resources like scripts or stylesheets. 
 
@@ -128,7 +128,7 @@ The `meta` element is used to add different kinds of meta-information to the doc
 Character encoding should always be explicitly set with `meta charset` to prevent rendering errors. To validate and preserve compatibility with legacy browsers, this element must fit within the first 1024 bytes of the page.
 
 
-### 2.4 <body> {: .hN .gamma #body-element}
+### 2.4 \<body> {: .hN .gamma #body-element}
 
 The `body` element represents the main content of the document, everything that is visible on the page. There can only be one `body` element, and it must be inside the `html` element below the `head`.
 
@@ -157,7 +157,7 @@ The `body` element accepts `class` and `id` attributes (along with [others](http
 Congratulations, you've written a valid HTML5 document&mdash;too bad it's empty! Why not hone your skills [marking up a simple blog post]({{ site.baseurl }}/patterns/blog-entry), or brush up on your [HTML Etiquette]({{ site.baseurl }}/fundamentals/coding-conventions#html-etiquette).
 
 
-### § Sources & further reading {: .hN .gamma #further-reading}
+### Sources & further reading {: .hN .gamma #further-reading}
 
 -	[Terminology and Syntax Intro](http://learn.shayhowe.com/html-css/terminology-syntax-intro/)
 -	[Dive into HTML5: Semantics](http://mislav.uniqpath.com/diveintohtml5/semantics.html)	
