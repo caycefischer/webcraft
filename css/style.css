@@ -994,8 +994,8 @@
       padding-top: 1em;
    }
    .anchor-panel .gamma {
-      padding-top: 1rem;
       margin-bottom: 0.5rem;
+      padding-top: 1rem;
    }
    .anchor-panel .delta {
       margin-bottom: 8px; /* fallback */
@@ -1042,8 +1042,8 @@
       color: rgb(249, 81, 101);
    }
    .txt-blue, .txt-blue:link, .txt-blue:visited {
-      color: #2f58be; /* fallback */ 
-      color: rgb(47,88,190);
+      color: #3363db; /* fallback */ 
+      color: rgb(51, 99, 219);
    }
    .txt-white:link, .txt-white:visited {
       color: #f0f0f0; /* fallback */
@@ -1106,29 +1106,35 @@
  */
 
    @media all and (max-width: 1074px) {
+      html {
+         font-size: 87.5%; /* 14px */
+      }       
       .page, section[role="main"] {
          margin-left: 24em;
       }
    }
 
-   @media all and (max-width: 1170px) {
-      html {
-         font-size: 87.5%; /* 14px */
-      }       
-   }
-
-   @media all and (max-height: 800px) {
-      html {
-         font-size: 87.5%; /* 14px */
-      }
+   @media all and (max-height: 720px) {
       .anchor-panel .gamma {
          padding-top: 0;
+      }
+   }
+
+   @media all and (max-height: 840px) {
+      html {
+         font-size: 87.5%; /* 14px */
       }
    }
 
    @media all and (max-width: 1366px) {
       .page.extended {
          margin-left: 27em;
+      }
+      .anchor-panel .gamma {
+         margin-bottom: 0.5rem;
+      }  
+      .anchor-panel .gamma {
+         line-height: 1.5;
       }
    }
 
