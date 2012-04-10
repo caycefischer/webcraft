@@ -18,7 +18,7 @@ $(document).ready(function() {
 		$(".symbol").toggleClass("animated");
     }
 
-
+    $("#top").lettering();
 
     // facebook
     (function(d, s, id) {
