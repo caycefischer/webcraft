@@ -10,11 +10,12 @@ $(document).ready(function() {
 		$("#grid").toggleClass("grid");
     }
 
-    $('h1').grumble({
-		text: 'toggle the grid!', 
-		angle: 85, 
-		distance: 100, 
-		showAfter: 500 
-	});
+    $(function() {
+		$(".title").bind("hover", twirler);
+    });
+    
+    function twirler(evt) {
+		$(".symbol").toggleClass("animated");
+    }
 
 });
