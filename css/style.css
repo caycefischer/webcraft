@@ -942,10 +942,27 @@
       float: left;
       width: 4.75em;
       overflow: visible;
+      margin-left: 1em;
+   }
+   .social.facebook, .social.google {
       margin-left: 1.75em;
    }
-   .social:last-child {
-      margin-left: 0;
+
+   nav[role="navigation"] {
+      text-align: left;
+      width: 100%;
+      margin-left: 6.5em;
+      margin-bottom: 6em;
+   }
+   nav[role="navigation"] .hN {
+      margin-bottom: 8px; /* fallback */
+      margin-bottom: 0.5rem;
+   }
+
+   .stick-bottom {
+      position: absolute;
+      bottom: 3em;
+      /*overflow: auto;*/
    }
 
 
@@ -1035,21 +1052,7 @@
               transform: rotate(180deg);
    }
 
-   nav[role="navigation"] {
-      text-align: left;
-      width: 100%;
-      margin-left: 6.5em;
-   }
-   nav[role="navigation"] .hN {
-      margin-bottom: 8px; /* fallback */
-      margin-bottom: 0.5rem;
-   }
 
-   .stick-bottom {
-      position: absolute;
-      bottom: 3em;
-      overflow: auto;
-   }
 /*
  * 7. media queries
  ============================================================

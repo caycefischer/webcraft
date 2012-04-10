@@ -5,9 +5,9 @@
 		<nav role="navigation">
 			<ul>
 				<li class="hN gamma"><a data-icon="═" class="sans brand icon txt-blue" href="{{ site.baseurl }}/fundamentals">Fundamentals</a></li>
-				<li class="hN gamma"><a data-icon="▵" class="sans brand icon txt-blue" href="">Patterns</a></li>
-				<li class="hN gamma"><a data-icon="¶" class="sans brand icon txt-red" href="">Journal</a></li>
-				<li class="hN gamma"><a data-icon="⇧" class="sans brand icon txt-green flipped" href="">Primer</a></li>
+				<li class="hN gamma"><a data-icon="▵" class="sans brand icon txt-blue" href="{{ site.baseurl }}/patterns">Patterns</a></li>
+				<li class="hN gamma"><a data-icon="¶" class="sans brand icon txt-red" href="{{ site.baseurl }}/journal">Journal</a></li>
+				<li class="hN gamma"><a data-icon="⇧" class="sans brand icon txt-green flipped" href="{{ site.baseurl }}/primer">Primer</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -15,20 +15,14 @@
 	<footer class="stick-bottom">
 		<nav role="navigation">
 			<ul>
-				<li class="hN delta"><a data-icon="☁" class="sans icon txt-white" href="//github.com/zakkain/webcraft">Fork on Github</a></li>
-				<li class="hN delta"><a data-icon="✦" class="sans icon txt-white" href="">About</a></li>
-				<li class="hN delta"><a data-icon="❦" class="sans icon txt-white" href="">Colophon</a></li>
+				<li class="hN delta"><a data-icon="✦" class="sans icon txt-white" href="{{ site.baseurl }}/about">About</a></li>
+				<li class="hN delta"><a data-icon="☁" class="sans icon txt-white" href="//github.com/zakkain/webcraft">Get Source</a></li>
+				<li class="hN delta"><a data-icon="❦" class="sans icon txt-white" href="{{ site.baseurl }}/colophon">Colophon</a></li>
 			</ul>
 		</nav>
 
-			<!-- twitter button -->
-			<div class="social">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.zacharykain.com/webcraft. t" data-text="Check out Web-Craft, a free web design curriculum" data-via="zakkain">Tweet</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-
 			<!-- facebook button -->
-			<div class="social">
+			<div class="social facebook">
 				<div id="fb-root"></div>
 
 				<script>(function(d, s, id) {
@@ -40,10 +34,22 @@
 				}(document, 'script', 'facebook-jssdk'));</script>
 
 				<div class="fb-like" data-href="http://lab.zacharykain.com/webcraft" data-send="false" data-layout="button_count" data-width="90" data-show-faces="false" data-font="lucida grande"></div>
+				
+				<style>
+				.fb_edge_widget_with_comment span.fb_edge_comment_widget {
+				top: -300px !important;
+				}
+				</style>
+			</div>
+
+			<!-- twitter button -->
+			<div class="social twitter">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lab.zacharykain.com/webcraft. t" data-text="Check out Web-Craft, a free web design curriculum" data-via="zakkain">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			</div>
 			
 			<!-- google+ button -->
-			<div class="social">
+			<div class="social google">
 				<div class="g-plusone" data-size="medium" data-href="lab.zacharykain.com/webcraft"></div>
 
 				<script type="text/javascript">
