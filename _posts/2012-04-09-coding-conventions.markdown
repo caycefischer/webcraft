@@ -79,9 +79,7 @@ Clearly the latter is more readable, easier to understand and easier to edit.
 > [isobar Front-End Coding Standards](http://na.isobar.com/standards)
 > {: .attribution .micro}
 
-To keep code clean and readable, make liberal use of line breaks and spacing within single lines. Common convention is for documents to follow longstanding English reading conventions. For example, adding one space after each comma and colon (and semi-colon where applicable), but no spaces immediately inside the right and left sides of parenthesis `()`. Additionally, braces `{}` should always appear on the same line as their preceding argument or selector. In all of these cases, the rules of syntax are more important (if adding extra spaces in a line of code will invalidate or break it, they should be omitted).
-
-Conventions for white space in HTML and CSS will be touched on further in §2 and §3, respectively.
+To keep code clean and readable, make liberal use of line breaks and spacing within single lines. Common convention is for documents to follow longstanding English reading conventions. For example, adding one space after each comma and colon (and semi-colon where applicable), but no spaces immediately inside the right and left sides of parenthesis `()`. Additionally, braces `{}` should always appear on the same line as their preceding argument or selector. In all of these cases, the rules of syntax are more important (if adding extra spaces in a line of code will invalidate or break it, they should be omitted). Conventions for white space in HTML and CSS will be touched on further in §2 and §3, respectively.
 
 
 #### 1.2.2 Indenting {: .hN .delta #indenting}
@@ -131,7 +129,7 @@ Lastly, a more technical reason to consistently use lowercase is server compatib
 
 	kitty.jpg    Kitty.jpg    KITTY.JPG
 {: .prettyprint}
-	
+
 If you write some new code and your site starts throwing 404 errors, it could very well be because you used lowercase file names but wrote your HTML markup in uppercase or mixed case. To avoid any confusion, this author recommends always writing HTML in lower-case characters and using a simple, consistent file-naming convention like camelCase (see [§1.1 Naming Files](#naming-files)).
 
 

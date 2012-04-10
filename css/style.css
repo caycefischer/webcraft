@@ -814,9 +814,10 @@
  *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
  */
 
-   input:valid, textarea:valid { background-color: rgb(66, 197, 116); }
-   input:invalid, textarea:invalid { background-color: rgb(249, 81, 101); }
-
+   /*input:valid, textarea:valid { background-color: rgb(66, 197, 116); } */
+   /*input:invalid, textarea:invalid { background-color: rgb(249, 81, 101); }*/
+   input:valid, textarea:valid { background-color: #ccc; } 
+   input:invalid, textarea:invalid { background-color: #ccc; }
 
 
 
@@ -1064,7 +1065,6 @@
           -ms-transform: rotate(180deg);
               transform: rotate(180deg);
    }
-
 
 /*
  * 7. media queries
