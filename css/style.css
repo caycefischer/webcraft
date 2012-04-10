@@ -743,7 +743,11 @@
    p > kbd, .hN > code, p > code {
       line-height: 0;
    }
-
+   pre, code {
+      font-family: Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
+      font-size: 1rem;
+      line-height: 1.5;
+   }
 
 
 
