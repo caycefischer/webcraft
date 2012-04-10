@@ -6,7 +6,7 @@ description: "Web-Craft is a free online curriculum written to help design stude
 
 # Web-Craft {: .hN .tera #top}
 
-## ...is helping design students master the web. {: .hN .mega .serif .kicker #kicker}
+## ...is helping design students master the web. {: .hN .alpha .serif .kicker #kicker}
 
 Web-Craft is an educational programme dedicated to helping design students become fluent with the web.  The meticulously researched curriculum is sourced from the work of the web's best and brightest, drawing upon an established canon of design practice and theory.
 {: .hN .serif .delta}

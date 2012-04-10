@@ -5,4 +5,4 @@ description: "This lesson covers the basic terminology and fundamental syntax of
 category: fundamentals
 ---
 
-## 1. CSS is fucking rad.
+This document is empty for now.
