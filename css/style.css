@@ -1032,19 +1032,19 @@
       margin: 1.5rem 0 0;
       padding: 0;
       display: block;
-/*      -webkit-transform: rotateY(0deg);
+      -webkit-transform: rotateY(0deg);
          -moz-transform: rotateY(0deg);
               transform: rotateY(0deg);
       -webkit-transition: -webkit-transform 0.437s ease-out;
             -moz-transition: -moz-transform 0.337s ease-out;
                       transition: transform 0.437s ease-out;
-      -webkit-perspective: 400;*/
+      -webkit-perspective: 400;
    }
-/*   .symbol:hover {
+   .animated {
       -webkit-transform: rotateY(180deg);
          -moz-transform: rotateY(180deg);
               transform: rotateY(180deg);
-   }*/
+   }
    .icon {
       position: relative;
    }
