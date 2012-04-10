@@ -592,14 +592,14 @@
       font-size: 16px;
       font-size: 1rem; /* 16px = 16 × 1.125 */
       line-height: 1.5;  /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
    }
    h6, .zeta {
       font-size: 16px;
       font-size: 1rem;     /* 16px = 16 × 1 */
       line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      font-weight: 600;
+      font-weight: 700;
       font-style: italic;
    }
 
@@ -1065,19 +1065,19 @@
       margin: 1.5rem 0 0;
       padding: 0;
       display: block;
-      -webkit-transform: rotateY(0deg);
+      /*-webkit-transform: rotateY(0deg);
          -moz-transform: rotateY(0deg);
               transform: rotateY(0deg);
       -webkit-transition: -webkit-transform 0.437s ease-out;
             -moz-transition: -moz-transform 0.337s ease-out;
                       transition: transform 0.437s ease-out;
-      -webkit-perspective: 400;
+      -webkit-perspective: 400;*/
    }
-   .animated {
+   /*.animated {
       -webkit-transform: rotateY(180deg);
          -moz-transform: rotateY(180deg);
               transform: rotateY(180deg);
-   }
+   }*/
    .icon {
       position: relative;
    }
