@@ -8,7 +8,9 @@ description: "Learn the fundamentals of markup and style with two introductory l
 {% for post in site.categories.fundamentals limit:5 %}
 <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
-{{ post.content | replace:'more start -->','' | replace:'<!-- more end','' }}
+{{ post.content | replace:'more start -->','' | replace:'&lt;!-- more end','' }}
 
 <em>Posted on {{ post.date | date_to_long_string }}.</em>
 {% endfor %}
+
+⇮ ⥂

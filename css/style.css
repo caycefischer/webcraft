@@ -939,10 +939,15 @@
 /* social
  */
    .social {
+      opacity: 0.5;
       float: left;
       width: 4.75em;
       overflow: visible;
       margin-left: 1em;
+   }
+   .social:hover, .social:focus {
+      opacity: 1;
+      border: 0;
    }
    .social.facebook, .social.google {
       margin-left: 1.75em;
@@ -978,6 +983,8 @@
          position: static;
       }
    }
+
+
 
 /*
  * 6. stylistic modules
