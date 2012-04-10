@@ -1,0 +1,24 @@
+---
+layout: post
+title: "Pattern Library"
+description: "The Web-Craft pattern library is an invaluable resource, a knowledge base with a remarkable signal-to-noise ratio. Each design pattern and snippet is well-documented with sample usage."
+---
+
+<h1 class="hN alpha">Patterns</h1>
+{% for post in site.categories.patterns limit:5 %}
+<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+
+{{ post.content | replace:'more start -->','' | replace:'&lt;!-- more end','' }}
+
+<em>Posted on {{ post.date | date_to_long_string }}.</em>
+{% endfor %}
+
+
+<h1 class="hN alpha">Snippets</h1>
+{% for post in site.categories.snippets limit:5 %}
+<h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+
+{{ post.content | replace:'more start -->','' | replace:'&lt;!-- more end','' }}
+
+<em>Posted on {{ post.date | date_to_long_string }}.</em>
+{% endfor %}
