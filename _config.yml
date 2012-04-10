@@ -1,4 +1,3 @@
 baseurl: /webcraft
 permalink: /:categories/:title
 pygments: true
-safe: true
