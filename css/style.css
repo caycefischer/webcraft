@@ -1117,6 +1117,9 @@
       .page, section[role="main"] {
          margin-left: 24em;
       }
+      .anchor-panel .gamma {
+         line-height: 1.5;
+      }
    }
 
    @media all and (max-height: 720px) {
@@ -1138,9 +1141,6 @@
       .anchor-panel .gamma {
          margin-bottom: 0.5rem;
       }  
-      .anchor-panel .gamma {
-         line-height: 1.5;
-      }
    }
 
    /*@media only screen and (min-width: 320px) {
