@@ -18,17 +18,20 @@ There is only one universal rule when it comes to coding: **always be consistent
 In the days of MS-DOS, all files followed the `8.3` naming system: there could be a maximum of 8 characters in the file name before the period, and after the period (the file extension) there were no more than 3 characters. It may be old-fashioned, but following the `8.3` system can still be a good idea. Your file names will be short, easy to type and if you do it right, easy to remember.
 
 	g7a2C9.txt    fatponys.jpg    a_bad_file-name.doc
+{: .prettyprint}
 
 The first two files in the above example have valid `8.3` filenames&mdash;the third is not. Even if you don't strictly follow the 8-character restricton and use longer file names, the principles can still apply.
 
 There are several things to remember no matter what system you use. Not all special symbols are allowed in file names, so to be safe you should stick to using hyphens `-`, underscores `_`, parentheses `()` and square brackets `[]`.
 
 	my_super_file-name.txt    this-won't,work.doc    but(this)will.jpg
+{: .prettyprint}
 
 Readability is paramount&mdash;use common sense when abbreviating words and make sure your file names are easy to read at a glance. Stay away from entirely upper-case or lower-case names with multiple words, unless you use plenty of special symbols. A common style for multi-word naming is _camel-case_. In camel-case, words are joined together without spaces, but the first letter of each new word is capitalized. This is very easy to read and avoids much of the confusion caused by special symbols.
 
 	ALLCAPSPAGE.html    lowercasepage.html    camelCasePage.html
-	
+{: .prettyprint}
+
 The camel-case file name in the example above is clearly the most legible.
 
 Though this section has focused on file-naming conventions, these principles also apply to naming objects or entities in the code itself. Each coding language has its own syntactical conventions, but consistency across naming files, classes and ids in HTML/CSS and variables in Javascript is handy.
@@ -54,6 +57,7 @@ There is a constant tension between readability and efficiency in code. With eve
 	background-image:url(../img/bg-dark.png);
 	color: #f0f0f0;/*fallback*/
 	color: rgb(240,240,240);}
+{: .prettyprint}
 
 and with it:
 
@@ -66,7 +70,8 @@ and with it:
 		color: #f0f0f0; /* fallback */
 		color: rgb(240, 240, 240);
 	}
-	
+{: .prettyprint}
+
 Clearly the latter is more readable, easier to understand and easier to edit. 
 
 > We prefer readability over file-size savings \[…] Plenty of whitespace is encouraged, along with ASCII art, where appropriate. There is no need for any developer to purposefully compress HTML or CSS, nor obfuscate JavaScript.
@@ -98,6 +103,7 @@ Closely tied with white space is indentation. In the example code above, a large
 			</li>
 		</ul>
 	</article>
+{: .prettyprint}
 
 The above example shows a high level of organization and nesting, and implies a clear hierarchy of information through the indentation of each line.
 
@@ -110,18 +116,21 @@ HTML markup can be written in either lower-case or upper-case characters, and yo
 	    <iMg SRC="Kittens.JPG">
 	</FIgurE>
 	<p>My awesome CAPTION.</P>
+{: .prettyprint}
 
 It might work, but it isn't pretty. There are some advantages to choosing one style over the other, but conventional wisdom currently favors writing HTML in lower-case. Lower-case markup is often more legible & more readable than if it were written in uppercase.
 
 Sticking to either upper- or lower-case characters will also prevent common problems that arise from working with mixed-case code. In the following example, an upper-case “I”, a lower-case “l”, and the number “1” are arranged side-by-side. Can you tell them apart?
 
 	I l 1
-	
+{: .prettyprint}
+
 Some fonts (especially monospace ones) are good at keeping these characters distinct, but many _sans serif_ fonts are not&mdash;so it's best to just be safe.
   
 Lastly, a more technical reason to consistently use lowercase is server compatibility. Many websites are hosted on servers running on Linux (or other \*NIX-based operating systems). In Linux, file names are always case-sensitive, as opposed to on Windows operating systems where the are not. On Windows, these file paths all point to the same image, but on Linux they don’t:
 
 	kitty.jpg    Kitty.jpg    KITTY.JPG
+{: .prettyprint}
 	
 If you write some new code and your site starts throwing 404 errors, it could very well be because you used lowercase file names but wrote your HTML markup in uppercase or mixed case. To avoid any confusion, this author recommends always writing HTML in lower-case characters and using a simple, consistent file-naming convention like camelCase (see [§1.1 Naming Files](#naming-files)).
 
