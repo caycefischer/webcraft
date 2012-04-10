@@ -996,6 +996,7 @@
    .anchor-panel .gamma {
       margin-bottom: 0.5rem;
       padding-top: 1rem;
+      font-weight: 300;
    }
    .anchor-panel .delta {
       margin-bottom: 8px; /* fallback */
