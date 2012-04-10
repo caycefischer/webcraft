@@ -952,19 +952,32 @@
       text-align: left;
       width: 100%;
       margin-left: 6.5em;
-      margin-bottom: 6em;
+      margin-bottom: 8em;
    }
-   nav[role="navigation"] .hN {
+   .anchor-panel .gamma {
+      padding-top: 1rem;
+      margin-bottom: 0.5rem;
+   }
+   .anchor-panel .delta {
       margin-bottom: 8px; /* fallback */
       margin-bottom: 0.5rem;
    }
-
    .stick-bottom {
       position: absolute;
-      bottom: 3em;
+      bottom: 1.5em;
       /*overflow: auto;*/
    }
-
+   @media all and (max-height: 800px) {
+      nav[role="navigation"] {
+         margin-bottom: 3em;
+      } 
+      .anchor-panel .gamma {
+         padding-top: 0;
+      }
+      .stick-bottom {
+         position: static;
+      }
+   }
 
 /*
  * 6. stylistic modules
