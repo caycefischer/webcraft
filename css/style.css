@@ -1095,13 +1095,19 @@
       left: -1.65em;
       width: 1em;
       text-align: center;
-      font-family: serif;
+      font-family: "Lucida Sans Unicode", "Arial Unicode MS" !important;
    }
    .icon.flipped:before {
       -webkit-transform: rotate(180deg);
          -moz-transform: rotate(180deg);
           -ms-transform: rotate(180deg);
               transform: rotate(180deg);
+   }
+   .icon[data-icon="△"]:before{
+      top: 0;
+   }
+   .icon[data-icon="¶"]:before{
+      font-family: serif !important;
    }
 
 /*
