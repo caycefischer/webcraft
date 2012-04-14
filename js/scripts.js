@@ -10,13 +10,12 @@ $(document).ready(function() {
 		$("#grid").toggleClass("grid");
     }
 
-    // $(function() {
-  		// $(".title").bind("hover", twirler);
-    // });
-    
-    // function twirler(evt) {
-  		// $(".symbol").toggleClass("animated");
-    // }
+    $(function() {
+       $("pre").bind("click", textwrapper);
+    });
+        function textwrapper(evt) {
+          $(this).toggleClass("wrapping");
+        }
 
     $("#top").lettering();
 

@@ -164,8 +164,6 @@
    http://html5boilerplate.com/docs/css/#pre 
  */   pre {
          white-space: pre;
-         white-space: pre-wrap;
-         word-wrap: break-word;
       }
 
 /* consistent nested quotations
@@ -516,11 +514,6 @@
       font-weight: 300;
       font-style: normal;
    }
-   .serif {
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 400;
-      font-style: normal;
-   }
 
 /* basic title class, as per: http://jsfiddle.net/csswizardry/yFQDP
  */
@@ -528,6 +521,12 @@
       margin: 0 0 24px;
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
       font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+   }
+
+   .serif {
+      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-weight: 400;
+      font-style: normal;
    }
 
 /* hero type
@@ -759,6 +758,10 @@
       font-size: 1rem;
       line-height: 1.5;
    }
+   pre.wrapping {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+   }
 
 
 
@@ -967,7 +970,7 @@
       padding: 1.5em 3em; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
    }
    .page.extended {
-      width: 42em;
+      width: 48em;
       margin-left: 25.5em;
    }
 
@@ -1119,6 +1122,14 @@
       color: rgb(66,197,116);
    }
 
+   .anchor {
+      font-family: sans-serif;
+      font-style: normal;
+      opacity: 0.75;
+   }
+
+
+
 /*
  * 7. media queries
  ============================================================
@@ -1126,7 +1137,7 @@
  */
 @media all and (max-width: 1366px) {
       .page.extended {
-         margin-left: 27em;
+         margin-left: 24em;
       }
       .anchor-panel .gamma {
          margin-bottom: 0.5rem;
@@ -1136,6 +1147,9 @@
    @media all and (max-width: 1105px) {
       html {
          font-size: 87.5%; /* 14px */
+      }
+      .readable > p {
+         font-size: 1.142857143em;
       }
       .freight {
          font-size: 1.142857143em;
@@ -1154,7 +1168,7 @@
          width: 39em;
       }
       .page.extended {
-         margin-left: 19em;
+         margin-left: 21em;
          width: 38em;
       }   
    }
@@ -1169,13 +1183,16 @@
 
    @media all and (max-height: 720px) {
       .anchor-panel .gamma {
-         padding-top: 0;
+         padding-top: 0.5em;
       }
    }
 
    @media all and (max-height: 840px) {
       html {
          font-size: 87.5%; /* 14px */
+      }
+      .readable > p {
+         font-size: 1.142857143em;
       }
    }
 

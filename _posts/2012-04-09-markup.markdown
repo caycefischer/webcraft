@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: documentation
 title: Markup
 description: "Markup Fundamentals: this lesson is an introduction to basic terminology and the fundamental syntax of HTML. Web-Craft is an online curriculum written to help design students become fluent with the web."
 category: fundamentals
@@ -117,6 +117,8 @@ The `<head>` often contains two metadata elements, one of which is required - `t
 {: .prettyprint}
 
 "The document's title is often different from its first heading, since the first heading does not have to stand alone when taken out of context." - [WHATWG](http://developers.whatwg.org/semantics.html)
+
+---
 
 The second recommended element is a "character encoding declaration":
 
