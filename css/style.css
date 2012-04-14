@@ -146,7 +146,6 @@
          height: 0.0625rem; /* 1px ÷ 16 = 0.0625 */
          border: 0; 
          border-top: 1px solid #ccc;
-         border-top-width: 0.0625rem;
          margin: 0 0 1.5rem;  
          padding: 0; 
       }
@@ -996,6 +995,9 @@
       margin-bottom: 3em;
       padding-top: 1em;
    }
+   .anchor-panel .title {
+      clear: left;
+   }
    .anchor-panel .gamma {
       margin-bottom: 0.5rem;
       padding-top: 1rem;
@@ -1037,6 +1039,10 @@
       background-color: #fff; /* fallback */
       background-color: rgba(255,255,255,0.75);
    }
+   .action-area {
+      background-color: #063355; /* fallback */
+      background-color: rgb(6,51,85);
+   }
    .txt-green, .txt-green:link, .txt-green:visited {
       color: #42c574; /* fallback */
       color: rgb(66,197,116);
@@ -1063,25 +1069,13 @@
    }
 
    .symbol {
-      font-size: 14rem;
+      font-size: 12rem;
       line-height: 0.75;
       margin: 24px 0 0;
       margin: 1.5rem 0 0;
       padding: 0;
       display: block;
-      /*-webkit-transform: rotateY(0deg);
-         -moz-transform: rotateY(0deg);
-              transform: rotateY(0deg);
-      -webkit-transition: -webkit-transform 0.437s ease-out;
-            -moz-transition: -moz-transform 0.337s ease-out;
-                      transition: transform 0.437s ease-out;
-      -webkit-perspective: 400;*/
    }
-   /*.animated {
-      -webkit-transform: rotateY(180deg);
-         -moz-transform: rotateY(180deg);
-              transform: rotateY(180deg);
-   }*/
    .icon {
       position: relative;
    }
@@ -1108,16 +1102,43 @@
    .icon[data-icon="¶"]:before{
       font-family: serif !important;
    }
+   
+   .btn {
+      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+      padding: 1rem;
+      margin-top: 2.5rem;
+      margin-left: 3rem;
+      display: inline-block;
+   }
+   .btn a:link, .btn a:visited {
+      color: #f0f0f0; /* fallback */
+      color: rgb(240,240,240);
+   }
+   .btn a:hover, .btn a:active {
+      color: #42c574; /* fallback */
+      color: rgb(66,197,116);
+   }
 
 /*
  * 7. media queries
  ============================================================
  ============================================================
  */
+@media all and (max-width: 1366px) {
+      .page.extended {
+         margin-left: 27em;
+      }
+      .anchor-panel .gamma {
+         margin-bottom: 0.5rem;
+      }  
+   }
 
    @media all and (max-width: 1105px) {
       html {
          font-size: 87.5%; /* 14px */
+      }
+      .freight {
+         font-size: 1.142857143em;
       }       
       .page, section[role="main"] {
          margin-left: 24em;
@@ -1131,8 +1152,21 @@
       .page, section[role="main"] {
          margin-left: 21em;
          width: 39em;
+      }
+      .page.extended {
+         margin-left: 19em;
+         width: 38em;
       }   
    }
+
+   @media all and (max-width: 840px) {
+      .page, section[role="main"] {
+         margin-left: 19.5em;
+         width: 40.5em;
+      }
+   }
+
+
    @media all and (max-height: 720px) {
       .anchor-panel .gamma {
          padding-top: 0;
@@ -1143,15 +1177,6 @@
       html {
          font-size: 87.5%; /* 14px */
       }
-   }
-
-   @media all and (max-width: 1366px) {
-      .page.extended {
-         margin-left: 27em;
-      }
-      .anchor-panel .gamma {
-         margin-bottom: 0.5rem;
-      }  
    }
 
 @media all and (max-width: 768px) {
@@ -1165,6 +1190,11 @@
       padding-right: 1.5em;
       z-index: -1;
    }
+   .page.extended {
+      margin-left: 0 !important;
+      padding-left: 19em !important;
+      width: 100% !important;
+   }   
    .social.facebook, .social.google {
       margin-left: 2.75em;
    }
