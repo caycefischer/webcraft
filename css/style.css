@@ -35,7 +35,6 @@
       b. semantic stress elements
       c. quotes & citations
       d. code & pre-formatted text
-      e. type rendering
    
    3. palette
       a. links
@@ -57,9 +56,8 @@
 
 
 
-
 /*
- * 1. normalize cross-browser styles
+ * 1. normalize (address cross-browser styling)
  ============================================================
  ============================================================
  *    src: http://github.com/necolas/normalize.css (ver. 2012-03-11)
@@ -176,12 +174,6 @@
       q:after { content: '”'; content: close-quote; }
          q q:before { content: '‘'; content: open-quote; }
          q q:after { content: '’'; content: close-quote; }
-      /* quote inside blockquote */  
-      blockquote q:before { content: '‘'; content: open-quote; }
-      blockquote q:after { content: '’'; content: close-quote; }
-         blockquote q q:before { content: '“'; content: open-quote; }
-         blockquote q q:after { content: '”'; content: close-quote; }
-
 
 /* prevent <sub> and <sup> affecting line-height in all browsers
    http://gist.github.com/413930
@@ -217,7 +209,7 @@
       }
 
 /* proper nesting
- */   ul, ol {
+ */   ul, ol { 
          list-style-position: outside;
          padding: 0;
       }
@@ -229,17 +221,6 @@
          padding-left: 3em;
       }
 
-/* flexible multiline definition lists
-   http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
- */
-   dt, dd {
-      /*display: inline;*/
-      /*margin: 0;*/
-   }
-   dd:after {
-      /*content: '\A';*/
-      /*white-space: pre;*/
-   }
 
 /* e) embedded content
  ============================================================
@@ -258,19 +239,15 @@
          overflow: hidden;
       }
 
-
 /* figures
- */
-      figure {
-         /*margin: 0;*/
+ */   figure {
          margin-bottom: 24px;
          margin-bottom: 1.5rem;
       }
       figure > img {
          max-width: 100%;
-         /*margin-bottom: 24px;*/
-         /*margin-bottom: 1.5rem;*/
          display: block;
+         min-height: 1.5rem; /* if img is broken, the "missing image" graphic preserve baseline */
       }
       figcaption {
          margin-top: 1.5rem;
@@ -279,16 +256,12 @@
 
 /* f) tables
  ============================================================
- *
  */
 
-/* inconsistent spacing between table cells
- */   table {
-         border-collapse: collapse;
-         border-spacing: 0;
-      }
    table {
       width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
       text-align: left;
       font-size: 13px;
       font-size: 0.8125rem;  /* 12px = 16 × 0.875 */
@@ -316,16 +289,48 @@
  *    http://html5boilerplate.com/docs/css/#forms
  */
 
-/* margin display quirks in IE<8
- */   form {
-         margin: 0;
-      }
-
 /* define consistent border, margin, and padding
- */   fieldset {
-         border: 1px solid #c0c0c0;
-         margin: 0 2px;
-         padding: 0.35em 0.625em 0.75em;
+ */   form {
+         margin: 0 0 1.5rem;
+      }
+      fieldset, button, input, select, textarea {
+         margin: 0;
+         padding: 0;
+         border: 0;
+         line-height: 1.5;
+         vertical-align: baseline;
+         font-size: 100%; /* fallback */
+         font-size: 1rem;
+      }
+      fieldset {
+         padding: 0.75rem 0;
+      }
+      legend {
+         margin: 0; /* margin display quirks in IE<8 */
+         padding: 0 0 0.75rem;
+         border: 0; /* color not inherited in IE<10 */
+         line-height: 1.5;
+         white-space: normal; /* text doesn't wrap in FF3 */
+      }
+      label {
+         margin: 0.75rem 0 2.25rem 0;
+      }
+      input, textarea, select {
+         display: block;
+         width: 100%;
+         padding: 0.375rem 0;
+         margin: 0.375rem 0;
+         background-color: #ccc;
+      }
+      textarea {
+         padding: 0;
+         margin: 1.5rem 0;
+         overflow: auto; /* default vertical scrollbar in IE6/7/8/9 */
+         vertical-align: top; /* best/consistent vertical alignment in all browsers */
+      }
+      select {
+         margin: 2rem 0 2rem 0;
+         height: 2rem;
       }
 
 /* clicking <label> shifts focus to the associated form element, not supported in IE6
@@ -335,69 +340,20 @@
          cursor: pointer; 
       }
 
-/* color not inherited in IE<10
-   text doesn't wrap in FF3
-   margin display quirks in IE<8
- */   legend {
-         border: 0;
-         padding: 0;
-         white-space: normal;
-         *margin-left: -7px;
-      }
-
-/* font size not inherited in all browsers
-   margins set differently in IE<8, FF3+, S5, Chrome
-   best/consistent vertical alignment in all browsers
- */   button, input, select, textarea {
-         font-size: 100%;
-         margin: 0;
-         vertical-align: baseline;
-         *vertical-align: middle;
-      }
-
-/* sets all browsers to match FF3/4 default line height
- */   button, input {
-         line-height: normal;
-      }
-
-/* inconsistent cursor styles between type=image and others
-   inability to style clickable 'input' types in iOS
-   inner spacing display quirks in IE7 (issue: no IE6 support)
+/* button-type inputs
  */   button, input[type="button"],
       input[type="reset"], input[type="submit"] {
          cursor: pointer;
-         -webkit-appearance: button;
-         *overflow: visible;
+         -webkit-appearance: button; /* inability to style clickable 'input' types in iOS */
+         padding-left: 0.75em;
+         padding-right: 0.75em;
+         width: auto; /* width determined by contents */
+         min-width: 9rem; /* set to prettify buttons with short text */
       }
 
 /* reset default cursor for disabled elements
  */   button[disabled], input[disabled] {
          cursor: default;
-      }
-
-/* box sizing set to content-box in IE8/9
-   excess padding in IE8/9
-   excess padding in IE7 (issue: no IE6 support)
- */   input[type="checkbox"], input[type="radio"] {
-         box-sizing: border-box;
-         padding: 0;
-         *height: 13px;
-         *width: 13px;
-      }
-
-/* appearance set to searchfield in S5, Chrome
-   box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
- */   input[type="search"] {
-         -webkit-appearance: textfield;
-         -moz-box-sizing: content-box;
-         -webkit-box-sizing: content-box;
-         box-sizing: content-box;
-      }
-
-/* inner padding and search 'cancel' button in S5, Chrome on mac
- */   input[type="search"]::-webkit-search-decoration,
-      input[type="search"]::-webkit-search-cancel-button {
-         -webkit-appearance: none;
       }
 
 /* extra inner padding and border in FF3/4
@@ -406,88 +362,65 @@
          padding: 0;
       }
 
-/* default vertical scrollbar in IE6/7/8/9
-   best/consistent vertical alignment in all browsers
- */   textarea {
-         overflow: auto;
-         vertical-align: top;
+/* checkboxes & radio buttons
+ */   input[type="checkbox"], input[type="radio"] {
+         display: inline; /* put on the same line as their labels */
+         margin: 1rem 0;
+         width: auto;
+         height: 1rem;
       }
 
+/* clean up chrome/safari blue outline
+ */   input:focus {
+         outline-offset: -3px;
+      }
 
-legend, fieldset, button, input, select, textarea {
-   line-height: 1.5;
-   margin: 0;
-   padding: 0;
-   border: 0;
-}
-form {
-   margin-bottom: 1.5rem;
-}
-fieldset {
-   border-top: 1px solid #ccc;
-   clear: left;
-   padding: 0.75rem 0;
-}
+/* appearance set to searchfield in S5, Chrome
+ */   input[type="search"] {
+         -webkit-appearance: textfield;
+      }
 
-label {
-   margin: 0.75rem 0 2.25rem 0;
-   width: 35%;
-}
-input[type="checkbox"], input[type="radio"] {
-   margin: 1rem 0 1rem 0;
-   width: auto;
-   height: 1rem;
-}
-input, textarea, select {
-   width: 65%;
-   padding: 0.375rem 0;
-   margin: 0.375rem 0;
-   background-color: #ccc;
-}
-input:focus {
-   outline-offset: -3px;
-}
-input[type="search"] {
-   width: 50%;
-}
-input[type="submit"]:not(.search), input[type="button"] {
-   width: auto;
-   min-width: 9rem;
-   padding-left: 0.75em;
-   padding-right: 0.75em;
-}
-select {
-margin: 2rem 0 2rem 0;
-height: 2rem;
-clear: left;
-}
-input.search {
-   width: 15%;
-   background-color: #aaa;
-   text-transform: uppercase;
-}
-label[for="textarea"], label[for="select"] {
-   margin-bottom: 0.75rem;
-}
-textarea {
-   margin-bottom: 1.875rem;
-}
-form em {
-   display: block;
-   font-size: .75rem;
-   line-height: 2;
-   margin-bottom: 1.5rem;
-}
-.hang-inside-left {
-   float: left;
-   clear: left;
-   /*margin-right: 3rem;*/
-}
-form ul {
-   list-style: none;
-   padding-left: 1.5em;
-   margin-bottom: 0;
-}
+/* search submit button
+ */   input.search {
+         margin-top: 0.75rem;
+      }
+
+/* inner padding and search 'cancel' button in S5, Chrome on mac
+ */   input[type="search"]::-webkit-search-decoration,
+      input[type="search"]::-webkit-search-cancel-button {
+         -webkit-appearance: none;
+      }
+
+/* add these rules if you support IE7
+ */   legend {
+         *margin-left: -7px;
+       }
+      button, input, select, textarea {
+         *vertical-align: middle;
+      }
+      input[type="checkbox"], input[type="radio"] {
+         *height: 13px;
+         *width: 13px;
+      }
+      button, input[type="button"],
+      input[type="reset"], input[type="submit"] {
+         *overflow: visible;
+      }
+
+/* descriptive text under input field
+ */   .help-note {
+      display: block;
+      font-size: .75rem;
+      line-height: 2;
+      margin-bottom: 1.5rem;
+   }
+
+/* format lists of radio buttons or checkboxes
+ */   form ul {
+         list-style: none;
+         padding-left: 1.5em;
+         margin-bottom: 0;
+      }
 
 
 /*
@@ -503,8 +436,8 @@ form ul {
  *    (http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0)
  *
  * reliable font stacks:
- *     sans:   "myriad-pro", Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
- *    serif:   "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+ *     sans:   "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
+ *    serif:   Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
  *     mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
  */
 
@@ -524,7 +457,7 @@ form ul {
 
    body {
       font-size: 100%;  /* =16px, ubiquitous browser default */
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
       line-height: 1.5em; /* =24px → our magic number */ 
    }
 
@@ -534,7 +467,7 @@ form ul {
    .hN {
       margin: 0 0 24px;
       margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
    }
 
 /* hero type
@@ -542,21 +475,17 @@ form ul {
    .tera {
       font-size: 80px;
       font-size: 5rem;     /* 80px = 16 × 5 */
-      line-height: 1.2;    /* 96px ÷ 80 = 1.2 (96 = 24 × 4) */
+      line-height: 1.8;    /* 144px ÷ 80 = 1.8 (144 = 24 × 6) */
    }
    .giga {
       font-size: 64px;
       font-size: 4rem;     /* 64px = 16 × 4 */
-      line-height: 1.125;  /* 72px ÷ 64 = 1.125 (72 = 24 × 3) */
+      line-height: 1.875;  /* 120px ÷ 64 = 1.125 (72 = 24 × 5) */
    }
    .mega {
       font-size: 48px;
       font-size: 3rem;     /* 48px = 16 × 3 */
-      line-height: 1;      /* 48px ÷ 48 = 1 (48 = 24 × 2) */
-   }
-   .tera, .giga, .mega {
-      margin-bottom: 48px;
-      margin-bottom: 3rem; /* 48px = 16 × 3 */
+      line-height: 2;      /* 96px ÷ 48 = 1 (96 = 24 × 4) */
    }
 
 /* heading type
@@ -602,8 +531,6 @@ form ul {
       margin: 0 0 24px;
       margin: 0 0 1.5rem;
       display: block;
-      /*margin: 0;*/
-      /*text-indent: 1.5em;*/
    }
    p + p, p + .freight, .freight + .freight, .freight + p {
       margin-top: -24px;
@@ -660,9 +587,9 @@ form ul {
 
 /* highlighted for reference purposes, user-relevant content
  */   mark {
-         background: none; 
-         font-style: italic; 
-         font-weight: bold; 
+         background: none;  
+         font-weight: bold;
+         border-bottom: 2px solid #555; 
       }
 
 /* small print, side comments, not for block-level content
@@ -679,8 +606,11 @@ form ul {
  */
 
    blockquote {
-      margin: 24px;
-      margin: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      margin: 24px 48px;
+      margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+   }
+   blockquote .attribution {
+      text-align: right;
    }
    .journalistic {
       margin-left: 0;
@@ -689,16 +619,17 @@ form ul {
       padding-left: 21px;
       padding-left: 1.3125rem;
    }
-   blockquote .attribution:before {
+   .freight + .attribution, p + .attribution {
+      text-indent: 0;
+      margin-top: 0;
+   }
+   .attribution:before {
       content: "— ";
    }
-   .academic .attribution {
-      margin-left: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
    .journalistic .attribution {
+      text-align: left;
       font-style: italic;  
    }
-
 
 
 /* d) code & pre-formatted text
@@ -724,29 +655,6 @@ form ul {
 
 
 
-/* e) type rendering
- ============================================================
- *
- */
-
-/* turn on kerning, ligatures, etc in modern browsers (kinda voodoo)
-   http://www.aestheticallyloyal.com/public/optimize-legibility
-   note: can cause issues on android: http://bricss.net/post/6984374395
- */
-   html {
-      text-rendering: optimizeLegibility;
-   }
-
-/* ligatures 
- */
-   .ligs {
-      -moz-font-feature-settings: "liga=1";
-      -ms-font-feature-settings: "liga" 1;
-      font-variant-ligatures: common-ligatures;
-   }
-
-
-
 /*
  * 3. palette
  ============================================================
@@ -755,22 +663,18 @@ form ul {
  *    key colors
  *    ```````````
  *        dark:   #080808  →  rgb(8,8,8)        →  hsl(0, 0%, 3%)
- *        grey:   #333333  →  rgb(51,51,51)     →  hsl(0, 0%, 20%)
- *       light:   #f0f0f0  →  rgb(240,240,240)  →  hsl(0, 0%, 94%)
  *     darkblu:   #063355  →  rgb(6,51,85)      →  hsl(206, 87%, 18%)
- *     liteblu:   #2f58be  →  rgb(47,88,190)    →  hsl(223, 60%, 46%)
  *       green:   #42c574  →  rgb(66,197,116)   →  hsl(143, 50%, 52%)
  *
  */
 
 /* a) links
  ============================================================
- *    remove any text-shadow     → http://h5bp.com/i
- *    styles must be in the particular order below
+ *    styles must be in the order: link, visited, hover, active
+ *    remove any text-shadow  → http://h5bp.com/i
+ *    mobile tap highlight    → http://j.mp/webkit-tap-highlight-color
  */
 
-/* http://j.mp/webkit-tap-highlight-color
- */
    a:link { color: blue; -webkit-tap-highlight-color: #FF0000; }
    a:visited { color: purple; }
    a:hover { color: red; }
@@ -781,6 +685,7 @@ form ul {
    a:hover, a:active { outline: 0; }
    a:focus { outline: thin dotted; }
 
+
 /* b) selection
  ============================================================
  *    http://h5bp.com/i
@@ -788,6 +693,7 @@ form ul {
 
    ::-moz-selection { background: blue; color: white; text-shadow: none; }
    ::selection { background: blue; color: white; text-shadow: none; }
+
 
 /* c) form validity
  ============================================================
@@ -799,28 +705,34 @@ form ul {
 
 
 
-
 /*
  * 4. page rendering & behavior
  ============================================================
  ============================================================
- *    get rid of wrap divs      → http://camendesign.com/code/developpeurs_sans_frontieres
- *    use easier box model      → http://paulirish.com/2012/box-sizing-border-box-ftw
+ *    get rid of wrap divs       → http://camendesign.com/code/developpeurs_sans_frontieres
+ *    advanced typography        → http://www.aestheticallyloyal.com/public/optimize-legibility
  */
 
+   html {
+      height: 100%;
+      text-rendering: optimizeLegibility; /* trigger advanced typography in FF/Chrome/Safari
+         (possible android issues: http://bricss.net/post/6984374395) */
+   }
+   body { 
+       min-height: 100%;
+       background-color: #efefef;
+   }
+
+/* apply natural box layout model to all elements 
+   http://paulirish.com/2012/box-sizing-border-box-ftw
+ */
    * {
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
    }
-   html {
-      height: 100%;
-   }
-   body { 
-       min-height: 100%;
-   }
 
-   
+
 
 /*
  * 5. structural modules
@@ -871,10 +783,47 @@ form ul {
          margin-bottom: 0;
       }
 
-/* main container
+/* lining-style definition lists
+ * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
+ */   
+   .lining dt, .lining dd {
+      display: inline;
+      margin: 0;
+   }
+   .lining dd + dt:before {
+      content: "\A";
+      white-space: pre;
+   }
+   .lining dt + dt:before {
+      content: ", ";
+      white-space: normal;
+      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+   }
+   .lining dd:before {
+      content: ": ";
+      margin-left: -0.2rem; /* removes extra space between the dt and the colon */
+   }
+   .lining dd + dd:before {
+      content: ", ";
+   }
+
+/* dictionary-style definition lists
+ * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
  */
-   section[role="main"] {
-      
+   .dictionary dt {
+      display: inline;
+      counter-reset: definitions;
+   }
+   .dictionary dt + dt:before {
+      content: ", ";
+      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+   }
+   .dictionary dd {
+      display: block;
+      counter-increment: definitions;
+   }
+   .dictionary dd:before {
+      content: counter(definitions, decimal) ". ";
    }
 
 
@@ -884,9 +833,16 @@ form ul {
  ============================================================
  */
 
-   body {
-      background-color: #eee;
+/* ligatures 
+   http://adamdscott.com/typography/ligatures-on-the-web
+   http://blog.fontdeck.com/post/15777165734/opentype-1
+ */
+   .ligs {
+      -moz-font-feature-settings: "liga=1";
+      -ms-font-feature-settings: "liga" 1;
+      font-variant-ligatures: common-ligatures;
    }
+
 
 
 /*

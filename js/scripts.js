@@ -1,18 +1,5 @@
-// 2. Activate plugins on document.ready
-
 $(document).ready(function() {
 
-/*
-	$("#menu").localScroll({
-		offset: -200
-	});
-*/
+	// run all code once the page has fully loaded
 
-    $(function() {
-       $("h1").bind("click", baseliner);
-    });
-    
-    function baseliner(evt) {
-      $("body").toggleClass("baseline");
-    }
 });
