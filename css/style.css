@@ -1181,9 +1181,29 @@
    }
 
 
-   @media all and (max-height: 720px) {
+   @media all and (max-height: 768px) {
       .anchor-panel .gamma {
          padding-top: 0.5em;
+      }
+
+   }
+
+
+ @media all and (max-height: 720px) {
+      .anchor-panel .gamma {
+         padding-top: 0;
+      }
+      .stick-bottom {
+         bottom: 0;
+      }
+      .stick-bottom nav[role="navigation"]{
+         margin-bottom: 1em;
+      }
+      .symbol {
+         font-size: 9rem;
+      }
+      .anchor-panel .title {
+         margin-bottom: 1rem;
       }
    }
 

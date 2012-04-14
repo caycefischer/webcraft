@@ -137,4 +137,4 @@ This sequence of links ensures cross-device compatible favicons and bookmark/app
 
 Source: [Mathias Bynens](http://mathiasbynens.be/notes/touch-icons)
 
-### 1.9 Favicon & App Icons [⚓](#icons){: .anchor} {: .hN .gamma #icons}
+### 1.10 Favicon & App Icons [⚓](#icons){: .anchor} {: .hN .gamma #icons}
