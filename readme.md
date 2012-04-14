@@ -1,4 +1,4 @@
-# Web-Craft & Web-Craft Primer
+# Web-Craft
 
 Web-Craft is an educational programme dedicated to helping design students master the web.  The meticulously researched curriculum is sourced from work of the community's best and brightest, drawing upon an established canon of design practice and theory.
 

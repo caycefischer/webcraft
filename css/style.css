@@ -1,10 +1,9 @@
 /*
  * Web-Craft Primer v1.0
  ============================================================
- *    url: http://webcraft.zacharykain.com
- *    src: http://github.com/zakkain/webcraft
+ *    url: lab.zacharykain.com/webcraft
  *    
- *    author: @zakkain
+ *    author: Zachary Kain (@zakkain)
  *    license: this work is in the public domain
  *                http://creativecommons.org/publicdomain/zero/1.0
  *    
@@ -513,6 +512,16 @@
       line-height: 1.5em; /* =24px → our magic number */ 
    }
 
+   .sans {
+      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+      font-weight: 300;
+      font-style: normal;
+   }
+   .serif {
+      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      font-weight: 400;
+      font-style: normal;
+   }
 
 /* basic title class, as per: http://jsfiddle.net/csswizardry/yFQDP
  */
@@ -767,16 +776,6 @@
       text-rendering: optimizeLegibility;
    }
 
-   .sans {
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
-      font-weight: 300;
-      font-style: normal;
-   }
-   .serif {
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 400;
-      font-style: normal;
-   }
    .kicker {
       margin-top: 0;
       font-style: italic;
@@ -1128,6 +1127,12 @@
       }
    }
 
+   @media all and (max-width: 965px) {
+      .page, section[role="main"] {
+         margin-left: 21em;
+         width: 39em;
+      }   
+   }
    @media all and (max-height: 720px) {
       .anchor-panel .gamma {
          padding-top: 0;
@@ -1149,6 +1154,21 @@
       }  
    }
 
+@media all and (max-width: 768px) {
+   .anchor-panel {
+      width: 17em;
+   }
+   .page, section[role="main"] {
+      margin-left: 0;
+      width: 100%;
+      padding-left: 19.5em;
+      padding-right: 1.5em;
+      z-index: -1;
+   }
+   .social.facebook, .social.google {
+      margin-left: 2.75em;
+   }
+}
    /*@media only screen and (min-width: 320px) {
        
    }
