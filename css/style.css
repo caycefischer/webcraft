@@ -227,16 +227,48 @@
          padding-left: 3em;
       }
 
-/* flexible multiline definition lists
-   http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
- */
-   dt, dd {
-      /*display: inline;*/
-      /*margin: 0;*/
+
+/* lining-style definition lists
+ * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
+ */   
+   .lining dt, .lining dd {
+      display: inline;
+      margin: 0;
    }
-   dd:after {
-      /*content: '\A';*/
-      /*white-space: pre;*/
+   .lining dd + dt:before {
+      content: "\A";
+      white-space: pre;
+   }
+   .lining dt + dt:before {
+      content: ", ";
+      white-space: normal;
+      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+   }
+   .lining dd:before {
+      content: ": ";
+      margin-left: -0.2rem; /* removes extra space between the dt and the colon */
+   }
+   .lining dd + dd:before {
+      content: ", ";
+   }
+
+/* dictionary-style definition lists
+ * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
+ */
+   .dictionary dt {
+      display: inline;
+      counter-reset: definitions;
+   }
+   .dictionary dt + dt:before {
+      content: ", ";
+      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+   }
+   .dictionary dd {
+      display: block;
+      counter-increment: definitions;
+   }
+   .dictionary dd:before {
+      content: counter(definitions, decimal) ". ";
    }
 
 /* e) embedded content
@@ -710,25 +742,31 @@
  */
 
    blockquote {
-      margin: 24px;
-      margin: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+      margin: 24px 48px;
+      margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+   }
+   blockquote .attribution {
+      text-align: right;
+   }
+   .journalistic {
       margin-left: 0;
-      border-left: 3px solid rgb(47,88,190);
-      border-left: 0.1875rem solid rgb(47,88,190);
+      border-left: 3px solid #ccc;
+      border-left: 0.1875rem solid #ccc;
       padding-left: 21px;
       padding-left: 1.3125rem;
-      padding-top: 0.75rem;
-      padding-bottom: 0.75rem;
-      background-color: #f0f0f0;
+   }
+   .freight + .attribution, p + .attribution {
+      text-indent: 0;
+      margin-top: 0;
    }
    .attribution:before {
       content: "— ";
    }
-   .attribution {
-      font-style: italic;
-      text-indent: 0;
-      margin: 0;
+   .journalistic .attribution {
+      text-align: left;
+      font-style: italic;  
    }
+
 
 
 
@@ -1135,37 +1173,31 @@
  ============================================================
  ============================================================
  */
-@media all and (max-width: 1366px) {
-      .page.extended {
-         margin-left: 24em;
-      }
-      .anchor-panel .gamma {
-         margin-bottom: 0.5rem;
-      }  
+
+    .anchor-panel {
+      width: 17em;
+   }
+   .page, section[role="main"] {
+      margin-left: 0;
+      width: 100%;
+      padding-left: 19.5em;
+      padding-right: 1.5em;
+      z-index: -1;
+   }
+   .page.extended {
+      margin-left: 0 !important;
+      padding-left: 19em !important;
+      width: 100% !important;
+   }   
+   .social.facebook, .social.google {
+      margin-left: 2.75em;
    }
 
-   @media all and (max-width: 1105px) {
-      html {
-         font-size: 87.5%; /* 14px */
-      }
-      .readable > p {
-         font-size: 1.142857143em;
-      }
-      .freight {
-         font-size: 1.142857143em;
-      }       
+   @media all and (min-width: 841px) {
       .page, section[role="main"] {
-         margin-left: 24em;
-      }
-      .anchor-panel .gamma {
-         line-height: 1.5;
-      }
-   }
-
-   @media all and (max-width: 965px) {
-      .page, section[role="main"] {
-         margin-left: 21em;
-         width: 39em;
+         margin-left: 17em;
+         width: 36em;
+         padding-left: 3em;
       }
       .page.extended {
          margin-left: 21em;
@@ -1173,12 +1205,54 @@
       }   
    }
 
-   @media all and (max-width: 840px) {
+    @media all and (min-width: 965px) {
       .page, section[role="main"] {
-         margin-left: 19.5em;
-         width: 40.5em;
+         margin-left: 20.5em;
+         padding-left: 1.5em;
+         width: 40em;
+         padding-right: 0;
+      }
+      .anchor-panel .gamma {
+         line-height: 1.5;
       }
    }
+
+    @media all and (max-height: 600px) {
+      html {
+         font-size: 87.5%; /* 14px */
+      }
+      .anchor-panel .gamma {
+         font-size: 1.35rem;
+      }
+      .anchor-panel .delta {
+         font-size: 1.125rem;
+      }
+   }
+
+@media all and (min-width: 1105px) {
+      .page, section[role="main"] {
+         padding-right: 3rem;
+      }
+      .page.extended {
+         margin-left: 24em;
+      }
+      .anchor-panel .gamma {
+         margin-bottom: 0;
+      }  
+   }
+
+@media all and (min-width: 1367px) {
+      .page, section[role="main"] {
+         width: 48em;
+      }
+      .page.extended {
+         margin-left: 24em;
+      }
+        
+   }
+
+
+
 
 
    @media all and (max-height: 768px) {
@@ -1207,52 +1281,14 @@
       }
    }
 
-   @media all and (max-height: 840px) {
-      html {
-         font-size: 87.5%; /* 14px */
-      }
-      .readable > p {
-         font-size: 1.142857143em;
-      }
-   }
-
-@media all and (max-width: 768px) {
-   .anchor-panel {
-      width: 17em;
-   }
-   .page, section[role="main"] {
-      margin-left: 0;
-      width: 100%;
-      padding-left: 19.5em;
-      padding-right: 1.5em;
-      z-index: -1;
-   }
-   .page.extended {
-      margin-left: 0 !important;
-      padding-left: 19em !important;
-      width: 100% !important;
-   }   
-   .social.facebook, .social.google {
-      margin-left: 2.75em;
-   }
-}
-   /*@media only screen and (min-width: 320px) {
-       
-   }
-
-   @media only screen and (min-width: 480px) {
-       
-   }
-
-   @media only screen and (min-width: 768px) {
-       
-   }
-
-   @media only screen and (min-width: 1024px) {
-
-   }*/
 
 
+
+
+
+
+
+ 
 
 /*
  * 8. utilities
