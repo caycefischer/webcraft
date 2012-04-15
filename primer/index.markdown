@@ -15,7 +15,7 @@ Built upon the shoulders of giants, the Primer incorporates code from the [HTML5
 #### [View Documentation]({{ site.baseurl }}/primer/docs)
 {: .delta .btn .dark-area}
 
-#### [DOWNLOAD v1.0](https://github.com/zakkain/webcraft/zipball/master)
+#### [DOWNLOAD v1.0](https://github.com/zakkain/webcraft/zipball/v1.0)
 {: .delta .btn .action-area}
 
 
