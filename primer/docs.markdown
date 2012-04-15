@@ -10,7 +10,7 @@ description: "Complete documentation of the HTML, CSS and other files in the Web
 - [OTHER FILES](#other-files)
 {: .nav .delta .sans}
 
-_Hint: if you don't like horizontal scrolling, click on a box of sample code to switch it from scroll- to wrap-mode._
+_Hint: to toggle code samples between horizontal-scroll mode to wrap-mode, click them!_
 
 ---
 
@@ -137,4 +137,880 @@ This sequence of links ensures cross-device compatible favicons and bookmark/app
 
 Source: [Mathias Bynens](http://mathiasbynens.be/notes/touch-icons)
 
-### 1.10 Favicon & App Icons [⚓](#icons){: .anchor} {: .hN .gamma #icons}
+### 1.9 Stylesheets [⚓](#stylesheets){: .anchor} {: .hN .gamma #stylesheets}
+
+Straightforward, but there are some things to note here. The HTML5 spec does not require the `rel` attribute ([link](http://developers.whatwg.org/links.html#link-type-stylesheet)), as the default value is `stylesheet`. That being said, I still include it, out of habit and to avoid edge cases with older browsers.
+
+	<link rel="stylesheet" href="css/style.css">
+{: .prettyprint}
+
+Place all other stylesheets (if any) here as well, under this line to avoid specificity issues.
+
+### 1.10 Webfonts [⚓](#webfonts){: .anchor} {: .hN .gamma #webfonts}
+
+These lines designate where to place scripts or links for whichever webfont solution (if any) is used on the page.
+
+	<!--  webfonts -->
+  
+	<!-- fout-busting
+        http://www.extensis.com/en/WebINK/fout-b-gone
+      OR
+        http://jonikorpi.com/a-smoother-page-load/ -->
+{: .prettyprint}
+
+Noted are two options for dealing with <abbr title="Flash of Unstyled Text">FOUT</abbr>: for use with [Typekit](http://typekit.com) Joni Korpi's use of Font Events are recommended; with other webfont services using the fout-b-gone script is an option.
+
+### 1.11 Modernizr [⚓](#modernizr){: .anchor} {: .hN .gamma #modernizr}
+
+By default Web-Craft Primer comes bundled with Modernizr, an open-source library that enables CSS feature detection, conditional script loading, IE support for HTML5 elements, and much more.
+
+	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+{: .prettyprint}
+
+If you choose not to use Modernizr but still want to enable HTML5 elements in Internet Explorer, you can load Remy Sharp's html5shiv script.
+
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+{: .prettyprint}
+
+Source: [Modernizr](http://html5boilerplate.com/docs/html/#modernizr-yepnope-respond) & [html5shiv](https://github.com/aFarkas/html5shiv)
+
+### 1.12 Chrome Frame [⚓](#chrome-frame){: .anchor} {: .hN .gamma #chrome-frame}
+
+Google Chrome Frame is a plugin for Internet Explorer that embeds Chrome's rendering engine (Webkit) into the browser. This code will prompt the user to install the plugin if they are browsing in IE 6. If you support these browsers, remove this. In practice, I often change the conditional statement to `if lt IE8`, to prompt users on IE 7 as well.
+
+	<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+{: .prettyprint}
+
+Source: [Google](http://chromium.org/developers/how-tos/chrome-frame-getting-started)
+
+### 1.13 Body [⚓](#body){: .anchor} {: .hN .gamma #body}
+
+You write the html here! The `role="main"` attribute of the section element is a _landmark_ (WAI-ARIA role), an identifying marker that identifies common sections of a webpage for browsers and screenreaders.
+
+	<section role="main">
+
+	</section>
+{: .prettyprint}
+
+Source: [HTMl5 Doctor](http://html5doctor.com/avoiding-common-html5-mistakes/) & [Paciello Group](http://www.paciellogroup.com/blog/2010/10/using-wai-aria-landmark-roles/)
+
+### 1.14 jQuery [⚓](#jquery){: .anchor} {: .hN .gamma #jquery}
+
+It is generally good practice to load as much javascript as possible at the bottom of the page (just before the `</body>` tag). This is because javascript loads sequentially, and will prevent the browser from loading or rendering further code until the current script is complete. jQuery is loaded from Google's servers, with a fallback line in case that file cannot be reached. From the HTML5 Boilerplate: 
+
+> Regardless of which JavaScript library you use in your projects, it is well worth the time and effort to look up and reference the Google CDN (Content Delivery Network) version. Your users may already have this version cached in their browsers, and Google's CDN is likely far faster than your server.
+{: .journalistic}
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+{: .prettyprint}
+
+Any jQuery plugins are also combined into a single file, `plugins.js`, to cut down on the amount of files the browser has to request and download. Place all your own javascript in `scripts.js`
+
+	<script src="js/plugins.js"></script>
+	<script src="js/scripts.js"></script>
+{: .prettyprint}
+
+Source: [H5BP](http://html5boilerplate.com/docs/html/#the-javascript) & [Encosia](http://encosia.com/6953-reasons-why-i-still-let-google-host-jquery-for-me/)
+
+### 1.15 Google Analytics [⚓](#google-analytics){: .anchor} {: .hN .gamma #google-analytics}
+
+Rather than using the standard Google Analytics snippet to monitor pages, use Mathias Bynens' asynchronous snippet for faster page loading and general goodness.
+
+	<script>
+	    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	    s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+
+Source: [Mathias Bynens](mathiasbynens.be/notes/async-analytics-snippet) & [H5BP](http://html5boilerplate.com/docs/html/#google-analytics-tracking-code)
+
+---
+
+---
+
+## 2. CSS [⚓](#css){: .anchor} {: .hN .beta #css}
+
+Table of Contents:
+
+	1. normalize
+		a. html5 display definitions
+		b. global basics
+		c. typography
+		d. lists
+		e. embedded content
+		f. tables
+		g. forms
+	   
+	2. core typography
+		a. type hierarchy
+		b. semantic stress elements
+		c. quotes & citations
+		d. code & pre-formatted text
+	   
+	3. palette
+		a. links
+		b. selections
+		c. form validity
+
+	4. page rendering & behaviour
+
+	5. structural modules
+
+	6. stylistic modules
+
+	7. media queries
+
+	8. utilities
+
+### 2.1 Normalize [⚓](#normalize){: .anchor} {: .hN .gamma #normalize}
+
+The Primer CSS starts with a modified version of [normalize.css](http://necolas.github.com/normalize.css/), a "more considered reset" that makes browsers render HTML elements consistently and as standards-compliant as possible. The authors ([@necolas](http://twitter.com/necolas) & [@jon_neal](http://twitter.com/jon_neal)) researched default browser styles so the CSS only targets the discrepancies. 
+Where the following CSS is not explicitly cited, it was either written by myself, or can be found in one of the source documents: [HTML5 Boilerplate CSS](http://html5boilerplate.com/html5boilerplate-site/built/en_US/docs/css/#the-css) & [Normalize Wiki](https://github.com/necolas/normalize.css/wiki). Links are also supplied in the CSS comments for ease-of-access.
+
+---
+
+#### 2.1 a) HTML5 Display Definitions [⚓](#html5-display-definitions){: .anchor} {: .hN .delta #html5-display-definitions}
+
+Set `display: block` and `display: inline-block` for HTML5 elements in Internet Explorer 6-9 and Firefox 3, which treat them as inline:
+
+	article, aside, details, figcaption, figure, footer, 
+      header, hgroup, nav, section, summary { 
+         display: block;
+         margin: 0;
+         padding: 0;
+      }
+
+	audio, canvas, video {
+		display: inline-block;
+		*display: inline;
+		*zoom: 1;
+	}
+{: .prettyprint .lang-css}
+
+Includes the IE6/7 inline-block hack: `*display: inline; *zoom: 1`.
+
+---
+
+Add support for the `[hidden]` attribute in legacy browsers that do not include it in their default stylesheet:
+
+	[hidden] {
+		display: none;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Ensures that `audio` elements without controls remain hidden in modern browsers that have native support for `audio`:
+
+	audio:not([controls]) {
+		display: none;
+		height: 0;
+	}
+{: .prettyprint .lang-css}
+
+This `audio` rule can be removed if you do not plan on using HTML5 audio.     
+
+---
+
+#### 2.1 b) Global Basics [⚓](#global-basics){: .anchor} {: .hN .delta #global-basics}
+
+Zero out default padding and margin on body element:
+
+	body {
+		margin: 0;
+		padding: 0;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Prevents iOS text size adjust after orientation change, without disabling user zoom...unlike `none`: 
+
+	html {
+		-webkit-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
+	}
+{: .prettyprint .lang-css}
+
+Source: [456 BEREA St.](http://www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/)
+
+---
+
+#### 2.1 c) Typography [⚓](#normalize-typography){: .anchor} {: .hN .delta #normalize-typography}
+
+Address styling not present in IE 7/8/9, S5 and Chrome:
+
+	abbr[title] {
+		border-bottom: 1px dotted;
+    }
+{: .prettyprint .lang-css}
+
+By not specifying a border color for the `abbr` rule, `border-bottom` inherits the element's text color.
+
+([view in Styleguide]({{ site.baseurl }}/styleguide#abbreviation))
+
+---
+
+Address styling in IE 7/8/9:
+	
+	hr { 
+		display: block;
+		height: 1px; 
+		height: 0.0625rem; /* 1px ÷ 16 = 0.0625 */
+		border: 0; 
+		border-top: 1px solid #ccc;
+		border-top-width: 0.0625rem;
+		margin: 0 0 1.5rem;  
+		padding: 0; 
+	}
+{: .prettyprint .lang-css}
+
+ Be aware that margins will break in IE 7, if you support IE 7 @necolas [recommends](https://github.com/necolas/normalize.css/commit/cb176831b9adb32036e83087f286c0ae6c0eae74) not using the `hr` element at all. `height` is set in `rem` units (assuming 16px base font size), with a fallback set in pixels for [browsers lacking `rem` support](http://caniuse.com/rem).
+
+---
+
+Address differences between IE, S4/5 and Chrome. Resetting `line-height` to normal avoids inline discrepancies between Firefox and Chrome:
+
+	pre, code, kbd, samp {
+		font-family: monospace, serif;
+		_font-family: 'courier new', monospace;
+		font-size: 1em;
+		line-height: normal;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Ensure pre-formatted text behaves:
+
+	pre {
+		white-space: pre;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	}
+{: .prettyprint .lang-css}
+
+* `white-space: pre`: all line breaks, tabs and other oddities of the source code are literally followed.
+
+* `white-space: pre-wrap`: as above, except that it adds extra line breaks to prevent the text breaking out of the element's box. No IE7 support.
+
+* `word-wrap: break-word`: fix for IE6/7
+
+([view in Styleguide]({{ site.baseurl }}/styleguide#pre-formatted-text))
+
+---
+
+Consistent nested quotations (two levels):
+
+	q { quotes: '“' '”' '‘' '’'; }
+
+	q:before { content: '“'; content: open-quote; }
+	q:after { content: '”'; content: close-quote; }
+		q q:before { content: '‘'; content: open-quote; }
+		q q:after { content: '’'; content: close-quote; }
+{: .prettyprint .lang-css}
+
+The latter four lines add support for Chrome, Safari and mobile Webkit browsers pre-2011.
+
+Source: [HTML5 Doctor](http://html5doctor.com/blockquote-q-cite)
+{: .attribution}
+
+([view in Styleguide]({{ site.baseurl }}/styleguide#inline-quotes))
+
+---
+
+Prevent inline `<sub>` and `<sup>` elements affecting line-height in all browsers:
+
+	sub, sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+	sup {
+		top: -0.5em;
+	}
+	sub {
+		bottom: -0.25em;
+	}
+{: .prettyprint .lang-css}
+
+Source: [unruthless](http://gist.github.com/413930)
+{: .attribution}
+
+([view in Styleguide]({{ site.baseurl }}/styleguide#superscript-and-subscript))
+
+---
+
+#### 2.1 d) Lists [⚓](#lists){: .anchor} {: .hN .delta #lists}
+
+Align to the baseline grid (assuming `1rem = 16px` a `line-height` of `1.5`): 
+
+	dl, menu, ol, ul {
+		margin: 0 0 24px;
+		margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+	}
+{: .prettyprint .lang-css}
+
+This style is repeated for different elements throughout the stylesheet, and is due for major refactoring in a future update. Every instance is not covered in this document.
+
+---
+
+A useful default to remove bullets/numbers from lists in `nav` elements:
+
+	nav ul, nav ol {
+		list-style: none;
+		list-style-image: none;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Proper nesting of `ul` and `ol` elements (two levels):
+
+	ul, ol { 
+		list-style-position: outside;
+		padding: 0;
+	}
+	ol ol {
+		list-style: lower-alpha;
+	}
+	li > ul, li > ol {
+		margin-bottom: 0;
+		padding-left: 3em;
+	}
+{: .prettyprint .lang-css}
+
+([view in Styleguide]({{ site.baseurl }}/styleguide#lists))
+
+---
+
+#### 2.1 e) Embedded Content [⚓](#embedded-content){: .anchor} {: .hN .delta #embedded-content}
+
+Improve the quality of resized images in IE7, and remove any default borders:
+	img {
+		border: 0;
+		-ms-interpolation-mode: bicubic;
+	}
+{: .prettyprint .lang-css}
+
+Source: [Flickr](http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing)
+
+---
+
+Address IE9 `svg` quirks:
+
+	svg:not(:root) {
+		overflow: hidden;
+	}
+{: .prettyprint .lang-css}
+
+If you do not plan on using `svg`s, you may remove this.
+
+---
+
+Default styles for `figure` and `figcaption` elements ([view in Styleguide]({{ site.baseurl }}/styleguide#figures)):
+
+	figure {
+		margin-bottom: 24px;
+		margin-bottom: 1.5rem;
+	}
+	figure > img {
+		max-width: 100%;
+		display: block;
+		min-height: 1.5rem;
+	}
+	figcaption {
+		margin-top: 1.5rem;
+	}
+{: .prettyprint .lang-css}
+
+The `min-height` declaration ensures that, if the image link is broken, the _missing image_ graphic preserves the baseline (see [vertical rhythm](ZAKFIX).
+
+---
+
+#### 2.1 e) Tables [⚓](#tables){: .anchor} {: .hN .delta #tables}
+
+Default styles for `table` and related elements ([view in Styleguide]({{ site.baseurl }}/styleguide#tables)):
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		border-spacing: 0;
+		text-align: left;
+		font-size: 13px;
+		font-size: 0.8125rem;  /* 12px = 16 × 0.875 */
+	}
+	td, th {
+		padding: 0;
+		line-height: 1.769230769;
+		border-bottom: 0.0625rem solid #ddd;
+	}
+	th {
+		text-transform: uppercase;
+		border-bottom-color: #aaa;
+	}
+	caption {
+		caption-side: bottom;
+		margin: 0.75rem 0 0.75rem;
+		text-align: left;
+		font-weight: bold;
+		font-style: italic;
+	}
+{: .prettyprint .lang-css}
+
+The irregular `line-height` declaration in the `td, th` rule is to accomodate a `1px` bottom border on each row. The value was reached by determining the proper `line-height` value (in in `em`/`rem`s) for `13px`, and then subtracting the height of the bottom border (also in `em`/`rem`s).
+
+The border is declared using `rem` units to ensure that when the base `font-size` is increased or decreased, the line doesn't disrupt the vertical rhythm. A downside to this technique is that when the base `font-size` is decreased below where `0.0625 = 1px`, the line may disappear.
+
+---
+
+#### 2.1 f) Forms [⚓](#forms){: .anchor} {: .hN .delta #forms}
+
+Set basic layout and type styles for `form` and related elements ([view in Styleguide]({{ site.baseurl }}/styleguide#forms)):
+
+	form {
+		margin: 0 0 1.5rem;
+	}
+	fieldset, button, input, select, textarea {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		line-height: 1.5;
+		vertical-align: baseline;
+		font-size: 100%; /* fallback */
+		font-size: 1rem;
+	}
+	fieldset {
+		padding: 0.75rem 0;
+	}
+
+	legend {
+		margin: 0; /* margin display quirks in IE<8 */
+		padding: 0 0 0.75rem;
+		border: 0; /* color not inherited in IE<10 */
+		line-height: 1.5;
+		white-space: normal; /* text doesn't wrap in FF3 */
+	}
+
+	label {
+		margin: 0.75rem 0 2.25rem 0;
+	}
+	input, textarea, select {
+		display: block;
+		width: 100%;
+		padding: 0.375rem 0;
+		margin: 0.375rem 0;
+		background-color: #ccc;
+	}
+	textarea {
+		padding: 0;
+		margin: 1.5rem 0;
+		overflow: auto; /* default vertical scrollbar in IE6/7/8/9 */
+		vertical-align: top; /* best/consistent vertical alignment in all browsers */
+	}
+	select {
+		margin: 2rem 0 2rem 0;
+		height: 2rem;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Show pointer cursor when hovering on `label`s associated with `input` elements:
+
+	label[for] {
+		cursor: pointer; 
+	}
+{: .prettyprint .lang-css}
+
+This makes explicit the ability to shift focus to a form element by clicking on its associated `label`. This is a break from the decision made by the HTML5 Boilerplate crew, who drop the `[for]` from this rule. Their reasoning is that any `input` element that doesn't label a form element is poor markup altogether. I happen to prefer having access to this additional hook for CSS styling, and often customize this rule, appling it only certain `input` types.
+
+---
+
+The `button` element and button-style `input` types:
+
+	button, input[type="button"],
+	input[type="reset"], input[type="submit"] {
+		cursor: pointer;
+		-webkit-appearance: button; 
+		padding-left: 0.75em;
+		padding-right: 0.75em;
+		width: auto; 
+		min-width: 9rem;
+	}
+	button[disabled], input[disabled] {
+		cursor: default;
+	}
+
+	button::-moz-focus-inner, input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+{: .prettyprint .lang-css}
+
+* Setting `-webkit-appearance` removes the inability to style clickable 'input' types in iOS. 
+
+* A `min-width` is set to avoid ugly widths for elements with short text. Change this value to suit your grid.
+
+* Setting `cursor: default` for elements with the `disabled` attribute prevents any confusion when trying to click or activate them.
+
+* Address border and padding quirks in Firefox 3/4.
+
+---
+
+Format checkboxe, radio button and search `input` types:
+
+	input[type="checkbox"], input[type="radio"] {
+		display: inline;
+		margin: 1rem 0;
+		width: auto;
+		height: 1rem;
+	}
+	input:focus {
+		outline-offset: -3px;
+	}
+
+	input[type="search"] {
+		-webkit-appearance: textfield;
+	}
+
+	input.search {
+		margin-top: 0.75rem;
+	}
+
+	input[type="search"]::-webkit-search-decoration,
+	input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+	}
+{: .prettyprint .lang-css}
+
+* Set checkboxes and radio buttons on the same line as their labels.
+
+* Push the blue "focused" outline outside the edge of `input` elements in Chrome & Safari.
+
+* Address incorrect `input[type="search"` appearance in S5, Chrome.
+
+* Align the submit button of `search` inputs properly to the baseline grid (they are given a class of `.search` to avoid tricky CSS selector strings with `:nth-child` or the `+` descendant combinator).
+
+* Remove inner padding and search 'cancel' button in S5 & Chrome on OSX
+
+---
+
+Remove these rules if you don't need to support Internet Explorer 7:
+
+	legend {
+		*margin-left: -7px;
+	}
+	button, input, select, textarea {
+		*vertical-align: middle;
+	}
+	input[type="checkbox"], input[type="radio"] {
+		*height: 13px;
+		*width: 13px;
+	}
+	button, input[type="button"],
+	input[type="reset"], input[type="submit"] {
+		*overflow: visible;
+	}
+{: .prettyprint .lang-css}
+
+---
+
+Use this class on a `p` or `em` element to add descriptions or notes next to form `labels`:
+
+	.help-note {
+		display: block;
+		font-size: .75rem;
+		line-height: 2;
+		margin-bottom: 1.5rem;
+	}
+{: .prettyprint .lang-css}
+
+View the ([Styleguide]({{ site.baseurl }}/styleguide#forms)) source for an example.
+
+---
+
+Proper formatting of list elements inside `form`s:
+
+	form ul {
+		list-style: none;
+		padding-left: 1.5em;
+		margin-bottom: 0;
+	}
+{: .prettyprint .lang-css}
+
+Note: `fieldset` elements should always be used to create groups of form elements; lists should be used specifically for groups of checkboxes or radio buttons.
+
+---
+
+### 2.2 Core Typography [⚓](#core-typography){: .anchor} {: .hN .gamma #core-typography}
+
+In my opinion, typography is without doubt the most detailed, even _arcane_, aspect of CSS. Fittingly, this is the largest and most intricate section of the Primer stylesheet. This document will touch briefly on matters of typographic scale & vertical rhythm; detailed articles and tutorials may be found in the [Journal]({{ site.baseurl }}/journal) and [Pattern Library]({{ site.url }}/patterns). 
+
+I owe tremendous thanks and credit to Harry Roberts ([@csswizardry](http://twitter.com/csswizardry)), whose work was instrumental in designing the core typography of this Primer. His writing comes **highly recommended**:
+
+* [Measuring and Sizing UIs, 2011 Style](http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style)
+
+* [Pragmatic, Practical Font-Sizing in CSS](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css)
+
+* [Mo' Robust Paragraph Indenting](http://csswizardry.com/2010/12/mo-robust-paragraph-indenting)
+
+---
+
+The basic concept behind _vertical rhythm_ is that when every element on a page aligns to an underlying regular _measure_, or baseline grid, the composition of the document as a whole is refined and improved. To observe a baseline grid and vertical rhythm in action, turn the grid on in the [Styleguide]({{ site.baseurl }}/styleguide).
+
+The key to achieving this with CSS is the `line-height` property. Using the following formula:
+
+> basic line-height ÷ heading font size = heading line-height
+
+we can determine the appropriate amount of vertical space between elements of any size. For example, if the `line-height` of our paragraphs is equivalent to `24px`, the `line-height` of our header must be a multiple of that "magic number". If our header has a `font-size` of `32px`, we could set the `line-height` to `1.5`, which would be equivalent to `48px`.
+
+---
+
+The following is a list of primary sources concerning baseline grids & typographic rhythm:
+
+* [More Meaningful Typography](http://www.alistapart.com/articles/more-meaningful-typography/), by Tim Brown.
+
+* [Composing to a Vertical Rhythm](http://24ways.org/2006/compose-to-a-vertical-rhythm), by Richard Rutter.
+
+* [Sizing the Legible Letter](http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/#comment-6316), by Ethan Marcotte.
+
+* [Composing the New Canon...](http://24ways.org/2011/composing-the-new-canon), by Owen Gregory (advanced material).
+
+---
+
+#### 2.2 a) Type Hierarchy [⚓](#type-hierarchy){: .anchor} {: .hN .delta #type-hierarchy}
+
+First, set base typeface and global measure (16pt type over 24pt lead):
+
+	body {
+		font-size: 100%;  /* =16px, ubiquitous browser default */
+		font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+		line-height: 1.5em;
+	}
+{: .prettyprint .lang-css} 
+
+Conventional best-practice is to set `line-height` in unitless values (ie: `1.5` as opposed to `1.5em`), as discussed by [Eric Meyer](http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights). This is because a unitless value acts as a _scaling factor_ of the element's `font-size`, not a computed value, which has the effect of ensuring changes in `font-size` don't require re-declaring an adjusted `line-height` value.
+
+The Primer follows this practice throughout, **except** in the `body` rule. This is because, in testing, I found that when declaring `line-height` as a unitless value, the _scaling factor_ led to single-pixel rendering errors due to the way decimals are rounded by the browser. This was most prominent in Chrome and Safari. Explicitly setting `line-height` as a computed value on the `body` element seems to fix this. More research is needed to explain why.
+
+This can be seen by scrolling to the bottom of the [Styleguide]({{ site.baseurl }}/styleguide) with the grid turned on, and removing `em` from the declaration using the Firefox Web Inspector or Chrome Dev Tools; there will be a slight shift off of the baseline grid. Why do a few pixels matter? Because [details matter](http://www.designstaff.org/articles/design-details-2011-11-29.html).
+
+---
+
+Typesetting header/titling elements:
+
+	.hN {
+		margin: 0 0 24px;
+		margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
+		font-family: "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+	}
+
+	/* hero type
+	*/
+	.tera {
+		font-size: 80px;
+		font-size: 5rem;     /* 80px = 16 × 5 */
+		line-height: 1.8;    /* 144px ÷ 80 = 1.8 (144 = 24 × 6) */
+	}
+	.giga {
+		font-size: 64px;
+		font-size: 4rem;     /* 64px = 16 × 4 */
+		line-height: 1.875;  /* 120px ÷ 64 = 1.125 (72 = 24 × 5) */
+	}
+	.mega {
+		font-size: 48px;
+		font-size: 3rem;     /* 48px = 16 × 3 */
+		line-height: 2;      /* 96px ÷ 48 = 1 (96 = 24 × 4) */
+	}
+
+	/* heading type
+	*/
+	h1, .alpha {
+		font-size: 32px;
+		font-size: 2rem;     /* 32px = 16 × 2 */
+		line-height: 1.5;    /* 48px ÷ 32 = 1.5 (48 = 24 × 2) */
+		margin-bottom: 1.5rem;
+		padding-top: 1.5rem;
+	}
+	h2, .beta {
+		font-size:  24px;
+		font-size: 1.5rem;   /* 24px = 16 × 1.5 */
+		line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
+		margin-bottom: 1.5rem;
+		padding-top: 1.5rem;
+	}
+	h3, .gamma {
+		font-size: 20px;
+		font-size: 1.25rem;  /* 20px = 16 × 1.25 */
+		line-height: 1.2;    /* 24px ÷ 20 = 1.2 (24 = 24 × 1) */
+	}
+	h4, .delta {
+		font-size: 18px;
+		font-size: 1.125rem; /* 18px = 16 × 1.125 */
+		line-height: 1.3333334;  /* 24px ÷ 18 = 1.3333334 (24 = 24 × 1) */
+	}
+	h5, .epsilon {
+		font-size: 16px;
+		font-size: 1rem;     /* 16px = 16 × 1 */
+		line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+	}
+	h6, .zeta {
+		font-size: 16px;
+		font-size: 1rem;     /* 16px = 16 × 1 */
+		line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+	}
+{: .prettyprint .lang-css} 
+
+* The `.hN` class is a [technique](http://jsfiddle.net/csswizardry/yFQDP) developed by Harry Roberts, establishing a hook to add common styles to all headers/titles, regardless of which HTML element is styled as such.
+
+* `font-size` is set in `rem` units with a pixel fallback.
+
+* Each element is paired with a class name, with "hero" sizes extending larger than `h1` for large display type. This technique is called [double-stranded heading hierarchy](http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/).
+
+---
+
+Set body and minor type elements:
+
+	p, .freight {
+		margin: 0 0 24px;
+		margin: 0 0 1.5rem;
+		display: block;
+	}
+	p + p, p + .freight, .freight + .freight, .freight + p {
+		margin-top: -24px;
+		margin-top: -1.5rem;
+		text-indent: 3em;
+	}
+
+	.micro {
+		font-size: 14px;
+		font-size: 0.875rem;  /* 12px = 16 × 0.875 */
+		line-height: 1.7142857;   /* 24px ÷ 14 = 1.7142857 (24 = 24 × 1) */
+	}
+	.nano {
+		font-size: 12px;
+		font-size: 0.75rem;  /* 12px = 16 × 0.75 */
+		line-height: 2;      /* 24px ÷ 12 = 2 (24 = 24 × 1) */
+	}​
+	.pico {
+		font-size: 10px;
+		font-size: 0.625rem;  /* 10px = 16 × 0.625 */
+		line-height: 2.4;      /* 24px ÷ 10 = 2.4 (24 = 24 × 1) */
+	} 
+{: .prettyprint .lang-css} 
+
+By default, paragraphs after the first are indented, rather than line-spaced. This is typographically correct and (though unusual online) aids readability of long-form texts.
+
+Source: [artequalswork](http://artequalswork.com/posts/islands-of-thought.php)
+{: .attribution}
+
+---
+
+#### 2.2 b) Semantic Stress Elements [⚓](#semantic-stress-elements){: .anchor} {: .hN .delta #semantic-stress-elements}
+
+	i {
+		font-style: italic;
+	}
+	 b {
+		font-weight: bold; 
+	}
+	em {
+		font-style: italic;
+	}
+	strong {
+		font-weight: bold;
+	}
+	mark {
+		background: none;  
+		font-weight: bold;
+		border-bottom: 2px solid #555; 
+	}
+	small {
+		font-size: 12px;
+		font-size: 0.75rem;  /* 12px = 16 × 0.75 */
+		line-height: 0;
+	}
+{: .prettyprint .lang-css}
+
+* `i` is used to indicate an alternate voice or mood, or an element offset from the normal prose, indicating a different quality of text (eg: taxonomic designation, technical term, idiomatic phrase).
+
+* `b` is used to indicate an element offset from the surrounding text, with no extra importance or sonic quality (eg: keywords, product names, article ledes).
+
+* `em` is used to indicate emphatic or linguistic stress (eg: foreign phrase, tone of voice).
+
+* `strong` is used to indicate strong semantic importance (eg: warning notice, time-sensitive data).
+
+* `mark` is used to highlight an element that is highlighted for reference purposes, or other user-relevant content.
+
+* `small` is used to indicate small print, side comments, etcetera. It is not to be used for block-level content.
+
+Source: [HTML5 Doctor](http://html5doctor.com/i-b-em-strong-element)
+
+---
+
+#### 2.2 c) Quotes & Citations [⚓](#quotes-and-citations){: .anchor} {: .hN .delta #quotes-and-citations}
+
+Define default `blockquote` style and offer alternate format:
+
+	blockquote {
+		margin: 24px 48px;
+		margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+	}
+	blockquote .attribution {
+		text-align: right;
+	}
+	.journalistic {
+		margin-left: 0;
+		border-left: 3px solid #ccc;
+		border-left: 0.1875rem solid #ccc;
+		padding-left: 21px;
+		padding-left: 1.3125rem;
+	}
+	.freight + .attribution, p + .attribution {
+		text-indent: 0;
+		margin-top: 0;
+	}
+	.attribution:before {
+		content: "— ";
+	}
+	.journalistic .attribution {
+		text-align: left;
+		font-style: italic;  
+	}
+{: .prettyprint .lang-css}
+
+To stay on the grid, the `.journalistic` style uses the same technique as was utilized for the `hr` element, above: border-width is set in `rem`s to preserve proportions when the base `font-size` is increased or decreased. Note as well how the the `padding-left` and border values add up to `24px`, which is the base `line-height` and our _magic number_.
+
+Source: [HTML5 Doctor](http://html5doctor.com/blockquote-q-cite/) & [oli.jp Doctor](http://oli.jp/2011/blockquote)
+{: .attribution}
+
+---
+
+#### 2.2 d) Pre-Formatted Text [⚓](#pre-formatted-text){: .anchor} {: .hN .delta #pre-formatted-text}
+
+Set to baseline grid & explicitly set line-height for all browsers:
+
+	pre { 
+		margin: 0 0 24px;
+		margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+		line-height: 1.5;
+	}
+	p > kbd {
+		line-height: 0;
+	}
+	pre code[class]:before {
+		content: 'language: ' attr(class);
+	}
+{: .prettyprint .lang-css}
+
+The `p > kbd` line corrects the line-height or font-size of `kbd` elements inside paragraphs disrupting the line's position on the baseline grid. You may also want to add `p > code` and `p > samp` to this line if you plan on writing inline code samples.
+
+Source: [Perishable Press](http://perishablepress.com/press/2009/11/09/perfect-pre-tags)
+{: .attribution}
+
+---
+

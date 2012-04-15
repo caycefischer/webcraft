@@ -51,7 +51,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
           <p class="freight">The Carlton AllLander drove Dudley home just after dawn. Like the astronomer, the vehicle was old and worn, but perfectly capable of doing its job. It had a cheap diesel engine, common enough on a semi-frontier world like Gralmond, although its drive array was a thoroughly modern photoneural processor. With its high suspension and deep-tread tyres it could plough along the dirt track to the observatory in all weather and seasons, including the metre-deep snow of Gralmond&#8217;s winters.</p>
         </figure>
   
-      <h3 class="hN gamma">Pre-formatted text</h3>
+      <h3 class="hN gamma" id="pre-formatted-text">Pre-formatted text</h3>
         <p class="freight">The <code>pre</code> element represents a block of pre-formatted text, in which structure is represented by typographic conventions rather than by elements. Such examples are an e-mail (with paragraphs indicated by blank lines, lists indicated by lines prefixed with a bullet), fragments of computer code (with structure indicated according to the conventions of that language) or displaying <abbr title="American Standard Code for Information Interchange">ASCII</abbr> art. Here&#8217;s an example showing the printable characters of <abbr>ASCII</abbr>:</p>
         <figure class="example">
           <pre><samp>  ! " # $ % &amp; ' ( ) * + , - . /
@@ -85,7 +85,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
           <p class="attribution">Please view the source for more information. </p>
         </figure>
 
-      <h3 class="hN gamma">Ordered list</h3>
+      <h3 class="hN gamma" id="lists">Ordered list</h3>
         <p class="freight">The <code>ol</code> element denotes an ordered list, and various numbering schemes are available through the CSS (including 1,2,3&#8230; a,b,c&#8230; i,ii,iii&#8230; and so on). Each item requires a surrounding <code>&lt;li&gt;</code> and <code>&lt;/li&gt;</code> tag, to denote individual items within the list (as you may have guessed, <code>li</code> stands for list item).</p>
         <figure class="example">
           <ol>
@@ -176,7 +176,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
         </figure>
         <p class="freight">Though it may be called a &#8220;definition list&#8221;, <code>dl</code> can apply to other scenarios where a parent/child relationship is applicable. For example, it may be used for marking up dialogues, with each <code>dt</code> naming a speaker, and each <code>dd</code> containing his or her words.</p>
 
-      <h3 class="hN gamma">Figures</h3>
+      <h3 class="hN gamma" id="figures">Figures</h3>
         <p class="freight">Figures are usually used to refer to images:</p>
         <figure class="example">
           <figure>
@@ -242,7 +242,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
           <p class="freight"><cite>Universal Declaration of Human Rights</cite>, United Nations, December 1948. Adopted by General Assembly resolution 217 A (III).</p>
         </figure>
       
-      <h3 class="hN gamma">Inline quotes</h3>
+      <h3 class="hN gamma" id="inline-quotes">Inline quotes</h3>
         <p class="freight">The <code>q</code> element is used for quoting text inline. Example showing nested quotations:</p>
         <figure class="example">
           <p class="freight">John said, <q>I saw Lucy at lunch, she told me <q>Mary wants you to get some ice cream on your way home</q>. I think I will get some at Ben and Jerry&#8217;s, on Gloucester Road.</q></p>
@@ -254,7 +254,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
           <p class="freight">Bob&#8217;s <dfn title="Dog">canine</dfn> mother and <dfn title="Horse">equine</dfn> father sat him down and carefully explained that he was an <dfn title="A mutation that combines two or more sets of chromosomes from different species">allopolyploid</dfn> organism.</p>
         </figure>
       
-      <h3 class="hN gamma">Abbreviation</h3>
+      <h3 class="hN gamma" id="abbreviation">Abbreviation</h3>
         <p class="freight">The <code>abbr</code> element is used for any abbreviated text, whether it be acronym, initialism, or otherwise. Generally, it&#8217;s less work and useful (enough) to mark up only the first occurrence of any particular abbreviation on a page, and ignore the rest. Any text in the <code>title</code> attribute will appear when the user&#8217;s mouse hovers the abbreviation (although notably, this does not work in Internet Explorer for Windows). Example abbreviations:</p>
         <figure class="example">
           <p class="freight"><abbr title="British Broadcasting Corportation">BBC</abbr>, <abbr title="HyperText Markup Language">HTML</abbr>, and <abbr title="Staffordshire">Staffs.</abbr></p>
@@ -296,7 +296,7 @@ description: "This page is a living styleguide, exhibiting the Web-Craft Primer'
           <p class="freight">To take a screenshot on your Mac, press <kbd>&#8984; Cmd</kbd> + <kbd>&#8679; Shift</kbd> + <kbd>3</kbd>.</p>
         </figure>
       
-      <h3 class="hN gamma">Superscript and subscript text</h3>
+      <h3 class="hN gamma" id="superscript-and-subscript">Superscript and subscript text</h3>
         <p class="freight">The <code>sup</code> element represents a superscript and the sub element represents a <code>sub</code>. These elements must be used only to mark up typographical conventions with specific meanings, not for typographical presentation. As a guide, only use these elements if their absence would change the meaning of the content. Example:</p>
         <figure class="example">
           <p class="freight">The coordinate of the <var>i</var>th point is (<var>x<sub><var>i</var></sub></var>, <var>y<sub><var>i</var></sub></var>). For example, the 10th point has coordinate (<var>x<sub>10</sub></var>, <var>y<sub>10</sub></var>).</p>

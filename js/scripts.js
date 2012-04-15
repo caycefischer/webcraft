@@ -16,6 +16,10 @@ $(document).ready(function() {
         function textwrapper(evt) {
           $(this).toggleClass("wrapping");
         }
+  
+  if (window.innerWidth <= 767) {
+    $("pre").addClass("wrapping");
+  }
 
     $("#top").lettering();
 

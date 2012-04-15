@@ -656,6 +656,9 @@
       margin-top: -1.5rem;
       text-indent: 3em;
    }
+   li > p {
+      margin: 0 0 0.75rem;
+   }
    .hN + .hN {
       text-indent: 0;
    }
@@ -788,13 +791,12 @@
       outline: 1px solid #bdbdbd;
       overflow: auto;
    }
-   p > kbd, .hN > code, p > code {
+   p > kbd, .hN > code, p > code, a > code {
       line-height: 0;
+      font-size: 0.875em;
    }
    pre, code {
       font-family: Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
-      font-size: 1rem;
-      line-height: 1.5;
    }
    pre.wrapping {
       white-space: pre-wrap;
@@ -993,6 +995,7 @@
  */
    .anchor-panel {
       position: fixed;
+      z-index: 10;
       left: 0;
       top: 0;
       height: 100%;
@@ -1182,7 +1185,6 @@
       width: 100%;
       padding-left: 19.5em;
       padding-right: 1.5em;
-      z-index: -1;
    }
    .page.extended {
       margin-left: 0 !important;
@@ -1210,7 +1212,7 @@
          margin-left: 20.5em;
          padding-left: 1.5em;
          width: 40em;
-         padding-right: 0;
+         padding-right: 1.5em;
       }
       .anchor-panel .gamma {
          line-height: 1.5;
