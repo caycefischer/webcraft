@@ -7,10 +7,9 @@ description: "Complete documentation of the HTML, CSS and other files in the Web
 - Quick-jump: 
 - [HTML](#html) | 
 - [CSS](#css) | 
-- [OTHER FILES](#other-files)
 {: .nav .delta .sans}
 
-_Hint: to toggle code samples between horizontal-scroll mode to wrap-mode, click them!_
+_**Hint:** to toggle code samples between horizontal-scroll mode to wrap-mode, click them!_
 
 ---
 
@@ -38,7 +37,6 @@ The Primer template contains the following files and folders:
 	|-- apple-touch-icon.png
 	|-- favicon.ico
 	|
-	|-- .gitignore
 	|-- readme.md
 
 ---
@@ -1316,13 +1314,21 @@ Wrapping up the Primer stylesheet are a number of included modules and utilities
 		}
 {: .prettyprint .lang-css}
 
-1. Nicolas Gallagher's [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack) is one of the best ways to painlessly clear floated elements.
+* Nicolas Gallagher's [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack) is one of the best ways to painlessly clear floated elements.
 
-2. Also by Nicolas Gallagher, a [handy method](http://nicolasgallagher.com/css-background-image-hacks) using pseudo-elements to change the `opacity` of a CSS background image.
+* Also by Nicolas Gallagher, a [handy method](http://nicolasgallagher.com/css-background-image-hacks) using pseudo-elements to change the `opacity` of a CSS background image.
 
-3. The module used to generate the imageless baseline-dependent grid overlay used on the Web-Craft site. There will be an entry in the [Pattern Library]({{ site.url }}/patterns) deconstructing these modules. **Original source unknown**.
+* The module used to generate the imageless baseline-dependent grid overlay used on the Web-Craft site. There will be an entry in the [Pattern Library]({{ site.url }}/patterns) deconstructing these modules. **Original source unknown**.
 
-4. For use with Typekit to control the Flash-of-Unstyled-Text when loading webfonts, and [implement](http://jonikorpi.com/a-smoother-page-load) a page fade-in effect. 
+* For use with Typekit to control the Flash-of-Unstyled-Text when loading webfonts, and [implement](http://jonikorpi.com/a-smoother-page-load) a page fade-in effect. 
 
 ---
 
+---
+
+Last edited: 15/04/2012
+
+<dl class="lining">
+	<dt>Words</dt>
+	<dd>{{ page.content | number_of_words }}</dd>
+</dl>

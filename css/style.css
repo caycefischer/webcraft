@@ -1182,6 +1182,9 @@
     .anchor-panel {
       width: 17em;
    }
+   #top {
+      font-size: 6rem;
+   }
    .page, section[role="main"] {
       margin-left: 0;
       width: 100%;
@@ -1189,9 +1192,9 @@
       padding-right: 1.5em;
    }
    .page.extended {
-      margin-left: 0 !important;
-      padding-left: 19em !important;
-      width: 100% !important;
+      margin-left: 0;
+      padding-left: 19em;
+      width: 100%;
    }   
    .social.facebook, .social.google {
       margin-left: 2.75em;
@@ -1205,6 +1208,8 @@
       }
       .page.extended {
          margin-left: 21em;
+         padding-left: 3em;
+         padding-right: 3em;
          width: 38em;
       }   
    }
@@ -1212,12 +1217,15 @@
     @media all and (min-width: 965px) {
       .page, section[role="main"] {
          margin-left: 20.5em;
-         padding-left: 1.5em;
+         padding-left: 3em;
          width: 40em;
-         padding-right: 1.5em;
+         padding-right: 3em;
       }
       .anchor-panel .gamma {
          line-height: 1.5;
+      }
+      #top {
+         font-size: 7rem;
       }
    }
 
@@ -1235,10 +1243,11 @@
 
 @media all and (min-width: 1105px) {
       .page, section[role="main"] {
-         padding-right: 3rem;
+         width: 44em;
       }
       .page.extended {
-         margin-left: 24em;
+         margin-left: 20em;
+         width: 44em;
       }
       .anchor-panel .gamma {
          margin-bottom: 0;
@@ -1247,10 +1256,10 @@
 
 @media all and (min-width: 1367px) {
       .page, section[role="main"] {
-         width: 48em;
+         width: 52em;
       }
       .page.extended {
-         margin-left: 24em;
+         margin-left: 22em;
       }
         
    }
