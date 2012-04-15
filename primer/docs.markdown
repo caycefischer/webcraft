@@ -748,7 +748,7 @@ Note: `fieldset` elements should always be used to create groups of form element
 
 ### 2.2 Core Typography [⚓](#core-typography){: .anchor} {: .hN .gamma #core-typography}
 
-In my opinion, typography is without doubt the most detailed, even _arcane_, aspect of CSS. Fittingly, this is the largest and most intricate section of the Primer stylesheet. This document will touch briefly on matters of typographic scale & vertical rhythm; detailed articles and tutorials may be found in the [Journal]({{ site.baseurl }}/journal) and [Pattern Library]({{ site.url }}/patterns). 
+In my opinion, typography is without doubt the most detailed, even _arcane_, aspect of CSS. Fittingly, this is the largest and most intricate section of the Primer stylesheet. This document will touch briefly on matters of typographic scale & vertical rhythm; in the future, detailed articles and tutorials may be found in the [Journal]({{ site.baseurl }}/journal) and [Pattern Library]({{ site.url }}/patterns). 
 
 I owe tremendous thanks and credit to Harry Roberts ([@csswizardry](http://twitter.com/csswizardry)), whose work was instrumental in designing the core typography of this Primer. His writing comes **highly recommended**:
 
@@ -912,23 +912,20 @@ Source: [artequalswork](http://artequalswork.com/posts/islands-of-thought.php)
 
 #### 2.2 b) Semantic Stress Elements [⚓](#semantic-stress-elements){: .anchor} {: .hN .delta #semantic-stress-elements}
 
-	i {
-		font-style: italic;
-	}
-	 b {
-		font-weight: bold; 
-	}
-	em {
-		font-style: italic;
-	}
-	strong {
-		font-weight: bold;
-	}
+	i { font-style: italic; }
+	
+	b { font-weight: bold;  }
+	
+	em { font-style: italic; }
+	
+	strong { font-weight: bold; }
+	
 	mark {
 		background: none;  
 		font-weight: bold;
 		border-bottom: 2px solid #555; 
 	}
+	
 	small {
 		font-size: 12px;
 		font-size: 0.75rem;  /* 12px = 16 × 0.75 */
@@ -1011,6 +1008,321 @@ The `p > kbd` line corrects the line-height or font-size of `kbd` elements insid
 
 Source: [Perishable Press](http://perishablepress.com/press/2009/11/09/perfect-pre-tags)
 {: .attribution}
+
+---
+
+### 2.3 Palette [⚓](#palette){: .anchor} {: .hN .gamma #palette}
+
+	*    key colors
+	*    ```````````
+	*        dark:   #080808  →  rgb(8,8,8)        →  hsl(0, 0%, 3%)
+	*     darkblu:   #063355  →  rgb(6,51,85)      →  hsl(206, 87%, 18%)
+	*       green:   #42c574  →  rgb(66,197,116)   →  hsl(143, 50%, 52%)
+{: .prettyprint .lang-css}
+
+This section is to be used to list brand colors and outline the project's palette, leading to consistency across a design and keeping relevant information like hex codes handy while coding.
+
+---
+
+#### 2.3 a) Links [⚓](#links){: .anchor} {: .hN .delta #links}
+
+Anchor styles, meant to be changed from these defaults:
+
+	a:link { color: blue; -webkit-tap-highlight-color: #FF0000; }
+	a:visited { color: purple; }
+	a:hover { color: red; }
+	a:active {color: red; }
+
+	a:hover, a:active { outline: 0; }
+	a:focus { outline: thin dotted; }
+{: .prettyprint .lang-css}
+
+* Link styles must remain in the order shown above. An useful mnemonic to remember the order is "**L**as **V**egas **H**as **A**ction".
+
+* Set a mobile touch-screen tap color (Source: [Apple](http://j.mp/webkit-tap-highlight-color))
+
+* Improve readability when links are hovered and focused by removing or toning down the default `outline` (Source: [H5BP](http://h5bp.com/h))
+
+---
+
+#### 2.3 b) Selections [⚓](#selections){: .anchor} {: .hN .delta #selections}
+
+Set the style of selected text in Chrome/Safari/iOS/Firefox:
+
+	::-moz-selection { background: blue; color: white; text-shadow: none; }
+	::selection { background: blue; color: white; text-shadow: none; }
+{: .prettyprint .lang-css}
+
+Of note here is remembering to remove any `text-shadow` on elements that are selected; this renders text almost unintelligible.
+
+Source: [H5BP](http://h5bp.com/i)
+{: .attribution}
+
+---
+
+#### 2.3 c) Form Validity [⚓](#form-validity){: .anchor} {: .hN .delta #form-validity}
+
+Set the style HTML5-validated `input` elements:
+
+	input:valid, textarea:valid { background-color: #ccc; }
+	input:invalid, textarea:invalid { background-color: #f0dddd; }
+{: .prettyprint .lang-css}
+
+By default the `:valid` state is set to grey to avoid empty fields validating and turning green. Further application of pseudo-class styling is required (see source).
+
+Source: [HTML5 Doctor](http://html5doctor.com/css3-pseudo-classes-and-html5-forms)
+{: .attribution}
+
+---
+
+### 2.4 Page Rendering & Behavior [⚓](#page-rendering-and-behavior){: .anchor} {: .hN .gamma #page-rendering-and-behavior}
+
+This section contains global styles high up on the DOM tree (`html`, `body`, etc). Styles belonging in this section should apply broad changes to layout or aspects of browser rendering. 
+
+	html {
+		height: 100%;
+	}
+	body { 
+		min-height: 100%;
+	}
+{: .prettyprint .lang-css}
+
+The `height` and `min-height` rules are included to encourage the use of `body` as a wrapping element in lieu of using the generic `div.wrapper`, or similar. With `html` set to `height: 100%`, the `body` element is free to have `width`, `margin`, and most other layout properties applied to it without breaking the page. The `min-height` rule ensures that `body` will cover _at least_ the full height of the window, allowing for more height if content demands it.
+
+Source: [Camden Design](http://camendesign.com/code/developpeurs_sans_frontieres)
+{: .attribution}
+
+---
+
+	html {
+		text-rendering: optimizeLegibility;
+	}
+{: .prettyprint .lang-css}
+
+This is an advanced typography option, supported by Chrome/Safari/iOS, which activates font kerning, auto-hinting and auto-ligatures. It seems to only take effect at larger type sizes, though this is inconsistent and varies by font and other CSS properties. There is an intermittent bug concerning Android and non-alpha Unicode glyphs, which render as boxes with this style active. A very powerful line of CSS, but test before use.
+
+Source: [Aesthetically Loyal](http://aestheticallyloyal.com/public/optimize-legibility/) & [bricss](http://bricss.net/post/6984374395)
+{: .attribution}
+
+---
+
+Apply a more natural box layout model to all elements:
+
+	* {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+{: .prettyprint .lang-css}
+
+Historically and today, the default layout model for CSS, or "box model", is defined such that adding `padding` to an element with a set `width` will actually increase the total width of that element. This is counter-intuitive, so this rule changes the box model to the more common-sense method of applying `padding` as "internal" space, not affecting an element's `width` but pushing inwards on its child elements.
+
+Source: [Paul Irish](http://paulirish.com/2012/box-sizing-border-box-ftw)
+{: .attribution}
+
+---
+
+### 2.5 Structural Modules [⚓](#structural-modules){: .anchor} {: .hN .gamma #structural-modules}
+
+Writing good, efficient CSS means making use of modules. An approach which is gaining a lot of traction is <abbr title="Object-Oriented CSS">OOCSS</abbr>, championed by Nicole Sullivan ([@stubbornella](http://twitter.com/stubbornella)). At its core, modular or object-oriented CSS involves liberal use of classes to separate the layout of elements from their skin or visual style. This not only allows for writing content with proper semantic use of elements without worrying about what they look like. 
+
+For example, using the typographic styles above, you could avoid using an `h2` in place of an `h1` by adding the `.beta` class to an `h1`. This may seem counter-intuitive to conventional wisdom, but there are many advantages to portable, modular CSS:
+
+* [CSS for Grown-Ups](http://speakerdeck.com/u/andyhume/p/css-for-grown-ups-maturing-best-practises), by Andy Hume
+
+* [Object-Oriented CSS](https://github.com/stubbornella/oocss/wiki), by Nicole Sullivan 
+
+* [Introduction to OOCSS](http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/), by Louis Lazaris for Smashing Magazine
+
+This section (together with the following section, 2.6) is where the majority of a project's styles are written.
+
+---
+
+The Primer includes a few useful and very versatile modules, written by Nicole Sullivan and Harry Roberts:
+
+	/* nav abstraction via @csswizardry
+	* http://csswizardry.com/2011/09/the-nav-abstraction
+	*/   .nav{
+		list-style: none;
+		margin-left: 0;
+	}
+	.nav li{
+		display: inline;
+	}
+	.nav a{
+		display: inline-block;
+	}
+
+	/* media object abstraction via @stubbornella
+	* http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+	*/   .media {
+		display: block;
+		overflow: hidden;
+	}
+	.media .img {
+		float: left;
+		margin-right: 16px;
+		margin-right: 1rem;  /* 16px = 16 × 1 */
+	}
+	.media .img img {
+		display: block;
+	}
+	.media .body {
+		overflow: hidden;
+	}
+
+	/* island object abstraction via @csswizardry
+	* http://csswizardry.com/2011/10/the-island-object
+	*/   .island {
+		padding: 1rem;  /* 16px = 16 × 1 */
+	}
+	.island > :last-child {
+		margin-bottom: 0;
+	}
+{: .prettyprint :lang-css}
+
+
+You can remove these classes if you don't think you'll use them, but following the inline source links is recommended for further investigation. 
+
+---
+
+Define modules for two forms of definition lists (`dl`)
+
+	/* lining-style definition lists
+	*/   
+	.lining dt, .lining dd {
+		display: inline;
+		margin: 0;
+	}
+	.lining dd + dt:before {
+		content: "\A";
+		white-space: pre;
+	}
+	.lining dt + dt:before {
+		content: ", ";
+		white-space: normal;
+		margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+	}
+	.lining dd:before {
+		content: ": ";
+		margin-left: -0.2rem; /* removes extra space between the dt and the colon */
+	}
+	.lining dd + dd:before {
+		content: ", ";
+	}
+
+	/* dictionary-style definition lists
+	*/
+	.dictionary dt {
+		display: inline;
+		counter-reset: definitions;
+	}
+	.dictionary dt + dt:before {
+		content: ", ";
+		margin-left: -0.2rem; /* removes extra space between the dt and the comma */
+	}
+	.dictionary dd {
+		display: block;
+		counter-increment: definitions;
+	}
+	.dictionary dd:before {
+		content: counter(definitions, decimal) ". ";
+	}
+{: .prettyprint :lang-css}
+
+These two modules define _lining_ and _dictionary_ styles of definition list, which can be ([viewed in the Styleguide]({{ site.baseurl }}/styleguide#definition-lists)). There will be an entry in the [Pattern Library]({{ site.url }}/patterns) deconstructing these modules.
+
+Source: [Lea Verou](http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css)
+{: .attribution}
+
+---
+
+### 2.6 Stylistic Modules [⚓](#stylistic-modules){: .anchor} {: .hN .gamma #stylistic-modules}
+
+This section is the counterpart to _2.5 Structural Modules_, insofar that it contains the modules and styles used to "skin" elements once the structure and layout is applied. 
+
+Only one module is included with the Primer:
+
+	.ligs {
+		-moz-font-feature-settings: "liga=1";
+		-ms-font-feature-settings: "liga" 1;
+		font-variant-ligatures: common-ligatures;
+	}
+{: .prettyprint :lang-css}
+
+This module can be applied to any element and will activate OpenType ligatures in supported browsers (Firefox 4+ as of date of writing). A webfont that supports OpenType features is also required to see any result.
+
+Source: [Adam Scott](http://adamdscott.com/typography/ligatures-on-the-web) & [Fontdeck](http://blog.fontdeck.com/post/15777165734/opentype-1)
+{: .attribution}
+
+---
+
+### 2.7 Media Queries [⚓](#media-queries){: .anchor} {: .hN .gamma #media-queries}
+
+Media queries are used to load conditional CSS based upon the dimensions or orientation of the browser viewport. Write any media queries for a responsive project here.
+
+---
+
+### 2.8 Utilities [⚓](#utilities){: .anchor} {: .hN .gamma #utilities}
+
+Wrapping up the Primer stylesheet are a number of included modules and utilities. If none of the following are needed, remove them:
+
+	/* clearfix via @necolas
+	*/  .cf:before, .cf:after { content: ""; display: table; }
+		.cf:after { clear: both; }
+		.cf { zoom: 1; }
+
+	/* nicolas' badass background-image opacity
+	*/  .bg:before {
+			content: "";
+			position: absolute;
+			z-index: -3;
+			width: 100%;
+			height: 100%;
+			top: 0; 
+			left: 0;
+			opacity: 0.5;
+			background: url(../img/bg.jpg) repeat;
+		}
+
+	/* baseline grid
+	*/  #grid:target { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
+			z-index: 1000;
+			background: 
+				-webkit-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
+				-webkit-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
+				-webkit-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
+				-webkit-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+			background: 
+				-moz-linear-gradient(rgba(0,0,255,0.05) 1px, transparent 1px), 
+				-moz-linear-gradient(rgba(0,0,255,0.2) 1px, transparent 1px), 
+				-moz-linear-gradient(left, rgba(0,0,255,0.05) 1px, transparent 1px), 
+				-moz-linear-gradient(left, rgba(0,0,255,0.2) 1px, transparent 1px);
+			background-size: 1.5rem 1.5rem;
+		}
+		#grid:target > section {
+			z-index: -1;
+		}	
+
+	/* typekit fout-buster via @jonikorpi
+	*/  .wf-active {
+			opacity: 1;
+			-webkit-transition: opacity 0.24s ease-in-out;
+			-moz-transition: opacity 0.24s ease-in-out;
+			transition: opacity 0.24s ease-in-out;
+		}
+		.wf-loading {
+			opacity: 0;
+		}
+{: .prettyprint .lang-css}
+
+1. Nicolas Gallagher's [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack) is one of the best ways to painlessly clear floated elements.
+
+2. Also by Nicolas Gallagher, a [handy method](http://nicolasgallagher.com/css-background-image-hacks) using pseudo-elements to change the `opacity` of a CSS background image.
+
+3. The module used to generate the imageless baseline-dependent grid overlay used on the Web-Craft site. There will be an entry in the [Pattern Library]({{ site.url }}/patterns) deconstructing these modules. **Original source unknown**.
+
+4. For use with Typekit to control the Flash-of-Unstyled-Text when loading webfonts, and [implement](http://jonikorpi.com/a-smoother-page-load) a page fade-in effect. 
 
 ---
 
