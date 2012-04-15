@@ -221,6 +221,7 @@ Rather than using the standard Google Analytics snippet to monitor pages, use Ma
 	    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
 	    s.parentNode.insertBefore(g,s)}(document,'script'));
 	</script>
+{: .prettyprint}
 
 Source: [Mathias Bynens](mathiasbynens.be/notes/async-analytics-snippet) & [H5BP](http://html5boilerplate.com/docs/html/#google-analytics-tracking-code)
 
@@ -265,7 +266,7 @@ Table of Contents:
 ### 2.1 Normalize [⚓](#normalize){: .anchor} {: .hN .gamma #normalize}
 
 The Primer CSS starts with a modified version of [normalize.css](http://necolas.github.com/normalize.css/), a "more considered reset" that makes browsers render HTML elements consistently and as standards-compliant as possible. The authors ([@necolas](http://twitter.com/necolas) & [@jon_neal](http://twitter.com/jon_neal)) researched default browser styles so the CSS only targets the discrepancies. 
-Where the following CSS is not explicitly cited, it was either written by myself, or can be found in one of the source documents: [HTML5 Boilerplate CSS](http://html5boilerplate.com/html5boilerplate-site/built/en_US/docs/css/#the-css) & [Normalize Wiki](https://github.com/necolas/normalize.css/wiki). Links are also supplied in the CSS comments for ease-of-access.
+Where the following CSS is not explicitly cited, it was either written myself, or can be found in one of the source documents: [HTML5 Boilerplate CSS](http://html5boilerplate.com/html5boilerplate-site/built/en_US/docs/css/#the-css) & [Normalize Wiki](https://github.com/necolas/normalize.css/wiki). Links are also supplied in the CSS comments for ease-of-access.
 
 ---
 
@@ -488,6 +489,7 @@ Proper nesting of `ul` and `ol` elements (two levels):
 #### 2.1 e) Embedded Content [⚓](#embedded-content){: .anchor} {: .hN .delta #embedded-content}
 
 Improve the quality of resized images in IE7, and remove any default borders:
+
 	img {
 		border: 0;
 		-ms-interpolation-mode: bicubic;
@@ -505,7 +507,7 @@ Address IE9 `svg` quirks:
 	}
 {: .prettyprint .lang-css}
 
-If you do not plan on using `svg`s, you may remove this.
+If you do not plan on using `svg`, you may remove this.
 
 ---
 
@@ -525,7 +527,7 @@ Default styles for `figure` and `figcaption` elements ([view in Styleguide]({{ s
 	}
 {: .prettyprint .lang-css}
 
-The `min-height` declaration ensures that, if the image link is broken, the _missing image_ graphic preserves the baseline (see [vertical rhythm](ZAKFIX).
+The `min-height` declaration ensures that, if the image link is broken, the _missing image_ graphic preserves the baseline.
 
 ---
 
@@ -748,7 +750,7 @@ Note: `fieldset` elements should always be used to create groups of form element
 
 In my opinion, typography is without doubt the most detailed, even _arcane_, aspect of CSS. Fittingly, this is the largest and most intricate section of the Primer stylesheet. This document will touch briefly on matters of typographic scale & vertical rhythm; in the future, detailed articles and tutorials may be found in the [Journal]({{ site.baseurl }}/journal) and [Pattern Library]({{ site.url }}/patterns). 
 
-I owe tremendous thanks and credit to Harry Roberts ([@csswizardry](http://twitter.com/csswizardry)), whose work was instrumental in designing the core typography of this Primer. His writing comes **highly recommended**:
+I owe tremendous thanks and credit to Harry Roberts ([@csswizardry](http://twitter.com/csswizardry)), whose work was my foundation for designing the core typography of this Primer. His writing comes **highly recommended**:
 
 * [Measuring and Sizing UIs, 2011 Style](http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style)
 
@@ -760,7 +762,7 @@ I owe tremendous thanks and credit to Harry Roberts ([@csswizardry](http://twitt
 
 The basic concept behind _vertical rhythm_ is that when every element on a page aligns to an underlying regular _measure_, or baseline grid, the composition of the document as a whole is refined and improved. To observe a baseline grid and vertical rhythm in action, turn the grid on in the [Styleguide]({{ site.baseurl }}/styleguide).
 
-The key to achieving this with CSS is the `line-height` property. Using the following formula:
+The key to achieving this with CSS is `line-height`. Using the following formula:
 
 > basic line-height ÷ heading font size = heading line-height
 

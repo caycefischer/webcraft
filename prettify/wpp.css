@@ -17,6 +17,7 @@ pre .dec, code .dec { color: #5e8cba; } /* decimal - blue */
 
 pre.prettyprint, code.prettyprint {
     background: #021321;
+    color: #EEEEEE;
 }
 
 /* Specify class=linenums on a pre to get line numbering */
