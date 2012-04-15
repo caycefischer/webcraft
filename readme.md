@@ -14,9 +14,7 @@ This collection of files is the product of meticulous research and curation. It 
 
 ## License  
 
-This work is published under [Creative Commons](http://creativecommons.org/licenses/by/3.0/). You are welcome to fork, adapt, rework and republish it. 
-
-This project embraces the spirit of open and responsible development. Please respect the work of myself, and the many others whose work is incorporated here, by either:
+This work is published under [Creative Commons](http://creativecommons.org/licenses/by/3.0/). You are welcome to fork, adapt, rework and republish it - just respect the work of myself, and the others whose work is incorporated here, by either:
 
 * preserving the inline attributions
 * including this readme in your project
