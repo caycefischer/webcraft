@@ -36,7 +36,7 @@ The utmost care and dedication has been given to proper attribution and sourcing
 
 ## Changelog
 
-### v1.0 (April 14, 2012)
+### v1.0 (April 15, 2012)
 
 * Official launch
 * Shipped with 
