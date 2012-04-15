@@ -1326,9 +1326,9 @@ Wrapping up the Primer stylesheet are a number of included modules and utilities
 
 ---
 
-Last edited: 15/04/2012
-
-<dl class="lining">
+<dl class="lining .micro">
+	<dt>Last edited</dt>
+	<dd>April 15, 2012</dd>
 	<dt>Words</dt>
 	<dd>{{ page.content | number_of_words }}</dd>
 </dl>
