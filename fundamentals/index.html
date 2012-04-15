@@ -5,7 +5,7 @@ description: "Learn the fundamentals of markup and style with two introductory l
 ---
 
 <!-- content of this page is a loop showing some posts -->
-{% for post in site.categories.fundamentals limit:5 %}
+{% for post in site.categories.fundamentals limit:2 %}
 <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
 
 {{ post.content | replace:'more start -->','' | replace:'&lt;!-- more end','' }}
