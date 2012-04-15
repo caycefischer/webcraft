@@ -1,7 +1,44 @@
-# Web-Craft
+# Web-Craft Primer
 
-Web-Craft is an educational programme dedicated to helping design students master the web.  The meticulously researched curriculum is sourced from work of the community's best and brightest, drawing upon an established canon of design practice and theory.
+* [Site](http://lab.zacharykain.com/webcraft)
+* [Github](http://github.com/zakkain/webcraft)
 
-Geared towards design students or others new to the field, Web-Craft establishes a strong base in the fundamentals of front-end web development, and explores the tools and techniques of modern web design through guided lessons and tutorials. In the future, long-form article/essays will be published in the Journal, with a view to gain insight into more advanced or theoretical aspects of web-craft.
+Author: Zachary Kain [(@zakkain)](http//twitter.com/zakkain)
 
-Web-Craft can also be an invaluable reference for professionals, as a knowledge base with a remarkable signal-to-noise ratio. The research that informs each lesson is applied to a growing pattern & snippet library, well-documented with sample usage. Fitting hand-in-glove with these libraries is the Web-Craft Primer: a downloadable template (built on the [HTML5 Boilerplate](http://html5boilerplate.com)) that establishes sensible defaults and mixes just the right components together into a well-balanced blank slate.
+## About
+
+This collection of files is the product of meticulous research and curation. It falls into the middle ground between a pure "blank-slate" HTML & CSS template, and a fully-featured framework. It is _not_ meant to be treated as a 'black box' of code to be built upon&thinsp;&mdash;&thinsp;the power of these files lies in customizing them to your needs for a specific project.
+
+### Pull requests are encouraged!
+
+
+## License  
+
+This work is published under [Creative Commons](http://creativecommons.org/licenses/by/3.0/). You are welcome to fork, adapt, rework and republish it. 
+
+This project embraces the spirit of open and responsible development. Please respect the work of myself, and the many others whose work is incorporated here, by either:
+
+* preserving the inline attributions
+* including this readme in your project
+* citing proper attribution in a [humans.txt](humanstxt.org/humans.txt)
+* some other way
+
+---
+
+The following  components are included under specific licences:
+
+* jQuery: MIT/GPL license
+* Modernizr: MIT/BSD license
+
+---
+
+The utmost care and dedication has been given to proper attribution and sourcing&thinsp;&mdash;&thinsp;view the full [colophon](http://lab.zacharykain.com/webcraft/colophon). However, mistakes do happen. If I have incorrectly cited a source or omitted an attribution, **submit an issue to this repository**
+
+## Changelog
+
+### v1.0 (April 14, 2012)
+
+* Official launch
+* Shipped with 
+	* jQuery 1.7.1 (minified)
+	* Modernizr 2.5.3 (minified)
