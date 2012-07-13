@@ -1,14 +1,17 @@
 ---
+
+---
+---
 layout: default
 title: "Colophon"
 description: "Web-Craft is the capstone project of Zachary Kain, submitted for DART 450 'Web Interventions'."
 ---
 
-Web-Craft was meticulously hand-coded and designed with [Sublime Text 2](sublimetext.com) and the [Google Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/) on a Late-2011 Macbook Pro 15″. 
+Web-Craft was meticulously hand-coded and designed with [Sublime Text 2](sublimetext.com) and the [Google Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/) on a Late-2011 Macbook Pro 15″.
 
 ---
 
-This site is powered by [Jekyll](https://github.com/mojombo/jekyll), managed with [git](http://git-scm.com/) and served via [Github Pages](http://help.github.com/pages/). Syntax-highlighting is provided by [Prettify JS](http://code.google.com/p/google-code-prettify/). Type kerning enabled with [Lettering.js](http://letteringjs.com/) and [Kern.js](www.kernjs.com).
+This site is powered by [Jekyll](https://github.com/mojombo/jekyll), managed with [git](http://git-scm.com/) and served via [Github Pages](http://help.github.com/pages/). Syntax-highlighting is provided by [Prettify JS](http://code.google.com/p/google-code-prettify/). Type kerning executed with [Lettering.js](http://letteringjs.com/) and [Kern.js](www.kernjs.com).
 
 ---
 
