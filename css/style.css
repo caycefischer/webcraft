@@ -1,904 +1,681 @@
+@charset "UTF-8";
 /*
  * Web-Craft Primer v1.0
  ============================================================
  *    url: lab.zacharykain.com/webcraft
+ *    repo: github.com/zakkain/webcraft
  *    
- *    author: Zachary Kain (@zakkain)
+ *    author: Zachary Kain -- @zakkain
  *    license: this work is in the public domain
- *                http://creativecommons.org/publicdomain/zero/1.0  
+ *             http://creativecommons.org/publicdomain/zero/1.0  
  *
  *    this stylesheet was written with the utmost care and
  *    dedication given to proper attribution and sourcing;
- *    if you notice an erroneous or omitted citation, start
- *    an issue on the github or find me on twitter.
+ *    if you notice an erroneous or omitted citation, please
+ * 	start an issue on the github or find me on twitter.
  ============================================================
-*/
-
-/*
- * TABLE OF CONTENTS
- ====================
-
-   1. normalize
-      a. html5 display definitions
-      b. global basics
-      c. typography
-      d. lists
-      e. embedded content
-      f. tables
-      g. forms
-   
-   2. core typography
-      a. type hierarchy
-      b. semantic stress elements
-      c. quotes & citations
-      d. code & pre-formatted text
-      e. type rendering
-   
-   3. palette
-      a. links
-      b. selections
-      c. form validity
-
-   4. page rendering & behaviour
-
-   5. structural modules
-
-   6. stylistic modules
-
-   7. media queries
-
-   8. utilities
-
- ============================================================
-*/
-
-
-
-
-/*
- * 1. normalize cross-browser styles
- ============================================================
- ============================================================
- *    src: http://github.com/necolas/normalize.css (ver. 2012-03-11)
  */
 
+/*	============================== */
+/* CONTENTS	
+/*	============================== */
+/* 
+	1. normalize
+		a. html5 display definitions
+		b. global basics
+		c. typography
+		d. lists
+		e. embedded content
+		f. tables
+		g. forms
+
+   2. core typography
+		a. type hierarchy
+		b. semantic stress elements
+		c. quotes & citations
+		d. code & pre-formatted text
+
+   3. page basics
+
+   4. objects & abstractions
+
+   5. stylistic modules
+
+   6. specifics
+
+   7. utilities
+
+/*	============================== */
+
+
+
+
+
+/* ============================================================
+ 	1. normalize cross-browser styles
+		src: http://github.com/necolas/normalize.css (2012-03-11)
+============================================================ */
 
 /* a) html5 display definitions
- ============================================================
- *    http://html5boilerplate.com/docs/css/#html5-display-definitions
- */
+		src: http://html5boilerplate.com/docs/css/#html5-display-definitions
+	============================== */
 
-/* correct block display not defined in IE6/7/8/9 & FF3
- */   article, aside, details, figcaption, figure, footer, 
-      header, hgroup, nav, section, summary { 
-         display: block;
-         margin: 0;
-         padding: 0;
-      }
+/* correct block display not defined in IE6/7/8/9 & FF3 */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, summary { 
+	display: block;
+	margin: 0;
+	padding: 0;
+}
 
-/* correct inline-block display not defined in IE6/7/8/9 & FF3
- */   audio, canvas, video {
-         display: inline-block;
-         *display: inline;
-         *zoom: 1;
-      }
+/* correct inline-block display not defined in IE8/9 & FF3 */
+audio, canvas, video {
+	display: inline-block;
+}
 
-/* hide <audio> elements without controls, remove excess height in iOS5 devices
- */   audio:not([controls]) {
-          display: none;
-          height: 0;
-      }
+/* hide <audio> elements without controls, remove excess height in iOS5 devices */
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
 
-/* add styling for 'hidden' attribute in IE7/8/9, FF3, S4 (issue: no IE6 support)
- */   [hidden] {
-          display: none;
-      }
+/* add styling for 'hidden' attribute in IE7/8/9, FF3, S4 (issue: no IE6 support) */
+[hidden] {
+	display: none;
+}
 
 
 /* b) global basics
- ============================================================
- *    http://html5boilerplate.com/docs/css/#base-styles
- */
+ 		src: http://html5boilerplate.com/docs/css/#base-styles
+	============================== */
+	
+/* prevent iOS text size adjust after orientation change without disabling user zoom */
+	/* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom */
+html {
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
 
-/* prevent iOS text size adjust after orientation change without disabling user zoom
-   www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom
- */   html {
-          -webkit-text-size-adjust: 100%;
-          -ms-text-size-adjust: 100%;
-      }
+/* address font-family inconsistencies between form elements */
+button, input, select, textarea {
+	font-family: sans-serif;
+}
 
-/* address font-family inconsistencies between form elements
- */   button, input, select, textarea {
-         font-family: sans-serif;
-      }
-
-/* address incorrect margins in IE6/7
- */   body {
-         margin: 0;
-         padding: 0;
-      }
+/* address incorrect margins in IE6/7 */
+body {
+	margin: 0;
+	padding: 0;
+}
 
 
 /* c) typography
- ============================================================
- *    http://html5boilerplate.com/docs/css/#typography
- */
+ 		src: http://html5boilerplate.com/docs/css/#typography
+	============================== */
 
-/* styling not present in IE7/8/9, S5, Chrome
- */   abbr[title] {
-         border-bottom: 1px dotted;
-         cursor: help;
-      }
+/* styling not present in IE7/8/9, S5, Chrome */
+abbr[title] {
+	border-bottom: 1px dotted;
+	cursor: help;
+}
 
-/* styling not present in S5, Chrome
- */   dfn {
-         font-style: italic;
-      }
+/* styling not present in S5, Chrome */
+dfn {
+	font-style: italic;
+}
 
-/* styling not present in IE<10, beware margin breaking in IE6/7
-   https://github.com/necolas/normalize.css/commit/cb176831b9adb32036e83087f286c0ae6c0eae74
- */   hr { 
-         display: block;
-         height: 1px; 
-         height: 0.0625rem; /* 1px ÷ 16 = 0.0625 */
-         border: 0; 
-         border-top: 1px solid #ccc;
-         margin: 0 0 1.5rem;  
-         padding: 0; 
-      }
+/* styling not present in IE<10, beware margin breaking in IE6/7 */
+	/* https://github.com/necolas/normalize.css/commit/cb176831b9adb32036e83087f286c0ae6c0eae74 */
+hr { 
+	display: block;
+	height: 1px; 
+	height: 0.0625rem; /* 1px ÷ 16 = 0.0625 */
+	border: 0; 
+	border-top: 1px solid #ccc;
+	margin: 0 0 1.5rem;  
+	padding: 0; 
+}
 
-/* font family set oddly in IE6, S4/5, Chrome
-   http://html5boilerplate.com/docs/css/#pre-code-kbd-samp
- */   pre, code, kbd, samp {
-         font-family: monospace, serif;
-         _font-family: 'courier new', monospace;
-         font-size: 1em;
-         /* reset line-height to avoid inline discrepancies in FF/Chrome */
-         line-height: normal;
-      }
+/* font family set oddly in S4/5, Chrome */
+   /* http://html5boilerplate.com/docs/css/#pre-code-kbd-samp */
+pre, code, kbd, samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+	/* reset line-height to avoid inline discrepancies in FF/Chrome */
+	line-height: normal;
+}
 
-/* improve readability of pre-formatted text in all browsers
-   http://html5boilerplate.com/docs/css/#pre 
- */   pre {
-         white-space: pre;
-      }
+/* improve readability of pre-formatted text in all browsers */
+   /* http://html5boilerplate.com/docs/css/#pre  */
+pre {
+	white-space: pre;
+}
 
-/* consistent nested quotations
-   http://html5doctor.com/blockquote-q-cite
- */   q { quotes: '“' '”' '‘' '’'; }
-      /* content definitions for pre-2011 webkit */
-      q:before { content: '“'; content: open-quote; }
-      q:after { content: '”'; content: close-quote; }
-         q q:before { content: '‘'; content: open-quote; }
-         q q:after { content: '’'; content: close-quote; }
-      /* quote inside blockquote */  
-      blockquote q:before { content: '‘'; content: open-quote; }
-      blockquote q:after { content: '’'; content: close-quote; }
-         blockquote q q:before { content: '“'; content: open-quote; }
-         blockquote q q:after { content: '”'; content: close-quote; }
+/* consistent nested quotations */
+   /* http://html5doctor.com/blockquote-q-cite */
+q { quotes: '“' '”' '‘' '’'; }
+/* content definitions for pre-2011 webkit */
+	q:before { content: '“'; content: open-quote; }
+	q:after { content: '”'; content: close-quote; }
+	q q:before { content: '‘'; content: open-quote; }
+	q q:after { content: '’'; content: close-quote; }
+/* quote inside blockquote */  
+	blockquote q:before { content: '‘'; content: open-quote; }
+	blockquote q:after { content: '’'; content: close-quote; }
+	blockquote q q:before { content: '“'; content: open-quote; }
+	blockquote q q:after { content: '”'; content: close-quote; }
 
-
-/* prevent <sub> and <sup> affecting line-height in all browsers
-   http://gist.github.com/413930
- */   sub, sup {
-         font-size: 75%;
-         line-height: 0;
-         position: relative;
-         vertical-align: baseline;
-      }
-      sup {
-         top: -0.5em;
-      }
-      sub {
-         bottom: -0.25em;
-      }
+/* prevent <sub> and <sup> affecting line-height in all browsers */
+   /* http://gist.github.com/413930 */
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
 
 
 /* d) lists
- ============================================================
- *    https://github.com/necolas/normalize.css/wiki
- */
+ 		src: https://github.com/necolas/normalize.css/wiki
+	============================== */
 
-/* margins set differently in IE<8
- */   dl, menu, ol, ul {
-         margin: 0 0 24px;
-         margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      }
+/* margins set differently in IE<8 */
+dl, menu, ol, ul {
+	margin: 0 0 24px;
+	margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+}
 
-/* list images handled incorrectly in IE7
- */   nav ul, nav ol {
-         list-style: none;
-         list-style-image: none;
-      }
+/* list images handled incorrectly in IE7 */
+nav ul, nav ol {
+	list-style: none;
+	list-style-image: none;
+}
 
-/* proper nesting
- */   ul, ol {
-         list-style-position: outside;
-         padding: 0;
-      }
-      ol ol {
-         list-style: lower-alpha;
-      }
-      li > ul, li > ol {
-         margin-bottom: 0;
-         padding-left: 3em;
-      }
-
-
-/* lining-style definition lists
- * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
- */   
-   .lining dt, .lining dd {
-      display: inline;
-      margin: 0;
-   }
-   .lining dd + dt:before {
-      content: "\A";
-      white-space: pre;
-   }
-   .lining dt + dt:before {
-      content: ", ";
-      white-space: normal;
-      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
-   }
-   .lining dd:before {
-      content: ": ";
-      margin-left: -0.2rem; /* removes extra space between the dt and the colon */
-   }
-   .lining dd + dd:before {
-      content: ", ";
-   }
-
-/* dictionary-style definition lists
- * src: http://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css
- */
-   .dictionary dt {
-      display: inline;
-      counter-reset: definitions;
-   }
-   .dictionary dt + dt:before {
-      content: ", ";
-      margin-left: -0.2rem; /* removes extra space between the dt and the comma */
-   }
-   .dictionary dd {
-      display: block;
-      counter-increment: definitions;
-   }
-   .dictionary dd:before {
-      content: counter(definitions, decimal) ". ";
-   }
+/* proper nesting */
+ul, ol {
+	list-style-position: outside;
+	padding: 0;
+}
+ol ol {
+	list-style: lower-alpha;
+}
+li > ul, li > ol {
+	margin-bottom: 0;
+	padding-left: 3em;
+}
 
 /* e) embedded content
- ============================================================
- *    http://html5boilerplate.com/docs/css/#embedded-content
- */
+		src: http://html5boilerplate.com/docs/css/#embedded-content
+	============================== */
 
-/* improve image quality when scaled in IE7
-   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/
- */   img {
-         border: 0; /* remove border when inside an anchor tag in IE<10, FF3 */
-         -ms-interpolation-mode: bicubic;
-      }
+/* improve image quality when scaled in IE7 */
+   /* http://code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+img {
+	border: 0; /* remove border when inside an anchor tag in IE<10, FF3 */
+	-ms-interpolation-mode: bicubic;
+	max-width: 100%;
+}
 
-/* overflow display quirks in IE9
- */   svg:not(:root) {
-         overflow: hidden;
-      }
+/* overflow display quirks in IE9 */
+svg:not(:root) {
+	overflow: hidden;
+}
 
 
 /* f) tables
- ============================================================
- *
- */
+	============================== */
 
-/* inconsistent spacing between table cells
- */   table {
-         border-collapse: collapse;
-         border-spacing: 0;
-      }
-
-       table {
-      width: 100%;
-      text-align: left;
-      font-size: 13px;
-      font-size: 0.8125rem;  /* 12px = 16 × 0.875 */
-   }
-   td, th {
-      padding: 0;
-      line-height: 1.769230769;
-      border-bottom: 0.0625rem solid #ddd;
-   }
-   th {
-      text-transform: uppercase;
-      border-bottom-color: #aaa;
-   }
-   caption {
-      caption-side: bottom;
-      margin: 0.75rem 0 0.75rem;
-      text-align: left;
-      font-weight: 600;
-      font-style: italic;
-   }
+/* inconsistent spacing between table cells */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+table {
+	width: 100%;
+	text-align: left;
+	font-size: 13px;
+	font-size: 0.8125rem;  /* 13px = 16 × 0.8125 */
+	line-height: 1.846153846; /* 24px = 13 × 1.846153846 */
+}
+td, th {
+	padding: 0;
+	line-height: 1.769230769;
+	border-bottom: 0.0625rem solid #ddd;
+}
+th {
+	text-transform: uppercase;
+	border-bottom-color: #aaa;
+}
+caption {
+	caption-side: bottom;
+	margin: 0.75rem 0 0.75rem;
+	text-align: left;
+	font-weight: 600;
+	font-style: italic;
+}
 
 
 /* g) forms
- ============================================================
- *    http://html5boilerplate.com/docs/css/#forms
- */
+		src: http://html5boilerplate.com/docs/css/#forms
+	============================== */
 
-/* margin display quirks in IE<8
- */   form {
-         margin: 0;
-      }
+/* margin display quirks in IE<8 */
+form {
+	margin: 0;
+}
 
-/* define consistent border, margin, and padding
- */   fieldset {
-         border: 1px solid #c0c0c0;
-         margin: 0 2px;
-         padding: 0.35em 0.625em 0.75em;
-      }
+/* define consistent border, margin, and padding */
+fieldset {
+	border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: 0.35em 0.625em 0.75em;
+}
 
-/* clicking <label> shifts focus to the associated form element, not supported in IE6
-   note: this author disagrees with paul irish, html5-boilerplate removes [for] from this rule
-   http://github.com/h5bp/html5-boilerplate/pull/853
- */   label[for] {
-         cursor: pointer; 
-      }
+/* clicking <label> shifts focus to the associated form element, not supported in IE6 */
+   /* http://github.com/h5bp/html5-boilerplate/pull/853 */
+   /* note: this author disagrees with the above, html5-boilerplate removes [for] from this rule */
+label[for] {
+	cursor: pointer; 
+}
 
 /* color not inherited in IE<10
-   text doesn't wrap in FF3
-   margin display quirks in IE<8
- */   legend {
-         border: 0;
-         padding: 0;
-         white-space: normal;
-         *margin-left: -7px;
-      }
+	text doesn't wrap in FF3 */
+legend {
+	border: 0;
+	padding: 0;
+	white-space: normal;
+}
 
 /* font size not inherited in all browsers
-   margins set differently in IE<8, FF3+, S5, Chrome
-   best/consistent vertical alignment in all browsers
- */   button, input, select, textarea {
-         font-size: 100%;
-         margin: 0;
-         vertical-align: baseline;
-         *vertical-align: middle;
-      }
+   margins set differently in FF3+, S5, Chrome
+   best/consistent vertical alignment in all browsers */
+button, input, select, textarea {
+	font-size: 100%;
+	margin: 0;
+	vertical-align: baseline;
+}
 
-/* sets all browsers to match FF3/4 default line height
- */   button, input {
-         line-height: normal;
-      }
+/* sets all browsers to match FF3/4 default line height */
+button, input {
+	line-height: normal;
+}
 
 /* inconsistent cursor styles between type=image and others
-   inability to style clickable 'input' types in iOS
-   inner spacing display quirks in IE7 (issue: no IE6 support)
- */   button, input[type="button"],
-      input[type="reset"], input[type="submit"] {
-         cursor: pointer;
-         -webkit-appearance: button;
-         *overflow: visible;
-      }
+	inability to style clickable 'input' types in iOS */
+button, input[type="button"],
+input[type="reset"], input[type="submit"] {
+	cursor: pointer;
+	-webkit-appearance: button;
+}
 
-/* reset default cursor for disabled elements
- */   button[disabled], input[disabled] {
-         cursor: default;
-      }
+ /* reset default cursor for disabled elements */
+button[disabled], input[disabled] {
+	cursor: default;
+}
 
 /* box sizing set to content-box in IE8/9
-   excess padding in IE8/9
-   excess padding in IE7 (issue: no IE6 support)
- */   input[type="checkbox"], input[type="radio"] {
-         box-sizing: border-box;
-         padding: 0;
-         *height: 13px;
-         *width: 13px;
-      }
+	excess padding in IE8/9 */
+input[type="checkbox"], input[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
 
 /* appearance set to searchfield in S5, Chrome
-   box-sizing set to border-box in S5, Chrome (include -moz to future-proof)
- */   input[type="search"] {
-         -webkit-appearance: textfield;
-         -moz-box-sizing: content-box;
-         -webkit-box-sizing: content-box;
-         box-sizing: content-box;
-      }
+	box-sizing set to border-box in S5, Chrome (include -moz to future-proof) */
+input[type="search"] {
+	-webkit-appearance: textfield;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
 
-/* inner padding and search 'cancel' button in S5, Chrome on mac
- */   input[type="search"]::-webkit-search-decoration,
-      input[type="search"]::-webkit-search-cancel-button {
-         -webkit-appearance: none;
-      }
+/* inner padding and search 'cancel' button in S5, Chrome on mac */   
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+	-webkit-appearance: none;
+}
 
-/* extra inner padding and border in FF3/4
- */   button::-moz-focus-inner, input::-moz-focus-inner {
-         border: 0;
-         padding: 0;
-      }
+ /* extra inner padding and border in FF3/4 */
+button::-moz-focus-inner, input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
 
 /* default vertical scrollbar in IE6/7/8/9
-   best/consistent vertical alignment in all browsers
- */   textarea {
-         overflow: auto;
-         vertical-align: top;
-      }
+   best/consistent vertical alignment in all browsers */
+textarea {
+	overflow: auto;
+	vertical-align: top;
+}
 
-      legend, fieldset, button, input, select, textarea {
-         line-height: 1.5;
-         margin: 0;
-         padding: 0;
-         border: 0;
-      }
-      form {
-         margin-bottom: 1.5rem;
-      }
-      fieldset {
-         border-top: 1px solid #ccc;
-         clear: left;
-         padding: 0.75rem 0;
-      }
+legend, fieldset, button, input, select, textarea {
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+form {
+	margin-bottom: 1.5rem;
+}
+fieldset {
+	border-top: 1px solid #ccc;
+	clear: left;
+	padding: 0.75rem 0;
+}
 
-      label {
-         margin: 0.75rem 0 2.25rem 0;
-         width: 35%;
-      }
-      input[type="checkbox"], input[type="radio"] {
-         margin: 1rem 0 1rem 0;
-         width: auto;
-         height: 1rem;
-      }
-      input, textarea, select {
-         width: 65%;
-         padding: 0.375rem 0;
-         margin: 0.375rem 0;
-         background-color: #ccc;
-      }
-      input:focus {
-         outline-offset: -3px;
-      }
-      input[type="search"] {
-         width: 50%;
-      }
-      input[type="submit"]:not(.search), input[type="button"] {
-         width: auto;
-         min-width: 9rem;
-         padding-left: 0.75em;
-         padding-right: 0.75em;
-      }
-      select {
-      margin: 2rem 0 2rem 0;
-      height: 2rem;
-      clear: left;
-      }
-      input.search {
-         width: 15%;
-         background-color: #aaa;
-         text-transform: uppercase;
-      }
-      label[for="textarea"], label[for="select"] {
-         margin-bottom: 0.75rem;
-      }
-      textarea {
-         margin-bottom: 1.875rem;
-      }
-      form em {
-         display: block;
-         font-size: .75rem;
-         line-height: 2;
-         margin-bottom: 1.5rem;
-      }
-      .hang-inside-left {
-         float: left;
-         clear: left;
-         /*margin-right: 3rem;*/
-      }
-      form ul {
-         list-style: none;
-         padding-left: 1.5em;
-         margin-bottom: 0;
-      }
+label {
+	margin: 0.75rem 0 2.25rem 0;
+	/* width: 35%; */
+}
+input[type="checkbox"], input[type="radio"] {
+	margin: 1rem 0 1rem 0;
+	width: auto;
+	height: 1rem;
+}
+input, textarea, select {
+	/* width: 65%; */
+	padding: 0.375rem 0;
+	margin: 0.375rem 0;
+	border: 1px solid #ccc;
+}
+input:focus {
+	outline-offset: -3px;
+}
+input[type="search"] {
+	/* width: 50%; */
+}
+input[type="submit"]:not(.search), input[type="button"] {
+	width: auto;
+	min-width: 9rem;
+	padding-left: 0.75em;
+	padding-right: 0.75em;
+}
+select {
+	margin: 2rem 0 2rem 0;
+	height: 2rem;
+	clear: left;
+}
+input.search {
+	width: 15%;
+	text-transform: uppercase;
+}
+label[for="textarea"], label[for="select"] {
+	margin-bottom: 0.75rem;
+}
+textarea {
+	margin-bottom: 1.875rem;
+}
+form em {
+	display: block;
+	font-size: .75rem;
+	line-height: 2;
+	margin-bottom: 1.5rem;
+}
+form ul {
+	list-style: none;
+	padding-left: 1.5em;
+	margin-bottom: 0;
+}
+
+/* form validity: http://html5doctor.com/css3-pseudo-classes-and-html5-forms */
+input:valid, textarea:valid { background-color: rgb(66, 197, 116); } 
+input:invalid, textarea:invalid { background-color: rgb(249, 81, 101); }
 
 
 
-/*
- * 2. core typography
- ============================================================
- ============================================================
- *
- * basic line-height ÷ heading font size = heading line height
- *
- * typographic rhythm: 
- *    16pt type over 24pt lead
- *    1:1.5 modular scale → 16px & 72px double-stranded
- *    (http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0)
- *
- * reliable font stacks:
- *     sans:   "myriad-pro", Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
- *    serif:   "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
- *     mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
- */
+/* ============================================================
+ 	2. core typography
+		
+		basic line-height ÷ heading font size = heading line height
+ 
+		font-size in rems with px fallback  → http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style
+		double-stranded heading hierarchy   → http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+		a better way to typeset paragraphs  → http://csswizardry.com/2010/12/mo-robust-paragraph-indenting
 
+		typographic rhythm: 
+		16pt type over 24pt lead
+		1:1.5 modular scale → 16px & 72px double-stranded
+		(http://modularscale.com/scale/?px1=16&px2=72&ra1=1.5&ra2=0)
+
+		reliable font stacks:
+		sans:   "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif; (http://mky.be/fontstack)
+		serif:  Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+		mono:   Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
+============================================================ */
 
 /* a) type hierarchy
- ============================================================
- *    font-size in rems with px fallback  → http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style
- *    double-stranded heading hierarchy   → http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
- *    a better way to typeset paragraphs  → http://csswizardry.com/2010/12/mo-robust-paragraph-indenting
- *
- *    don't use unitless line-heights (http://meyerweb.com/eric/thoughts/2006/02/08/unitless-line-heights)
- *    why? Because unitless means line-height is a scaling factor of font-size, not a computed result.
- *    when zooming the page in chrome, that multiplier can lead to inexact results because of decimal rounding
- *    and subpixel-rounding when the page is rendered. This breaks the vertical rhythm of the page.
- *    Setting line-height in em/rems fixes this.
- */
+	============================== */
 
-   body {
-      font-size: 100%;  /* =16px, ubiquitous browser default */
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      line-height: 1.5em; /* =24px → our magic number */ 
-   }
+html {
+	font-size: 100%;
+}
+body {
+	font-size: 1em;  /* =16px, ubiquitous browser default */
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	line-height: 1.5; /* =24px → our magic number */ 
+}
 
-   .sans {
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
-      font-weight: 300;
-      font-style: normal;
-   }
+/* Common baseline for vertical rhythm. */
+h1, h2, h3, h4, h5, h6, .hN, .yotta, .tera, .giga, .mega,
+.alpha, .beta, .gamma, .delta, .epsilon, .zeta,
+p, .freight, .micro, .nano, .pico, ul, ol, dd,
+figure, hgroup, fieldset, table, pre, hr, blockquote {
+	margin: 0 0 24px;
+	margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
+}
 
-/* basic title class, as per: http://jsfiddle.net/csswizardry/yFQDP
- */
-   .hN {
-      margin: 0 0 24px;
-      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */ 
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
-   }
+/* basic title class, as per: http://jsfiddle.net/csswizardry/yFQDP */
+.hN {
+}
 
-   .serif {
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 400;
-      font-style: normal;
-   }
+/* hero type */
 
-/* hero type
- */
-   .tera {
-      font-size: 80px;
-      font-size: 5rem;     /* 80px = 16 × 5 */
-      line-height: 1.2;    /* 96px ÷ 80 = 1.2 (96 = 24 × 4) */
-      font-weight: 900;
-   }
-   .giga {
-      font-size: 72px;
-      font-size: 4.5rem;         /* 72px = 16 × 5 */
-      line-height: 1.333333333;  /* 96px ÷ 72 = 1.333333333 (96 = 24 × 4) */
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 600;
-      font-style: italic;
-   }
-   .mega {
-      font-size: 64px;
-      font-size: 4rem;     /* 64px = 16 × 4 */
-      line-height: 1.125;  /* 72px ÷ 64 = 1.125 (72 = 24 × 3) */
-      font-weight: 700;
-   }
-   .tera, .giga, .mega {
-      margin-bottom: 48px;
-      margin-bottom: 3rem; /* 48px = 16 × 3 */
-      margin-top: 48px;
-      margin-top: 3rem; /* 48px = 16 × 3 */
-   }
+.yotta {
+	font-size: 112px;
+	font-size: 7rem;
+	line-height: 0.857142857;
+	margin-top: 1.5rem;
+}
+.tera {
+	font-size: 80px;
+	font-size: 5rem;		/* 80px = 16 × 5 */
+	line-height: 1.2;		/* 96px ÷ 80 = 1.2 (96 = 24 × 4) */
+}
+.giga {
+	font-size: 72px;
+	font-size: 4.5rem;         /* 72px = 16 × 5 */
+	line-height: 1.333333333;  /* 96px ÷ 72 = 1.333333333 (96 = 24 × 4) */
+}
+.mega {
+	font-size: 64px;
+	font-size: 4rem;     /* 64px = 16 × 4 */
+	line-height: 1.125;  /* 72px ÷ 64 = 1.125 (72 = 24 × 3) */
+}
+.tera, .giga, .mega {
+	margin-top: 48px;
+	margin-top: 3rem; /* 48px = 16 × 3 */
+}
 
-/* heading type
- */
-   h1, .alpha {
-      font-size: 48px;
-      font-size: 3rem;     /* 48px = 16 × 3 */
-      line-height: 1;      /* 48px ÷ 48 = 1 (48 = 24 × 2) */
-      margin-bottom: 48px;
-      margin-bottom: 3rem; /* 48px = 16 × 3 */  
-      padding-top: 1.5rem;
-      font-weight: 700;
-      /*letter-spacing: 0.1rem;*/
-   }
-   h2, .beta {
-      font-size: 28px;
-      font-size: 1.75rem;        /* 28px = 16 × 1.75 */
-      line-height: 0.857142857;  /* 24px ÷ 28 = 0.857142857 (24 = 24 × 1) */
-      margin-bottom: 1.5rem;
-      padding-top: 1.5rem;
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 600;
-   }
-   h3, .gamma {
-      font-size:  24px;
-      font-size: 1.5rem;   /* 24px = 16 × 1.5 */
-      line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
-      margin-bottom: 2rem;
-      padding-top: 1rem;
-      font-family: "chaparral-pro", Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-      font-weight: 600;
-      font-style: italic;
-   }
-   h4, .delta {
-      font-size: 21px;
-      font-size: 1.3125rem;  /* 21px = 16 × 1.3125 */
-      line-height: 1.142857143;    /* 24px ÷ 21 = 1.2 (24 = 24 × 1) */
-      font-weight: 400;
-   }
-   h5, .epsilon {
-      font-size: 16px;
-      font-size: 1rem; /* 16px = 16 × 1.125 */
-      line-height: 1.5;  /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      font-weight: 700;
-      text-transform: uppercase;
-   }
-   h6, .zeta {
-      font-size: 16px;
-      font-size: 1rem;     /* 16px = 16 × 1 */
-      line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      font-weight: 700;
-      font-style: italic;
-   }
+ /* heading type */
+h1, .alpha {
+	font-size: 48px;
+	font-size: 3rem;     /* 48px = 16 × 3 */
+	line-height: 1;      /* 48px ÷ 48 = 1 (48 = 24 × 2) */
+	padding-top: 1.5rem;
+}
+h2, .beta {
+	font-size: 28px;
+	font-size: 1.75rem;        /* 28px = 16 × 1.75 */
+	line-height: 0.857142857;  /* 24px ÷ 28 = 0.857142857 (24 = 24 × 1) */
+	padding-top: 1.5rem;
+}
+h3, .gamma {
+	font-size:  24px;
+	font-size: 1.5rem;   /* 24px = 16 × 1.5 */
+	line-height: 1;      /* 24px ÷ 24 = 1 (24 = 24 × 1) */
+}
+h4, .delta {
+	font-size: 21px;
+	font-size: 1.3125rem;  /* 21px = 16 × 1.3125 */
+	line-height: 1.142857143;    /* 24px ÷ 21 = 1.2 (24 = 24 × 1) */
+}
+h5, .epsilon {
+	font-size: 16px;
+	font-size: 1rem; /* 16px = 16 × 1.125 */
+	line-height: 1.5;  /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+}
+h6, .zeta {
+	font-size: 16px;
+	font-size: 1rem;     /* 16px = 16 × 1 */
+	line-height: 1.5;    /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+}
 
-/* body type
- */
-   p, .freight {
-      margin: 0 0 24px;
-      margin: 0 0 1.5rem;
-      display: block;
-      /*margin: 0;*/
-      /*text-indent: 1.5em;*/
-   }
-   p + p, p + .freight, .freight + .freight, .freight + p {
-      margin-top: -24px;
-      margin-top: -1.5rem;
-      text-indent: 3em;
-   }
-   li > p {
-      margin: 0 0 0.75rem;
-   }
-   .hN + .hN {
-      text-indent: 0;
-   }
-   /*p:first-of-type, .freight:first-of-type {
-      text-indent: 0;
-   }
-   p:last-of-type, .freight:last-of-type {
-      margin-bottom: 24px;
-      margin-bottom: 1.5rem;
-   }
-   .lt-ie9 p, .lt-ie9 .freight {
-      margin: 0 0 1.5em;
-     text-indent: 0; 
-   }*/
+ /* body type */
+p, .freight {
+	display: block;
+}
+p + p, p + .freight, .freight + .freight, .freight + p {
+	margin-top: -24px;
+	margin-top: -1.5rem;
+	text-indent: 3em;
+}
 
-/* minor type
- */
-   .micro {
-      font-size: 14px;
-      font-size: 0.875rem;  /* 12px = 16 × 0.875 */
-      line-height: 1.7142857;   /* 24px ÷ 14 = 1.7142857 (24 = 24 × 1) */
-   }
-   .nano {
-      font-size: 12px;
-      font-size: 0.75rem;  /* 12px = 16 × 0.75 */
-      line-height: 2;      /* 24px ÷ 12 = 2 (24 = 24 × 1) */
-   }​
-   .pico {
-      font-size: 10px;
-      font-size: 0.625rem;  /* 10px = 16 × 0.625 */
-      line-height: 2.4;      /* 24px ÷ 10 = 2.4 (24 = 24 × 1) */
-   } 
+/* styles to test */
+li > p {
+	/* margin: 0 0 0.75rem; */
+}
+p:first-of-type, .freight:first-of-type {
+	/* text-indent: 0; */
+}
+p:last-of-type, .freight:last-of-type {
+	/* margin-bottom: 24px;
+	margin-bottom: 1.5rem; */
+}
+.lt-ie9 p, .lt-ie9 .freight {
+	/* margin: 0 0 1.5em;
+	text-indent: 0;  */
+}
+
+ /* minor type */
+.micro {
+	font-size: 14px;
+	font-size: 0.875rem;  /* 12px = 16 × 0.875 */
+	line-height: 1.7142857;   /* 24px ÷ 14 = 1.7142857 (24 = 24 × 1) */
+}
+.nano {
+	font-size: 12px;
+	font-size: 0.75rem;  /* 12px = 16 × 0.75 */
+	line-height: 2;      /* 24px ÷ 12 = 2 (24 = 24 × 1) */
+}​
+.pico {
+	font-size: 10px;
+	font-size: 0.625rem;  /* 10px = 16 × 0.625 */
+	line-height: 2.4;      /* 24px ÷ 10 = 2.4 (24 = 24 × 1) */
+} 
+
 
 /* b) semantic stress elements
- ============================================================
- *    http://html5doctor.com/i-b-em-strong-element
- *    http://html5doctor.com/draw-attention-with-mark/
- */
+		src: http://html5doctor.com/i-b-em-strong-element
+		src: http://html5doctor.com/draw-attention-with-mark
+	============================== */
 
 /* an alternate voice or mood, or otherwise offset from the normal prose indicating a different quality of text
-   [taxonomic designation, technical term, idiomatic phrase]
- */   i {
-         font-style: italic;
-      }
+	[taxonomic designation, technical term, idiomatic phrase] */
+i {
+	font-style: italic;
+}
 
 /* offset from surrounding text with no extra importance or sonic quality
-   [keywords, product names, article ledes]
- */   b {
-         font-weight: bold; }
+	[keywords, product names, article ledes] */
+b {
+	font-weight: bold;
+}
 
 /* emphatic and/or linguistic stress
-   [foreign phrase, tone of voice]
- */   em {
-         font-style: italic;
-      }
+	[foreign phrase, tone of voice] */   
+em {
+	font-style: italic;
+}
 
 /* strong semantic importance
-   [warning notice, time-sensitive data]
- */   strong {
-         font-weight: bold;
-      }
+	[warning notice, time-sensitive data] */   
+strong {
+	font-weight: bold;
+}
 
-/* highlighted for reference purposes, user-relevant content
- */   mark {
-         background: none; 
-         font-style: italic; 
-         font-weight: bold; 
-         background: rgb(47, 88, 190);
-         padding: 0.125em;
-         color: #fefefe;
-      }
+/* highlighted for reference purposes, user-relevant content */
+mark {
+	background: none; 
+	font-style: italic; 
+	font-weight: bold; 
+	background: rgb(47, 88, 190);
+	padding: 0.125em;
+	color: #fefefe;
+}
 
-/* small print, side comments, not for block-level content
- */   small {
-         font-size: 12px;
-         font-size: 0.75rem;  /* 12px = 16 × 0.75 */
-         line-height: 0;
-      }
+/* small print, side comments, not for block-level content */
+small {
+	font-size: 12px;
+	font-size: 0.75rem;  /* 12px = 16 × 0.75 */
+	line-height: 0;
+}
 
 /* c) quotes & citations
- ============================================================
- *    all about blockquotes   → http://html5doctor.com/blockquote-q-cite/
- *    blockquote metadata     → http://oli.jp/2011/blockquote
- */
+		src: http://html5doctor.com/blockquote-q-cite/
+		src: http://oli.jp/2011/blockquote
+	============================== */
 
-   blockquote {
-      margin: 24px 48px;
-      margin: 1.5rem 3rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
-   blockquote .attribution {
-      text-align: right;
-   }
-   .journalistic {
-      margin-left: 0;
-      border-left: 3px solid #ccc;
-      border-left: 0.1875rem solid #ccc;
-      padding-left: 21px;
-      padding-left: 1.3125rem;
-   }
-   .freight + .attribution, p + .attribution {
-      text-indent: 0;
-      margin-top: 0;
-   }
-   .attribution:before {
-      content: "— ";
-   }
-   .journalistic .attribution {
-      text-align: left;
-      font-style: italic;  
-   }
-
-
-
+blockquote {
+	margin-top: 24px;
+	margin-top: 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+}
+blockquote .attribution {
+	text-align: right;
+}
 
 /* d) code & pre-formatted text
- ============================================================
- *    http://perishablepress.com/press/2009/11/09/perfect-pre-tags
- *    <code> = sample code | <samp> = sample output from program
- */
+		src: http://perishablepress.com/press/2009/11/09/perfect-pre-tags
+		<code> = sample code | <samp> = sample output from program
+	============================== */
 
-   pre { 
-      font-size: 14px;
-      font-size: .875rem;
-      margin: 0 0 24px;
-      margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-      line-height: 1.714285714;
-      padding: 1.5rem;
-      background-color: rgb(209, 219, 224);
-      color: #111;
-      outline: 1px solid #bdbdbd;
-      overflow: auto;
-   }
-   p > kbd, .hN > code, p > code, a > code {
-      line-height: 0;
-      font-size: 0.875em;
-   }
-   pre, code {
-      font-family: Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
-   }
-   pre.wrapping {
-      white-space: pre-wrap;
-      word-wrap: break-word;
-   }
-
-
-
-/* e) type rendering
- ============================================================
- *
- */
-
-/* turn on kerning, ligatures, etc in modern browsers (kinda voodoo)
-   http://www.aestheticallyloyal.com/public/optimize-legibility
-   note: can cause issues on android: http://bricss.net/post/6984374395
- */
-   html {
-      text-rendering: optimizeLegibility;
-   }
-
-   .kicker {
-      margin-top: 0;
-      font-style: italic;
-      letter-spacing: -0.1rem;
-   }
-
-   #top {
-      font-size: 112px;
-      font-size: 7rem;
-      line-height: 0.857142857;
-      margin-top: 1.5rem;
-
-   }
-   #top .char2 { margin-left: -0.062em }
-   #top .char2 { margin-left: -0.079em }
-   #top .char3 { margin-left: -0.019em }
-   #top .char8 { margin-left: -0.019em }
-   #top .char7 { margin-left: -0.025em }
-   #top .char6 { margin-left: -0.019em }
-   #top .char9 { margin-left: 0.019em }
-   #top .char4 { margin-left: 0.006em }
-
-
-/*
- * 3. palette
- ============================================================
- ============================================================
- *
- *    key colors
- *    ```````````
- *        dark:   #080808  →  rgb(8,8,8)        →  hsl(0, 0%, 3%)
- *        grey:   #333333  →  rgb(51,51,51)     →  hsl(0, 0%, 20%)
- *       light:   #f0f0f0  →  rgb(240,240,240)  →  hsl(0, 0%, 94%)
- *     darkblu:   #063355  →  rgb(6,51,85)      →  hsl(206, 87%, 18%)
- *     liteblu:   #2f58be  →  rgb(47,88,190)    →  hsl(223, 60%, 46%)
- *       green:   #42c574  →  rgb(66,197,116)   →  hsl(143, 50%, 52%)
- *
- */
-
-/* a) links
- ============================================================
- *    remove any text-shadow     → http://h5bp.com/i
- *    styles must be in the particular order below
- */
-
-/* http://j.mp/webkit-tap-highlight-color
- */
-   a:link { color: rgb(47, 88, 190); -webkit-tap-highlight-color: rgb(47, 88, 190); text-decoration: none; }
-   a:visited { color: rgb(37, 78, 180); }
-   a:hover { color: rgb(66, 197, 116); }
-   a:active {color: rgb(66, 197, 116); }
-
-/* improve readability when focused and hovered in all browsers: http://h5bp.com/h
- */
-   a:hover, a:active { outline: 0; }
-   a:focus { outline: 0; border-bottom: 2px solid rgb(66, 197, 116); }
-
-/* b) selection
- ============================================================
- *    http://h5bp.com/i
- */
-
-   ::-moz-selection { background: rgb(66,197,116); color: #111; text-shadow: none; }
-   ::selection { background: rgb(66,197,116); color: #111; text-shadow: none; }
-
-/* c) form validity
- ============================================================
- *    http://html5doctor.com/css3-pseudo-classes-and-html5-forms
- */
-
-   /*input:valid, textarea:valid { background-color: rgb(66, 197, 116); } */
-   /*input:invalid, textarea:invalid { background-color: rgb(249, 81, 101); }*/
-   input:valid, textarea:valid { background-color: #ccc; } 
-   input:invalid, textarea:invalid { background-color: #ccc; }
+pre { 
+	font-size: 14px;
+	font-size: .875rem;
+	margin: 0 0 24px;
+	margin: 0 0 1.5rem; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
+	line-height: 1.714285714;
+	padding: 1.5rem;
+	background-color: rgb(209, 219, 224);
+	color: #111;
+	outline: 1px solid #bdbdbd;
+	overflow: auto;
+}
+p > kbd, .hN > code, p > code, a > code {
+	line-height: 0;
+	font-size: 0.875em;
+}
+pre, code {
+	font-family: Consolas, "Lucida Console", Monaco, "Nimbus Mono L", monospace;
+}
+pre.wrapping {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
 
 
 
-/*
- * 4. page rendering & behavior
- ============================================================
- ============================================================
- *    get rid of wrap divs      → http://camendesign.com/code/developpeurs_sans_frontieres
- *    use easier box model      → http://paulirish.com/2012/box-sizing-border-box-ftw
- */
+
+/* ============================================================
+ 	3. page basics
+
+ 		get rid of wrap divs      → http://camendesign.com/code/developpeurs_sans_frontieres
+ 		use easier box model      → http://paulirish.com/2012/box-sizing-border-box-ftw
+============================================================ */
 
 * {
    -webkit-box-sizing: border-box;
@@ -912,240 +689,117 @@
    transition: all 0.136s ease-out;*/
 }
 
-   html {
-      height: 100%;
-   }
-   body { 
-       min-height: 100%;
-       background-image: url(../img/bg-light.png);
-   }
+html {
+	height: 100%;
+	/* turn on kerning, ligatures, etc in modern browsers (kinda voodoo)
+	http://www.aestheticallyloyal.com/public/optimize-legibility
+	note: can cause issues on android: http://bricss.net/post/6984374395 */
+	text-rendering: optimizeLegibility;
+}
+body { 
+	min-height: 100%;
+}
 
-   
+/* links
+	http://j.mp/webkit-tap-highlight-color */
+a:link { 
+	color: rgb(47, 88, 190); -webkit-tap-highlight-color: rgb(47, 88, 190); text-decoration: none; }
+a:visited { color: rgb(37, 78, 180); }
+a:hover { color: rgb(66, 197, 116); }
+a:active {color: rgb(66, 197, 116); }
 
-/*
- * 5. structural modules
- ============================================================
- ============================================================
- *    https://github.com/stubbornella/oocss/wiki
- *    http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/
- *    http://speakerdeck.com/u/andyhume/p/css-for-grown-ups-maturing-best-practises
- */
+/* improve readability when focused and hovered in all browsers: http://h5bp.com/h */
+a:hover, a:active { outline: 0; }
+a:focus { outline: 0; border-bottom: 2px solid rgb(66, 197, 116); }
+
+/* selection
+	http://h5bp.com/i */
+::-moz-selection { background: rgb(66,197,116); color: #111; text-shadow: none; }
+::selection { background: rgb(66,197,116); color: #111; text-shadow: none; }
+
+
+
+
+
+/* ============================================================
+ 	4. objects & abstractions
+		
+		https://github.com/stubbornella/oocss/wiki
+		http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/
+		http://speakerdeck.com/u/andyhume/p/css-for-grown-ups-maturing-best-practises
+============================================================ */
 
 /* nav abstraction via @csswizardry
- * http://csswizardry.com/2011/09/the-nav-abstraction
- */   .nav{
-         list-style: none;
-         margin-left: 0;
-      }
-      .nav li{
-         display: inline;
-      }
-      .nav a{
-         display: inline-block;
-      }
+	http://csswizardry.com/2011/09/the-nav-abstraction */
+.nav{
+	list-style: none;
+	margin-left: 0;
+}
+.nav li{
+	display: inline;
+}
+.nav a{
+	display: inline-block;
+}
 
 /* media object abstraction via @stubbornella
- * http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
- */   .media {
-         display: block;
-         overflow: hidden;
-      }
-      .media .img {
-         float: left;
-         margin-right: 16px;
-         margin-right: 1rem;  /* 16px = 16 × 1 */
-      }
-      .media .img img {
-         display: block;
-      }
-      .media .body {
-         overflow: hidden;
-      }
+	http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code */
+.media {
+	display: block;
+	overflow: hidden;
+}
+.media .img {
+	float: left;
+	margin-right: 24px;
+	margin-right: 1.5rem;
+}
+.media .img img {
+	display: block;
+}
+.media .body {
+	overflow: hidden;
+}
 
 /* island object abstraction via @csswizardry
- * http://csswizardry.com/2011/10/the-island-object
- */   .island {
-         padding: 1rem;  /* 16px = 16 × 1 */
-      }
-      .island > :last-child {
-         margin-bottom: 0;
-      }
-
-/* figure styles
- */
- figure {
-      /*margin: 0;*/
-      margin-bottom: 24px;
-      margin-bottom: 1.5rem;
-   }
-   figure > img {
-      max-width: 100%;
-      /*margin-bottom: 24px;*/
-      /*margin-bottom: 1.5rem;*/
-      display: block;
-   }
-   figcaption {
-      margin-top: 1.5rem;
-   }
-
-/* main ui
- */
-   .anchor-panel {
-      position: fixed;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 19.5em;
-      text-align: center;
-   }
-   .page, section[role="main"] {
-      width: 45em;
-      position: relative;
-      /*margin-left: 7.5em;*/
-      margin-left: 27em;
-      padding: 24px 48px;
-      padding: 1.5em 3em; /* 24px ÷ 16 = 1.5 (24 = 24 × 1) */
-   }
-   .page.extended {
-      width: 48em;
-      margin-left: 25.5em;
-   }
-
-/* social
- */
-   .social {
-      opacity: 0.65;
-      float: left;
-      overflow: visible;
-      line-height: 0.9;
-      height: 2rem;
-   }
-   .social:hover, .social:focus {
-      opacity: 1;
-      border: 0;
-   }
-   .social.facebook, .social.google {
-      margin-left: 3.75em;
-   }
-
-   nav[role="navigation"] {
-      text-align: left;
-      width: 100%;
-      margin-left: 6.5em;
-      margin-bottom: 3em;
-      padding-top: 1em;
-   }
-   .anchor-panel .title {
-      clear: left;
-   }
-   .anchor-panel .gamma {
-      margin-bottom: 0.5rem;
-      padding-top: 1rem;
-      font-weight: 300;
-   }
-   .anchor-panel .delta {
-      margin-bottom: 8px; /* fallback */
-      margin-bottom: 0.5rem;
-   }
-   .stick-bottom {
-      position: absolute;
-      bottom: 1.5em;
-      /*overflow: auto;*/
-   }
+	http://csswizardry.com/2011/10/the-island-object */
+.island {
+	padding: 24px;
+	padding: 1.5rem;
+}
+.island > :last-child {
+	margin-bottom: 0;
+}
 
 
-/*
- * 6. stylistic modules
- ============================================================
- ============================================================
- */
 
-   body {
-      background-color: #eee;
-      color: #042239; /* fallback */
-      color: rgb(4, 34, 57);
-   }
 
-/* main ui
- */
-   .dark-area {
-      background-color: #111; /* fallback */
-      background-color: rgba(5,5,5,0.85);
-      background-image: url(../img/bg-dark.png);
-      color: #f0f0f0; /* fallback */
-      color: rgb(240,240,240);
-   }
-   .light-area {
-      background-color: #fff; /* fallback */
-      background-color: rgba(255,255,255,0.75);
-   }
-   .action-area {
-      background-color: #063355; /* fallback */
-      background-color: rgb(6,51,85);
-   }
-   .txt-green, .txt-green:link, .txt-green:visited {
-      color: #42c574; /* fallback */
-      color: rgb(66,197,116);
-   }
-   .txt-red, .txt-red:link, .txt-red:visited {
-      color: #f95165; /* fallback */
-      color: rgb(249, 81, 101);
-   }
-   .txt-blue, .txt-blue:link, .txt-blue:visited {
-      color: #3363db; /* fallback */ 
-      color: rgb(51, 99, 219);
-   }
-   .txt-white:link, .txt-white:visited {
-      color: #f0f0f0; /* fallback */
-      color: rgb(240,240,240);
-   }
-   .brand:hover, .brand:active {
-      color: #f0f0f0; /* fallback */
-      color: rgb(240,240,240);
-   }
-   .txt-white:hover, .txt-white:active {
-      color: #42c574; /* fallback */
-      color: rgb(66,197,116);
-   }
+/* ============================================================
+ 	5. stylistic modules
+============================================================ */
 
-   .symbol {
-      font-size: 12rem;
-      line-height: 0.75;
-      margin: 24px 0 0;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      display: block;
-   }
-   .icon {
-      position: relative;
-   }
-   .icon:before {
-      content: attr(data-icon);
-      line-height: 28px;
-      line-height: 1.75rem;
-      font-size: 1.35em;
-      position: absolute;
-      left: -1.65em;
-      width: 1em;
-      text-align: center;
-      font-family: "Lucida Sans Unicode", "Arial Unicode MS" !important;
-   }
-   .icon.flipped:before {
-      -webkit-transform: rotate(180deg);
-         -moz-transform: rotate(180deg);
-          -ms-transform: rotate(180deg);
-              transform: rotate(180deg);
-   }
-   .icon[data-icon="△"]:before{
-      top: 0;
-   }
-   .icon[data-icon="¶"]:before{
-      font-family: serif !important;
-   }
-   
+/* a) type
+	============================== */
+.serif {
+
+}
+.sans {
+
+}
+
+/* b) theming
+		
+		key colors:
+			dark:   #080808  →  rgb(8,8,8)        →  hsl(0, 0%, 3%)
+			grey:   #333333  →  rgb(51,51,51)     →  hsl(0, 0%, 20%)
+			light:   #f0f0f0  →  rgb(240,240,240)  →  hsl(0, 0%, 94%)
+			darkblu:   #063355  →  rgb(6,51,85)      →  hsl(206, 87%, 18%)
+			liteblu:   #2f58be  →  rgb(47,88,190)    →  hsl(223, 60%, 46%)
+			green:   #42c574  →  rgb(66,197,116)   →  hsl(143, 50%, 52%)
+	============================== */
+
+
    .btn {
-      font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
       padding: 1rem;
       margin-top: 2.5rem;
       margin-left: 3rem;
@@ -1160,155 +814,27 @@
       color: rgb(66,197,116);
    }
 
-   .anchor {
-      font-family: sans-serif;
-      font-style: normal;
-      opacity: 0.75;
-   }
 
 
 
-/*
- * 7. media queries
- ============================================================
- ============================================================
- */
-
-    .anchor-panel {
-      width: 17em;
-   }
-   #top {
-      font-size: 6rem;
-   }
-   .page, section[role="main"] {
-      margin-left: 0;
-      width: 100%;
-      padding-left: 19.5em;
-      padding-right: 1.5em;
-   }
-   .page.extended {
-      margin-left: 0;
-      padding-left: 19em;
-      width: 100%;
-   }   
-   .social.facebook, .social.google {
-      margin-left: 2.75em;
-   }
-
-   @media all and (min-width: 841px) {
-      .page, section[role="main"] {
-         margin-left: 17em;
-         width: 36em;
-         padding-left: 3em;
-      }
-      .page.extended {
-         margin-left: 21em;
-         padding-left: 3em;
-         padding-right: 3em;
-         width: 38em;
-      }   
-   }
-
-    @media all and (min-width: 965px) {
-      .page, section[role="main"] {
-         margin-left: 20.5em;
-         padding-left: 3em;
-         width: 40em;
-         padding-right: 3em;
-      }
-      .anchor-panel .gamma {
-         line-height: 1.5;
-      }
-      #top {
-         font-size: 7rem;
-      }
-   }
-
-    @media all and (max-height: 600px) {
-      html {
-         font-size: 87.5%; /* 14px */
-      }
-      .anchor-panel .gamma {
-         font-size: 1.35rem;
-      }
-      .anchor-panel .delta {
-         font-size: 1.125rem;
-      }
-   }
-
-@media all and (min-width: 1105px) {
-      .page, section[role="main"] {
-         width: 44em;
-      }
-      .page.extended {
-         margin-left: 20em;
-         width: 44em;
-      }
-      .anchor-panel .gamma {
-         margin-bottom: 0;
-      }  
-   }
-
-@media all and (min-width: 1367px) {
-      .page, section[role="main"] {
-         width: 52em;
-      }
-      .page.extended {
-         margin-left: 22em;
-      }
-        
-   }
-
-
-
-
-
-   @media all and (max-height: 768px) {
-      .anchor-panel .gamma {
-         padding-top: 0.5em;
-      }
-
-   }
-
-
- @media all and (max-height: 720px) {
-      .anchor-panel .gamma {
-         padding-top: 0;
-      }
-      .stick-bottom {
-         bottom: 0;
-      }
-      .stick-bottom nav[role="navigation"]{
-         margin-bottom: 1em;
-      }
-      .symbol {
-         font-size: 9rem;
-      }
-      .anchor-panel .title {
-         margin-bottom: 1rem;
-      }
-   }
+/* ============================================================
+ 	6. specifics
+============================================================ */
 
 
 
 
 
 
-
-
- 
-
-/*
- * 8. utilities
- ============================================================
- ============================================================
- */
+/* ============================================================
+ 	7. utilities
+============================================================ */
 
 /* clearfix via @necolas
- * http://nicolasgallagher.com/micro-clearfix-hack
- */   .cf:before, .cf:after { content: ""; display: table; }
-      .cf:after { clear: both; }
-      .cf { zoom: 1; }
+	http://nicolasgallagher.com/micro-clearfix-hack */
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+.cf { zoom: 1; }
 
 /* nicolas' badass background-image opacity
  * http://nicolasgallagher.com/css-background-image-hacks
@@ -1324,45 +850,30 @@
          background: url(../img/bg.jpg) repeat;
       }
 
-/* baseline grid
- */   .grid { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
-         z-index: 1000;
-         background: 
-            -webkit-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
-            -webkit-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
-            -webkit-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
-            -webkit-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
-         background: 
-            -moz-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
-            -moz-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
-            -moz-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
-            -moz-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
-         background-size: 1.5rem 1.5rem;
-      }
-      .gridder {
-         position: absolute;
-         top: 0;
-         right: 1.5rem;
-         opacity: 0.25;
-      }
-      .gridder:after {
-         content: "grid";
-         text-transform: uppercase;
-         font-size: 1rem;
-         font-weight: 700;
-         display: block;
-         text-align: center;
-         font-family: "myriad-pro", "Helvetica Neue", Helvetica, Helmet, Freesans, sans-serif;
-      }
+/* baseline grid */
+#grid:target { /* using :target allows browsing to the hashtag and activating the grid (http://example.com#grid) */
+	z-index: 1000;
+	background: 
+		-webkit-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
+		-webkit-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
+		-webkit-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
+		-webkit-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
+	background: 
+		-moz-linear-gradient(rgba(47,88,190,0.05) 1px, transparent 1px), 
+		-moz-linear-gradient(rgba(47,88,190,0.2) 1px, transparent 1px), 
+		-moz-linear-gradient(left, rgba(47,88,190,0.05) 1px, transparent 1px), 
+		-moz-linear-gradient(left, rgba(47,88,190,0.2) 1px, transparent 1px);
+	background-size: 1.5rem 1.5rem, 3rem 3rem;
+}
 
 /* typekit fout-buster via @jonikorpi
- * http://jonikorpi.com/a-smoother-page-load
- */   .wf-active {
-         opacity: 1;
-         -webkit-transition: opacity 0.24s ease-in-out;
-         -moz-transition: opacity 0.24s ease-in-out;
-         transition: opacity 0.24s ease-in-out;
-      }
-      .wf-loading {
-         opacity: 0;
-      }
+	http://jonikorpi.com/a-smoother-page-load */
+.wf-active {
+	opacity: 1;
+	-webkit-transition: opacity 0.24s ease-in-out;
+	-moz-transition: opacity 0.24s ease-in-out;
+	transition: opacity 0.24s ease-in-out;
+}
+.wf-loading {
+	opacity: 0;
+}
