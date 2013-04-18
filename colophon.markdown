@@ -4,7 +4,7 @@ title: "Colophon"
 description: "Web-Craft is the capstone project of Zachary Kain, submitted for DART 450 'Web Interventions'."
 ---
 
-Web-Craft was meticulously hand-coded and designed with [Sublime Text 2](sublimetext.com) and the [Google Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/) on a Late-2011 Macbook Pro 15″.
+Web-Craft was meticulously hand-coded and designed with [Sublime Text 2](sublimetext.com) and the [Chrome Developer Tools](https://developers.google.com/chrome-developer-tools/) on a Late-2011 Macbook Pro 15″.
 
 - - -
 
@@ -25,6 +25,4 @@ This project would not have been possible if not for the published work of the f
 > Paul Irish, Divya Manian, Nicolas Gallagher, Mathias Bynens, Shi Chuan, Harry Roberts, Lea Verou, Joni Korpi, Tim Brown, Paul Robert Lloyd, Nicole Sullivan, Remi Sharp, Bruce Lawson, Oli Studholme and many others. 
 
 Special thanks as well to my presiding professor, Santo Romano, and to Concordia University for accomodating me in hosting the first series of Web-Craft workshops.
-
-- - -
 
