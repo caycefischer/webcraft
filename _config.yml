@@ -1,4 +1,4 @@
-# baseurl: /webcraft
+baseurl: /webcraft
 permalink: /:categories/:title
 pygments: true
 #derp
